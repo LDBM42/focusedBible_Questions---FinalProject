@@ -60,3 +60,35 @@ E:\Documents\GitHub\focusedBible_Questions\capaPresentacion\bin\Debug\Castle.Cor
 E:\Documents\GitHub\focusedBible_Questions\capaPresentacion\bin\Debug\Newtonsoft.Json.xml
 E:\Documents\GitHub\focusedBible_Questions\capaPresentacion\bin\Debug\WebDriver.xml
 E:\Documents\GitHub\focusedBible_Questions\capaPresentacion\bin\Debug\WebDriver.Support.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaPresentacion.exe.config
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaPresentacion.exe
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaPresentacion.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\appium-dotnet-driver.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaDatos.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaEntidad.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaNegocio.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\Castle.Core.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\Newtonsoft.Json.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\WebDriver.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\WebDriver.Support.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaDatos.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaEntidad.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\capaNegocio.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\appium-dotnet-driver.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\Castle.Core.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\Newtonsoft.Json.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\WebDriver.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\WebDriver.Support.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csprojAssemblyReference.cache
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.Banners.resources
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.HowToPlay.resources
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Login.resources
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Usuario.resources
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.Settings.resources
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.Properties.Resources.resources
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBibles.resources
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.GenerateResource.cache
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.CopyComplete
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.exe
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.pdb
