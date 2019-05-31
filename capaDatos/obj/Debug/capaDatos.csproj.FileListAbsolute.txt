@@ -24,3 +24,24 @@ E:\Documents\GitHub\focusedBible_Questions\capaDatos\bin\Debug\Castle.Core.xml
 E:\Documents\GitHub\focusedBible_Questions\capaDatos\bin\Debug\Newtonsoft.Json.xml
 E:\Documents\GitHub\focusedBible_Questions\capaDatos\bin\Debug\WebDriver.xml
 E:\Documents\GitHub\focusedBible_Questions\capaDatos\bin\Debug\WebDriver.Support.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\capaDatos.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\capaDatos.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\appium-dotnet-driver.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\capaEntidad.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\Castle.Core.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\Newtonsoft.Json.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\WebDriver.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\WebDriver.Support.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\capaEntidad.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\appium-dotnet-driver.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\Castle.Core.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\Newtonsoft.Json.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\WebDriver.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\WebDriver.Support.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.csprojAssemblyReference.cache
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.csproj.CopyComplete
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\BDUsuario.mdf
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaDatos\bin\Debug\BDUsuario_log.ldf

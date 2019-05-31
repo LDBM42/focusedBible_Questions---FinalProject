@@ -92,3 +92,5 @@ E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\D
 E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.CopyComplete
 E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.exe
 E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\BDUsuario.mdf
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaPresentacion\bin\Debug\BDUsuario_log.ldf

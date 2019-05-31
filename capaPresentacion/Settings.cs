@@ -264,6 +264,11 @@ namespace capaPresentacion
             numRounds = Convert.ToInt32(lbx_Rounds.Text);
             time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
             lab_User.Text = "User: " + E_Usuario.Nombreusuario;
+
+
+            #region Prueba Listener SQL
+
+            #endregion
         }
 
         private void btn_Settings_Click(object sender, EventArgs e)
@@ -406,7 +411,7 @@ namespace capaPresentacion
             {
                 E_Usuario.Logged = 0; // para desactivar autologgin
                 //DESLOGEARSE
-                if (!(login.AutoLoginSet(E_Usuario.Nombreusuario, E_Usuario.Password, E_Usuario.Logged) == 1))
+                if (!(login.AutoLoginSetLocal(E_Usuario.Nombreusuario, E_Usuario.Logged) == 1))
                 {
                     MessageBox.Show("No se pudo hacer el cerrado de sección", "Cerado Sección");
                 }

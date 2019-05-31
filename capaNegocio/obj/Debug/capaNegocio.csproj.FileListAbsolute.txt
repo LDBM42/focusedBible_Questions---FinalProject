@@ -28,3 +28,26 @@ E:\Documents\GitHub\focusedBible_Questions\capaNegocio\bin\Debug\Castle.Core.xml
 E:\Documents\GitHub\focusedBible_Questions\capaNegocio\bin\Debug\Newtonsoft.Json.xml
 E:\Documents\GitHub\focusedBible_Questions\capaNegocio\bin\Debug\WebDriver.xml
 E:\Documents\GitHub\focusedBible_Questions\capaNegocio\bin\Debug\WebDriver.Support.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\capaNegocio.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\capaNegocio.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\appium-dotnet-driver.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\capaDatos.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\capaEntidad.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\Castle.Core.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\Newtonsoft.Json.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\WebDriver.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\WebDriver.Support.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\capaDatos.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\capaEntidad.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\appium-dotnet-driver.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\Castle.Core.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\Newtonsoft.Json.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\WebDriver.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\WebDriver.Support.xml
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.csprojAssemblyReference.cache
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.csproj.CopyComplete
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.dll
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.pdb
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\BDUsuario.mdf
+E:\Documents\GitHub\focusedBible_Questions - FinalProject\capaNegocio\bin\Debug\BDUsuario_log.ldf

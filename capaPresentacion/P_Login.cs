@@ -41,7 +41,7 @@ namespace capaPresentacion
             tmr_cuadroAzul.Start();
             //this.Opacity = 0.95;
                         
-            DataSet ds = login.AutoLoginGet();
+            DataSet ds = login.AutoLoginGetLocal();
             DataTable dt = ds.Tables[0];
 
 
@@ -116,7 +116,7 @@ namespace capaPresentacion
                 E_Usuario.Logged = 1; // para activar autologgin
 
                 //Guardar Datos Autologgin
-                if (login.AutoLoginSet(E_Usuario.Nombreusuario, E_Usuario.Password, E_Usuario.Logged) == 1)
+                if (login.AutoLoginSetLocal(E_Usuario.Nombreusuario, E_Usuario.Logged) == 1)
                 {
                     if (reOpened > 0)
                     {

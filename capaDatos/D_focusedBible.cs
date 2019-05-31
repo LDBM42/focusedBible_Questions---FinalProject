@@ -54,7 +54,7 @@ namespace capaDatos
             if (cn.State == ConnectionState.Open) cn.Close();
 
             cn.Open();
-            cmd.ExecuteNonQuery(); // Ejecutar la consulta en el procedimiento almacenado
+            cmd.ExecuteNonQuery(); // Ejecutar la consulta 
             cn.Close();
         }
 
