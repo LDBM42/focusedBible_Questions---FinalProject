@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.btn_submit = new System.Windows.Forms.Button();
             this.lab_Player1H = new System.Windows.Forms.Label();
@@ -87,6 +88,7 @@
             this.btn_Exit = new System.Windows.Forms.Button();
             this.Btn_Cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.IniciarJuegoProfesor = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -1105,6 +1107,10 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // IniciarJuegoProfesor
+            // 
+            this.IniciarJuegoProfesor.Tick += new System.EventHandler(this.IniciarJuegoProfesor_Tick);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1121,6 +1127,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.Settings_Activated);
             this.Load += new System.EventHandler(this.Settings_Load);
+            this.Shown += new System.EventHandler(this.Settings_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -1213,5 +1220,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.Button btn_newUser;
+        private System.Windows.Forms.Timer IniciarJuegoProfesor;
     }
 }

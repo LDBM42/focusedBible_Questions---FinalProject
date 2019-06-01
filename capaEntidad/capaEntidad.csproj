@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="E_focusedBible.cs" />
+    <Compile Include="E_Listener.cs" />
     <Compile Include="E_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

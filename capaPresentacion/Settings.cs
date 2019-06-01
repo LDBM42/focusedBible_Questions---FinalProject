@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 using capaEntidad;
 using capaNegocio;
@@ -26,6 +27,7 @@ namespace capaPresentacion
 
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
+        N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
         P_focusedBibles PfocusedB;
         HowToPlay howToPlay;
@@ -141,6 +143,7 @@ namespace capaPresentacion
                 Application.Exit();
             }
         }
+
         private void Btn_Cancel_Click(object sender, EventArgs e)
         {
             BackToMain();
@@ -263,12 +266,7 @@ namespace capaPresentacion
             lbx_time2Answer.Text = Convert.ToString(time2Answer);
             numRounds = Convert.ToInt32(lbx_Rounds.Text);
             time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
-            lab_User.Text = "User: " + E_Usuario.Nombreusuario;
-
-
-            #region Prueba Listener SQL
-
-            #endregion
+            lab_User.Text = "User: " + E_Usuario.Nombreusuario;                    
         }
 
         private void btn_Settings_Click(object sender, EventArgs e)
@@ -466,6 +464,22 @@ namespace capaPresentacion
         private void Settings_Activated(object sender, EventArgs e)
         {
             lab_User.Text = "User: " + E_Usuario.Nombreusuario;
+        }
+
+
+        private void IniciarJuegoProfesor_Tick(object sender, EventArgs e)
+        {
+            if (objNegoListener.N_Empezar() == "Empezar")
+            {
+                IniciarJuegoProfesor.Stop();
+                objNegoListener.N_NoIniciar(); //hay que hacer un insert en la base de datos indicando que Comando = ""
+                btn_submit_Click(null, null);
+            }
+        }
+
+        private void Settings_Shown(object sender, EventArgs e)
+        {
+            IniciarJuegoProfesor.Start();
         }
     }
 }
