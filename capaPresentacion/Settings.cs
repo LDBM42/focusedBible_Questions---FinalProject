@@ -469,10 +469,10 @@ namespace capaPresentacion
 
         private void IniciarJuegoProfesor_Tick(object sender, EventArgs e)
         {
-            if (objNegoListener.N_Empezar() == "Empezar")
+            if (objNegoListener.N_Listener_Comando(1) == "Empezar") // Empezar juego automaticamente por el profesor
             {
                 IniciarJuegoProfesor.Stop();
-                objNegoListener.N_NoIniciar(); //hay que hacer un insert en la base de datos indicando que Comando = ""
+                objNegoListener.N_Listener_Detener_O_Iniciar(1, ""); // Detiene el inicio del juego por el profesor
                 btn_submit_Click(null, null);
             }
         }

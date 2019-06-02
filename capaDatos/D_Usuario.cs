@@ -13,7 +13,6 @@ namespace capaDatos
 
         public int ExistUser(string sUsuario)
         {
-            MessageBox.Show(sUsuario);
             object retVal = null;
             SqlCommand cmd = new SqlCommand("sp_Data_FUsuario_ExistUser", cn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -41,8 +40,6 @@ namespace capaDatos
 
         public int Insertar(string sUsuario, string sPassword, string sTipo, int sLogged)
         {
-
-            MessageBox.Show(sUsuario);
             object retVal = null;
             SqlCommand cmd = new SqlCommand("sp_Data_FUsuario_Insertar", cn);
             cmd.CommandType = CommandType.StoredProcedure;

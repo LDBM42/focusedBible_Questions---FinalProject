@@ -10,7 +10,6 @@ namespace capaDatos
 
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
 
-
         //Conexion local a base de datos para guardar el autologin
         SqlConnection Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Conectar"].ConnectionString);
             

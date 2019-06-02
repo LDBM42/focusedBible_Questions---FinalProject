@@ -40,11 +40,9 @@ namespace capaPresentacion
             pbx_logo.Image = Properties.Resources.focusedBible_Questions;
 
             tmr_cuadroBlanco.Start();
-            
            
             countDownTimer = 300;
             timer1.Start();
-
         }
 
 
@@ -55,6 +53,8 @@ namespace capaPresentacion
             string resultado = "";
             if (text_Usuario.Text == "") resultado += "El campo: Usuario,\n";
             if (text_Password.Text == "") resultado += "El campo: Password,\n";
+            if (text_Usuario.Text == "USUARIO") resultado += "El campo: Usuario,\n";
+            if (text_Password.Text == "PASSWORD") resultado += "El campo: Password,\n";
 
             return resultado;
         }
@@ -181,7 +181,16 @@ namespace capaPresentacion
 
         private void text_Password_Enter(object sender, EventArgs e)
         {
-            if (text_Usuario.Text == "")
+            if (usuario.ExistUser(text_Usuario.Text) > 0) //Cambiar botón de crear a Actualizar
+            {
+                btn_Crear.Text = "ACTUALIZAR";
+            }
+            else
+            {
+                btn_Crear.Text = "CREAR"; //Cambiar botón de Actualizar a crear
+            }
+
+                if (text_Usuario.Text == "")
             {
                 text_Usuario.Text = "USUARIO";
                 text_Usuario.ForeColor = Color.DimGray;
@@ -268,7 +277,7 @@ namespace capaPresentacion
                     {
                         if (usuario.Insertar(text_Usuario.Text, text_Password.Text, "Admin", 0) > 0)
                         {
-                            MessageBox.Show("Usuario Agregado Correctamente");
+                            MessageBox.Show("Usuario " + text_Usuario.Text +  " Agregado Correctamente");
                             P_Usuario_Load(null, null);
                         }
                     }
