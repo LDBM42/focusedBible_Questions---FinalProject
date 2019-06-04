@@ -113,6 +113,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Administrador {
+            get {
+                object obj = ResourceManager.GetObject("Administrador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_gray {
             get {
                 object obj = ResourceManager.GetObject("close_gray", resourceCulture);
@@ -246,6 +256,36 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Under_Construction {
             get {
                 object obj = ResourceManager.GetObject("Under-Construction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Usuario {
+            get {
+                object obj = ResourceManager.GetObject("Usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuario_femenino {
+            get {
+                object obj = ResourceManager.GetObject("usuario-femenino", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuario_masculino {
+            get {
+                object obj = ResourceManager.GetObject("usuario-masculino", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

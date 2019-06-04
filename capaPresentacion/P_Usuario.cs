@@ -19,6 +19,7 @@ namespace capaPresentacion
         int countDownTimer;
         public int reOpened;
         int x = 525, xP = 368;
+        string genero = "M";
         D_Usuario usuario = new D_Usuario();
 
 
@@ -53,8 +54,8 @@ namespace capaPresentacion
             string resultado = "";
             if (text_Usuario.Text == "") resultado += "El campo: Usuario,\n";
             if (text_Password.Text == "") resultado += "El campo: Contraseña,\n";
-            if (text_Usuario.Text == "USUARIO") resultado += "El campo: Usuario,\n";
-            if (text_Password.Text == "CONTRASEÑA") resultado += "El campo: Contraseña,\n";
+            if (text_Usuario.Text == "Usuario") resultado += "El campo: Usuario,\n";
+            if (text_Password.Text == "Contraseña") resultado += "El campo: Contraseña,\n";
 
             return resultado;
         }
@@ -91,7 +92,7 @@ namespace capaPresentacion
 
         private void text_Usuario_MouseEnter(object sender, EventArgs e)
         {
-            if (text_Usuario.Text == "USUARIO")
+            if (text_Usuario.Text == "Usuario")
             {
                 text_Usuario.Text = "";
                 //text_Usuario.ForeColor = Color.LightGray;
@@ -102,14 +103,14 @@ namespace capaPresentacion
         {
             if (text_Usuario.Text == "" && text_Usuario.Focused == false)
             {
-                text_Usuario.Text = "USUARIO";
+                text_Usuario.Text = "Usuario";
                 text_Usuario.ForeColor = Color.DimGray;
             }
         }
 
         private void text_Password_MouseEnter(object sender, EventArgs e)
         {
-            if (text_Password.Text == "CONTRASEÑA")
+            if (text_Password.Text == "Contraseña")
             {
                 text_Password.Text = "";
                 //text_Password.ForeColor = Color.LightGray;
@@ -121,7 +122,7 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "" && text_Password.Focused == false)
             {
-                text_Password.Text = "CONTRASEÑA";
+                text_Password.Text = "Contraseña";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
             }
@@ -131,7 +132,7 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "")
             {
-                text_Password.Text = "CONTRASEÑA";
+                text_Password.Text = "Contraseña";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
             }
@@ -141,7 +142,7 @@ namespace capaPresentacion
         {
             if (text_Usuario.Text == "")
             {
-                text_Usuario.Text = "USUARIO";
+                text_Usuario.Text = "Usuario";
                 text_Usuario.ForeColor = Color.DimGray;
             }
         }
@@ -163,8 +164,8 @@ namespace capaPresentacion
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // detecta si el campo usuario esta enfocado y si dice Usuario. Hace lo mismo con el de contraseña.
-            if ((text_Usuario.Text == "USUARIO" && text_Usuario.Focused == true) ||
-                (text_Password.Text == "CONTRASEÑA" && text_Password.Focused == true))
+            if ((text_Usuario.Text == "Usuario" && text_Usuario.Focused == true) ||
+                (text_Password.Text == "Contraseña" && text_Password.Focused == true))
             {
                 //captura la tecla flecha arriba
                 if (keyData == Keys.Up)
@@ -207,7 +208,7 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "")
             {
-                text_Password.Text = "CONTRASEÑA";
+                text_Password.Text = "Contraseña";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
                 text_Usuario.Focus();
@@ -216,18 +217,82 @@ namespace capaPresentacion
 
         private void text_Password_Enter(object sender, EventArgs e)
         {
-            if (usuario.ExistUser(text_Usuario.Text) > 0) //Cambiar botón de crear a Actualizar
+
+            if (usuario.ExistUser(text_Usuario.Text) > 0) //Si el usuario existe
             {
+
+                //Cambiar botón de crear a Actualizar
                 btn_Crear.Text = "ACTUALIZAR";
+
+                #region Cambios segun genero y nombre
+                //Selecciona el genero según genero del usuario
+                DataTable genero = usuario.UsuarioGenero(text_Usuario.Text);
+
+                if (genero.Rows[0]["Genero"].ToString() == "M") // si es masculino
+                {
+                    rb_Masculino.Checked = true;
+
+                    pbx_Usuario.Image = Properties.Resources.usuario_masculino;
+
+                    rb_Masculino.Enabled = true;
+                    rb_Femenino.Enabled = true;
+                    cb_Rol.Enabled = true;
+                }
+                else if (genero.Rows[0]["Genero"].ToString() == "F") // si es femenino
+                {
+                    rb_Femenino.Checked = true;
+
+                    pbx_Usuario.Image = Properties.Resources.usuario_femenino;
+
+                    rb_Masculino.Enabled = true;
+                    rb_Femenino.Enabled = true;
+                    cb_Rol.Enabled = true;
+                }
+
+                else if (genero.Rows[0]["Genero"].ToString() == "Admin") // si es administrador
+                {                  
+                    rb_Femenino.Checked = false;
+                    rb_Masculino.Checked = false;
+                    rb_Masculino.Enabled = false;
+                    rb_Femenino.Enabled = false;
+
+                    cb_Rol.SelectedItem = "Admin";
+                    cb_Rol.Enabled = false;
+
+                    pbx_Usuario.Image = Properties.Resources.Administrador;
+                }
+                #endregion
+                
             }
             else
             {
+                if (text_Usuario.Text == "Usuario" || text_Usuario.Text == "") // si es nuevo
+                {
+                    rb_Masculino.Enabled = true;
+                    rb_Femenino.Enabled = true;
+
+                    cb_Rol.SelectedItem = "Usuario";
+                    cb_Rol.Enabled = true;
+
+                    rb_Masculino.Checked = true;
+
+                    pbx_Usuario.Image = Properties.Resources.Usuario;
+                }
+                else if (rb_Masculino.Checked == true) // si es masculino
+                {
+                    pbx_Usuario.Image = Properties.Resources.usuario_masculino;
+                }
+                else // si es femenino
+                {
+                    pbx_Usuario.Image = Properties.Resources.usuario_femenino;
+                }
+                
                 btn_Crear.Text = "CREAR"; //Cambiar botón de Actualizar a crear
             }
 
                 if (text_Usuario.Text == "")
             {
-                text_Usuario.Text = "USUARIO";
+                text_Usuario.Text = "Usuario";
                 text_Usuario.ForeColor = Color.DimGray;
                 text_Password.Focus();
             }
@@ -292,6 +357,16 @@ namespace capaPresentacion
             e.Graphics.DrawLine(pen2, 312, 280, 719, 280);
         }
 
+        private void rb_Masculino_CheckedChanged(object sender, EventArgs e)
+        {
+            pbx_Usuario.Image = Properties.Resources.usuario_masculino;
+        }
+
+        private void rb_Femenino_CheckedChanged(object sender, EventArgs e)
+        {
+            pbx_Usuario.Image = Properties.Resources.usuario_femenino;
+        }
+
         private void btn_Crear_Click(object sender, EventArgs e)
         {
             try
@@ -299,10 +374,24 @@ namespace capaPresentacion
                 string sResultado = validarDatos();
                 if (sResultado == "") // no faltan datos
                 {
+                    //saber si es masculino o femenino
+                    if (rb_Masculino.Checked == true)
+                    {
+                        genero = rb_Masculino.Text;
+                    }
+                    else if(rb_Femenino.Checked == true)
+                    {
+                        genero = rb_Femenino.Text;
+                    }
+                    else
+                    {
+                        genero = "Admin";
+                    }
+
                     if (usuario.ExistUser(text_Usuario.Text) > 0) //Actualizar registro
                     {
 
-                        if (usuario.Actualizar(E_Usuario.Nombreusuario, E_Usuario.Password, "Admin") == 1)
+                        if (usuario.Actualizar(text_Usuario.Text, text_Password.Text, "Admin", genero) == 1)
                         {
                             MessageBox.Show("Datos Actualizados Correctamente");
                             P_Usuario_Load(null, null);
@@ -310,7 +399,7 @@ namespace capaPresentacion
                     }
                     else //Nuevo registro
                     {
-                        if (usuario.Insertar(text_Usuario.Text, text_Password.Text, "Admin", 0) > 0)
+                        if (usuario.Insertar(text_Usuario.Text, text_Password.Text, "Admin", genero) > 0)
                         {
                             MessageBox.Show("Usuario " + text_Usuario.Text +  " Agregado Correctamente");
                             P_Usuario_Load(null, null);

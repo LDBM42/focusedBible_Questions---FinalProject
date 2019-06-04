@@ -36,9 +36,19 @@ namespace capaDatos
             return Convert.ToInt32(retVal);
         }
 
+        public DataTable UsuarioGenero(string sUsuario)
+        {
+            SqlCommand cmd = new SqlCommand("sp_Usuario_Genero", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Usuario", sUsuario);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
 
-        public int Insertar(string sUsuario, string sPassword, string sTipo, int sLogged)
+        public int Insertar(string sUsuario, string sPassword, string sTipo, string sGenero)
         {
             object retVal = null;
             SqlCommand cmd = new SqlCommand("sp_Data_FUsuario_Insertar", cn);
@@ -46,6 +56,7 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@Usuario", sUsuario);
             cmd.Parameters.AddWithValue("@Password", sPassword);
             cmd.Parameters.AddWithValue("@Tipo", sTipo);
+            cmd.Parameters.AddWithValue("@Genero", sGenero);
             cn.Open();
 
             try
@@ -66,7 +77,7 @@ namespace capaDatos
 
         }
 
-        public int Actualizar(string sUsuario, string sPassword, string sTipo)
+        public int Actualizar(string sUsuario, string sPassword, string sTipo, string sGenero)
         {
             object retVal = null;
             SqlCommand cmd = new SqlCommand("sp_Data_FUsuario_Actualizar", cn);
@@ -74,6 +85,7 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@Usuario", sUsuario);
             cmd.Parameters.AddWithValue("@Password", sPassword);
             cmd.Parameters.AddWithValue("@Tipo", sTipo);
+            cmd.Parameters.AddWithValue("@Genero", sGenero);
             cn.Open();
 
             try

@@ -189,6 +189,9 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Usuario.png" />
+    <None Include="Resources\usuario-masculino.png" />
+    <None Include="Resources\usuario-femenino.png" />
     <None Include="Resources\Under-Construction.png" />
     <None Include="Resources\UsuarioBig.png" />
     <None Include="Resources\how2Play.png" />
@@ -199,6 +202,7 @@
     <None Include="Resources\close_gray1.png" />
     <None Include="Resources\minimize_gray1.png" />
     <None Include="Resources\logout.png" />
+    <None Include="Resources\Administrador.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />
