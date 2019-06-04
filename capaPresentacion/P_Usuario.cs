@@ -52,9 +52,9 @@ namespace capaPresentacion
             //Funcion para validar los datos e indicarle al usuario si estos fueron completados 
             string resultado = "";
             if (text_Usuario.Text == "") resultado += "El campo: Usuario,\n";
-            if (text_Password.Text == "") resultado += "El campo: Password,\n";
+            if (text_Password.Text == "") resultado += "El campo: Contraseña,\n";
             if (text_Usuario.Text == "USUARIO") resultado += "El campo: Usuario,\n";
-            if (text_Password.Text == "PASSWORD") resultado += "El campo: Password,\n";
+            if (text_Password.Text == "CONTRASEÑA") resultado += "El campo: Contraseña,\n";
 
             return resultado;
         }
@@ -109,7 +109,7 @@ namespace capaPresentacion
 
         private void text_Password_MouseEnter(object sender, EventArgs e)
         {
-            if (text_Password.Text == "PASSWORD")
+            if (text_Password.Text == "CONTRASEÑA")
             {
                 text_Password.Text = "";
                 //text_Password.ForeColor = Color.LightGray;
@@ -121,7 +121,7 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "" && text_Password.Focused == false)
             {
-                text_Password.Text = "PASSWORD";
+                text_Password.Text = "CONTRASEÑA";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
             }
@@ -131,7 +131,7 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "")
             {
-                text_Password.Text = "PASSWORD";
+                text_Password.Text = "CONTRASEÑA";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
             }
@@ -157,6 +157,41 @@ namespace capaPresentacion
             }
         }
 
+
+        
+        //evitar que se presionen las teclas de flechas al estar seleccionado el texto USUARIO o CONTRASEÑA
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // detecta si el campo usuario esta enfocado y si dice Usuario. Hace lo mismo con el de contraseña.
+            if ((text_Usuario.Text == "USUARIO" && text_Usuario.Focused == true) ||
+                (text_Password.Text == "CONTRASEÑA" && text_Password.Focused == true))
+            {
+                //captura la tecla flecha arriba
+                if (keyData == Keys.Up)
+                {
+                    return true;
+                }
+                //captura la tecla flecha abajo
+                if (keyData == Keys.Down)
+                {
+                    return true;
+                }
+                //captura la tecla flecha izquierda
+                if (keyData == Keys.Left)
+                {
+                    return true;
+                }
+                //captura la tecla flecha derecha
+                if (keyData == Keys.Right)
+                {
+                    return true;
+                }
+            }
+            
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
         private void text_Password_KeyPress(object sender, KeyPressEventArgs e)
         {
             // 'e' almacena la tecla presionada
@@ -172,7 +207,7 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "")
             {
-                text_Password.Text = "PASSWORD";
+                text_Password.Text = "CONTRASEÑA";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
                 text_Usuario.Focus();

@@ -41,6 +41,9 @@
             this.text_Usuario = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmr_cuadroBlanco = new System.Windows.Forms.Timer(this.components);
+            this.rb_Masculino = new System.Windows.Forms.RadioButton();
+            this.lbl_Genero = new System.Windows.Forms.TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_White.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_logo)).BeginInit();
@@ -82,7 +85,7 @@
             this.pnl_White.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_White.Location = new System.Drawing.Point(0, 0);
             this.pnl_White.Name = "pnl_White";
-            this.pnl_White.Size = new System.Drawing.Size(250, 424);
+            this.pnl_White.Size = new System.Drawing.Size(250, 491);
             this.pnl_White.TabIndex = 21;
             this.pnl_White.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_White_MouseDown);
             // 
@@ -146,7 +149,7 @@
             this.btn_Crear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Crear.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_Crear.Location = new System.Drawing.Point(311, 319);
+            this.btn_Crear.Location = new System.Drawing.Point(311, 409);
             this.btn_Crear.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Crear.Name = "btn_Crear";
             this.btn_Crear.Size = new System.Drawing.Size(408, 40);
@@ -166,7 +169,7 @@
             this.text_Password.Name = "text_Password";
             this.text_Password.Size = new System.Drawing.Size(408, 23);
             this.text_Password.TabIndex = 20;
-            this.text_Password.Text = "PASSWORD";
+            this.text_Password.Text = "CONTRASEÑA";
             this.text_Password.Click += new System.EventHandler(this.text_Password_Click);
             this.text_Password.TextChanged += new System.EventHandler(this.text_Password_TextChanged);
             this.text_Password.Enter += new System.EventHandler(this.text_Password_Enter);
@@ -202,12 +205,55 @@
             this.tmr_cuadroBlanco.Interval = 30;
             this.tmr_cuadroBlanco.Tick += new System.EventHandler(this.tmr_cuadroBlanco_Tick);
             // 
+            // rb_Masculino
+            // 
+            this.rb_Masculino.AutoSize = true;
+            this.rb_Masculino.Checked = true;
+            this.rb_Masculino.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rb_Masculino.ForeColor = System.Drawing.Color.DimGray;
+            this.rb_Masculino.Location = new System.Drawing.Point(467, 314);
+            this.rb_Masculino.Name = "rb_Masculino";
+            this.rb_Masculino.Size = new System.Drawing.Size(122, 29);
+            this.rb_Masculino.TabIndex = 24;
+            this.rb_Masculino.TabStop = true;
+            this.rb_Masculino.Text = "Masculino";
+            this.rb_Masculino.UseVisualStyleBackColor = true;
+            // 
+            // lbl_Genero
+            // 
+            this.lbl_Genero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbl_Genero.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbl_Genero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_Genero.ForeColor = System.Drawing.Color.DimGray;
+            this.lbl_Genero.Location = new System.Drawing.Point(320, 317);
+            this.lbl_Genero.Margin = new System.Windows.Forms.Padding(4);
+            this.lbl_Genero.Name = "lbl_Genero";
+            this.lbl_Genero.Size = new System.Drawing.Size(102, 23);
+            this.lbl_Genero.TabIndex = 26;
+            this.lbl_Genero.Text = "GENERO";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.radioButton1.ForeColor = System.Drawing.Color.DimGray;
+            this.radioButton1.Location = new System.Drawing.Point(608, 314);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(120, 29);
+            this.radioButton1.TabIndex = 27;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Femenino";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // P_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(780, 424);
+            this.ClientSize = new System.Drawing.Size(780, 491);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.lbl_Genero);
+            this.Controls.Add(this.rb_Masculino);
             this.Controls.Add(this.lbl_Login);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnl_White);
@@ -248,5 +294,8 @@
         private System.Windows.Forms.TextBox text_Usuario;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer tmr_cuadroBlanco;
+        private System.Windows.Forms.RadioButton rb_Masculino;
+        private System.Windows.Forms.TextBox lbl_Genero;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

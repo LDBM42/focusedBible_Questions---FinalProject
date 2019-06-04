@@ -122,7 +122,7 @@
             this.text_Password.Name = "text_Password";
             this.text_Password.Size = new System.Drawing.Size(408, 23);
             this.text_Password.TabIndex = 12;
-            this.text_Password.Text = "PASSWORD";
+            this.text_Password.Text = "CONTRASEÑA";
             this.text_Password.Click += new System.EventHandler(this.text_Password_Click);
             this.text_Password.TextChanged += new System.EventHandler(this.text_Password_TextChanged);
             this.text_Password.Enter += new System.EventHandler(this.text_Password_Enter);
