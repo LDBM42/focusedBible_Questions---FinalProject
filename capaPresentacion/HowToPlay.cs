@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using capaEntidad;
 
 namespace capaPresentacion
 {
@@ -28,6 +29,7 @@ namespace capaPresentacion
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
+            E_focusedBible.deSettings = true;
             this.Hide();
         }
     }
