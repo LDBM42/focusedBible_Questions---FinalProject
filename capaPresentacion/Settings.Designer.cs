@@ -61,10 +61,8 @@
             this.lab_NoQuest = new System.Windows.Forms.Label();
             this.lab_Quest = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_how2Play = new System.Windows.Forms.Button();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_User = new System.Windows.Forms.Label();
-            this.btn_Logout = new System.Windows.Forms.Button();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_newUser = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -83,12 +81,14 @@
             this.lbx_time2Answer = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.Pxb_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.Btn_Cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.IniciarJuegoProfesor = new System.Windows.Forms.Timer(this.components);
+            this.btn_how2Play = new System.Windows.Forms.Button();
+            this.btn_Logout = new System.Windows.Forms.Button();
+            this.Pxb_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -106,9 +106,9 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_submit
@@ -596,24 +596,6 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(313, 178);
             this.tableLayoutPanel12.TabIndex = 15;
             // 
-            // btn_how2Play
-            // 
-            this.btn_how2Play.BackColor = System.Drawing.Color.White;
-            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_how2Play.FlatAppearance.BorderSize = 0;
-            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.btn_how2Play.Image = ((System.Drawing.Image)(resources.GetObject("btn_how2Play.Image")));
-            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_how2Play.Location = new System.Drawing.Point(252, 43);
-            this.btn_how2Play.Name = "btn_how2Play";
-            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_how2Play.Size = new System.Drawing.Size(58, 74);
-            this.btn_how2Play.TabIndex = 14;
-            this.btn_how2Play.UseVisualStyleBackColor = false;
-            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
-            // 
             // tableLayoutPanel13
             // 
             this.tableLayoutPanel13.ColumnCount = 1;
@@ -641,24 +623,6 @@
             this.lab_User.TabIndex = 15;
             this.lab_User.Text = "User:";
             this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btn_Logout
-            // 
-            this.btn_Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Logout.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_Logout.ForeColor = System.Drawing.Color.White;
-            this.btn_Logout.Image = global::capaPresentacion.Properties.Resources.logout;
-            this.btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Logout.Location = new System.Drawing.Point(29, 40);
-            this.btn_Logout.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(122, 34);
-            this.btn_Logout.TabIndex = 16;
-            this.btn_Logout.Text = "      Logout";
-            this.btn_Logout.UseVisualStyleBackColor = false;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // tableLayoutPanel14
             // 
@@ -1032,18 +996,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(424, 729);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // Pxb_Logo
-            // 
-            this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
-            this.Pxb_Logo.Location = new System.Drawing.Point(3, 4);
-            this.Pxb_Logo.Name = "Pxb_Logo";
-            this.Pxb_Logo.Size = new System.Drawing.Size(418, 175);
-            this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Pxb_Logo.TabIndex = 12;
-            this.Pxb_Logo.TabStop = false;
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -1111,6 +1063,54 @@
             // 
             this.IniciarJuegoProfesor.Tick += new System.EventHandler(this.IniciarJuegoProfesor_Tick);
             // 
+            // btn_how2Play
+            // 
+            this.btn_how2Play.BackColor = System.Drawing.Color.White;
+            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_how2Play.FlatAppearance.BorderSize = 0;
+            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_how2Play.Image = ((System.Drawing.Image)(resources.GetObject("btn_how2Play.Image")));
+            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_how2Play.Location = new System.Drawing.Point(252, 43);
+            this.btn_how2Play.Name = "btn_how2Play";
+            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_how2Play.Size = new System.Drawing.Size(58, 74);
+            this.btn_how2Play.TabIndex = 14;
+            this.btn_how2Play.UseVisualStyleBackColor = false;
+            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
+            // 
+            // btn_Logout
+            // 
+            this.btn_Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logout.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_Logout.ForeColor = System.Drawing.Color.White;
+            this.btn_Logout.Image = global::capaPresentacion.Properties.Resources.logout;
+            this.btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Logout.Location = new System.Drawing.Point(29, 40);
+            this.btn_Logout.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(122, 34);
+            this.btn_Logout.TabIndex = 16;
+            this.btn_Logout.Text = "      Logout";
+            this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
+            // 
+            // Pxb_Logo
+            // 
+            this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
+            this.Pxb_Logo.Location = new System.Drawing.Point(3, 4);
+            this.Pxb_Logo.Name = "Pxb_Logo";
+            this.Pxb_Logo.Size = new System.Drawing.Size(418, 175);
+            this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pxb_Logo.TabIndex = 12;
+            this.Pxb_Logo.TabStop = false;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1152,10 +1152,10 @@
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.ResumeLayout(false);
 
         }

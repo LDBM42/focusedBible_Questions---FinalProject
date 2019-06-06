@@ -156,13 +156,17 @@ namespace capaPresentacion
                 Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
 
                 if (existe != null)
-
                 {
                     this.Hide();
+
+                    // para saber si se acaba de salir de settings a pantalla de juego
+                    E_focusedBible.deSettings = true;
+
+                    PfocusedB.BringToFront(); // para traer al frente al formulario del juego
                 }
                 else
                 {
-                    this.Close();
+                    this.Close(); // si no se ha iniciado el juego nunca, al presionar cancelar se sale del juego
                 }
             }
             catch (Exception)
@@ -457,8 +461,21 @@ namespace capaPresentacion
         private void btn_newUser_Click(object sender, EventArgs e)
         {
             P_Usuario usuario = new P_Usuario();
-            this.Hide();
             usuario.Show();
+
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
+
+            if (existe == null) // para ocultar settings al abrir nuevo usuario, solo en caso de que el juego no se haya iniciado
+            {
+                this.Hide();
+                usuario.TopMost = false;
+            }
+            else
+            {
+                usuario.TopMost = true;
+                usuario.WindowState = FormWindowState.Maximized;
+            }
+
         }
 
         private void Settings_Activated(object sender, EventArgs e)

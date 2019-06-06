@@ -17,5 +17,8 @@ namespace capaEntidad
         public char resp { get; set; }
         public string pasage { get; set; }
         public string dificultad { get; set; }
+
+        // para saber si se acaba de salir de la ventana settings a la del juego
+        public static bool deSettings { get; set; }
     }
 }

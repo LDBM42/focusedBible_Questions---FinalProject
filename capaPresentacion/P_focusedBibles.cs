@@ -1196,7 +1196,8 @@ namespace capaPresentacion
 
         private void Btn_Settings_Click(object sender, EventArgs e)
         {
-            OpenSettings();
+            if (lab_Anuncios.Text != "Wrong Answer" && lab_Anuncios.Text != "Correct Answer") // no entra si el label dice wrong answer o correct answer (esto es para resolver un error)
+                OpenSettings();
         }
         private void OpenSettings()
         {
@@ -1228,7 +1229,8 @@ namespace capaPresentacion
         }
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
         {
-            Btn_Settings.Image = Properties.Resources.Settings_MouseUp;
+            if (lab_Anuncios.Text != "Wrong Answer" && lab_Anuncios.Text != "Correct Answer") // no entra si el label dice wrong answer o correct answer (esto es para resolver un error)
+                Btn_Settings.Image = Properties.Resources.Settings_MouseUp;
         }
         private void Btn_Settings_MouseLeave(object sender, EventArgs e)
         {
@@ -1271,11 +1273,16 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Activated(object sender, EventArgs e)
         {
-            Timer_2Answer.Start();
-
-            if (sonido != null)
+            if (E_focusedBible.deSettings == true) // para saber si se acaba de salir de settings a pantalla de juego
             {
-                sonido.PlayLooping();
+                Timer_2Answer.Start();
+
+                if (sonido != null)
+                {
+                    sonido.PlayLooping();
+                }
+
+                E_focusedBible.deSettings = false; // desactivando ya que desde este momento no se acaba de entrar
             }
         }
 
@@ -1416,6 +1423,5 @@ namespace capaPresentacion
             Timer_2Answer.Stop();
             sonido.Stop();
         }
-
     }
 }

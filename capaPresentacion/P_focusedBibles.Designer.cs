@@ -43,22 +43,29 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_how2Play = new System.Windows.Forms.Button();
             this.lab_ScoreNum2 = new System.Windows.Forms.Label();
             this.lab_Lifes2 = new System.Windows.Forms.Label();
             this.lab_Score2 = new System.Windows.Forms.Label();
             this.lab_LifesNum2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.Btn_Settings = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_Player2 = new System.Windows.Forms.Label();
             this.lab_Player1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.Lab_Passage_Shown_2 = new System.Windows.Forms.Label();
+            this.pbx_50_1 = new System.Windows.Forms.PictureBox();
             this.lab_50_1 = new System.Windows.Forms.Label();
+            this.pbx_50_2 = new System.Windows.Forms.PictureBox();
             this.lab_50_2 = new System.Windows.Forms.Label();
+            this.pbx_Passage_1 = new System.Windows.Forms.PictureBox();
             this.lab_Passage_1 = new System.Windows.Forms.Label();
             this.lab_Passage_2 = new System.Windows.Forms.Label();
+            this.pbx_Passage_2 = new System.Windows.Forms.PictureBox();
             this.Lab_Passage_Shown_1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
@@ -85,21 +92,20 @@
             this.countDown = new System.Windows.Forms.Timer(this.components);
             this.Timer_2Answer = new System.Windows.Forms.Timer(this.components);
             this.Timer_Banner = new System.Windows.Forms.Timer(this.components);
-            this.btn_how2Play = new System.Windows.Forms.Button();
-            this.Btn_Settings = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbx_50_1 = new System.Windows.Forms.PictureBox();
-            this.pbx_50_2 = new System.Windows.Forms.PictureBox();
-            this.pbx_Passage_1 = new System.Windows.Forms.PictureBox();
-            this.pbx_Passage_2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -108,12 +114,6 @@
             this.tableLayoutPanel13.SuspendLayout();
             this.tlyo_Wins_P2.SuspendLayout();
             this.tlyo_Wins_P1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).BeginInit();
             this.SuspendLayout();
             // 
             // lab_Pregunta
@@ -328,6 +328,23 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(424, 61);
             this.tableLayoutPanel7.TabIndex = 4;
             // 
+            // btn_how2Play
+            // 
+            this.btn_how2Play.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_how2Play.FlatAppearance.BorderSize = 0;
+            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_how2Play.Image = ((System.Drawing.Image)(resources.GetObject("btn_how2Play.Image")));
+            this.btn_how2Play.Location = new System.Drawing.Point(341, 3);
+            this.btn_how2Play.Name = "btn_how2Play";
+            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_how2Play.Size = new System.Drawing.Size(80, 55);
+            this.btn_how2Play.TabIndex = 15;
+            this.btn_how2Play.UseVisualStyleBackColor = false;
+            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
+            // 
             // lab_ScoreNum2
             // 
             this.lab_ScoreNum2.AutoSize = true;
@@ -415,6 +432,20 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(78, 55);
             this.tableLayoutPanel5.TabIndex = 18;
             // 
+            // Btn_Settings
+            // 
+            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Settings;
+            this.Btn_Settings.Location = new System.Drawing.Point(23, 3);
+            this.Btn_Settings.Name = "Btn_Settings";
+            this.Btn_Settings.Size = new System.Drawing.Size(52, 49);
+            this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Settings.TabIndex = 0;
+            this.Btn_Settings.TabStop = false;
+            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
+            this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_Settings_MouseEnter);
+            this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_Settings_MouseLeave);
+            // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 2;
@@ -471,6 +502,18 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1286, 289);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(835, 60);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0, 60, 70, 100);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(381, 129);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 5;
@@ -514,6 +557,21 @@
             this.Lab_Passage_Shown_2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Lab_Passage_Shown_2.Visible = false;
             // 
+            // pbx_50_1
+            // 
+            this.pbx_50_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_50_1.Image = global::capaPresentacion.Properties.Resources._50_percent;
+            this.pbx_50_1.Location = new System.Drawing.Point(88, 140);
+            this.pbx_50_1.Margin = new System.Windows.Forms.Padding(0);
+            this.pbx_50_1.Name = "pbx_50_1";
+            this.pbx_50_1.Size = new System.Drawing.Size(111, 84);
+            this.pbx_50_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_50_1.TabIndex = 0;
+            this.pbx_50_1.TabStop = false;
+            this.pbx_50_1.Click += new System.EventHandler(this.pbx_50_Click);
+            this.pbx_50_1.MouseEnter += new System.EventHandler(this.pbx_50_MouseEnter);
+            this.pbx_50_1.MouseLeave += new System.EventHandler(this.pbx_50_MouseLeave);
+            // 
             // lab_50_1
             // 
             this.lab_50_1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -526,6 +584,22 @@
             this.lab_50_1.Size = new System.Drawing.Size(58, 38);
             this.lab_50_1.TabIndex = 16;
             this.lab_50_1.Text = "+3";
+            // 
+            // pbx_50_2
+            // 
+            this.pbx_50_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_50_2.Image = global::capaPresentacion.Properties.Resources._50_percent;
+            this.pbx_50_2.Location = new System.Drawing.Point(265, 140);
+            this.pbx_50_2.Margin = new System.Windows.Forms.Padding(0);
+            this.pbx_50_2.Name = "pbx_50_2";
+            this.pbx_50_2.Size = new System.Drawing.Size(111, 84);
+            this.pbx_50_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_50_2.TabIndex = 17;
+            this.pbx_50_2.TabStop = false;
+            this.pbx_50_2.Visible = false;
+            this.pbx_50_2.Click += new System.EventHandler(this.pbx_50_2_Click);
+            this.pbx_50_2.MouseEnter += new System.EventHandler(this.pbx_50_2_MouseEnter);
+            this.pbx_50_2.MouseLeave += new System.EventHandler(this.pbx_50_2_MouseLeave);
             // 
             // lab_50_2
             // 
@@ -540,6 +614,20 @@
             this.lab_50_2.TabIndex = 18;
             this.lab_50_2.Text = "+3";
             this.lab_50_2.Visible = false;
+            // 
+            // pbx_Passage_1
+            // 
+            this.pbx_Passage_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Passage_1.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
+            this.pbx_Passage_1.Location = new System.Drawing.Point(91, 59);
+            this.pbx_Passage_1.Name = "pbx_Passage_1";
+            this.pbx_Passage_1.Size = new System.Drawing.Size(105, 78);
+            this.pbx_Passage_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_Passage_1.TabIndex = 19;
+            this.pbx_Passage_1.TabStop = false;
+            this.pbx_Passage_1.Click += new System.EventHandler(this.pbx_Passage_1_Click);
+            this.pbx_Passage_1.MouseEnter += new System.EventHandler(this.pbx_Passage_1_MouseEnter);
+            this.pbx_Passage_1.MouseLeave += new System.EventHandler(this.pbx_Passage_1_MouseLeave);
             // 
             // lab_Passage_1
             // 
@@ -567,6 +655,21 @@
             this.lab_Passage_2.TabIndex = 21;
             this.lab_Passage_2.Text = "+3";
             this.lab_Passage_2.Visible = false;
+            // 
+            // pbx_Passage_2
+            // 
+            this.pbx_Passage_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Passage_2.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
+            this.pbx_Passage_2.Location = new System.Drawing.Point(268, 59);
+            this.pbx_Passage_2.Name = "pbx_Passage_2";
+            this.pbx_Passage_2.Size = new System.Drawing.Size(105, 78);
+            this.pbx_Passage_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_Passage_2.TabIndex = 22;
+            this.pbx_Passage_2.TabStop = false;
+            this.pbx_Passage_2.Visible = false;
+            this.pbx_Passage_2.Click += new System.EventHandler(this.pbx_Passage_2_Click);
+            this.pbx_Passage_2.MouseEnter += new System.EventHandler(this.pbx_Passage_2_MouseEnter);
+            this.pbx_Passage_2.MouseLeave += new System.EventHandler(this.pbx_Passage_2_MouseLeave);
             // 
             // Lab_Passage_Shown_1
             // 
@@ -938,109 +1041,6 @@
             this.Timer_Banner.Interval = 1000;
             this.Timer_Banner.Tick += new System.EventHandler(this.Timer_Banner_Tick);
             // 
-            // btn_how2Play
-            // 
-            this.btn_how2Play.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_how2Play.FlatAppearance.BorderSize = 0;
-            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.btn_how2Play.Image = ((System.Drawing.Image)(resources.GetObject("btn_how2Play.Image")));
-            this.btn_how2Play.Location = new System.Drawing.Point(341, 3);
-            this.btn_how2Play.Name = "btn_how2Play";
-            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_how2Play.Size = new System.Drawing.Size(80, 55);
-            this.btn_how2Play.TabIndex = 15;
-            this.btn_how2Play.UseVisualStyleBackColor = false;
-            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
-            // 
-            // Btn_Settings
-            // 
-            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Settings;
-            this.Btn_Settings.Location = new System.Drawing.Point(23, 3);
-            this.Btn_Settings.Name = "Btn_Settings";
-            this.Btn_Settings.Size = new System.Drawing.Size(52, 49);
-            this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Btn_Settings.TabIndex = 0;
-            this.Btn_Settings.TabStop = false;
-            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
-            this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_Settings_MouseEnter);
-            this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_Settings_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(835, 60);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0, 60, 70, 100);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(381, 129);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pbx_50_1
-            // 
-            this.pbx_50_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_50_1.Image = global::capaPresentacion.Properties.Resources._50_percent;
-            this.pbx_50_1.Location = new System.Drawing.Point(88, 140);
-            this.pbx_50_1.Margin = new System.Windows.Forms.Padding(0);
-            this.pbx_50_1.Name = "pbx_50_1";
-            this.pbx_50_1.Size = new System.Drawing.Size(111, 84);
-            this.pbx_50_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_50_1.TabIndex = 0;
-            this.pbx_50_1.TabStop = false;
-            this.pbx_50_1.Click += new System.EventHandler(this.pbx_50_Click);
-            this.pbx_50_1.MouseEnter += new System.EventHandler(this.pbx_50_MouseEnter);
-            this.pbx_50_1.MouseLeave += new System.EventHandler(this.pbx_50_MouseLeave);
-            // 
-            // pbx_50_2
-            // 
-            this.pbx_50_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_50_2.Image = global::capaPresentacion.Properties.Resources._50_percent;
-            this.pbx_50_2.Location = new System.Drawing.Point(265, 140);
-            this.pbx_50_2.Margin = new System.Windows.Forms.Padding(0);
-            this.pbx_50_2.Name = "pbx_50_2";
-            this.pbx_50_2.Size = new System.Drawing.Size(111, 84);
-            this.pbx_50_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_50_2.TabIndex = 17;
-            this.pbx_50_2.TabStop = false;
-            this.pbx_50_2.Visible = false;
-            this.pbx_50_2.Click += new System.EventHandler(this.pbx_50_2_Click);
-            this.pbx_50_2.MouseEnter += new System.EventHandler(this.pbx_50_2_MouseEnter);
-            this.pbx_50_2.MouseLeave += new System.EventHandler(this.pbx_50_2_MouseLeave);
-            // 
-            // pbx_Passage_1
-            // 
-            this.pbx_Passage_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Passage_1.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
-            this.pbx_Passage_1.Location = new System.Drawing.Point(91, 59);
-            this.pbx_Passage_1.Name = "pbx_Passage_1";
-            this.pbx_Passage_1.Size = new System.Drawing.Size(105, 78);
-            this.pbx_Passage_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_Passage_1.TabIndex = 19;
-            this.pbx_Passage_1.TabStop = false;
-            this.pbx_Passage_1.Click += new System.EventHandler(this.pbx_Passage_1_Click);
-            this.pbx_Passage_1.MouseEnter += new System.EventHandler(this.pbx_Passage_1_MouseEnter);
-            this.pbx_Passage_1.MouseLeave += new System.EventHandler(this.pbx_Passage_1_MouseLeave);
-            // 
-            // pbx_Passage_2
-            // 
-            this.pbx_Passage_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Passage_2.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
-            this.pbx_Passage_2.Location = new System.Drawing.Point(268, 59);
-            this.pbx_Passage_2.Name = "pbx_Passage_2";
-            this.pbx_Passage_2.Size = new System.Drawing.Size(105, 78);
-            this.pbx_Passage_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_Passage_2.TabIndex = 22;
-            this.pbx_Passage_2.TabStop = false;
-            this.pbx_Passage_2.Visible = false;
-            this.pbx_Passage_2.Click += new System.EventHandler(this.pbx_Passage_2_Click);
-            this.pbx_Passage_2.MouseEnter += new System.EventHandler(this.pbx_Passage_2_MouseEnter);
-            this.pbx_Passage_2.MouseLeave += new System.EventHandler(this.pbx_Passage_2_MouseLeave);
-            // 
             // P_focusedBibles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1062,10 +1062,16 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
@@ -1080,12 +1086,6 @@
             this.tlyo_Wins_P2.PerformLayout();
             this.tlyo_Wins_P1.ResumeLayout(false);
             this.tlyo_Wins_P1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).EndInit();
             this.ResumeLayout(false);
 
         }

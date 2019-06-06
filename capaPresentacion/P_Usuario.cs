@@ -300,9 +300,15 @@ namespace capaPresentacion
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
+            
             this.Hide();
-            settings.Show();
+
+            if (existe == null) // para crear ventana de settings, solo en caso de que se haya ocultado (cuando no se ha iniciado ningún juego)
+            {
+                Settings settings = new Settings();
+                settings.Show();
+            }
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
