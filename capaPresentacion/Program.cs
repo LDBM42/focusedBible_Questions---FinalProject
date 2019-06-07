@@ -14,16 +14,15 @@ namespace capaPresentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
-            P_Login login = new P_Login();
-            login.ShowDialog();
+            P_Splash splash = new P_Splash();
+            splash.ShowDialog();
 
             //
             // Si el login es correcto, procedo con la apertura normal
             // de la aplicacion
             //
-            if (login.DialogResult == DialogResult.OK)
-                Application.Run(new Settings());
+            if (splash.DialogResult == DialogResult.OK)
+                Application.Run(new P_Main());
         }
     }
 }

@@ -29,7 +29,7 @@ namespace capaPresentacion
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
-        P_focusedBibles PfocusedB;
+        P_focusedBible PfocusedB;
         HowToPlay howToPlay;
         string p1_Name;
         string p2_Name;
@@ -51,7 +51,7 @@ namespace capaPresentacion
                 existe.Close();
             }
 
-            PfocusedB = new P_focusedBibles(p1_Name, p2_Name, numRounds, time2Answer, numRounds, difficulty);
+            PfocusedB = new P_focusedBible(p1_Name, p2_Name, numRounds, time2Answer, numRounds, difficulty);
             this.Hide();
             PfocusedB.Show();
         }
@@ -396,13 +396,6 @@ namespace capaPresentacion
                 tbx_Pasage.Text = "N/A";
                 tbx_Pasage.SelectAll();
             }
-        }
-
-        private void btn_how2Play_Click(object sender, EventArgs e)
-        {
-            howToPlay = HowToPlay.GetInscance();
-            howToPlay.Show();
-            howToPlay.BringToFront();
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)

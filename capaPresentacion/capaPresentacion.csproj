@@ -82,11 +82,29 @@
     <Compile Include="Banners.Designer.cs">
       <DependentUpon>Banners.cs</DependentUpon>
     </Compile>
+    <Compile Include="P_GameSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_GameSettings.Designer.cs">
+      <DependentUpon>P_GameSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="HowToPlay.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HowToPlay.Designer.cs">
       <DependentUpon>HowToPlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Main.Designer.cs">
+      <DependentUpon>P_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_Debate_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Debate_Main.designer.cs">
+      <DependentUpon>P_Debate_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="P_Login.cs">
       <SubType>Form</SubType>
@@ -98,6 +116,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="P_Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Splash.designer.cs">
+      <DependentUpon>P_Splash.cs</DependentUpon>
     </Compile>
     <Compile Include="P_Usuario.cs">
       <SubType>Form</SubType>
@@ -111,22 +135,34 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="P_focusedBibles.cs">
+    <Compile Include="P_focusedBible.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="P_focusedBibles.Designer.cs">
-      <DependentUpon>P_focusedBibles.cs</DependentUpon>
+    <Compile Include="P_focusedBible.Designer.cs">
+      <DependentUpon>P_focusedBible.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Banners.resx">
       <DependentUpon>Banners.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="P_GameSettings.resx">
+      <DependentUpon>P_GameSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HowToPlay.resx">
       <DependentUpon>HowToPlay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="P_Main.resx">
+      <DependentUpon>P_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Debate_Main.resx">
+      <DependentUpon>P_Debate_Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="P_Login.resx">
       <DependentUpon>P_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Splash.resx">
+      <DependentUpon>P_Splash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_Usuario.resx">
       <DependentUpon>P_Usuario.cs</DependentUpon>
@@ -139,8 +175,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="P_focusedBibles.resx">
-      <DependentUpon>P_focusedBibles.cs</DependentUpon>
+    <EmbeddedResource Include="P_focusedBible.resx">
+      <DependentUpon>P_focusedBible.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
@@ -203,6 +239,8 @@
     <None Include="Resources\minimize_gray1.png" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\Administrador.png" />
+    <None Include="Resources\go2Main.png" />
+    <None Include="Resources\close_gray2.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

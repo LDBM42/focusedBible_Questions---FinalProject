@@ -122,9 +122,13 @@ C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresenta
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Usuario.resources
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.Settings.resources
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.Properties.Resources.resources
-C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBibles.resources
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.GenerateResource.cache
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.CoreCompileInputs.cache
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.CopyComplete
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.exe
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.pdb
+C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Splash.resources
+C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Debate_Main.resources
+C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Main.resources
+C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible.resources
+C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_GameSettings.resources

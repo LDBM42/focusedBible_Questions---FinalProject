@@ -143,9 +143,29 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_gray2 {
+            get {
+                object obj = ResourceManager.GetObject("close_gray2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap focusedBible_Questions {
             get {
                 object obj = ResourceManager.GetObject("focusedBible_Questions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap go2Main {
+            get {
+                object obj = ResourceManager.GetObject("go2Main", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

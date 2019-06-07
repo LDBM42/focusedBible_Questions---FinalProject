@@ -123,7 +123,7 @@ namespace capaPresentacion
                         try
                         {
                             // para saber si el formulario existe, o sea si está abierto o cerrado
-                            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "Settings").SingleOrDefault<Form>();
+                            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "Main").SingleOrDefault<Form>();
 
                             existe.Refresh();
 
