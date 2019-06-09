@@ -18,7 +18,7 @@ namespace capaPresentacion
         int countDownTimer;
         public int reOpened;
         int x = 525, xP = 368;
-        Settings Principal;
+        P_Main PMain;
         D_Login login = new D_Login();
 
 
@@ -31,7 +31,6 @@ namespace capaPresentacion
         private void mostrarOcultar(bool t)
         {
             pbx_logo.Visible = !t;
-
         }
         
         private void P_Login_Load(object sender, EventArgs e)
@@ -39,10 +38,14 @@ namespace capaPresentacion
             pbx_logo.Image = Properties.Resources.focusedBible_Questions;
 
             tmr_cuadroAzul.Start();
-            //this.Opacity = 0.95;
                         
-            DataSet ds = login.AutoLoginGetLocal();
-            DataTable dt = ds.Tables[0];
+            DataSet ds = login.AutoLoginGetLocal(); //base de datos local
+
+            DataTable dt = new DataTable();
+            if (reOpened == 0)
+            {
+                dt = ds.Tables[0]; //base de datos remota
+            }
 
 
             if (dt.Rows.Count > 0)
@@ -50,12 +53,11 @@ namespace capaPresentacion
                 text_Usuario.Text = dt.Rows[0]["Usuario"].ToString();
                 text_Password.Text = dt.Rows[0]["Contraseña"].ToString();
 
-                btnEntrar.PerformClick();
-            }
-            else
-            {
-                countDownTimer = 300;
-                timer1.Start();
+                if (reOpened == 0) // si es la primera vez que se entra
+                {
+                    countDownTimer = 1;
+                    timer1.Start(); // para esperar a que cargue la ventana y realizar el autologin
+                }
             }
         }
         
@@ -84,21 +86,13 @@ namespace capaPresentacion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (countDownTimer != 0)
+            if (countDownTimer != 0) // para dar click en el botón de Entrar automaticamene
             {
-                lbl_CountDown.Text = Convert.ToString(countDownTimer);
                 countDownTimer--;
-
-                if (!this.Visible)
-                {
-                    timer1.Stop();
-                }
             }
             else
             {
-                timer1.Stop();
-                MessageBox.Show("Excedio el máximo de tiempo de espera, por motivo de seguridad el programa sera cerrado", "Tiempo Agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Application.Exit();
+                btnEntrar.PerformClick();
             }
         }
 
@@ -118,47 +112,39 @@ namespace capaPresentacion
                 //Guardar Datos Autologgin
                 if (login.AutoLoginSetLocal(E_Usuario.Nombreusuario, E_Usuario.Logged) == 1)
                 {
-                    if (reOpened > 0)
-                    {
-                        try
-                        {
-                            // para saber si el formulario existe, o sea si está abierto o cerrado
-                            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "Main").SingleOrDefault<Form>();
+                    // para saber si el formulario existe, o sea si está abierto o cerrado
+                    Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
 
-                            existe.Refresh();
-
-                            if (existe != null)
-                            {
-                                this.Close();
-                                //Principal = new Settings();
-                                //Principal.ShowDialog();
-                                existe.Show();
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Principal = new Settings();
-                            Principal.ShowDialog();
-                        }
-
-                    }
-                    else
-                    {
-                        this.DialogResult = DialogResult.OK; //terminar loggin y abrir Principal
-                    }
-                }
+                    CerrarYVolverAAbrirMain(existe); // cierra login y abre la principal
+                }  
             }
             else
             {
-
                 MessageBox.Show("Usuario y/o contraseña incorrectos");
                 text_Password.Text = "";
                 pbx_logo.Visible = true;
 
                 mostrarOcultar(false);
-
             }
         }
+
+        private void CerrarYVolverAAbrirMain(Form existe)
+        {
+            if (existe != null) // para saber si el formulario principal existe
+            {
+                this.AddOwnedForm(existe); //indica que este va a ser el papa del form P_Main
+                existe.Close(); // cerrar ventana principal
+            }
+
+            P_Main PMain = new P_Main();
+            this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
+
+
+            PMain.Show();
+            this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
+            this.Close();
+        }
+
 
         private void P_Login_Paint(object sender, PaintEventArgs e)
         {
@@ -330,10 +316,18 @@ namespace capaPresentacion
             }
         }
 
+        private void llab_nuevoUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            P_Usuario usuario = new P_Usuario();
+            usuario.Show();
+
+            this.Hide();
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+            CerrarYVolverAAbrirMain(existe); // cierra login y abre la principal
         }
 
     }

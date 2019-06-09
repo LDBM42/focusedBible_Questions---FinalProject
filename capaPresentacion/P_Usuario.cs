@@ -300,14 +300,13 @@ namespace capaPresentacion
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Login").SingleOrDefault<Form>();
             
             this.Hide();
 
-            if (existe == null) // para crear ventana de settings, solo en caso de que se haya ocultado (cuando no se ha iniciado ningún juego)
+            if (existe != null) // Si se accedio desde la ventana login al menu usuario
             {
-                Settings settings = new Settings();
-                settings.Show();
+                existe.Show();
             }
         }
 

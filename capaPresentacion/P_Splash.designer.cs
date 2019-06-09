@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lab_splash = new System.Windows.Forms.Label();
             this.TerminarSplash = new System.Windows.Forms.Timer(this.components);
+            this.lab_splash = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // TerminarSplash
+            // 
+            this.TerminarSplash.Interval = 2000;
+            this.TerminarSplash.Tick += new System.EventHandler(this.TerminarSplash_Tick);
             // 
             // lab_splash
             // 
@@ -43,11 +48,6 @@
             this.lab_splash.TabIndex = 0;
             this.lab_splash.Text = "Splash";
             this.lab_splash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TerminarSplash
-            // 
-            this.TerminarSplash.Interval = 2000;
-            this.TerminarSplash.Tick += new System.EventHandler(this.TerminarSplash_Tick);
             // 
             // P_Splash
             // 
@@ -69,8 +69,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lab_splash;
         private System.Windows.Forms.Timer TerminarSplash;
+        private System.Windows.Forms.Label lab_splash;
     }
 }

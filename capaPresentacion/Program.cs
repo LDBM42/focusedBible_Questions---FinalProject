@@ -22,7 +22,12 @@ namespace capaPresentacion
             // de la aplicacion
             //
             if (splash.DialogResult == DialogResult.OK)
-                Application.Run(new P_Main());
+            {
+                P_Main main = new P_Main();
+                main.Show();
+                Application.Run();
+            }
+
         }
     }
 }

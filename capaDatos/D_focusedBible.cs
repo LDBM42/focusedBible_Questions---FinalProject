@@ -71,9 +71,9 @@ namespace capaDatos
 
         public int D_NumFilas_PorDificultad(E_focusedBible preg)
         {
-            if(preg.dificultad == "All")
+            if(preg.dificultad == "Todas")
             {
-                preg.dificultad = "Easy";
+                return D_NumFilas();
             }
             SqlCommand cmd = new SqlCommand("sp_listarPor_Dificultad", cn);
             cmd.CommandType = CommandType.StoredProcedure;

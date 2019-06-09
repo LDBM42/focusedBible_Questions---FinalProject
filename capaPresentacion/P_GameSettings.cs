@@ -17,9 +17,11 @@ namespace capaPresentacion
 {
     public partial class P_GameSettings : Form
     {
-        public P_GameSettings(int numRounds = 1, int time2Answer = 20, string difficulty = "All")
+        public P_GameSettings(string grupo1 = "Grupo 1", string grupo2 = "Grupo 2", int numRounds = 1, int time2Answer = 20, string difficulty = "Todas")
         {
             this.numRounds = numRounds;
+            this.grupo1 = grupo1;
+            this.grupo2 = grupo2;
             this.time2Answer = time2Answer;
             this.difficulty = difficulty;
             InitializeComponent();
@@ -29,67 +31,25 @@ namespace capaPresentacion
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
-        P_focusedBible PfocusedB;
-        string Player;
+        P_Debate_Main PDebateMain;
+
+        string grupo1;
+        string grupo2;
         public string difficulty;
         public int numRounds;
         public int time2Answer;
-
-
-        public void Change_Settings()
-        {
-            difficulty = lbx_Dificuldad_Setting.Text;
-            numRounds = Convert.ToInt32(lbx_Rounds.Text);
-            time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
-        }
-
-
-
-        private void btn_goBack_Click_1(object sender, EventArgs e)
-        {
-            BackToMain();
-        }
-
-
-        private void BackToMain()
-        {
-            try
-            {   // para saber si el formulario existe, o sea si está abierto o cerrado
-                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
-
-                if (existe != null)
-                {
-                    this.Hide();
-
-                    // para saber si se acaba de salir de settings a pantalla de juego
-                    E_focusedBible.deSettings = true;
-
-                    PfocusedB.BringToFront(); // para traer al frente al formulario del juego
-                }
-                else
-                {
-                    this.Close(); // si no se ha iniciado el juego nunca, al presionar cancelar se sale del juego
-                }
-            }
-            catch (Exception)
-            {
-                this.Hide();
-            }
-        }
-
-
+        
 
         private void Settings_Load(object sender, EventArgs e)
         {
             lbx_Dificuldad_Setting.Text = difficulty;
-            //lbx_Dificultad.Text = "Normal";
             lbx_Rounds.Text = Convert.ToString(numRounds);
             lbx_time2Answer.Text = Convert.ToString(time2Answer);
             numRounds = Convert.ToInt32(lbx_Rounds.Text);
             time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
             lab_User.Text = "User: " + E_Usuario.Nombreusuario;
 
-            lbx_Rounds.Focus();
+           // lbx_Rounds.Focus();
         }
 
         private void lbx_Rounds_Leave(object sender, EventArgs e)
@@ -119,7 +79,7 @@ namespace capaPresentacion
         private void lbx_time2Answer_Enter(object sender, EventArgs e)
         {
             lbx_time2Answer.Font = new Font(lbx_time2Answer.Font.Name, 31.89f, lbx_time2Answer.Font.Style, lbx_time2Answer.Font.Unit);
-
+            lbx_time2Answer.Focus();
         }
 
         private void lbx_Dificuldad_Setting_Enter(object sender, EventArgs e)
@@ -254,6 +214,74 @@ namespace capaPresentacion
             lab_User.Text = "User: " + E_Usuario.Nombreusuario;
         }
 
+        private void btn_Aceptar_Click(object sender, EventArgs e)
+        {
+            Change_Settings();
 
+
+            try
+            {   // para saber si el formulario existe, o sea si está abierto o cerrado
+                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Debate_Main").SingleOrDefault<Form>();
+                Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+
+                if (existe != null) // si el formulario existe
+                {
+                    //para cerrarlo y liberar el espacio en memoria
+                    existe.Close();
+                    existe.Dispose();
+                    GC.Collect();
+
+                    PDebateMain = new P_Debate_Main();
+
+                    PDebateMain.numRounds = numRounds;
+                    PDebateMain.difficulty = difficulty;
+                    PDebateMain.time2Answer = time2Answer;
+
+                    // mostrar los nombres que estan jugando
+                    PDebateMain.tbx_Grupo1.Text = grupo1;
+                    PDebateMain.tbx_Grupo2.Text = grupo2;
+
+                    PDebateMain.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    if (existe2 != null) // para saber si el formulario principal existe
+                    {
+                        this.AddOwnedForm(existe2); //indica que este va a ser el papa del form P_Main
+                        existe2.Close(); // cerrar ventana principal
+                    }
+
+                    P_Main PMain = new P_Main();
+                    this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
+
+                    PMain.numRounds = numRounds;
+                    PMain.difficulty = difficulty;
+                    PMain.time2Answer = time2Answer;
+
+                    PMain.Show();
+                    this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
+                    this.Hide();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error inexperado!, favor volver a intentarlo.");
+            }
+
+        }
+
+
+        public void Change_Settings()
+        {
+            difficulty = lbx_Dificuldad_Setting.Text;
+            numRounds = Convert.ToInt32(lbx_Rounds.Text);
+            time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

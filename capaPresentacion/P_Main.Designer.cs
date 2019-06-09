@@ -31,30 +31,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_Main));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_debate = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Partida = new System.Windows.Forms.Button();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_how2Play = new System.Windows.Forms.Button();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_User = new System.Windows.Forms.Label();
+            this.btn_Logout_Login = new System.Windows.Forms.Button();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_newUser = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_solo = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_how2Play = new System.Windows.Forms.Button();
-            this.btn_Logout = new System.Windows.Forms.Button();
             this.Btn_Settings = new System.Windows.Forms.PictureBox();
+            this.btn_solo = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,6 +95,18 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(424, 729);
             this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(66, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(312, 175);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // btn_debate
             // 
@@ -158,12 +170,30 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(313, 178);
             this.tableLayoutPanel12.TabIndex = 15;
             // 
+            // btn_how2Play
+            // 
+            this.btn_how2Play.BackColor = System.Drawing.Color.White;
+            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_how2Play.FlatAppearance.BorderSize = 0;
+            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_how2Play.Image = ((System.Drawing.Image)(resources.GetObject("btn_how2Play.Image")));
+            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_how2Play.Location = new System.Drawing.Point(252, 43);
+            this.btn_how2Play.Name = "btn_how2Play";
+            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_how2Play.Size = new System.Drawing.Size(58, 74);
+            this.btn_how2Play.TabIndex = 14;
+            this.btn_how2Play.UseVisualStyleBackColor = false;
+            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
+            // 
             // tableLayoutPanel13
             // 
             this.tableLayoutPanel13.ColumnCount = 1;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.Controls.Add(this.lab_User, 0, 0);
-            this.tableLayoutPanel13.Controls.Add(this.btn_Logout, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.btn_Logout_Login, 0, 1);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(65, 43);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
@@ -185,6 +215,24 @@
             this.lab_User.TabIndex = 15;
             this.lab_User.Text = "User:";
             this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_Logout_Login
+            // 
+            this.btn_Logout_Login.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btn_Logout_Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_Logout_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logout_Login.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_Logout_Login.ForeColor = System.Drawing.Color.White;
+            this.btn_Logout_Login.Image = global::capaPresentacion.Properties.Resources.logout;
+            this.btn_Logout_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Logout_Login.Location = new System.Drawing.Point(29, 40);
+            this.btn_Logout_Login.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.btn_Logout_Login.Name = "btn_Logout_Login";
+            this.btn_Logout_Login.Size = new System.Drawing.Size(122, 34);
+            this.btn_Logout_Login.TabIndex = 16;
+            this.btn_Logout_Login.Text = "      Login";
+            this.btn_Logout_Login.UseVisualStyleBackColor = false;
+            this.btn_Logout_Login.Click += new System.EventHandler(this.btn_Logout_Login_Click);
             // 
             // tableLayoutPanel14
             // 
@@ -254,64 +302,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(312, 178);
             this.tableLayoutPanel5.TabIndex = 16;
             // 
-            // btn_solo
-            // 
-            this.btn_solo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_solo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_solo.Location = new System.Drawing.Point(182, 369);
-            this.btn_solo.Name = "btn_solo";
-            this.btn_solo.Size = new System.Drawing.Size(196, 173);
-            this.btn_solo.TabIndex = 17;
-            this.btn_solo.Text = "SOLO";
-            this.btn_solo.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(66, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(312, 175);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btn_how2Play
-            // 
-            this.btn_how2Play.BackColor = System.Drawing.Color.White;
-            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_how2Play.FlatAppearance.BorderSize = 0;
-            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.btn_how2Play.Image = ((System.Drawing.Image)(resources.GetObject("btn_how2Play.Image")));
-            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_how2Play.Location = new System.Drawing.Point(252, 43);
-            this.btn_how2Play.Name = "btn_how2Play";
-            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_how2Play.Size = new System.Drawing.Size(58, 74);
-            this.btn_how2Play.TabIndex = 14;
-            this.btn_how2Play.UseVisualStyleBackColor = false;
-            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
-            // 
-            // btn_Logout
-            // 
-            this.btn_Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Logout.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_Logout.ForeColor = System.Drawing.Color.White;
-            this.btn_Logout.Image = global::capaPresentacion.Properties.Resources.logout;
-            this.btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Logout.Location = new System.Drawing.Point(29, 40);
-            this.btn_Logout.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(122, 34);
-            this.btn_Logout.TabIndex = 16;
-            this.btn_Logout.Text = "      Login";
-            this.btn_Logout.UseVisualStyleBackColor = false;
-            // 
             // Btn_Settings
             // 
             this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -325,6 +315,17 @@
             this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
             this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_Settings_MouseEnter);
             this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_Settings_MouseLeave);
+            // 
+            // btn_solo
+            // 
+            this.btn_solo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_solo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_solo.Location = new System.Drawing.Point(182, 369);
+            this.btn_solo.Name = "btn_solo";
+            this.btn_solo.Size = new System.Drawing.Size(196, 173);
+            this.btn_solo.TabIndex = 17;
+            this.btn_solo.Text = "SOLO";
+            this.btn_solo.UseVisualStyleBackColor = true;
             // 
             // P_Main
             // 
@@ -343,6 +344,7 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
@@ -350,7 +352,6 @@
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
             this.ResumeLayout(false);
 
@@ -366,7 +367,7 @@
         private System.Windows.Forms.Button btn_how2Play;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Label lab_User;
-        private System.Windows.Forms.Button btn_Logout;
+        private System.Windows.Forms.Button btn_Logout_Login;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.Button btn_newUser;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

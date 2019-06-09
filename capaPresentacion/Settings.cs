@@ -414,7 +414,6 @@ namespace capaPresentacion
                 {
                     OpenSettings();
                 }
-
             }
         }
 

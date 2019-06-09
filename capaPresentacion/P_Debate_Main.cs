@@ -30,12 +30,10 @@ namespace capaPresentacion
         N_Listener objNegoListener = new N_Listener();
         P_GameSettings GameSettings = new P_GameSettings();
         D_Login login = new D_Login();
-        P_focusedBible PfocusedB;
+        P_focusedBible_Debate PfocusedB;
         P_Main PMain;
-        HowToPlay howToPlay;
         string g1_Name;
         string g2_Name;
-        int Rounds;
         public string difficulty;
         public int numRounds;
         public int time2Answer;
@@ -46,24 +44,17 @@ namespace capaPresentacion
             Change_Settings();
 
             // para saber si el formulario existe, o sea, si está abierto o cerrado
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();
 
             if (existe != null)
             {
                 existe.Close();
             }
 
-            PfocusedB = new P_focusedBible();
-            this.DialogResult = DialogResult.OK;
-            PfocusedB.ShowDialog();
+            PfocusedB = new P_focusedBible_Debate(g1_Name, g2_Name, time2Answer, numRounds, difficulty);
+            this.Close();
+            PfocusedB.Show();
         }
-
-        public void Change_Settings()
-        {
-            g1_Name = tbx_Grupo1.Text;
-            g2_Name = tbx_Grupo2.Text;
-        }
-
 
         private void tbx_Grupo1_TextChanged(object sender, EventArgs e)
         {
@@ -116,7 +107,24 @@ namespace capaPresentacion
 
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+
+            if (existe != null) // para saber si el formulario principal existe
+            {
+                this.AddOwnedForm(existe); //indica que este va a ser el papa del form P_Main
+                existe.Close(); // cerrar ventana principal
+            }
+
+            P_Main PMain = new P_Main();
+            this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
+
+            PMain.numRounds = numRounds;
+            PMain.difficulty = difficulty;
+            PMain.time2Answer = time2Answer;
+
+            PMain.Show();
+            this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
+            this.Close();
         }
 
         private void tbx_Grupo1_MouseClick(object sender, MouseEventArgs e)
@@ -131,7 +139,7 @@ namespace capaPresentacion
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
         {
-            this.AddOwnedForm(GameSettings); //indica que este va a ser el papa del form Gamesettings
+            
         }
 
 
@@ -151,7 +159,7 @@ namespace capaPresentacion
             try
             {   // para saber si el formulario existe, o sea si está abierto o cerrado
                 Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Login").SingleOrDefault<Form>();
-                Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
+                Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();
 
                 if (existe != null)
                 {
@@ -182,7 +190,7 @@ namespace capaPresentacion
             P_Usuario usuario = new P_Usuario();
             usuario.Show();
 
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();
 
             if (existe == null) // para ocultar settings al abrir nuevo usuario, solo en caso de que el juego no se haya iniciado
             {
@@ -214,24 +222,31 @@ namespace capaPresentacion
 
         private void OpenGameSettings()
         {
-            try
-            {   // para saber si el formulario existe, o sea si está abierto o cerrado
-                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_GameSettings").SingleOrDefault<Form>();
+            Change_Settings();
 
-                if (existe != null)
-                {
-                    GameSettings.ShowDialog();
-                }
-                else
-                {
-                    GameSettings = new P_GameSettings();
-                    GameSettings.ShowDialog();
-                }
-            }
-            catch (Exception)
+            // para saber si el formulario existe, o sea, si está abierto o cerrado
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_GameSettings").SingleOrDefault<Form>();
+            Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+
+            if (existe != null)
             {
-                GameSettings.ShowDialog();
+                existe.Close();
+                existe.Dispose();
+                GC.Collect();
             }
+
+            GameSettings = new P_GameSettings(g1_Name, g2_Name, numRounds, time2Answer, difficulty);
+            existe2.Hide();
+            //this.Hide();
+            GameSettings.Show();
         }
+
+
+        public void Change_Settings()
+        {
+            g1_Name = tbx_Grupo1.Text;
+            g2_Name = tbx_Grupo2.Text;
+        }
+        
     }
 }

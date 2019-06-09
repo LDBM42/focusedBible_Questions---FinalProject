@@ -37,10 +37,11 @@
             this.btnEntrar = new System.Windows.Forms.Button();
             this.text_Password = new System.Windows.Forms.TextBox();
             this.text_Usuario = new System.Windows.Forms.TextBox();
+            this.lbl_Login = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
-            this.lbl_Login = new System.Windows.Forms.Label();
+            this.llab_nuevoUsuario = new System.Windows.Forms.LinkLabel();
             this.pnl_Azul.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,7 +51,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tmr_cuadroAzul
@@ -102,7 +103,7 @@
             this.btnEntrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.ForeColor = System.Drawing.Color.LightGray;
-            this.btnEntrar.Location = new System.Drawing.Point(312, 319);
+            this.btnEntrar.Location = new System.Drawing.Point(312, 311);
             this.btnEntrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(408, 40);
@@ -148,6 +149,18 @@
             this.text_Usuario.MouseEnter += new System.EventHandler(this.text_Usuario_MouseEnter);
             this.text_Usuario.MouseLeave += new System.EventHandler(this.text_Usuario_MouseLeave);
             // 
+            // lbl_Login
+            // 
+            this.lbl_Login.AutoSize = true;
+            this.lbl_Login.BackColor = System.Drawing.Color.Gray;
+            this.lbl_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbl_Login.Location = new System.Drawing.Point(465, 119);
+            this.lbl_Login.Name = "lbl_Login";
+            this.lbl_Login.Size = new System.Drawing.Size(119, 38);
+            this.lbl_Login.TabIndex = 9;
+            this.lbl_Login.Text = "LOGIN";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -188,23 +201,27 @@
             this.btnMinimize.TabStop = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // lbl_Login
+            // llab_nuevoUsuario
             // 
-            this.lbl_Login.AutoSize = true;
-            this.lbl_Login.BackColor = System.Drawing.Color.Gray;
-            this.lbl_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lbl_Login.Location = new System.Drawing.Point(465, 119);
-            this.lbl_Login.Name = "lbl_Login";
-            this.lbl_Login.Size = new System.Drawing.Size(119, 38);
-            this.lbl_Login.TabIndex = 9;
-            this.lbl_Login.Text = "LOGIN";
+            this.llab_nuevoUsuario.ActiveLinkColor = System.Drawing.Color.Brown;
+            this.llab_nuevoUsuario.AutoSize = true;
+            this.llab_nuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llab_nuevoUsuario.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.llab_nuevoUsuario.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.llab_nuevoUsuario.Location = new System.Drawing.Point(438, 354);
+            this.llab_nuevoUsuario.Name = "llab_nuevoUsuario";
+            this.llab_nuevoUsuario.Size = new System.Drawing.Size(156, 18);
+            this.llab_nuevoUsuario.TabIndex = 16;
+            this.llab_nuevoUsuario.TabStop = true;
+            this.llab_nuevoUsuario.Text = "Agregar nuevo usuario";
+            this.llab_nuevoUsuario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llab_nuevoUsuario_LinkClicked);
             // 
             // P_Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(780, 396);
+            this.Controls.Add(this.llab_nuevoUsuario);
             this.Controls.Add(this.lbl_Login);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnl_Azul);
@@ -244,5 +261,6 @@
         private System.Windows.Forms.TextBox text_Usuario;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_Login;
+        private System.Windows.Forms.LinkLabel llab_nuevoUsuario;
     }
 }

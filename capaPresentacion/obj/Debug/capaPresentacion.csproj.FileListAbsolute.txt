@@ -132,3 +132,6 @@ C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresenta
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Main.resources
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible.resources
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_GameSettings.resources
+C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.Form1.resources
+C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible_Debate.resources
+C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible_Debate_Original.resources

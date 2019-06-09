@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -81,6 +81,24 @@
     </Compile>
     <Compile Include="Banners.Designer.cs">
       <DependentUpon>Banners.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_focusedBible_Debate_Original.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_focusedBible_Debate_Original.Designer.cs">
+      <DependentUpon>P_focusedBible_Debate_Original.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_focusedBible_Debate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_focusedBible_Debate.Designer.cs">
+      <DependentUpon>P_focusedBible_Debate.cs</DependentUpon>
     </Compile>
     <Compile Include="P_GameSettings.cs">
       <SubType>Form</SubType>
@@ -145,6 +163,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Banners.resx">
       <DependentUpon>Banners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_focusedBible_Debate_Original.resx">
+      <DependentUpon>P_focusedBible_Debate_Original.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_focusedBible_Debate.resx">
+      <DependentUpon>P_focusedBible_Debate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_GameSettings.resx">
       <DependentUpon>P_GameSettings.cs</DependentUpon>

@@ -79,8 +79,7 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Load(object sender, EventArgs e)
         {
-            
- //           this.AddOwnedForm(Gamesettings); //indica que este va a ser el papa del form settings
+ //          this.AddOwnedForm(Gamesettings); //indica que este va a ser el papa del form settings
             lab_Wins_P1.Text = Convert.ToString(wins_01);
             lab_Wins_P2.Text = Convert.ToString(wins_02);
             tlyo_Wins_P1.Visible = true;
@@ -127,7 +126,6 @@ namespace capaPresentacion
 
                 lista_porDificultad[i] = dificultad;
             }
-
         }
         void listarFocusedBible(E_focusedBible preg)
         {
@@ -161,7 +159,7 @@ namespace capaPresentacion
                 passage = lista_porDificultad[numeroPrueba].pasage;
             }
 
-            bockPassage(); //si no existe pasage de referencia, se bloquea este comodin
+            blockPassage(); //si no existe pasage de referencia, se bloquea este comodin
             enumerate++;
         }
 
@@ -770,7 +768,7 @@ namespace capaPresentacion
                 pbx_Passage_2.Enabled = false;
             }
 
-            //Codigo del metodo
+            //Codigo principal del metodo
             if (turno == 1)
             {
                 click50_2 = 0; // reiniciar a 0 para poder usar el comodin 50% en su proximo turno
@@ -1390,7 +1388,7 @@ namespace capaPresentacion
             countDownTimer2 += timeToIncrease;
         }
 
-        void bockPassage()
+        void blockPassage()
         {
             if (passage == "N/A" || passage == "")
             {
