@@ -12,10 +12,14 @@ namespace capaPresentacion
 {
     public partial class P_focusedBible_Debate : Form
     {
-        public P_focusedBible_Debate(string player1 = "Player One", string player2 = "Player Two",
-            int time2Answer = 20, int numRounds = 1, string difficulty = "Todas")
+        public P_focusedBible_Debate(string player1 = "Player One", string player2 = "Player Two", int time2Answer = 20,
+                                     int numRounds = 1, string difficulty = "Todas", string catEvangelios_yOtros = "Todas",
+                                     string catLibro = "", string catNuevoAntiguo = "")
         {
             this.difficulty = difficulty;
+            this.catEvangelios_yOtros = catEvangelios_yOtros;
+            this.catLibro = catLibro;
+            this.catNuevoAntiguo = catNuevoAntiguo;
             this.player1 = player1;
             this.player2 = player2;
             this.numRounds = numRounds;
@@ -34,10 +38,10 @@ namespace capaPresentacion
         int?[] noRepetir_PorDificultad; // para que no se repitan cuando se eligen solo x dificultad
         E_focusedBible[] lista_porDificultad; // Para almacenar la lista completa y asi evitar que se repitan
         int numeroPrueba;
-        int click50_1 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el comodin 50%
-        int click50_2 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el comodin 50%
-        int clickPassage_1 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el Passage_1
-        int clickPassage_2 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el Passage_1
+        int click50_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
+        int click50_2 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
+        int clickPassage_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el Passage_1
+        int clickPassage_2 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el Passage_1
         string passage = "";
         int i = 0;
         int countUp = 0;
@@ -52,6 +56,9 @@ namespace capaPresentacion
         int round = 1;
         int numRounds;
         string difficulty;
+        string catEvangelios_yOtros;
+        string catLibro;
+        string catNuevoAntiguo;
         string banner;
         int wins_01 = 0;
         int wins_02 = 0;
@@ -67,7 +74,6 @@ namespace capaPresentacion
         int countDownPassage_1 = 3;
         int countDownPassage_2 = 3;
         Banners Banner;
-       // P_GameSettings Gamesettings = new P_GameSettings();
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
         #endregion
@@ -76,7 +82,6 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Load(object sender, EventArgs e)
         {
- //          this.AddOwnedForm(Gamesettings); //indica que este va a ser el papa del form settings
             lab_Wins_P1.Text = Convert.ToString(wins_01);
             lab_Wins_P2.Text = Convert.ToString(wins_02);
             tlyo_Wins_P1.Visible = true;
@@ -84,6 +89,7 @@ namespace capaPresentacion
             lab_Rounds_Left.Text = round + "/" + numRounds;
             lab_Rounds_Right.Text = round + "/" + numRounds;
             lab_Difficulty.Text = difficulty;
+            lab_Categoria.Text = catEvangelios_yOtros;
             lab_LifesNum.Text = Convert.ToString(lifes_1);
             lab_LifesNum2.Text = Convert.ToString(lifes_2);
             lab_Player1.Text = player1;
@@ -93,6 +99,9 @@ namespace capaPresentacion
             banner = "Round" + round;
             reproducirSonido("levelclearer.wav", true);
             objEntidad.dificultad = difficulty;
+            objEntidad.catEvangelios_yOtros = catEvangelios_yOtros;
+            objEntidad.catLibro = catLibro;
+            objEntidad.catNuevoAntiguo = catNuevoAntiguo;
             noRepetir = new int?[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
             noRepetir_PorDificultad = new int?[objNego.N_NumFilas_PorDificultad(objEntidad)]; // el valor devuelto es tamaño del numero de filas
             lista_porDificultad = new E_focusedBible[objNego.N_NumFilas_PorDificultad(objEntidad)];

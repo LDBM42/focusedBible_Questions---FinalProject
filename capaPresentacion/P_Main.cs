@@ -29,6 +29,9 @@ namespace capaPresentacion
         N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
         public string difficulty = "Todas";
+        public string catEvangelios_yOtros = "Todas";
+        public string catLibro = "";
+        public string catNuevoAntiguo = "";
         public int numRounds = 1;
         public int time2Answer = 20;
 
@@ -90,7 +93,7 @@ namespace capaPresentacion
         private void btn_debate_Click(object sender, EventArgs e)
         {
             this.Hide();
-            P_Debate_Main debateMain = new P_Debate_Main(numRounds, time2Answer, difficulty);
+            P_Debate_Main debateMain = new P_Debate_Main(numRounds, time2Answer, difficulty, catEvangelios_yOtros, catLibro, catNuevoAntiguo);
             debateMain.ShowDialog();
         }
 
@@ -117,7 +120,7 @@ namespace capaPresentacion
                 GC.Collect();
             }
 
-            GameSettings = new P_GameSettings("Grupo 1", "Grupo 2", numRounds, time2Answer, difficulty);
+            GameSettings = new P_GameSettings("Grupo 1", "Grupo 2", numRounds, time2Answer, difficulty, catEvangelios_yOtros, catLibro, catNuevoAntiguo);
             GameSettings.Show();
         }
 

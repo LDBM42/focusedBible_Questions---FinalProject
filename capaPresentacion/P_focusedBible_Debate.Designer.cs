@@ -43,6 +43,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_goToMain = new System.Windows.Forms.Button();
             this.lab_ScoreNum2 = new System.Windows.Forms.Label();
             this.lab_Lifes2 = new System.Windows.Forms.Label();
             this.lab_Score2 = new System.Windows.Forms.Label();
@@ -53,18 +54,25 @@
             this.lab_Player2 = new System.Windows.Forms.Label();
             this.lab_Player1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.Lab_Passage_Shown_2 = new System.Windows.Forms.Label();
+            this.pbx_50_1 = new System.Windows.Forms.PictureBox();
             this.lab_50_1 = new System.Windows.Forms.Label();
+            this.pbx_50_2 = new System.Windows.Forms.PictureBox();
             this.lab_50_2 = new System.Windows.Forms.Label();
+            this.pbx_Passage_1 = new System.Windows.Forms.PictureBox();
             this.lab_Passage_1 = new System.Windows.Forms.Label();
             this.lab_Passage_2 = new System.Windows.Forms.Label();
+            this.pbx_Passage_2 = new System.Windows.Forms.PictureBox();
             this.Lab_Passage_Shown_1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.lab_Difficulty = new System.Windows.Forms.Label();
+            this.lab_Categoria = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.lab_Difficulty = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_Respuestas = new System.Windows.Forms.TableLayoutPanel();
@@ -85,21 +93,18 @@
             this.countDown = new System.Windows.Forms.Timer(this.components);
             this.Timer_2Answer = new System.Windows.Forms.Timer(this.components);
             this.Timer_Banner = new System.Windows.Forms.Timer(this.components);
-            this.label = new System.Windows.Forms.Label();
-            this.lab_Categoria = new System.Windows.Forms.Label();
-            this.btn_goToMain = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbx_50_1 = new System.Windows.Forms.PictureBox();
-            this.pbx_50_2 = new System.Windows.Forms.PictureBox();
-            this.pbx_Passage_1 = new System.Windows.Forms.PictureBox();
-            this.pbx_Passage_2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -108,11 +113,6 @@
             this.tableLayoutPanel13.SuspendLayout();
             this.tlyo_Wins_P2.SuspendLayout();
             this.tlyo_Wins_P1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).BeginInit();
             this.SuspendLayout();
             // 
             // lab_Pregunta
@@ -327,6 +327,23 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(424, 61);
             this.tableLayoutPanel7.TabIndex = 4;
             // 
+            // btn_goToMain
+            // 
+            this.btn_goToMain.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_goToMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_goToMain.FlatAppearance.BorderSize = 0;
+            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_goToMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_goToMain.Image = global::capaPresentacion.Properties.Resources.go2Main;
+            this.btn_goToMain.Location = new System.Drawing.Point(341, 3);
+            this.btn_goToMain.Name = "btn_goToMain";
+            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_goToMain.Size = new System.Drawing.Size(80, 55);
+            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.UseVisualStyleBackColor = false;
+            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
+            // 
             // lab_ScoreNum2
             // 
             this.lab_ScoreNum2.AutoSize = true;
@@ -469,6 +486,18 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1286, 289);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(835, 60);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0, 60, 70, 100);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(381, 129);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 5;
@@ -512,6 +541,21 @@
             this.Lab_Passage_Shown_2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Lab_Passage_Shown_2.Visible = false;
             // 
+            // pbx_50_1
+            // 
+            this.pbx_50_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_50_1.Image = global::capaPresentacion.Properties.Resources._50_percent;
+            this.pbx_50_1.Location = new System.Drawing.Point(88, 140);
+            this.pbx_50_1.Margin = new System.Windows.Forms.Padding(0);
+            this.pbx_50_1.Name = "pbx_50_1";
+            this.pbx_50_1.Size = new System.Drawing.Size(111, 84);
+            this.pbx_50_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_50_1.TabIndex = 0;
+            this.pbx_50_1.TabStop = false;
+            this.pbx_50_1.Click += new System.EventHandler(this.pbx_50_Click);
+            this.pbx_50_1.MouseEnter += new System.EventHandler(this.pbx_50_MouseEnter);
+            this.pbx_50_1.MouseLeave += new System.EventHandler(this.pbx_50_MouseLeave);
+            // 
             // lab_50_1
             // 
             this.lab_50_1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -524,6 +568,22 @@
             this.lab_50_1.Size = new System.Drawing.Size(58, 38);
             this.lab_50_1.TabIndex = 16;
             this.lab_50_1.Text = "+3";
+            // 
+            // pbx_50_2
+            // 
+            this.pbx_50_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_50_2.Image = global::capaPresentacion.Properties.Resources._50_percent;
+            this.pbx_50_2.Location = new System.Drawing.Point(265, 140);
+            this.pbx_50_2.Margin = new System.Windows.Forms.Padding(0);
+            this.pbx_50_2.Name = "pbx_50_2";
+            this.pbx_50_2.Size = new System.Drawing.Size(111, 84);
+            this.pbx_50_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_50_2.TabIndex = 17;
+            this.pbx_50_2.TabStop = false;
+            this.pbx_50_2.Visible = false;
+            this.pbx_50_2.Click += new System.EventHandler(this.pbx_50_2_Click);
+            this.pbx_50_2.MouseEnter += new System.EventHandler(this.pbx_50_2_MouseEnter);
+            this.pbx_50_2.MouseLeave += new System.EventHandler(this.pbx_50_2_MouseLeave);
             // 
             // lab_50_2
             // 
@@ -538,6 +598,20 @@
             this.lab_50_2.TabIndex = 18;
             this.lab_50_2.Text = "+3";
             this.lab_50_2.Visible = false;
+            // 
+            // pbx_Passage_1
+            // 
+            this.pbx_Passage_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Passage_1.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
+            this.pbx_Passage_1.Location = new System.Drawing.Point(91, 59);
+            this.pbx_Passage_1.Name = "pbx_Passage_1";
+            this.pbx_Passage_1.Size = new System.Drawing.Size(105, 78);
+            this.pbx_Passage_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_Passage_1.TabIndex = 19;
+            this.pbx_Passage_1.TabStop = false;
+            this.pbx_Passage_1.Click += new System.EventHandler(this.pbx_Passage_1_Click);
+            this.pbx_Passage_1.MouseEnter += new System.EventHandler(this.pbx_Passage_1_MouseEnter);
+            this.pbx_Passage_1.MouseLeave += new System.EventHandler(this.pbx_Passage_1_MouseLeave);
             // 
             // lab_Passage_1
             // 
@@ -565,6 +639,21 @@
             this.lab_Passage_2.TabIndex = 21;
             this.lab_Passage_2.Text = "+3";
             this.lab_Passage_2.Visible = false;
+            // 
+            // pbx_Passage_2
+            // 
+            this.pbx_Passage_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Passage_2.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
+            this.pbx_Passage_2.Location = new System.Drawing.Point(268, 59);
+            this.pbx_Passage_2.Name = "pbx_Passage_2";
+            this.pbx_Passage_2.Size = new System.Drawing.Size(105, 78);
+            this.pbx_Passage_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_Passage_2.TabIndex = 22;
+            this.pbx_Passage_2.TabStop = false;
+            this.pbx_Passage_2.Visible = false;
+            this.pbx_Passage_2.Click += new System.EventHandler(this.pbx_Passage_2_Click);
+            this.pbx_Passage_2.MouseEnter += new System.EventHandler(this.pbx_Passage_2_MouseEnter);
+            this.pbx_Passage_2.MouseLeave += new System.EventHandler(this.pbx_Passage_2_MouseLeave);
             // 
             // Lab_Passage_Shown_1
             // 
@@ -613,19 +702,33 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(184, 107);
             this.tableLayoutPanel12.TabIndex = 4;
             // 
-            // lab_Difficulty
+            // lab_Categoria
             // 
-            this.lab_Difficulty.AutoSize = true;
-            this.lab_Difficulty.BackColor = System.Drawing.Color.Transparent;
-            this.lab_Difficulty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_Difficulty.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.lab_Difficulty.ForeColor = System.Drawing.Color.Brown;
-            this.lab_Difficulty.Location = new System.Drawing.Point(3, 53);
-            this.lab_Difficulty.Name = "lab_Difficulty";
-            this.lab_Difficulty.Size = new System.Drawing.Size(177, 54);
-            this.lab_Difficulty.TabIndex = 1;
-            this.lab_Difficulty.Text = "Normal";
-            this.lab_Difficulty.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lab_Categoria.AutoSize = true;
+            this.lab_Categoria.BackColor = System.Drawing.Color.Transparent;
+            this.lab_Categoria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Categoria.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.lab_Categoria.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Categoria.Location = new System.Drawing.Point(3, 53);
+            this.lab_Categoria.Name = "lab_Categoria";
+            this.lab_Categoria.Size = new System.Drawing.Size(178, 54);
+            this.lab_Categoria.TabIndex = 2;
+            this.lab_Categoria.Text = "Todas";
+            this.lab_Categoria.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
+            this.label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label.Location = new System.Drawing.Point(3, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(178, 53);
+            this.label.TabIndex = 1;
+            this.label.Text = "Categoría:";
+            this.label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // btn_Exit
             // 
@@ -657,6 +760,20 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(183, 107);
             this.tableLayoutPanel11.TabIndex = 3;
+            // 
+            // lab_Difficulty
+            // 
+            this.lab_Difficulty.AutoSize = true;
+            this.lab_Difficulty.BackColor = System.Drawing.Color.Transparent;
+            this.lab_Difficulty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Difficulty.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.lab_Difficulty.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Difficulty.Location = new System.Drawing.Point(3, 53);
+            this.lab_Difficulty.Name = "lab_Difficulty";
+            this.lab_Difficulty.Size = new System.Drawing.Size(177, 54);
+            this.lab_Difficulty.TabIndex = 1;
+            this.lab_Difficulty.Text = "Normal";
+            this.lab_Difficulty.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
             // 
@@ -824,7 +941,7 @@
             this.lab_Rounds_Right.AutoSize = true;
             this.lab_Rounds_Right.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lab_Rounds_Right.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_Rounds_Right.Font = new System.Drawing.Font("Rockwell", 30F);
+            this.lab_Rounds_Right.Font = new System.Drawing.Font("Rockwell", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lab_Rounds_Right.ForeColor = System.Drawing.Color.Brown;
             this.lab_Rounds_Right.Location = new System.Drawing.Point(3, 123);
             this.lab_Rounds_Right.Name = "lab_Rounds_Right";
@@ -859,7 +976,7 @@
             this.lab_Rounds_Left.AutoSize = true;
             this.lab_Rounds_Left.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lab_Rounds_Left.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_Rounds_Left.Font = new System.Drawing.Font("Rockwell", 30F);
+            this.lab_Rounds_Left.Font = new System.Drawing.Font("Rockwell", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lab_Rounds_Left.ForeColor = System.Drawing.Color.Brown;
             this.lab_Rounds_Left.Location = new System.Drawing.Point(3, 123);
             this.lab_Rounds_Left.Name = "lab_Rounds_Left";
@@ -938,123 +1055,6 @@
             this.Timer_Banner.Interval = 1000;
             this.Timer_Banner.Tick += new System.EventHandler(this.Timer_Banner_Tick);
             // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.BackColor = System.Drawing.Color.Transparent;
-            this.label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label.Location = new System.Drawing.Point(3, 0);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(178, 53);
-            this.label.TabIndex = 1;
-            this.label.Text = "Categoría:";
-            this.label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // lab_Categoria
-            // 
-            this.lab_Categoria.AutoSize = true;
-            this.lab_Categoria.BackColor = System.Drawing.Color.Transparent;
-            this.lab_Categoria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_Categoria.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.lab_Categoria.ForeColor = System.Drawing.Color.Brown;
-            this.lab_Categoria.Location = new System.Drawing.Point(3, 53);
-            this.lab_Categoria.Name = "lab_Categoria";
-            this.lab_Categoria.Size = new System.Drawing.Size(178, 54);
-            this.lab_Categoria.TabIndex = 2;
-            this.lab_Categoria.Text = "Todas";
-            this.lab_Categoria.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btn_goToMain
-            // 
-            this.btn_goToMain.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_goToMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_goToMain.FlatAppearance.BorderSize = 0;
-            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_goToMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.btn_goToMain.Image = global::capaPresentacion.Properties.Resources.go2Main;
-            this.btn_goToMain.Location = new System.Drawing.Point(341, 3);
-            this.btn_goToMain.Name = "btn_goToMain";
-            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_goToMain.Size = new System.Drawing.Size(80, 55);
-            this.btn_goToMain.TabIndex = 15;
-            this.btn_goToMain.UseVisualStyleBackColor = false;
-            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(835, 60);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0, 60, 70, 100);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(381, 129);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pbx_50_1
-            // 
-            this.pbx_50_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_50_1.Image = global::capaPresentacion.Properties.Resources._50_percent;
-            this.pbx_50_1.Location = new System.Drawing.Point(88, 140);
-            this.pbx_50_1.Margin = new System.Windows.Forms.Padding(0);
-            this.pbx_50_1.Name = "pbx_50_1";
-            this.pbx_50_1.Size = new System.Drawing.Size(111, 84);
-            this.pbx_50_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_50_1.TabIndex = 0;
-            this.pbx_50_1.TabStop = false;
-            this.pbx_50_1.Click += new System.EventHandler(this.pbx_50_Click);
-            this.pbx_50_1.MouseEnter += new System.EventHandler(this.pbx_50_MouseEnter);
-            this.pbx_50_1.MouseLeave += new System.EventHandler(this.pbx_50_MouseLeave);
-            // 
-            // pbx_50_2
-            // 
-            this.pbx_50_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_50_2.Image = global::capaPresentacion.Properties.Resources._50_percent;
-            this.pbx_50_2.Location = new System.Drawing.Point(265, 140);
-            this.pbx_50_2.Margin = new System.Windows.Forms.Padding(0);
-            this.pbx_50_2.Name = "pbx_50_2";
-            this.pbx_50_2.Size = new System.Drawing.Size(111, 84);
-            this.pbx_50_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_50_2.TabIndex = 17;
-            this.pbx_50_2.TabStop = false;
-            this.pbx_50_2.Visible = false;
-            this.pbx_50_2.Click += new System.EventHandler(this.pbx_50_2_Click);
-            this.pbx_50_2.MouseEnter += new System.EventHandler(this.pbx_50_2_MouseEnter);
-            this.pbx_50_2.MouseLeave += new System.EventHandler(this.pbx_50_2_MouseLeave);
-            // 
-            // pbx_Passage_1
-            // 
-            this.pbx_Passage_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Passage_1.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
-            this.pbx_Passage_1.Location = new System.Drawing.Point(91, 59);
-            this.pbx_Passage_1.Name = "pbx_Passage_1";
-            this.pbx_Passage_1.Size = new System.Drawing.Size(105, 78);
-            this.pbx_Passage_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_Passage_1.TabIndex = 19;
-            this.pbx_Passage_1.TabStop = false;
-            this.pbx_Passage_1.Click += new System.EventHandler(this.pbx_Passage_1_Click);
-            this.pbx_Passage_1.MouseEnter += new System.EventHandler(this.pbx_Passage_1_MouseEnter);
-            this.pbx_Passage_1.MouseLeave += new System.EventHandler(this.pbx_Passage_1_MouseLeave);
-            // 
-            // pbx_Passage_2
-            // 
-            this.pbx_Passage_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Passage_2.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
-            this.pbx_Passage_2.Location = new System.Drawing.Point(268, 59);
-            this.pbx_Passage_2.Name = "pbx_Passage_2";
-            this.pbx_Passage_2.Size = new System.Drawing.Size(105, 78);
-            this.pbx_Passage_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_Passage_2.TabIndex = 22;
-            this.pbx_Passage_2.TabStop = false;
-            this.pbx_Passage_2.Visible = false;
-            this.pbx_Passage_2.Click += new System.EventHandler(this.pbx_Passage_2_Click);
-            this.pbx_Passage_2.MouseEnter += new System.EventHandler(this.pbx_Passage_2_MouseEnter);
-            this.pbx_Passage_2.MouseLeave += new System.EventHandler(this.pbx_Passage_2_MouseLeave);
-            // 
             // P_focusedBible_Debate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1077,8 +1077,13 @@
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
@@ -1093,11 +1098,6 @@
             this.tlyo_Wins_P2.PerformLayout();
             this.tlyo_Wins_P1.ResumeLayout(false);
             this.tlyo_Wins_P1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).EndInit();
             this.ResumeLayout(false);
 
         }

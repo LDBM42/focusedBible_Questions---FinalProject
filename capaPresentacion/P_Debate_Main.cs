@@ -17,11 +17,16 @@ namespace capaPresentacion
 {
     public partial class P_Debate_Main : Form
     {
-        public P_Debate_Main(int numRounds = 1, int time2Answer = 20, string difficulty = "All")
+        public P_Debate_Main(int numRounds = 1, int time2Answer = 20,
+                             string difficulty = "All", string catEvangelios_yOtros = "Todas",
+                             string catLibro = "", string catNuevoAntiguo = "")
         {
             this.numRounds = numRounds;
             this.time2Answer = time2Answer;
             this.difficulty = difficulty;
+            this.catEvangelios_yOtros = catEvangelios_yOtros;
+            this.catLibro = catLibro;
+            this.catNuevoAntiguo = catNuevoAntiguo;
             InitializeComponent();
         }
 
@@ -35,6 +40,9 @@ namespace capaPresentacion
         string g1_Name;
         string g2_Name;
         public string difficulty;
+        public string catEvangelios_yOtros;
+        public string catLibro;
+        public string catNuevoAntiguo;
         public int numRounds;
         public int time2Answer;
 
@@ -51,7 +59,7 @@ namespace capaPresentacion
                 existe.Close();
             }
 
-            PfocusedB = new P_focusedBible_Debate(g1_Name, g2_Name, time2Answer, numRounds, difficulty);
+            PfocusedB = new P_focusedBible_Debate(g1_Name, g2_Name, time2Answer, numRounds, difficulty, catEvangelios_yOtros, catLibro, catNuevoAntiguo);
             this.Close();
             PfocusedB.Show();
         }
@@ -120,6 +128,9 @@ namespace capaPresentacion
 
             PMain.numRounds = numRounds;
             PMain.difficulty = difficulty;
+            PMain.catEvangelios_yOtros = catEvangelios_yOtros;
+            PMain.catLibro = catLibro;
+            PMain.catNuevoAntiguo = catNuevoAntiguo;
             PMain.time2Answer = time2Answer;
 
             PMain.Show();
@@ -235,7 +246,7 @@ namespace capaPresentacion
                 GC.Collect();
             }
 
-            GameSettings = new P_GameSettings(g1_Name, g2_Name, numRounds, time2Answer, difficulty);
+            GameSettings = new P_GameSettings(g1_Name, g2_Name, numRounds, time2Answer, difficulty, catEvangelios_yOtros, catLibro, catNuevoAntiguo);
             existe2.Hide();
             //this.Hide();
             GameSettings.Show();
