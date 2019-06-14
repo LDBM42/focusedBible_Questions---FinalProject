@@ -17,9 +17,12 @@ namespace capaEntidad
         public char resp { get; set; }
         public string pasage { get; set; }
         public string dificultad { get; set; }
-        public string catEvangelios_yOtros { get; set; }
-        public string catLibro { get; set; }
+        public string [] catEvangelios_yOtros { get; set; }
+        public string [] catLibro { get; set; }
         public string catNuevoAntiguo { get; set; }
+
+        // para almacenar el query por dificultad
+        public string QueryListarPreguntas { get; set; }
 
         // para saber si se acaba de salir de la ventana settings a la del juego
         public static bool deSettings { get; set; }

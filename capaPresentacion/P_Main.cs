@@ -29,8 +29,12 @@ namespace capaPresentacion
         N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
         public string difficulty = "Todas";
-        public string catEvangelios_yOtros = "Todas";
-        public string catLibro = "";
+        public string queryPorDificultad = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
+                                            "INNER JOIN " +
+                                            "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
+                                            "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+        public string[] catEvangelios_yOtros = new string[10];
+        public string[] catLibro = new string[66];
         public string catNuevoAntiguo = "";
         public int numRounds = 1;
         public int time2Answer = 20;
@@ -93,7 +97,7 @@ namespace capaPresentacion
         private void btn_debate_Click(object sender, EventArgs e)
         {
             this.Hide();
-            P_Debate_Main debateMain = new P_Debate_Main(numRounds, time2Answer, difficulty, catEvangelios_yOtros, catLibro, catNuevoAntiguo);
+            P_Debate_Main debateMain = new P_Debate_Main(catEvangelios_yOtros, catLibro, catNuevoAntiguo, numRounds, time2Answer, difficulty, queryPorDificultad);
             debateMain.ShowDialog();
         }
 
@@ -120,7 +124,7 @@ namespace capaPresentacion
                 GC.Collect();
             }
 
-            GameSettings = new P_GameSettings("Grupo 1", "Grupo 2", numRounds, time2Answer, difficulty, catEvangelios_yOtros, catLibro, catNuevoAntiguo);
+            GameSettings = new P_GameSettings(catEvangelios_yOtros, catLibro, catNuevoAntiguo, "Grupo 1", "Grupo 2", numRounds, time2Answer, difficulty);
             GameSettings.Show();
         }
 

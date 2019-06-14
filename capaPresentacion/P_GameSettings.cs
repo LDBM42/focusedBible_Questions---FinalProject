@@ -17,9 +17,9 @@ namespace capaPresentacion
 {
     public partial class P_GameSettings : Form
     {
-        public P_GameSettings(string grupo1 = "Grupo 1", string grupo2 = "Grupo 2", int numRounds = 1,
-                              int time2Answer = 20, string difficulty = "Todas", string catEvangelios_yOtros = "Todas",
-                              string catLibro = "", string catNuevoAntiguo = "")
+        public P_GameSettings(string[] catEvangelios_yOtros = null, string[] catLibro = null, string catNuevoAntiguo = "", 
+                              string grupo1 = "Grupo 1", string grupo2 = "Grupo 2", int numRounds = 1, 
+                              int time2Answer = 20, string difficulty = "Todas")
         {
             this.numRounds = numRounds;
             this.grupo1 = grupo1;
@@ -35,14 +35,17 @@ namespace capaPresentacion
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
+        P_SeleccionCategoria SeleccionCategoria = new P_SeleccionCategoria();
         D_Login login = new D_Login();
         P_Debate_Main PDebateMain;
+        P_QueryListarPreguntas PQuery;
 
         string grupo1;
         string grupo2;
         public string difficulty;
-        public string catEvangelios_yOtros;
-        public string catLibro;
+        public string queryPorDificultad;
+        public string [] catEvangelios_yOtros = new string [10];
+        public string [] catLibro = new string[66];
         public string catNuevoAntiguo;
         public int numRounds;
         public int time2Answer;
@@ -50,9 +53,30 @@ namespace capaPresentacion
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            //seleccionar elementos previamente seleccionados
+            if (catEvangelios_yOtros[0] != null)
+            {
+                SeleccionCategoria.SeleccionarCategorías(catEvangelios_yOtros, lbx_catEvangelios_yOtros);
+            }
+            else
+            {
+                lbx_catEvangelios_yOtros.Text = "Todas";
+            }
+
+            // try: para evitar que de error al estár todo deseleccionado
+            try
+            {
+                if (catLibro[0] != null || lbx_catLibro.Visible == true)
+                {
+                    SeleccionCategoria.SeleccionarCategorías(catLibro, lbx_catLibro);
+                }
+            }
+            catch (Exception)
+            {
+                // recuperacion de la exepcion
+            }
+
             lbx_Dificuldad_Setting.Text = difficulty;
-            lbx_catEvangelios_yOtros.Text = catEvangelios_yOtros;
-            lbx_catLibro.Text = catLibro;
             lbx_catNuevoAntiguo.Text = catNuevoAntiguo;
             lbx_Rounds.Text = Convert.ToString(numRounds);
             lbx_time2Answer.Text = Convert.ToString(time2Answer);
@@ -68,6 +92,9 @@ namespace capaPresentacion
             lbx_catLibro.TopIndex = lbx_catLibro.SelectedIndex;
             lbx_catNuevoAntiguo.TopIndex = lbx_catNuevoAntiguo.SelectedIndex;
         }
+
+        
+
 
         private void lbx_Rounds_Leave(object sender, EventArgs e)
         {
@@ -233,8 +260,7 @@ namespace capaPresentacion
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            string QueryPorDificultad = QueryPorCategoria();
-
+            PQuery = new P_QueryListarPreguntas();
             Change_Settings();
 
             try
@@ -257,7 +283,8 @@ namespace capaPresentacion
                     PDebateMain.catLibro = catLibro;
                     PDebateMain.catNuevoAntiguo = catNuevoAntiguo;
                     PDebateMain.time2Answer = time2Answer;
-
+                    PDebateMain.queryPorDificultad = queryPorDificultad;
+                    
                     // mostrar los nombres que estan jugando
                     PDebateMain.tbx_Grupo1.Text = grupo1;
                     PDebateMain.tbx_Grupo2.Text = grupo2;
@@ -282,6 +309,7 @@ namespace capaPresentacion
                     PMain.catLibro = catLibro;
                     PMain.catNuevoAntiguo = catNuevoAntiguo;
                     PMain.time2Answer = time2Answer;
+                    PMain.queryPorDificultad = queryPorDificultad;
 
                     PMain.Show();
                     this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
@@ -295,295 +323,12 @@ namespace capaPresentacion
 
         }
 
-        private string QueryPorCategoria()
-        {
-            int valor=0;
-            string itemSelected;
-            string Query = "SELECT codPreg, preg, a, b, c, d, resp, pasage, dificultad, Categoria.categoria from preguntas " +
-                            "INNER JOIN " +
-                            "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
-                            "OR Categoria.catID = preguntas.catNuevoAntiguo " +
-                            "where catEvangelios_yOtros=0";
-
-            //Crear Query para consultar por categorias en la base de datos
-
-            foreach (var item in lbx_catEvangelios_yOtros.SelectedItems)
-            {
-                itemSelected = item.ToString();
-
-                switch (itemSelected)
-                {
-                    case "Evangelios":
-                        valor = 1;
-                        break;
-                    case "Pentateuco":
-                        valor = 8;
-                        break;
-                    case "históricos":
-                        valor = 9;
-                        break;
-                    case "poéticos":
-                        valor = 10;
-                        break;
-                    case "proféticos mayores":
-                        valor = 11;
-                        break;
-                    case "proféticos menores":
-                        valor = 12;
-                        break;
-                    case "Epístolas paulinas":
-                        valor = 13;
-                        break;
-                    case "Epístolas generales":
-                        valor = 14;
-                        break;
-                    case "Profecías":
-                        valor = 15;
-                        break; 
-                    default:
-                        break;
-                }
-
-                Query += " OR catEvangelios_yOtros=" + valor;
-            }
-
-
-            foreach (var item in lbx_catLibro.SelectedItems)
-            {
-                itemSelected = item.ToString();
-
-                switch (itemSelected)
-                {
-                    case "Génesis":
-                        valor = 16;
-                        break;
-                    case "Éxodo":
-                        valor = 17;
-                        break;
-                    case "Levítico":
-                        valor = 18;
-                        break;
-                    case "Números":
-                        valor = 19;
-                        break;
-                    case "Deuteronomio":
-                        valor = 20;
-                        break;
-                    case "Jueces":
-                        valor = 21;
-                        break;
-                    case "Josué":
-                        valor = 22;
-                        break;
-                    case "Rut":
-                        valor = 23;
-                        break;
-                    case "1 Samuel":
-                        valor = 24;
-                        break;
-                    case "2 Samuel":
-                        valor = 25;
-                        break;
-                    case "1 Reyes":
-                        valor = 26;
-                        break;
-                    case "2 Reyes":
-                        valor = 27;
-                        break;
-                    case "1 Crónicas":
-                        valor = 28;
-                        break;
-                    case "2 Crónicas":
-                        valor = 29;
-                        break;
-                    case "Esdras":
-                        valor = 30;
-                        break;
-                    case "Nehemías":
-                        valor = 31;
-                        break;
-                    case "Ester":
-                        valor = 32;
-                        break;
-                    case "Job":
-                        valor = 33;
-                        break;
-                    case "Salmos":
-                        valor = 34;
-                        break;
-                    case "Proverbios":
-                        valor = 35;
-                        break;
-                    case "Eclesiastés":
-                        valor = 36;
-                        break;
-                    case "Cantares":
-                        valor = 37;
-                        break;
-                    case "Isaías":
-                        valor = 38;
-                        break;
-                    case "Jeremías":
-                        valor = 39;
-                        break;
-                    case "Lamentaciones":
-                        valor = 40;
-                        break;
-                    case "Ezequiel":
-                        valor = 41;
-                        break;
-                    case "Daniel":
-                        valor = 42;
-                        break;
-                    case "Oseas":
-                        valor = 43;
-                        break;
-                    case "Joel":
-                        valor = 44;
-                        break;
-                    case "Amós":
-                        valor = 45;
-                        break;
-                    case "Abdías":
-                        valor = 46;
-                        break;
-                    case "Jonás":
-                        valor = 47;
-                        break;
-                    case "Miqueas":
-                        valor = 48;
-                        break;
-                    case "Nahúm":
-                        valor = 49;
-                        break;
-                    case "Habacuc":
-                        valor = 50;
-                        break;
-                    case "Sofonías":
-                        valor = 51;
-                        break;
-                    case "Hageo":
-                        valor = 52;
-                        break;
-                    case "Zacarías":
-                        valor = 53;
-                        break;
-                    case "Malaquías":
-                        valor = 54;
-                        break;
-                    case "Mateo":
-                        valor = 2;
-                        break;
-                    case "Marcos":
-                        valor = 3;
-                        break;
-                    case "Lucas":
-                        valor = 4;
-                        break;
-                    case "Juan":
-                        valor = 5;
-                        break;
-                    case "Hechos":
-                        valor = 55;
-                        break;
-                    case "Romanos":
-                        valor = 56;
-                        break;
-                    case "1 Corintios":
-                        valor = 57;
-                        break;
-                    case "2 Corintios":
-                        valor = 58;
-                        break;
-                    case "Gálatas":
-                        valor = 59;
-                        break;
-                    case "Efesios":
-                        valor = 60;
-                        break;
-                    case "Filipenses":
-                        valor = 61;
-                        break;
-                    case "1 Tesalonicenses":
-                        valor = 62;
-                        break;
-                    case "2 Tesalonicenses":
-                        valor = 63;
-                        break;
-                    case "1 Timoteo":
-                        valor = 64;
-                        break;
-                    case "2 Timoteo":
-                        valor = 65;
-                        break;
-                    case "Tito":
-                        valor = 66;
-                        break;
-                    case "Filemón":
-                        valor = 67;
-                        break;
-                    case "Hebreos":
-                        valor = 68;
-                        break;
-                    case "Santiago":
-                        valor = 69;
-                        break;
-                    case "1 Pedro":
-                        valor = 70;
-                        break;
-                    case "2 Pedro":
-                        valor = 71;
-                        break;
-                    case "1 Juan":
-                        valor = 72;
-                        break;
-                    case "2 Juan":
-                        valor = 73;
-                        break;
-                    case "3 Juan":
-                        valor = 74;
-                        break;
-                    case "Judas":
-                        valor = 75;
-                        break;
-                    case "Apocalipsis":
-                        valor = 76;
-                        break;
-                    default:
-                        break;
-                }
-
-                Query += " OR catLibro=" + valor;
-            }
-
-
-            foreach (var item in lbx_catNuevoAntiguo.SelectedItems)
-            {
-                itemSelected = item.ToString();
-
-                switch (itemSelected)
-                {
-                    case "Nuevo Testamento":
-                        valor = 6;
-                        break;
-                    case "Antiguo Testamento":
-                        valor = 7;
-                        break;
-                    default:
-                        break;
-                }
-
-                Query += " OR catNuevoAntiguo=" + valor;
-            }
-
-            return Query;
-        }
-
         public void Change_Settings()
         {
             difficulty = lbx_Dificuldad_Setting.Text;
-            catEvangelios_yOtros = lbx_catEvangelios_yOtros.Text;
-            catLibro = lbx_catLibro.Text;
+            queryPorDificultad = PQuery.QueryPorCategoriayDificultad(lbx_catEvangelios_yOtros,lbx_catLibro,lbx_catNuevoAntiguo,difficulty);
+            catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros);
+            catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro);
             catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
             numRounds = Convert.ToInt32(lbx_Rounds.Text);
             time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
@@ -639,6 +384,30 @@ namespace capaPresentacion
                 e.Handled = true; //.Handled significa que nosotros nos haremos cargo del codigo
                                   //al ser true, evita que apareca la tecla presionada
                 lbx_Dificuldad_Setting.Focus();
+            }
+        }
+
+        private void lbx_catEvangelios_yOtros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // evitar que se deseleccionen todos los campos
+            try
+            {
+                lbx_catEvangelios_yOtros.SelectedItem.ToString();
+            }
+            catch (Exception)
+            {
+                lbx_catEvangelios_yOtros.SetSelected(10, true);
+            }
+
+            if (lbx_catEvangelios_yOtros.SelectedItem.ToString() == "Todas")
+            {
+                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(false, lbx_catNuevoAntiguo);
+                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(false, lbx_catLibro);
+            }
+            else
+            {
+                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(true, lbx_catNuevoAntiguo);
+                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(true, lbx_catLibro);
             }
         }
     }

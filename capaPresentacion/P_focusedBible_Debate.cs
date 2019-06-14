@@ -12,16 +12,17 @@ namespace capaPresentacion
 {
     public partial class P_focusedBible_Debate : Form
     {
-        public P_focusedBible_Debate(string player1 = "Player One", string player2 = "Player Two", int time2Answer = 20,
-                                     int numRounds = 1, string difficulty = "Todas", string catEvangelios_yOtros = "Todas",
-                                     string catLibro = "", string catNuevoAntiguo = "")
+        public P_focusedBible_Debate(string[] catEvangelios_yOtros = null, string[] catLibro = null, string catNuevoAntiguo = "",
+                                      string grupo1 = "Grupo 1", string grupo2 = "Grupo 2", int time2Answer = 20, 
+                                      int numRounds = 1, string difficulty = "Todas", string queryPorDificultad = "")
         {
             this.difficulty = difficulty;
+            this.queryPorDificultad = queryPorDificultad;
             this.catEvangelios_yOtros = catEvangelios_yOtros;
             this.catLibro = catLibro;
             this.catNuevoAntiguo = catNuevoAntiguo;
-            this.player1 = player1;
-            this.player2 = player2;
+            this.grupo1 = grupo1;
+            this.grupo2 = grupo2;
             this.numRounds = numRounds;
             this.time2Answer = time2Answer;
             InitializeComponent();
@@ -30,14 +31,17 @@ namespace capaPresentacion
 
         #region Variables y Objetos
         int timeToIncrease = 15;
-        string player1;
-        string player2;
+        string grupo1;
+        string grupo2;
         int time2Answer;
         SoundPlayer sonido;
-        int?[] noRepetir;
-        int?[] noRepetir_PorDificultad; // para que no se repitan cuando se eligen solo x dificultad
-        E_focusedBible[] lista_porDificultad; // Para almacenar la lista completa y asi evitar que se repitan
+        int?[] noRepetir_PorDificultadyCategoria; // para que no se repitan cuando se eligen solo x dificultad
+        E_focusedBible[] lista_porDificultadYCategoria; // Para almacenar la lista completa y asi evitar que se repitan
+        DataTable listarTodasLasPreguntas; // Para almacenar todas las preguntas
         int numeroPrueba;
+        int codPregNoRepetir;
+        int retry;
+        int reintentos = 50;
         int click50_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
         int click50_2 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
         int clickPassage_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el Passage_1
@@ -56,9 +60,13 @@ namespace capaPresentacion
         int round = 1;
         int numRounds;
         string difficulty;
-        string catEvangelios_yOtros;
-        string catLibro;
-        string catNuevoAntiguo;
+        public string queryPorDificultad = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
+                                             "INNER JOIN " +
+                                             "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
+                                             "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+        public string[] catEvangelios_yOtros = new string[10];
+        public string[] catLibro = new string[66];
+        public string catNuevoAntiguo;
         string banner;
         int wins_01 = 0;
         int wins_02 = 0;
@@ -89,11 +97,11 @@ namespace capaPresentacion
             lab_Rounds_Left.Text = round + "/" + numRounds;
             lab_Rounds_Right.Text = round + "/" + numRounds;
             lab_Difficulty.Text = difficulty;
-            lab_Categoria.Text = catEvangelios_yOtros;
+            lab_Categoria.Text = catEvangelios_yOtros[0];
             lab_LifesNum.Text = Convert.ToString(lifes_1);
             lab_LifesNum2.Text = Convert.ToString(lifes_2);
-            lab_Player1.Text = player1;
-            lab_Player2.Text = player2;
+            lab_Player1.Text = grupo1;
+            lab_Player2.Text = grupo2;
             countDownTimer2 = time2Answer;
             Timer_2Answer.Start();
             banner = "Round" + round;
@@ -102,24 +110,23 @@ namespace capaPresentacion
             objEntidad.catEvangelios_yOtros = catEvangelios_yOtros;
             objEntidad.catLibro = catLibro;
             objEntidad.catNuevoAntiguo = catNuevoAntiguo;
-            noRepetir = new int?[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
-            noRepetir_PorDificultad = new int?[objNego.N_NumFilas_PorDificultad(objEntidad)]; // el valor devuelto es tamaño del numero de filas
-            lista_porDificultad = new E_focusedBible[objNego.N_NumFilas_PorDificultad(objEntidad)];
-            Llenar_listaPorDificultad(objEntidad);
+            objEntidad.QueryListarPreguntas = queryPorDificultad; // almacenar la consulta para listar las preguntas
+            noRepetir_PorDificultadyCategoria = new int?[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)]; // el valor devuelto es tamaño del numero de filas
+            lista_porDificultadYCategoria = new E_focusedBible[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)];
+            Llenar_listaPorDificultadYCategoria(objEntidad);
             listarFocusedBible(objEntidad);
             focoRbtn();
             bloquear_Btn_Submit();
         }
-
-        void Llenar_listaPorDificultad(E_focusedBible dificultad)
+        
+        void Llenar_listaPorDificultadYCategoria(E_focusedBible dificultad)
         {
-            DataTable dt2 = objNego.N_listadoPor_Dificultad(dificultad);
+            DataTable dt2 = objNego.N_listadoPor_DificultadYCategoria(dificultad);
 
             // llena todos los atributos de cada objeto del arreglo, creando así una copia de la tabla
-            for (int i = 0; i < noRepetir_PorDificultad.Length; i++)
+            for (int i = 0; i < noRepetir_PorDificultadyCategoria.Length; i++)
             {
                 dificultad = new E_focusedBible(); // para que se cree un nuevo objeto para cada posición
-
                 dificultad.codPreg = Convert.ToInt32(dt2.Rows[i]["codPreg"].ToString());
                 dificultad.preg = dt2.Rows[i]["preg"].ToString();
                 dificultad.a = dt2.Rows[i]["a"].ToString();
@@ -128,117 +135,56 @@ namespace capaPresentacion
                 dificultad.d = dt2.Rows[i]["d"].ToString();
                 dificultad.resp = Convert.ToChar(dt2.Rows[i]["resp"].ToString());
                 dificultad.pasage = dt2.Rows[i]["pasage"].ToString();
-                dificultad.dificultad = dt2.Rows[i]["dificultad"].ToString();
 
-                lista_porDificultad[i] = dificultad;
+                lista_porDificultadYCategoria[i] = dificultad;
             }
         }
         void listarFocusedBible(E_focusedBible preg)
         {
-            if (difficulty == "Todas")
-            {
-                randomQuestions();
+                randomQuestions_PorDificultadyCategoría();
+                perder_Ganar();
 
-                DataTable dt = objNego.N_listado(preg);
-
-                if (dt.Rows.Count > 0)
-                {
-                    lab_Pregunta.Text = Convert.ToString(enumerate) + ". " + dt.Rows[0]["preg"].ToString();
-                    rbtn_a.Text = "a)   " + dt.Rows[0]["a"].ToString();
-                    rbtn_b.Text = "b)   " + dt.Rows[0]["b"].ToString();
-                    rbtn_c.Text = "c)   " + dt.Rows[0]["c"].ToString();
-                    rbtn_d.Text = "d)   " + dt.Rows[0]["d"].ToString();
-                    preg.resp = Convert.ToChar(dt.Rows[0]["resp"].ToString());
-                    passage = dt.Rows[0]["pasage"].ToString();
-                }
-            }
-            else
-            {
-                randomQuestions_PorDificultad();
-
-                lab_Pregunta.Text = Convert.ToString(enumerate) + ". " + lista_porDificultad[numeroPrueba].preg;
-                rbtn_a.Text = "a)   " + lista_porDificultad[numeroPrueba].a;
-                rbtn_b.Text = "b)   " + lista_porDificultad[numeroPrueba].b;
-                rbtn_c.Text = "c)   " + lista_porDificultad[numeroPrueba].c;
-                rbtn_d.Text = "d)   " + lista_porDificultad[numeroPrueba].d;
-                preg.resp = lista_porDificultad[numeroPrueba].resp;
-                passage = lista_porDificultad[numeroPrueba].pasage;
-            }
+                lab_Pregunta.Text = Convert.ToString(enumerate) + ". " + lista_porDificultadYCategoria[numeroPrueba].preg;
+                rbtn_a.Text = "a)   " + lista_porDificultadYCategoria[numeroPrueba].a;
+                rbtn_b.Text = "b)   " + lista_porDificultadYCategoria[numeroPrueba].b;
+                rbtn_c.Text = "c)   " + lista_porDificultadYCategoria[numeroPrueba].c;
+                rbtn_d.Text = "d)   " + lista_porDificultadYCategoria[numeroPrueba].d;
+                preg.resp = lista_porDificultadYCategoria[numeroPrueba].resp;
+                passage = lista_porDificultadYCategoria[numeroPrueba].pasage;
+            
 
             blockPassage(); //si no existe pasage de referencia, se bloquea este comodin
             enumerate++;
         }
 
-        void randomQuestions()
-        {
-            Random random = new Random();
 
-            if (countUp == noRepetir.Length)  // si se acaban las preguntas, se acaba el juego
-            {
-                DialogResult respuesta = MessageBox.Show("The Game has Finished!\nDo you want to Play Again!", "Game Over", MessageBoxButtons.YesNo);
-                if (respuesta == DialogResult.Yes)
-                {
-                    restart = true;
-                    reset_PlayAgain();
-                    Banner.Hide();
-                }
-                else
-                {
-                    Application.Exit();
-                }
-            }
-
-            while (true)
-            {
-                // numeros aleatorios desde el 1 hasta el tamaño del arreglo
-                numeroPrueba = random.Next(1, noRepetir.Length + 1);
-                // si existe el código dentro del arreglo se agrega al arreglo, si no existe se crea el random
-                if (Array.Exists(noRepetir, codPreg => codPreg == numeroPrueba))
-                {
-                    if (countUp == noRepetir.Length)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-                else //si el código no eiste en el arreglo
-                {
-                    noRepetir[i] = numeroPrueba; //agregar código al arreglo para que nunca se repitan
-                    objEntidad.codPreg = numeroPrueba; // numeros aleatorios del 1 al numero de filas
-                    i++;
-                    countUp++;
-                    break;
-                }
-            }
-        }
-        void randomQuestions_PorDificultad()
+        void randomQuestions_PorDificultadyCategoría()
         {
             Random random2 = new Random();
-
+            retry = 0;
             perder_Ganar();
 
             while (true)
             {
                 // numeros aleatorios desde el 1 hasta el tamaño del arreglo
-                numeroPrueba = random2.Next(0, noRepetir_PorDificultad.Length);
+                numeroPrueba = random2.Next(0, noRepetir_PorDificultadyCategoria.Length);
+                codPregNoRepetir = lista_porDificultadYCategoria[numeroPrueba].codPreg;
                 // si existe el código dentro del arreglo se agrega al arreglo, si no existe se crea el random
-                if (Array.Exists(noRepetir_PorDificultad, codPreg => codPreg == numeroPrueba))
+                if (Array.Exists(noRepetir_PorDificultadyCategoria, codPreg => codPreg == codPregNoRepetir))
                 {
-                    if (countUp == noRepetir_PorDificultad.Length)
+                    if (countUp == noRepetir_PorDificultadyCategoria.Length || retry > reintentos)
                     {
                         break;
                     }
                     else
                     {
+                        retry++; // para detener si ya se acabaron las preguntas
                         continue;
                     }
                 }
                 else //si el código no eiste en el arreglo
                 {
-                    noRepetir_PorDificultad[i] = numeroPrueba; //agregar código al arreglo para que nunca se repitan
+                    noRepetir_PorDificultadyCategoria[i] = codPregNoRepetir; //agregar código al arreglo para que nunca se repitan
 
                     // un numeros aleatorios del 1 al numero de filas se almacena como indice
                     //lista_porDificultad[numeroPrueba];
@@ -248,6 +194,7 @@ namespace capaPresentacion
                     break;
                 }
             }
+
         }
         
         private void btn_Submit_Click(object sender, EventArgs e)
@@ -360,7 +307,7 @@ namespace capaPresentacion
         }
         void StartAgan()
         {
-            if ((round == numRounds && banner != "Round " + round) || ((countUp == noRepetir_PorDificultad.Length) && (difficulty != "Todas"))) // significa que el juego ha terminado
+            if ((round == numRounds && banner != "Round " + round) || ((countUp == noRepetir_PorDificultadyCategoria.Length) && (difficulty != "Todas"))) // significa que el juego ha terminado
             {
                 Timer_2Answer.Stop();
                 sonido.Stop();
@@ -384,7 +331,7 @@ namespace capaPresentacion
         void perder_Ganar()
         {
             //condicion para perder
-            if (lifes_1 == 0 || lifes_2 == 0 || ((countUp == noRepetir_PorDificultad.Length) && (difficulty != "Todas")))
+            if (lifes_1 == 0 || lifes_2 == 0 || ((countUp == noRepetir_PorDificultadyCategoria.Length) && (difficulty != "Todas")) || retry > reintentos)
             {
                 Timer_2Answer.Stop(); //detener conteo
                 reproducirSonido("game-over.wav", false);
@@ -407,7 +354,7 @@ namespace capaPresentacion
                     }
                 }
                 else
-                    if (((countUp == noRepetir_PorDificultad.Length) && (difficulty != "Todas"))) // si se acaban las preguntas, se acaba el juego
+                    if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (difficulty != "Todas"))) // si se acaban las preguntas, se acaba el juego
                 {
                     Thread.Sleep(1500);
 
@@ -480,8 +427,7 @@ namespace capaPresentacion
                 lab_Wins_P1.Text = Convert.ToString(wins_01);
                 lab_Wins_P2.Text = Convert.ToString(wins_02);
 
-                Array.Clear(noRepetir, 0, noRepetir.Length); // vaciar arreglo
-                Array.Clear(noRepetir_PorDificultad, 0, noRepetir_PorDificultad.Length); // vaciar arreglo
+                Array.Clear(noRepetir_PorDificultadyCategoria, 0, noRepetir_PorDificultadyCategoria.Length); // vaciar arreglo
             }
 
             lifes_1 = 3;
@@ -633,7 +579,7 @@ namespace capaPresentacion
                 lab_Anuncios.ForeColor = Color.Brown;
                 lab_Anuncios.Text = "Wrong Answer";
 
-                if (countUp != noRepetir_PorDificultad.Length)
+                if (countUp != noRepetir_PorDificultadyCategoria.Length)
                 {
                     cambioDeTurno(turno, false);
                 }
@@ -646,7 +592,7 @@ namespace capaPresentacion
                 lab_Anuncios.ForeColor = Color.FromArgb(228, 161, 24);
                 lab_Anuncios.Text = "Correct Answer";
 
-                if (countUp != noRepetir_PorDificultad.Length)
+                if (countUp != noRepetir_PorDificultadyCategoria.Length)
                 {
                     cambioDeTurno(turno, true);
                 }
@@ -979,7 +925,7 @@ namespace capaPresentacion
                 {
                 }
                 else
-                    if (((countUp == noRepetir_PorDificultad.Length) && (difficulty != "Todas")))
+                    if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (difficulty != "Todas")))
                 {
                     perder_Ganar();
                 }

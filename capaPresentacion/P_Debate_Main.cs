@@ -17,13 +17,13 @@ namespace capaPresentacion
 {
     public partial class P_Debate_Main : Form
     {
-        public P_Debate_Main(int numRounds = 1, int time2Answer = 20,
-                             string difficulty = "All", string catEvangelios_yOtros = "Todas",
-                             string catLibro = "", string catNuevoAntiguo = "")
+        public P_Debate_Main(string[] catEvangelios_yOtros = null, string[] catLibro = null, string catNuevoAntiguo = "",
+            int numRounds = 1, int time2Answer = 20, string difficulty = "Todas", string queryPorDificultad = "")
         {
             this.numRounds = numRounds;
             this.time2Answer = time2Answer;
             this.difficulty = difficulty;
+            this.queryPorDificultad = queryPorDificultad;
             this.catEvangelios_yOtros = catEvangelios_yOtros;
             this.catLibro = catLibro;
             this.catNuevoAntiguo = catNuevoAntiguo;
@@ -33,15 +33,18 @@ namespace capaPresentacion
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
-        P_GameSettings GameSettings = new P_GameSettings();
+        P_GameSettings GameSettings;
         D_Login login = new D_Login();
         P_focusedBible_Debate PfocusedB;
         P_Main PMain;
         string g1_Name;
         string g2_Name;
-        public string difficulty;
-        public string catEvangelios_yOtros;
-        public string catLibro;
+        public string difficulty; public string queryPorDificultad = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
+                                              "INNER JOIN " +
+                                              "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
+                                              "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+        public string[] catEvangelios_yOtros = new string[10];
+        public string[] catLibro = new string[66];
         public string catNuevoAntiguo;
         public int numRounds;
         public int time2Answer;
@@ -59,7 +62,7 @@ namespace capaPresentacion
                 existe.Close();
             }
 
-            PfocusedB = new P_focusedBible_Debate(g1_Name, g2_Name, time2Answer, numRounds, difficulty, catEvangelios_yOtros, catLibro, catNuevoAntiguo);
+            PfocusedB = new P_focusedBible_Debate(catEvangelios_yOtros, catLibro, catNuevoAntiguo, g1_Name, g2_Name, time2Answer, numRounds, difficulty, queryPorDificultad);
             this.Close();
             PfocusedB.Show();
         }
@@ -128,6 +131,7 @@ namespace capaPresentacion
 
             PMain.numRounds = numRounds;
             PMain.difficulty = difficulty;
+            PMain.queryPorDificultad = queryPorDificultad;
             PMain.catEvangelios_yOtros = catEvangelios_yOtros;
             PMain.catLibro = catLibro;
             PMain.catNuevoAntiguo = catNuevoAntiguo;
@@ -147,13 +151,6 @@ namespace capaPresentacion
         {
             tbx_Grupo2.SelectAll();
         }
-
-        private void P_Debate_Main_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-
 
 
         private void btn_goToMain_KeyPress(object sender, KeyPressEventArgs e)
@@ -246,7 +243,7 @@ namespace capaPresentacion
                 GC.Collect();
             }
 
-            GameSettings = new P_GameSettings(g1_Name, g2_Name, numRounds, time2Answer, difficulty, catEvangelios_yOtros, catLibro, catNuevoAntiguo);
+            GameSettings = new P_GameSettings(catEvangelios_yOtros, catLibro, catNuevoAntiguo, g1_Name, g2_Name, numRounds, time2Answer, difficulty);
             existe2.Hide();
             //this.Hide();
             GameSettings.Show();

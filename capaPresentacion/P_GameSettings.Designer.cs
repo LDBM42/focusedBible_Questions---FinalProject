@@ -492,7 +492,6 @@
             "Antiguo Testamento"});
             this.lbx_catNuevoAntiguo.Location = new System.Drawing.Point(441, 3);
             this.lbx_catNuevoAntiguo.Name = "lbx_catNuevoAntiguo";
-            this.lbx_catNuevoAntiguo.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbx_catNuevoAntiguo.Size = new System.Drawing.Size(214, 46);
             this.lbx_catNuevoAntiguo.TabIndex = 2;
             this.lbx_catNuevoAntiguo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lbx_catNuevoAntiguo_KeyPress);
@@ -601,12 +600,14 @@
             "proféticos menores",
             "Epístolas paulinas",
             "Epístolas generales",
-            "Profecías"});
+            "Profecías",
+            "Otros"});
             this.lbx_catEvangelios_yOtros.Location = new System.Drawing.Point(3, 3);
             this.lbx_catEvangelios_yOtros.Name = "lbx_catEvangelios_yOtros";
             this.lbx_catEvangelios_yOtros.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbx_catEvangelios_yOtros.Size = new System.Drawing.Size(213, 46);
             this.lbx_catEvangelios_yOtros.TabIndex = 0;
+            this.lbx_catEvangelios_yOtros.SelectedIndexChanged += new System.EventHandler(this.lbx_catEvangelios_yOtros_SelectedIndexChanged);
             this.lbx_catEvangelios_yOtros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lbx_catEvangelios_yOtros_KeyPress);
             // 
             // tableLayoutPanel2
