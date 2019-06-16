@@ -51,8 +51,8 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.lab_Player2 = new System.Windows.Forms.Label();
-            this.lab_Player1 = new System.Windows.Forms.Label();
+            this.lab_Group2 = new System.Windows.Forms.Label();
+            this.lab_Group1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -120,7 +120,7 @@
             this.lab_Pregunta.BackColor = System.Drawing.Color.Transparent;
             this.lab_Pregunta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Pregunta.Font = new System.Drawing.Font("Rockwell", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_Pregunta.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Pregunta.ForeColor = System.Drawing.Color.Black;
             this.lab_Pregunta.Location = new System.Drawing.Point(130, 0);
             this.lab_Pregunta.Margin = new System.Windows.Forms.Padding(0);
             this.lab_Pregunta.Name = "lab_Pregunta";
@@ -203,7 +203,7 @@
             // 
             // btn_Submit
             // 
-            this.btn_Submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_Submit.BackColor = System.Drawing.Color.DimGray;
             this.btn_Submit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Submit.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
@@ -290,7 +290,7 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -308,6 +308,7 @@
             // 
             // tableLayoutPanel7
             // 
+            this.tableLayoutPanel7.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel7.ColumnCount = 5;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
@@ -329,7 +330,7 @@
             // 
             // btn_goToMain
             // 
-            this.btn_goToMain.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_goToMain.BackColor = System.Drawing.Color.White;
             this.btn_goToMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_goToMain.FlatAppearance.BorderSize = 0;
             this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -435,8 +436,8 @@
             this.tableLayoutPanel8.ColumnCount = 2;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.lab_Player2, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.lab_Player1, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.lab_Group2, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.lab_Group1, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(431, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -445,29 +446,29 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(422, 61);
             this.tableLayoutPanel8.TabIndex = 5;
             // 
-            // lab_Player2
+            // lab_Group2
             // 
-            this.lab_Player2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_Player2.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.lab_Player2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lab_Player2.Location = new System.Drawing.Point(214, 0);
-            this.lab_Player2.Name = "lab_Player2";
-            this.lab_Player2.Size = new System.Drawing.Size(205, 61);
-            this.lab_Player2.TabIndex = 13;
-            this.lab_Player2.Text = "Player Two";
-            this.lab_Player2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lab_Group2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Group2.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.lab_Group2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.lab_Group2.Location = new System.Drawing.Point(214, 0);
+            this.lab_Group2.Name = "lab_Group2";
+            this.lab_Group2.Size = new System.Drawing.Size(205, 61);
+            this.lab_Group2.TabIndex = 13;
+            this.lab_Group2.Text = "Player Two";
+            this.lab_Group2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lab_Player1
+            // lab_Group1
             // 
-            this.lab_Player1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_Player1.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.lab_Player1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.lab_Player1.Location = new System.Drawing.Point(3, 0);
-            this.lab_Player1.Name = "lab_Player1";
-            this.lab_Player1.Size = new System.Drawing.Size(205, 61);
-            this.lab_Player1.TabIndex = 12;
-            this.lab_Player1.Text = "Player One";
-            this.lab_Player1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lab_Group1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Group1.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.lab_Group1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lab_Group1.Location = new System.Drawing.Point(3, 0);
+            this.lab_Group1.Name = "lab_Group1";
+            this.lab_Group1.Size = new System.Drawing.Size(205, 61);
+            this.lab_Group1.TabIndex = 12;
+            this.lab_Group1.Text = "Player One";
+            this.lab_Group1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel3
             // 
@@ -708,7 +709,7 @@
             this.lab_Categoria.BackColor = System.Drawing.Color.Transparent;
             this.lab_Categoria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Categoria.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.lab_Categoria.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Categoria.ForeColor = System.Drawing.Color.Black;
             this.lab_Categoria.Location = new System.Drawing.Point(3, 53);
             this.lab_Categoria.Name = "lab_Categoria";
             this.lab_Categoria.Size = new System.Drawing.Size(178, 54);
@@ -732,7 +733,7 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Brown;
+            this.btn_Exit.BackColor = System.Drawing.Color.Black;
             this.btn_Exit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Exit.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
@@ -767,7 +768,7 @@
             this.lab_Difficulty.BackColor = System.Drawing.Color.Transparent;
             this.lab_Difficulty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Difficulty.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.lab_Difficulty.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Difficulty.ForeColor = System.Drawing.Color.Black;
             this.lab_Difficulty.Location = new System.Drawing.Point(3, 53);
             this.lab_Difficulty.Name = "lab_Difficulty";
             this.lab_Difficulty.Size = new System.Drawing.Size(177, 54);
@@ -791,7 +792,7 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
@@ -827,6 +828,7 @@
             // lab_Anuncios
             // 
             this.lab_Anuncios.AutoSize = true;
+            this.lab_Anuncios.BackColor = System.Drawing.Color.White;
             this.lab_Anuncios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Anuncios.Font = new System.Drawing.Font("Rockwell", 35F);
             this.lab_Anuncios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
@@ -862,7 +864,7 @@
             // 
             // tableLayoutPanel15
             // 
-            this.tableLayoutPanel15.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel15.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel15.ColumnCount = 1;
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -875,7 +877,7 @@
             // 
             // tlyo_Wins_P2
             // 
-            this.tlyo_Wins_P2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tlyo_Wins_P2.BackColor = System.Drawing.Color.White;
             this.tlyo_Wins_P2.ColumnCount = 1;
             this.tlyo_Wins_P2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlyo_Wins_P2.Controls.Add(this.label3, 0, 0);
@@ -897,7 +899,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Rockwell", 20F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
@@ -911,10 +913,10 @@
             // lab_Wins_P2
             // 
             this.lab_Wins_P2.AutoSize = true;
-            this.lab_Wins_P2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lab_Wins_P2.BackColor = System.Drawing.Color.White;
             this.lab_Wins_P2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Wins_P2.Font = new System.Drawing.Font("Rockwell", 30F);
-            this.lab_Wins_P2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lab_Wins_P2.ForeColor = System.Drawing.Color.Black;
             this.lab_Wins_P2.Location = new System.Drawing.Point(3, 41);
             this.lab_Wins_P2.Name = "lab_Wins_P2";
             this.lab_Wins_P2.Size = new System.Drawing.Size(92, 41);
@@ -925,7 +927,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Rockwell", 20F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
@@ -939,10 +941,10 @@
             // lab_Rounds_Right
             // 
             this.lab_Rounds_Right.AutoSize = true;
-            this.lab_Rounds_Right.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lab_Rounds_Right.BackColor = System.Drawing.Color.White;
             this.lab_Rounds_Right.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Rounds_Right.Font = new System.Drawing.Font("Rockwell", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_Rounds_Right.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Rounds_Right.ForeColor = System.Drawing.Color.Black;
             this.lab_Rounds_Right.Location = new System.Drawing.Point(3, 123);
             this.lab_Rounds_Right.Name = "lab_Rounds_Right";
             this.lab_Rounds_Right.Size = new System.Drawing.Size(92, 41);
@@ -952,7 +954,7 @@
             // 
             // tlyo_Wins_P1
             // 
-            this.tlyo_Wins_P1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tlyo_Wins_P1.BackColor = System.Drawing.Color.White;
             this.tlyo_Wins_P1.ColumnCount = 1;
             this.tlyo_Wins_P1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlyo_Wins_P1.Controls.Add(this.lab_Rounds_Left, 0, 3);
@@ -974,10 +976,10 @@
             // lab_Rounds_Left
             // 
             this.lab_Rounds_Left.AutoSize = true;
-            this.lab_Rounds_Left.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lab_Rounds_Left.BackColor = System.Drawing.Color.White;
             this.lab_Rounds_Left.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Rounds_Left.Font = new System.Drawing.Font("Rockwell", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_Rounds_Left.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Rounds_Left.ForeColor = System.Drawing.Color.Black;
             this.lab_Rounds_Left.Location = new System.Drawing.Point(3, 123);
             this.lab_Rounds_Left.Name = "lab_Rounds_Left";
             this.lab_Rounds_Left.Size = new System.Drawing.Size(92, 41);
@@ -988,7 +990,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Rockwell", 20F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
@@ -1002,7 +1004,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Rockwell", 20F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
@@ -1016,10 +1018,10 @@
             // lab_Wins_P1
             // 
             this.lab_Wins_P1.AutoSize = true;
-            this.lab_Wins_P1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lab_Wins_P1.BackColor = System.Drawing.Color.White;
             this.lab_Wins_P1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Wins_P1.Font = new System.Drawing.Font("Rockwell", 30F);
-            this.lab_Wins_P1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lab_Wins_P1.ForeColor = System.Drawing.Color.Black;
             this.lab_Wins_P1.Location = new System.Drawing.Point(3, 41);
             this.lab_Wins_P1.Name = "lab_Wins_P1";
             this.lab_Wins_P1.Size = new System.Drawing.Size(92, 41);
@@ -1029,7 +1031,7 @@
             // 
             // tableLayoutPanel14
             // 
-            this.tableLayoutPanel14.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel14.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.ColumnCount = 1;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1121,8 +1123,8 @@
         private System.Windows.Forms.Label lab_Score2;
         private System.Windows.Forms.Label lab_Lifes2;
         private System.Windows.Forms.Label lab_LifesNum2;
-        public System.Windows.Forms.Label lab_Player2;
-        public System.Windows.Forms.Label lab_Player1;
+        public System.Windows.Forms.Label lab_Group2;
+        public System.Windows.Forms.Label lab_Group1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tlyo_Respuestas;

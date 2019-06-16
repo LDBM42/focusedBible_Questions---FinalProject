@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 
+using capaEntidad;
+
 namespace capaPresentacion
 {
     static class Program
@@ -23,7 +25,9 @@ namespace capaPresentacion
             //
             if (splash.DialogResult == DialogResult.OK)
             {
-                P_Main main = new P_Main();
+                E_focusedBible objEntidad = new E_focusedBible();
+
+                P_Main main = new P_Main(objEntidad);
                 main.Show();
                 Application.Run();
             }

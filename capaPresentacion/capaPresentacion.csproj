@@ -82,6 +82,11 @@
     <Compile Include="Banners.Designer.cs">
       <DependentUpon>Banners.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="P_focusedBible_Debate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +122,6 @@
     </Compile>
     <Compile Include="P_Login.Designer.cs">
       <DependentUpon>P_Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="P_SeleccionCategoria.cs" />
     <Compile Include="P_Splash.cs">
@@ -229,10 +229,11 @@
     <None Include="Resources\minimize_gray.png" />
     <None Include="Resources\close_gray1.png" />
     <None Include="Resources\minimize_gray1.png" />
-    <None Include="Resources\logout.png" />
     <None Include="Resources\Administrador.png" />
     <None Include="Resources\go2Main.png" />
     <None Include="Resources\close_gray2.png" />
+    <None Include="Resources\Focused-bible-landing-01-Con-Elementos.bmp" />
+    <None Include="Resources\Focused-bible-landing-01-Fondo.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

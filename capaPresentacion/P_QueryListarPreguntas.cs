@@ -300,14 +300,14 @@ namespace capaPresentacion
 
                 if (difficulty != "Todas")
                 {
-                    Query = string.Format("{0} AND dificultad ='{1}'", Query, difficulty);
+                    Query += string.Format(" AND dificultad ='{0}'", difficulty);
                 }
             }
 
 
             if (lbx_categoria.Text == "Todas" && difficulty != "Todas")
             {
-                Query = string.Format("where dificultad ='{0}'", difficulty);
+                Query += string.Format("where dificultad ='{0}'", difficulty);
             }
 
             return Query;

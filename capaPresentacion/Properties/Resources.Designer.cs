@@ -153,6 +153,26 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_landing_01_Con_Elementos3 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-landing-01-Con-Elementos3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_landing_01_Fondo {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_landing_01_Fondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap focusedBible_Questions {
             get {
                 object obj = ResourceManager.GetObject("focusedBible_Questions", resourceCulture);
@@ -176,16 +196,6 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap how2Play {
             get {
                 object obj = ResourceManager.GetObject("how2Play", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logout {
-            get {
-                object obj = ResourceManager.GetObject("logout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

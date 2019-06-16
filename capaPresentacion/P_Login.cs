@@ -15,11 +15,13 @@ namespace capaPresentacion
         {             
             InitializeComponent();
         }
+
         int countDownTimer;
         public int reOpened;
         int x = 525, xP = 368;
         P_Main PMain;
         D_Login login = new D_Login();
+        E_focusedBible objEntidad = new E_focusedBible();
 
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -136,7 +138,7 @@ namespace capaPresentacion
                 existe.Close(); // cerrar ventana principal
             }
 
-            P_Main PMain = new P_Main();
+            P_Main PMain = new P_Main(objEntidad);
             this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
 
 

@@ -16,32 +16,64 @@ namespace capaPresentacion
 {
     public partial class P_Main : Form
     {
-        public P_Main()
+        public P_Main(E_focusedBible Configuracion)
         {
+            if (Configuracion.catEvangelios_yOtros != null)
+            {
+                objEntidad = Configuracion;
+            }
+            else // entra aquí si es la primera vez que se entra al Main
+            {
+                /***INICIALIZANDO TODO***/
+
+                // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
+                objEntidad.catEvangelios_yOtros = new string[10];
+                objEntidad.catLibro = new string[66];
+
+                objEntidad.difficulty = "Todas";
+                // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
+                objEntidad.queryListarPreguntas = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
+                                                "INNER JOIN " +
+                                                "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
+                                                "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+                objEntidad.numRounds = 1;
+                objEntidad.time2Answer = 20;
+                objEntidad.opportunities = 3;
+                objEntidad.group1 = "Grupo 1";
+                objEntidad.group2 = "Grupo 2";
+
+                objEntidad.questions2Answer = "Todas";
+                objEntidad.rebound = false;
+            }
+
             InitializeComponent();
         }
 
 
         HowToPlay howToPlay;
-        P_GameSettings GameSettings = new P_GameSettings();
+        P_GameSettings GameSettings;
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
-        public string difficulty = "Todas";
-        public string queryPorDificultad = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
-                                            "INNER JOIN " +
-                                            "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
-                                            "OR Categoria.catID = preguntas.catNuevoAntiguo ";
-        public string[] catEvangelios_yOtros = new string[10];
-        public string[] catLibro = new string[66];
-        public string catNuevoAntiguo = "";
-        public int numRounds = 1;
-        public int time2Answer = 20;
+
 
 
         private void Main_Load(object sender, EventArgs e)
         {
+            //Evita el Buffer lag al cargar la imagen de fondo
+            SetDoubleBuffered(tableLayoutPanel1);
+            SetDoubleBuffered(tableLayoutPanel2);
+            SetDoubleBuffered(tableLayoutPanel3);
+            SetDoubleBuffered(tableLayoutPanel4);
+            SetDoubleBuffered(tableLayoutPanel5);
+            SetDoubleBuffered(tableLayoutPanel12);
+            SetDoubleBuffered(tableLayoutPanel13);
+            SetDoubleBuffered(tableLayoutPanel14);
+
+            this.BackgroundImage = Properties.Resources.Focused_bible_landing_01_Fondo;
+            BackgroundImageLayout = ImageLayout.Stretch;
+
 
             lab_User.Text = "User: " + E_Usuario.Nombreusuario;
             if (lab_User.Text != "User: ")
@@ -71,6 +103,36 @@ namespace capaPresentacion
 
         }
 
+
+        // Las siguentes dos funciones son para
+        //evitar los problemas de Buffer por tener layouts transparentes
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(Control c)
+        {
+            if (SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        #endregion
+        
+
+
+
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
         {
             Btn_Settings.Image = Properties.Resources.Settings_MouseUp;
@@ -97,7 +159,7 @@ namespace capaPresentacion
         private void btn_debate_Click(object sender, EventArgs e)
         {
             this.Hide();
-            P_Debate_Main debateMain = new P_Debate_Main(catEvangelios_yOtros, catLibro, catNuevoAntiguo, numRounds, time2Answer, difficulty, queryPorDificultad);
+            P_Debate_Main debateMain = new P_Debate_Main(objEntidad);
             debateMain.ShowDialog();
         }
 
@@ -124,7 +186,7 @@ namespace capaPresentacion
                 GC.Collect();
             }
 
-            GameSettings = new P_GameSettings(catEvangelios_yOtros, catLibro, catNuevoAntiguo, "Grupo 1", "Grupo 2", numRounds, time2Answer, difficulty);
+            GameSettings = new P_GameSettings(objEntidad);
             GameSettings.Show();
         }
 

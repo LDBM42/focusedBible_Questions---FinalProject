@@ -37,27 +37,27 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_goToMain = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_goToMain = new System.Windows.Forms.Button();
             this.Btn_Settings = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Pxb_Logo = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_IniciarDebate
             // 
-            this.btn_IniciarDebate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_IniciarDebate.BackColor = System.Drawing.Color.Black;
             this.btn_IniciarDebate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_IniciarDebate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_IniciarDebate.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
@@ -181,6 +181,24 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(313, 178);
             this.tableLayoutPanel12.TabIndex = 15;
             // 
+            // btn_goToMain
+            // 
+            this.btn_goToMain.BackColor = System.Drawing.Color.White;
+            this.btn_goToMain.FlatAppearance.BorderSize = 0;
+            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_goToMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_goToMain.Image = global::capaPresentacion.Properties.Resources.go2Main;
+            this.btn_goToMain.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_goToMain.Location = new System.Drawing.Point(252, 43);
+            this.btn_goToMain.Name = "btn_goToMain";
+            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_goToMain.Size = new System.Drawing.Size(58, 74);
+            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.UseVisualStyleBackColor = false;
+            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
+            this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -217,6 +235,20 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(312, 178);
             this.tableLayoutPanel5.TabIndex = 17;
             // 
+            // Btn_Settings
+            // 
+            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Settings;
+            this.Btn_Settings.Location = new System.Drawing.Point(3, 43);
+            this.Btn_Settings.Name = "Btn_Settings";
+            this.Btn_Settings.Size = new System.Drawing.Size(56, 74);
+            this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Settings.TabIndex = 1;
+            this.Btn_Settings.TabStop = false;
+            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
+            this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_SettingsBtn_goToMain_MouseEnter);
+            this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_SettingsBtn_goToMain_MouseLeave);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -237,6 +269,18 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(424, 729);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // Pxb_Logo
+            // 
+            this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
+            this.Pxb_Logo.Location = new System.Drawing.Point(3, 4);
+            this.Pxb_Logo.Name = "Pxb_Logo";
+            this.Pxb_Logo.Size = new System.Drawing.Size(418, 175);
+            this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pxb_Logo.TabIndex = 12;
+            this.Pxb_Logo.TabStop = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbx_Grupo2);
@@ -250,50 +294,6 @@
             this.groupBox1.Size = new System.Drawing.Size(418, 212);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            // 
-            // btn_goToMain
-            // 
-            this.btn_goToMain.BackColor = System.Drawing.Color.White;
-            this.btn_goToMain.FlatAppearance.BorderSize = 0;
-            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_goToMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.btn_goToMain.Image = global::capaPresentacion.Properties.Resources.go2Main;
-            this.btn_goToMain.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_goToMain.Location = new System.Drawing.Point(252, 43);
-            this.btn_goToMain.Name = "btn_goToMain";
-            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_goToMain.Size = new System.Drawing.Size(58, 74);
-            this.btn_goToMain.TabIndex = 15;
-            this.btn_goToMain.UseVisualStyleBackColor = false;
-            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
-            this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);
-            // 
-            // Btn_Settings
-            // 
-            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Settings;
-            this.Btn_Settings.Location = new System.Drawing.Point(3, 43);
-            this.Btn_Settings.Name = "Btn_Settings";
-            this.Btn_Settings.Size = new System.Drawing.Size(56, 74);
-            this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Btn_Settings.TabIndex = 1;
-            this.Btn_Settings.TabStop = false;
-            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
-            this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_SettingsBtn_goToMain_MouseEnter);
-            this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_SettingsBtn_goToMain_MouseLeave);
-            // 
-            // Pxb_Logo
-            // 
-            this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
-            this.Pxb_Logo.Location = new System.Drawing.Point(3, 4);
-            this.Pxb_Logo.Name = "Pxb_Logo";
-            this.Pxb_Logo.Size = new System.Drawing.Size(418, 175);
-            this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Pxb_Logo.TabIndex = 12;
-            this.Pxb_Logo.TabStop = false;
             // 
             // P_Debate_Main
             // 
@@ -314,11 +314,11 @@
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.ResumeLayout(false);
 
         }

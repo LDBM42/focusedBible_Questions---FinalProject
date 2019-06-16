@@ -37,7 +37,7 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@d", preg.d);
             cmd.Parameters.AddWithValue("@resp", preg.resp);
             cmd.Parameters.AddWithValue("@pasage", preg.pasage);
-            cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
+            cmd.Parameters.AddWithValue("@dificultad", preg.difficulty);
 
             if (cn.State == ConnectionState.Open) cn.Close();
 
@@ -48,7 +48,7 @@ namespace capaDatos
 
         public int D_NumFilas_PorDificultadYCategoria(E_focusedBible preg)
         {
-            SqlCommand cmd = new SqlCommand(preg.QueryListarPreguntas, cn);
+            SqlCommand cmd = new SqlCommand(preg.queryListarPreguntas, cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -57,7 +57,7 @@ namespace capaDatos
 
         public DataTable D_listadoPor_DificultadYCategoría(E_focusedBible preg)
         {
-            SqlCommand cmd = new SqlCommand(preg.QueryListarPreguntas, cn);
+            SqlCommand cmd = new SqlCommand(preg.queryListarPreguntas, cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

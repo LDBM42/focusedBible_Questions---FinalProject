@@ -17,18 +17,10 @@ namespace capaPresentacion
 {
     public partial class P_GameSettings : Form
     {
-        public P_GameSettings(string[] catEvangelios_yOtros = null, string[] catLibro = null, string catNuevoAntiguo = "", 
-                              string grupo1 = "Grupo 1", string grupo2 = "Grupo 2", int numRounds = 1, 
-                              int time2Answer = 20, string difficulty = "Todas")
+        public P_GameSettings(E_focusedBible Configuracion)
         {
-            this.numRounds = numRounds;
-            this.grupo1 = grupo1;
-            this.grupo2 = grupo2;
-            this.time2Answer = time2Answer;
-            this.difficulty = difficulty;
-            this.catEvangelios_yOtros = catEvangelios_yOtros;
-            this.catLibro = catLibro;
-            this.catNuevoAntiguo = catNuevoAntiguo;
+            objEntidad = Configuracion;
+
             InitializeComponent();
         }
 
@@ -39,24 +31,16 @@ namespace capaPresentacion
         D_Login login = new D_Login();
         P_Debate_Main PDebateMain;
         P_QueryListarPreguntas PQuery;
-
-        string grupo1;
-        string grupo2;
-        public string difficulty;
         public string queryPorDificultad;
-        public string [] catEvangelios_yOtros = new string [10];
-        public string [] catLibro = new string[66];
-        public string catNuevoAntiguo;
-        public int numRounds;
-        public int time2Answer;
+        
         
 
         private void Settings_Load(object sender, EventArgs e)
         {
             //seleccionar elementos previamente seleccionados
-            if (catEvangelios_yOtros[0] != null)
+            if (objEntidad.catEvangelios_yOtros[0] != null)
             {
-                SeleccionCategoria.SeleccionarCategorías(catEvangelios_yOtros, lbx_catEvangelios_yOtros);
+                SeleccionCategoria.SeleccionarCategorías(objEntidad.catEvangelios_yOtros, lbx_catEvangelios_yOtros);
             }
             else
             {
@@ -66,9 +50,9 @@ namespace capaPresentacion
             // try: para evitar que de error al estár todo deseleccionado
             try
             {
-                if (catLibro[0] != null || lbx_catLibro.Visible == true)
+                if (objEntidad.catLibro[0] != null || lbx_catLibro.Visible == true)
                 {
-                    SeleccionCategoria.SeleccionarCategorías(catLibro, lbx_catLibro);
+                    SeleccionCategoria.SeleccionarCategorías(objEntidad.catLibro, lbx_catLibro);
                 }
             }
             catch (Exception)
@@ -76,21 +60,25 @@ namespace capaPresentacion
                 // recuperacion de la exepcion
             }
 
-            lbx_Dificuldad_Setting.Text = difficulty;
-            lbx_catNuevoAntiguo.Text = catNuevoAntiguo;
-            lbx_Rounds.Text = Convert.ToString(numRounds);
-            lbx_time2Answer.Text = Convert.ToString(time2Answer);
-            numRounds = Convert.ToInt32(lbx_Rounds.Text);
-            time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
+            lbx_Dificuldad_Setting.Text = objEntidad.difficulty;
+            lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
+            lbx_preguntas.Text = objEntidad.questions2Answer;
+            lbx_opportunitie.Text = Convert.ToString(objEntidad.opportunities);
+            lbx_Rounds.Text = Convert.ToString(objEntidad.numRounds);
+            lbx_time2Answer.Text = Convert.ToString(objEntidad.time2Answer);
             lab_User.Text = "User: " + E_Usuario.Nombreusuario;
+            cbx_rebote.Checked = objEntidad.rebound;
 
             //Mostrar los elementos seleccionados en los listbox al abrir la ventana
+
             lbx_Rounds.TopIndex = lbx_Rounds.SelectedIndex;
             lbx_time2Answer.TopIndex = lbx_time2Answer.SelectedIndex;
             lbx_Dificuldad_Setting.TopIndex = lbx_Dificuldad_Setting.SelectedIndex;
             lbx_catEvangelios_yOtros.TopIndex = lbx_catEvangelios_yOtros.SelectedIndex;
             lbx_catLibro.TopIndex = lbx_catLibro.SelectedIndex;
             lbx_catNuevoAntiguo.TopIndex = lbx_catNuevoAntiguo.SelectedIndex;
+            lbx_opportunitie.TopIndex = lbx_opportunitie.SelectedIndex;
+            lbx_preguntas.TopIndex = lbx_preguntas.SelectedIndex;
         }
 
         
@@ -275,19 +263,7 @@ namespace capaPresentacion
                     existe.Dispose();
                     GC.Collect();
 
-                    PDebateMain = new P_Debate_Main();
-
-                    PDebateMain.numRounds = numRounds;
-                    PDebateMain.difficulty = difficulty;
-                    PDebateMain.catEvangelios_yOtros = catEvangelios_yOtros;
-                    PDebateMain.catLibro = catLibro;
-                    PDebateMain.catNuevoAntiguo = catNuevoAntiguo;
-                    PDebateMain.time2Answer = time2Answer;
-                    PDebateMain.queryPorDificultad = queryPorDificultad;
-                    
-                    // mostrar los nombres que estan jugando
-                    PDebateMain.tbx_Grupo1.Text = grupo1;
-                    PDebateMain.tbx_Grupo2.Text = grupo2;
+                    PDebateMain = new P_Debate_Main(objEntidad);
 
                     PDebateMain.Show();
                     this.Hide();
@@ -300,16 +276,8 @@ namespace capaPresentacion
                         existe2.Close(); // cerrar ventana principal
                     }
 
-                    P_Main PMain = new P_Main();
+                    P_Main PMain = new P_Main(objEntidad);
                     this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
-
-                    PMain.numRounds = numRounds;
-                    PMain.difficulty = difficulty;
-                    PMain.catEvangelios_yOtros = catEvangelios_yOtros;
-                    PMain.catLibro = catLibro;
-                    PMain.catNuevoAntiguo = catNuevoAntiguo;
-                    PMain.time2Answer = time2Answer;
-                    PMain.queryPorDificultad = queryPorDificultad;
 
                     PMain.Show();
                     this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
@@ -325,13 +293,13 @@ namespace capaPresentacion
 
         public void Change_Settings()
         {
-            difficulty = lbx_Dificuldad_Setting.Text;
-            queryPorDificultad = PQuery.QueryPorCategoriayDificultad(lbx_catEvangelios_yOtros,lbx_catLibro,lbx_catNuevoAntiguo,difficulty);
-            catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros);
-            catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro);
-            catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
-            numRounds = Convert.ToInt32(lbx_Rounds.Text);
-            time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
+            objEntidad.difficulty = lbx_Dificuldad_Setting.Text;
+            objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(lbx_catEvangelios_yOtros,lbx_catLibro,lbx_catNuevoAntiguo, objEntidad.difficulty);
+            objEntidad.catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros);
+            objEntidad.catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro);
+            objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
+            objEntidad.numRounds = Convert.ToInt32(lbx_Rounds.Text);
+            objEntidad.time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -409,6 +377,16 @@ namespace capaPresentacion
                 SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(true, lbx_catNuevoAntiguo);
                 SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(true, lbx_catLibro);
             }
+        }
+
+        private void lbx_opportunitie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objEntidad.opportunities = Convert.ToInt32(lbx_opportunitie.Text);
+        }
+
+        private void lbx_preguntas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objEntidad.questions2Answer = lbx_preguntas.Text;
         }
     }
 }

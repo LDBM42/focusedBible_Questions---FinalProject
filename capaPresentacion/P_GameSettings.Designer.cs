@@ -36,8 +36,13 @@
             this.lab_User = new System.Windows.Forms.Label();
             this.Pxb_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlyo_Settings = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.tlyo_Settings = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbx_preguntas = new System.Windows.Forms.ListBox();
+            this.lbx_opportunitie = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbx_rebote = new System.Windows.Forms.CheckBox();
             this.gbx_Settings = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -153,6 +158,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.Controls.Add(this.label3, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.tlyo_Settings, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.gbx_Settings, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 1, 3);
@@ -167,14 +173,35 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(938, 729);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(96, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(747, 94);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Game Settings";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tlyo_Settings
             // 
-            this.tlyo_Settings.ColumnCount = 3;
-            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545455F));
-            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.90909F));
-            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545455F));
-            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlyo_Settings.Controls.Add(this.label3, 1, 0);
+            this.tlyo_Settings.ColumnCount = 7;
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.875F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.875F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.875F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.875F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlyo_Settings.Controls.Add(this.label8, 3, 0);
+            this.tlyo_Settings.Controls.Add(this.lbx_preguntas, 4, 0);
+            this.tlyo_Settings.Controls.Add(this.lbx_opportunitie, 2, 0);
+            this.tlyo_Settings.Controls.Add(this.label7, 1, 0);
+            this.tlyo_Settings.Controls.Add(this.cbx_rebote, 5, 0);
             this.tlyo_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlyo_Settings.Location = new System.Drawing.Point(96, 97);
             this.tlyo_Settings.Name = "tlyo_Settings";
@@ -182,21 +209,136 @@
             this.tlyo_Settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlyo_Settings.Size = new System.Drawing.Size(744, 45);
             this.tlyo_Settings.TabIndex = 3;
-            this.tlyo_Settings.Visible = false;
             // 
-            // label3
+            // label8
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.label3.Location = new System.Drawing.Point(36, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(673, 45);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Game Settings";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(290, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(122, 45);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Pregs.?";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbx_preguntas
+            // 
+            this.lbx_preguntas.AllowDrop = true;
+            this.lbx_preguntas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbx_preguntas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbx_preguntas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbx_preguntas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_preguntas.ForeColor = System.Drawing.Color.Black;
+            this.lbx_preguntas.FormattingEnabled = true;
+            this.lbx_preguntas.ItemHeight = 29;
+            this.lbx_preguntas.Items.AddRange(new object[] {
+            "Todas",
+            "2",
+            "4",
+            "6",
+            "8",
+            "10",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20",
+            "22",
+            "24",
+            "26",
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "38",
+            "40",
+            "42",
+            "44",
+            "46",
+            "48",
+            "50",
+            "52",
+            "54",
+            "56",
+            "58",
+            "60"});
+            this.lbx_preguntas.Location = new System.Drawing.Point(415, 3);
+            this.lbx_preguntas.Name = "lbx_preguntas";
+            this.lbx_preguntas.ScrollAlwaysVisible = true;
+            this.lbx_preguntas.Size = new System.Drawing.Size(119, 39);
+            this.lbx_preguntas.TabIndex = 6;
+            this.lbx_preguntas.SelectedIndexChanged += new System.EventHandler(this.lbx_preguntas_SelectedIndexChanged);
+            // 
+            // lbx_opportunitie
+            // 
+            this.lbx_opportunitie.AllowDrop = true;
+            this.lbx_opportunitie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbx_opportunitie.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbx_opportunitie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbx_opportunitie.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_opportunitie.ForeColor = System.Drawing.Color.Black;
+            this.lbx_opportunitie.FormattingEnabled = true;
+            this.lbx_opportunitie.ItemHeight = 29;
+            this.lbx_opportunitie.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"});
+            this.lbx_opportunitie.Location = new System.Drawing.Point(165, 3);
+            this.lbx_opportunitie.Name = "lbx_opportunitie";
+            this.lbx_opportunitie.ScrollAlwaysVisible = true;
+            this.lbx_opportunitie.Size = new System.Drawing.Size(119, 39);
+            this.lbx_opportunitie.TabIndex = 5;
+            this.lbx_opportunitie.SelectedIndexChanged += new System.EventHandler(this.lbx_opportunitie_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(40, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(122, 45);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Lifes?";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbx_rebote
+            // 
+            this.cbx_rebote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_rebote.AutoSize = true;
+            this.cbx_rebote.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_rebote.Location = new System.Drawing.Point(567, 3);
+            this.cbx_rebote.Name = "cbx_rebote";
+            this.cbx_rebote.Size = new System.Drawing.Size(134, 39);
+            this.cbx_rebote.TabIndex = 0;
+            this.cbx_rebote.Text = "Rebote?";
+            this.cbx_rebote.UseVisualStyleBackColor = true;
             // 
             // gbx_Settings
             // 
@@ -245,7 +387,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Brown;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(39, 107);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
@@ -260,7 +402,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Brown;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(39, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label2.Name = "label2";
@@ -275,8 +417,8 @@
             this.lbx_Rounds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbx_Rounds.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbx_Rounds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_Rounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lbx_Rounds.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_Rounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_Rounds.ForeColor = System.Drawing.Color.Black;
             this.lbx_Rounds.FormattingEnabled = true;
             this.lbx_Rounds.ItemHeight = 29;
             this.lbx_Rounds.Items.AddRange(new object[] {
@@ -322,8 +464,8 @@
             this.lbx_time2Answer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbx_time2Answer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbx_time2Answer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_time2Answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lbx_time2Answer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_time2Answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_time2Answer.ForeColor = System.Drawing.Color.Black;
             this.lbx_time2Answer.FormattingEnabled = true;
             this.lbx_time2Answer.ItemHeight = 29;
             this.lbx_time2Answer.Items.AddRange(new object[] {
@@ -397,7 +539,7 @@
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(397, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
@@ -412,7 +554,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Brown;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(39, 199);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label1.Name = "label1";
@@ -427,7 +569,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.Brown;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(39, 291);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label6.Name = "label6";
@@ -442,8 +584,8 @@
             this.lbx_Dificuldad_Setting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbx_Dificuldad_Setting.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbx_Dificuldad_Setting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_Dificuldad_Setting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lbx_Dificuldad_Setting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_Dificuldad_Setting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_Dificuldad_Setting.ForeColor = System.Drawing.Color.Black;
             this.lbx_Dificuldad_Setting.FormattingEnabled = true;
             this.lbx_Dificuldad_Setting.ItemHeight = 29;
             this.lbx_Dificuldad_Setting.Items.AddRange(new object[] {
@@ -483,8 +625,8 @@
             this.lbx_catNuevoAntiguo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbx_catNuevoAntiguo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbx_catNuevoAntiguo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_catNuevoAntiguo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lbx_catNuevoAntiguo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_catNuevoAntiguo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_catNuevoAntiguo.ForeColor = System.Drawing.Color.Black;
             this.lbx_catNuevoAntiguo.FormattingEnabled = true;
             this.lbx_catNuevoAntiguo.ItemHeight = 29;
             this.lbx_catNuevoAntiguo.Items.AddRange(new object[] {
@@ -502,8 +644,8 @@
             this.lbx_catLibro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbx_catLibro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbx_catLibro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_catLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lbx_catLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_catLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_catLibro.ForeColor = System.Drawing.Color.Black;
             this.lbx_catLibro.FormattingEnabled = true;
             this.lbx_catLibro.ItemHeight = 29;
             this.lbx_catLibro.Items.AddRange(new object[] {
@@ -586,8 +728,8 @@
             this.lbx_catEvangelios_yOtros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbx_catEvangelios_yOtros.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbx_catEvangelios_yOtros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_catEvangelios_yOtros.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lbx_catEvangelios_yOtros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_catEvangelios_yOtros.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_catEvangelios_yOtros.ForeColor = System.Drawing.Color.Black;
             this.lbx_catEvangelios_yOtros.FormattingEnabled = true;
             this.lbx_catEvangelios_yOtros.ItemHeight = 29;
             this.lbx_catEvangelios_yOtros.Items.AddRange(new object[] {
@@ -676,6 +818,7 @@
             this.tableLayoutPanel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tlyo_Settings.ResumeLayout(false);
             this.tlyo_Settings.PerformLayout();
             this.gbx_Settings.ResumeLayout(false);
@@ -717,5 +860,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         public System.Windows.Forms.ListBox lbx_catNuevoAntiguo;
         public System.Windows.Forms.ListBox lbx_catLibro;
+        public System.Windows.Forms.ListBox lbx_opportunitie;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox cbx_rebote;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.ListBox lbx_preguntas;
     }
 }

@@ -17,16 +17,10 @@ namespace capaPresentacion
 {
     public partial class P_Debate_Main : Form
     {
-        public P_Debate_Main(string[] catEvangelios_yOtros = null, string[] catLibro = null, string catNuevoAntiguo = "",
-            int numRounds = 1, int time2Answer = 20, string difficulty = "Todas", string queryPorDificultad = "")
+        public P_Debate_Main(E_focusedBible Configuracion)
         {
-            this.numRounds = numRounds;
-            this.time2Answer = time2Answer;
-            this.difficulty = difficulty;
-            this.queryPorDificultad = queryPorDificultad;
-            this.catEvangelios_yOtros = catEvangelios_yOtros;
-            this.catLibro = catLibro;
-            this.catNuevoAntiguo = catNuevoAntiguo;
+            objEntidad = Configuracion;
+
             InitializeComponent();
         }
 
@@ -62,7 +56,7 @@ namespace capaPresentacion
                 existe.Close();
             }
 
-            PfocusedB = new P_focusedBible_Debate(catEvangelios_yOtros, catLibro, catNuevoAntiguo, g1_Name, g2_Name, time2Answer, numRounds, difficulty, queryPorDificultad);
+            PfocusedB = new P_focusedBible_Debate(objEntidad);
             this.Close();
             PfocusedB.Show();
         }
@@ -126,16 +120,8 @@ namespace capaPresentacion
                 existe.Close(); // cerrar ventana principal
             }
 
-            P_Main PMain = new P_Main();
+            P_Main PMain = new P_Main(objEntidad);
             this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
-
-            PMain.numRounds = numRounds;
-            PMain.difficulty = difficulty;
-            PMain.queryPorDificultad = queryPorDificultad;
-            PMain.catEvangelios_yOtros = catEvangelios_yOtros;
-            PMain.catLibro = catLibro;
-            PMain.catNuevoAntiguo = catNuevoAntiguo;
-            PMain.time2Answer = time2Answer;
 
             PMain.Show();
             this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
@@ -243,7 +229,7 @@ namespace capaPresentacion
                 GC.Collect();
             }
 
-            GameSettings = new P_GameSettings(catEvangelios_yOtros, catLibro, catNuevoAntiguo, g1_Name, g2_Name, numRounds, time2Answer, difficulty);
+            GameSettings = new P_GameSettings(objEntidad);
             existe2.Hide();
             //this.Hide();
             GameSettings.Show();
