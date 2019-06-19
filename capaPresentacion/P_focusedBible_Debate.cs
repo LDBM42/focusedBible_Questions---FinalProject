@@ -31,10 +31,9 @@ namespace capaPresentacion
         E_focusedBible[] lista_porDificultadYCategoria; // Para almacenar la lista completa y asi evitar que se repitan
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
+        bool answerCorrect;
         int numeroPrueba;
         int codPregNoRepetir;
-        int retry;
-        int reintentos = 50;
         int click50_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
         int click50_2 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
         int clickPassage_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el Passage_1
@@ -92,12 +91,30 @@ namespace capaPresentacion
             objEntidad.catNuevoAntiguo = objEntidad.catNuevoAntiguo;
             noRepetir_PorDificultadyCategoria = new int?[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)]; // el valor devuelto es tamaño del numero de filas
             lista_porDificultadYCategoria = new E_focusedBible[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)];
+            objEntidad.questions2Answer = noRepetir_PorDificultadyCategoria.Length.ToString(); // igualar questions2Answer a la cantidad de preguntas
             Llenar_listaPorDificultadYCategoria(objEntidad);
             listarFocusedBible(objEntidad);
             focoRbtn();
             bloquear_Btn_Submit();
+
+
+            //ocultar Oportunidades si no se evaluará en base a oportunidades
+            if (objEntidad.opportunitiesBoolean == false)
+            {
+                lab_LifesNum.Visible = false;
+                lab_LifesNum2.Visible = false;
+                lab_Lifes.Visible = false;
+                lab_Lifes2.Visible = false;
+            }
+            else
+            {
+                lab_LifesNum.Visible = true;
+                lab_LifesNum2.Visible = true;
+                lab_Lifes.Visible = true;
+                lab_Lifes2.Visible = true;
+            }
         }
-        
+
         void Llenar_listaPorDificultadYCategoria(E_focusedBible dificultad)
         {
             DataTable dt2 = objNego.N_listadoPor_DificultadYCategoria(dificultad);
@@ -139,7 +156,8 @@ namespace capaPresentacion
         void randomQuestions_PorDificultadyCategoría()
         {
             Random random2 = new Random();
-            retry = 0;
+
+            perder_Ganar();
 
             while (true)
             {
@@ -149,23 +167,20 @@ namespace capaPresentacion
                 // si existe el código dentro del arreglo se agrega al arreglo, si no existe se crea el random
                 if (Array.Exists(noRepetir_PorDificultadyCategoria, codPreg => codPreg == codPregNoRepetir))
                 {
-                    if (countUp == noRepetir_PorDificultadyCategoria.Length || retry > reintentos)
+                    if ((countUp == noRepetir_PorDificultadyCategoria.Length && (objEntidad.difficulty != "Todas"))
+                        || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
                     {
                         break;
                     }
                     else
                     {
-                        retry++; // para detener si ya se acabaron las preguntas
                         continue;
                     }
                 }
                 else //si el código no eiste en el arreglo
                 {
                     noRepetir_PorDificultadyCategoria[i] = codPregNoRepetir; //agregar código al arreglo para que nunca se repitan
-
-                    // un numeros aleatorios del 1 al numero de filas se almacena como indice
-                    //lista_porDificultad[numeroPrueba];
-
+                    
                     i++;
                     countUp++;
                     break;
@@ -226,36 +241,8 @@ namespace capaPresentacion
                 }
             }
 
-
-            //Evaluar si perdio o gano
-            perder_Ganar();
-
-
-
-            // cambio de turno si no ha terminado el juego
-            if (opportunities_1 != 0
-            && opportunities_2 != 0
-            && ((countUp != noRepetir_PorDificultadyCategoria.Length) || (objEntidad.difficulty == "Todas"))
-            && retry <= reintentos
-            && ((objEntidad.questions2Answer != "Todas") && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer))))
-            {
-                cambioDeTurno(startingTurn, false);
-            }
-
-            // Cambio de Jugador-----------------------------------------------
-            if (startingTurn == 1)
-            {
-                countDown.Start();
-
-                startingTurn = 2; //Player 2
-            }
-            else
-            {
-                countDown.Start();
-                startingTurn = 1; //Player 1
-            }
-
-
+            cambioDeJugador();
+            
             btn_Submit.Enabled = false;
         }
         
@@ -286,13 +273,14 @@ namespace capaPresentacion
         
         void BannerStart(string banner)
         {
-            //Thread.Sleep(2000);
-            Timer_Banner.Start();
+            Thread.Sleep(2000);
+            Timer_2Answer.Stop();
+            sonido.Stop();
             this.banner = banner;
             Banner = new Banners(banner);
             Banner.Show();
+            Timer_Banner.Start();
 
-            sonido.Stop();
             if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
             {
                 reproducirSonido("start-ready-go.wav", false);
@@ -301,7 +289,8 @@ namespace capaPresentacion
         void StartAgan()
         {
             if ((startingRound == objEntidad.numRounds && banner != "Round " + startingRound)
-                || ((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))) // significa que el juego ha terminado
+                || ((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
+                || (enumerate > Convert.ToInt32(objEntidad.questions2Answer))) // significa que el juego ha terminado
             {
                 Timer_2Answer.Stop();
                 sonido.Stop();
@@ -323,23 +312,35 @@ namespace capaPresentacion
                 }
             }
         }
+        void cambioDeJugador()
+        {
+            if (startingTurn == 1)
+            {
+                countDown.Start();
+
+                startingTurn = 2; //Group 2
+            }
+            else
+            {
+                countDown.Start();
+                startingTurn = 1; //Group 1
+            }
+        }
         void perder_Ganar()
         {
             //condicion para perder
-            if (opportunities_1 == 0
+            if ( opportunities_1 == 0
                 || opportunities_2 == 0
                 || ((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
-                || retry > reintentos
-                || ((objEntidad.questions2Answer != "Todas") && (enumerate > Convert.ToInt32(objEntidad.questions2Answer))) )
+                || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)) )
             {
-                Timer_2Answer.Stop();
-                Thread.Sleep(2000);
+                Timer_2Answer.Stop(); //detener conteo
                 reproducirSonido("game-over.wav", false);
                 
-                Thread.Sleep(2000);
-
                 if (startingRound == objEntidad.numRounds) // si es el ultimo round
                 {
+                    Thread.Sleep(1500);
+
                     //condicion para saber quien perdió
                     if (startingTurn == 1)
                     {
@@ -353,9 +354,9 @@ namespace capaPresentacion
                     }
                 }
                 else
-                    if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))) // si se acaban las preguntas, se acaba el juego
+                    if (((countUp == noRepetir_PorDificultadyCategoria.Length))) // si se acaban las preguntas, se acaba el juego
                 {
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1500);
 
                     //condicion para saber quien perdió
                     if (score_1 == score_2)
@@ -386,7 +387,7 @@ namespace capaPresentacion
             lab_Rounds_Left.Text = startingRound + "/" + objEntidad.numRounds;
             lab_Rounds_Right.Text = startingRound + "/" + objEntidad.numRounds;
 
-            if (startingTurn == 1)
+             if (startingTurn == 1)
             {
                 wins_02++;
                 lab_Wins_P2.Text = Convert.ToString(wins_02);
@@ -399,7 +400,9 @@ namespace capaPresentacion
 
             reset_PlayAgain();
             BannerStart("Round " + startingRound);
+
         }
+        // resetea todo para volver a jugar denuevo
         void reset_PlayAgain()
         {
             Timer_2Answer.Stop(); //detener conteo
@@ -439,6 +442,7 @@ namespace capaPresentacion
 
             Timer_2Answer.Start();
 
+
             if (banner == lab_Group1.Text + " Wins" || banner == lab_Group2.Text + " Wins" || banner == "It's a Draw!")
             {
                 AfterCountDown(true);
@@ -468,8 +472,11 @@ namespace capaPresentacion
             lab_Passage_2.Enabled = true;
             pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave;
             pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave;
+
+
+
         }
-        
+
         void uncheckRbtn()
         {
             rbtn_a.Checked = false;
@@ -574,18 +581,35 @@ namespace capaPresentacion
             {
                 correctAnswer();
 
-                Timer_2Answer.Stop(); //detener conteo
                 reproducirSonido("retro-lose.wav", false);
                 lab_Anuncios.ForeColor = Color.Brown;
                 lab_Anuncios.Text = "Wrong Answer";
+
+                if (opportunities_1 != 0
+                && opportunities_2 != 0
+                && ((countUp != noRepetir_PorDificultadyCategoria.Length) || (objEntidad.difficulty == "Todas"))
+                && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer)))
+                {
+                    answerCorrect = false;
+                    cambioDeTurno(startingTurn);
+                }
+
             }
             else
             {
                 correctAnswer();
-                Timer_2Answer.Stop(); //detener conteo
                 correctAnswerSound();
                 lab_Anuncios.ForeColor = Color.FromArgb(228, 161, 24);
                 lab_Anuncios.Text = "Correct Answer";
+
+                if (opportunities_1 != 0
+                && opportunities_2 != 0
+                && ((countUp != noRepetir_PorDificultadyCategoria.Length) || (objEntidad.difficulty == "Todas"))
+                && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer)))
+                {
+                    answerCorrect = true;
+                    cambioDeTurno(startingTurn);
+                }
             }
         }
         void answerOriginalColor()
@@ -681,7 +705,7 @@ namespace capaPresentacion
                 tlyo_Wins_P1.Visible = false;
             }
         }
-        void cambioDeTurno(int turno, bool answerCorrect) // si el turno es uno y la respuesta fue correcta
+        void cambioDeTurno(int turno)
         {
             // para desactivar el 50% si ya se ha acabado
             if (turno == 1 && lab_50_1.Text == "0")
@@ -709,7 +733,7 @@ namespace capaPresentacion
                 pbx_Passage_2.Enabled = false;
             }
 
-            //Codigo principal del metodo
+            //Codigo principal del metodo cambio de turno
             if (turno == 1)
             {
                 click50_2 = 0; // reiniciar a 0 para poder usar el comodin 50% en su proximo turno
@@ -729,6 +753,7 @@ namespace capaPresentacion
                 {
                     opportunities_1--;
                     lab_LifesNum.Text = Convert.ToString(opportunities_1);
+                    perder_Ganar();
                 }
             }
             else
@@ -750,6 +775,7 @@ namespace capaPresentacion
                 {
                     opportunities_2--;
                     lab_LifesNum2.Text = Convert.ToString(opportunities_2);
+                    perder_Ganar();
                 }
             }
         }
@@ -896,6 +922,7 @@ namespace capaPresentacion
             }
         }
         
+        // conteo para cambiar de turno
         private void countDown_Tick(object sender, EventArgs e)
         {
             if (countDownTimer != 1)
@@ -908,19 +935,16 @@ namespace capaPresentacion
                 countDown.Stop();
                 lab_Anuncios.Text = "";
 
-                if (banner == lab_Group1.Text + " Wins" || banner == lab_Group2.Text + " Wins")
-                {
-                }
-                else
-                    if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas")))
+                
+                if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
+                || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
                 {
                     perder_Ganar();
-                }
-                else
+                }// si no se acabó el juego entonces reinicia ciertos elementos de los jugadores
+                else if(banner != lab_Group1.Text + " Wins" && banner != lab_Group2.Text + " Wins")
                 {
                     AfterCountDown();
                 }
-
             }
         }
 
@@ -1175,32 +1199,8 @@ namespace capaPresentacion
                 lab_correctWrong(0);
 
 
-                //Evaluar si perdio o gano--------------------------------------
-                perder_Ganar();
-
-
-                // cambio de turno si no ha terminado el juego
-                if (opportunities_1 != 0
-                && opportunities_2 != 0
-                && ((countUp != noRepetir_PorDificultadyCategoria.Length) || (objEntidad.difficulty == "Todas"))
-                && retry <= reintentos
-                && ((objEntidad.questions2Answer != "Todas") && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer))))
-                {
-                    cambioDeTurno(startingTurn, false);
-                }
-
-
                 // Cambio de Jugador------------------------------------------------
-                if (startingTurn == 1)
-                {
-                    countDown.Start();
-                    startingTurn = 2; //Player 2
-                }
-                else
-                {
-                    countDown.Start();
-                    startingTurn = 1; //Player 1
-                }
+                cambioDeJugador();
             }
         }
         private void RestartTimer_2Answer()
@@ -1211,35 +1211,35 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Activated(object sender, EventArgs e)
         {
-            if (E_focusedBible.deSettings == true) // para saber si se acaba de salir de settings a pantalla de juego
+            Timer_2Answer.Start();
+
+            if (sonido != null)
             {
-                Timer_2Answer.Start();
-
-                if (sonido != null)
-                {
-                    sonido.PlayLooping();
-                }
-
-                E_focusedBible.deSettings = false; // desactivando ya que desde este momento no se acaba de salir
+                sonido.PlayLooping();
             }
+          
         }
 
         private void Timer_Banner_Tick(object sender, EventArgs e)
         {
-
             if (countDownTimer3 != 0)
             {
                 countDownTimer3--;
             }
             else
             {
-                if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
+
+               if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
                 {
                     Banner.Hide();
                 }
-                countDownTimer3 = 3;
-                Timer_Banner.Stop();
-                StartAgan();
+                else
+                {
+                    countDownTimer3 = 3;
+                    Timer_Banner.Stop();
+                    StartAgan();
+                }
+
             }
         }
         

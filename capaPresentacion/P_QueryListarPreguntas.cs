@@ -11,14 +11,29 @@ namespace capaPresentacion
     {
 
         public string QueryPorCategoriayDificultad(ListBox lbx_categoria, ListBox lbx_categoria2, 
-                                                     ListBox lbx_categoria3, string difficulty)
+                                                     ListBox lbx_categoria3, string difficulty, 
+                                                     int LimitOfQuestions, bool opportunities)
         {
             int valor = 0;
             string itemSelected;
-            string Query = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
-                            "INNER JOIN " +
-                            "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
-                            "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+            string Query;
+
+            if (LimitOfQuestions != 0) // si LimitOfQuestions no es "todas", limitar la consulta a la cantidad de preguntas por responder
+            {
+                Query = "SELECT DISTINCT TOP " + LimitOfQuestions + " codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
+                        "INNER JOIN " +
+                        "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
+                        "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+            }
+            else // si LimitOfQuestions es igual a "todas"
+            {
+                Query = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
+                        "INNER JOIN " +
+                        "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
+                        "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+            }
+
+            
 
 
             //Crear Query para consultar por categorias en la base de datos

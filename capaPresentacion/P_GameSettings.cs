@@ -31,7 +31,6 @@ namespace capaPresentacion
         D_Login login = new D_Login();
         P_Debate_Main PDebateMain;
         P_QueryListarPreguntas PQuery;
-        public string queryPorDificultad;
         
         
 
@@ -45,6 +44,26 @@ namespace capaPresentacion
             else
             {
                 lbx_catEvangelios_yOtros.Text = "Todas";
+            }
+
+            if (objEntidad.opportunitiesBoolean == true && objEntidad.questions2Answer != "Todas")
+            {
+                lbx_opportunitie.Enabled = true;
+            }
+            else
+            {
+                if (objEntidad.opportunitiesBoolean == false) // si está desactivado
+                {
+                    lbx_opportunitie.Enabled = false;
+                }
+                else // si está desactivado el checkbox oportunidades
+                {
+                    if (objEntidad.questions2Answer != "Todas")
+                    {
+                        // las oportunidades son igual a la cantidad de preguntas
+                        objEntidad.opportunities = Convert.ToInt32(objEntidad.questions2Answer);
+                    }
+                }
             }
 
             // try: para evitar que de error al estár todo deseleccionado
@@ -62,12 +81,28 @@ namespace capaPresentacion
 
             lbx_Dificuldad_Setting.Text = objEntidad.difficulty;
             lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
-            lbx_preguntas.Text = objEntidad.questions2Answer;
+
+            if (objEntidad.questions2Answer != "Todas")
+            {
+                if (Convert.ToInt32(objEntidad.questions2Answer) > 60)
+                {
+                    lbx_preguntas.Text = "Todas";
+                }
+                else
+                {
+                    lbx_preguntas.Text = objEntidad.questions2Answer;
+                }
+            }
+            else
+            {
+                lbx_preguntas.Text = objEntidad.questions2Answer;
+            }
             lbx_opportunitie.Text = Convert.ToString(objEntidad.opportunities);
             lbx_Rounds.Text = Convert.ToString(objEntidad.numRounds);
             lbx_time2Answer.Text = Convert.ToString(objEntidad.time2Answer);
             lab_User.Text = "User: " + E_Usuario.Nombreusuario;
             cbx_rebote.Checked = objEntidad.rebound;
+            cbx_Opportunities.Checked = objEntidad.opportunitiesBoolean;
 
             //Mostrar los elementos seleccionados en los listbox al abrir la ventana
 
@@ -294,12 +329,34 @@ namespace capaPresentacion
         public void Change_Settings()
         {
             objEntidad.difficulty = lbx_Dificuldad_Setting.Text;
-            objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(lbx_catEvangelios_yOtros,lbx_catLibro,lbx_catNuevoAntiguo, objEntidad.difficulty);
             objEntidad.catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros);
             objEntidad.catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro);
             objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
             objEntidad.numRounds = Convert.ToInt32(lbx_Rounds.Text);
             objEntidad.time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
+            if (objEntidad.opportunitiesBoolean == false)
+            {
+                // las oportunidades son igual a la cantidad de preguntas
+                objEntidad.opportunities = Convert.ToInt32(lbx_preguntas.Text);
+            }
+
+            int TotalQuestToAnswer;
+            /*las pregutas totales son la cantidad de preguntas seleccionadas * cantidad de rondas*/
+            if (objEntidad.questions2Answer != "Todas")
+            {
+                TotalQuestToAnswer = Convert.ToInt32(objEntidad.questions2Answer) * objEntidad.numRounds;
+            }
+            else
+            {
+                TotalQuestToAnswer = 0;
+            }
+
+            objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(lbx_catEvangelios_yOtros,
+                                                                                  lbx_catLibro,
+                                                                                  lbx_catNuevoAntiguo,
+                                                                                  objEntidad.difficulty,
+                                                                                  TotalQuestToAnswer,
+                                                                                  objEntidad.opportunitiesBoolean);
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -381,12 +438,73 @@ namespace capaPresentacion
 
         private void lbx_opportunitie_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // igualar oportunidades a preguntas si estas son mayores que las preguntas
+            if (lbx_preguntas.Text != "Todas" && lbx_opportunitie.Text != "")
+            {
+                if (Convert.ToInt32(lbx_opportunitie.Text) > Convert.ToInt32(lbx_preguntas.Text))
+                {
+                    MessageBox.Show("Las Oportunidades no pueden ser mayores que las Preguntas", "Error");
+                    lbx_opportunitie.Text = lbx_preguntas.Text;
+                }
+            }
+
             objEntidad.opportunities = Convert.ToInt32(lbx_opportunitie.Text);
         }
 
         private void lbx_preguntas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // igualar oportunidades a preguntas si estas son mayores que las preguntas y las oportunidades están abilitadas
+            if (lbx_preguntas.Text != "Todas" && objEntidad.opportunitiesBoolean == true
+                && lbx_opportunitie.Text != "")
+            {
+                if ((Convert.ToInt32(lbx_preguntas.Text) < Convert.ToInt32(lbx_opportunitie.Text))
+                    && cbx_Opportunities.Checked == true)
+                {
+                    MessageBox.Show("Las Preguntas no pueden ser menores que las Oportunidades", "Error");
+                    lbx_preguntas.Text = lbx_opportunitie.Text;
+                }
+            }
+
             objEntidad.questions2Answer = lbx_preguntas.Text;
+
+            if (lbx_preguntas.Text == "Todas")
+            {
+                cbx_Opportunities.Checked = true;
+            }
+        }
+
+
+    private void cbx_Opportunities_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbx_Opportunities.Checked) // si está activado
+            {
+                lbx_opportunitie.Enabled = true;
+                objEntidad.opportunitiesBoolean = true;
+            }
+            else
+            {
+                if (lbx_preguntas.Text == "Todas") // si está desactivado y preguntas es igual a todas
+                {
+                    cbx_Opportunities.Checked = true;
+                }
+                else // si está desactivado y preguntas es diferente de todas
+                {
+                    lbx_opportunitie.Enabled = false;
+                    objEntidad.opportunitiesBoolean = false;
+                    // las oportunidades son igual a la cantidad de preguntas
+                    objEntidad.opportunities = Convert.ToInt32(lbx_preguntas.Text);
+                }                
+            }
+
+            // igualar oportunidades a preguntas si estas son mayores que las preguntas
+            if (lbx_preguntas.Text != "Todas" && lbx_opportunitie.Text != "")
+            {
+                if (Convert.ToInt32(lbx_opportunitie.Text) > Convert.ToInt32(lbx_preguntas.Text))
+                {
+                    MessageBox.Show("Las Oportunidades no pueden ser mayores que las Preguntas", "Error");
+                    lbx_opportunitie.Text = lbx_preguntas.Text;
+                }
+            }
         }
     }
 }

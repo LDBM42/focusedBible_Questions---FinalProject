@@ -38,12 +38,13 @@ namespace capaPresentacion
                                                 "OR Categoria.catID = preguntas.catNuevoAntiguo ";
                 objEntidad.numRounds = 1;
                 objEntidad.time2Answer = 20;
-                objEntidad.opportunities = 3;
+                objEntidad.opportunities = 2;
                 objEntidad.group1 = "Grupo 1";
                 objEntidad.group2 = "Grupo 2";
 
                 objEntidad.questions2Answer = "Todas";
                 objEntidad.rebound = false;
+                objEntidad.opportunitiesBoolean = true;
             }
 
             InitializeComponent();

@@ -30,13 +30,10 @@ namespace capaPresentacion
         P_GameSettings GameSettings;
         D_Login login = new D_Login();
         P_focusedBible_Debate PfocusedB;
-        P_Main PMain;
         string g1_Name;
         string g2_Name;
-        public string difficulty; public string queryPorDificultad = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
-                                              "INNER JOIN " +
-                                              "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
-                                              "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+        public string difficulty;
+        public string queryPorDificultad;
         public string[] catEvangelios_yOtros = new string[10];
         public string[] catLibro = new string[66];
         public string catNuevoAntiguo;
@@ -241,6 +238,10 @@ namespace capaPresentacion
             g1_Name = tbx_Grupo1.Text;
             g2_Name = tbx_Grupo2.Text;
         }
-        
+
+        private void P_Debate_Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

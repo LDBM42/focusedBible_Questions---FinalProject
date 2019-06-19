@@ -28,6 +28,7 @@ namespace capaEntidad
         public string catNuevoAntiguo { get; set; }
         public string questions2Answer { get; set; }
         public bool rebound { get; set; } //almacena si se actibo el rebote o no
+        public bool opportunitiesBoolean { get; set; }
 
         // para almacenar el query por dificultad
         public string queryListarPreguntas { get; set; }

@@ -41,7 +41,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lbx_preguntas = new System.Windows.Forms.ListBox();
             this.lbx_opportunitie = new System.Windows.Forms.ListBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.cbx_rebote = new System.Windows.Forms.CheckBox();
             this.gbx_Settings = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,6 +61,7 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.IniciarJuegoProfesor = new System.Windows.Forms.Timer(this.components);
+            this.cbx_Opportunities = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
@@ -199,9 +199,9 @@
             this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tlyo_Settings.Controls.Add(this.label8, 3, 0);
             this.tlyo_Settings.Controls.Add(this.lbx_preguntas, 4, 0);
-            this.tlyo_Settings.Controls.Add(this.lbx_opportunitie, 2, 0);
-            this.tlyo_Settings.Controls.Add(this.label7, 1, 0);
+            this.tlyo_Settings.Controls.Add(this.cbx_Opportunities, 1, 0);
             this.tlyo_Settings.Controls.Add(this.cbx_rebote, 5, 0);
+            this.tlyo_Settings.Controls.Add(this.lbx_opportunitie, 2, 0);
             this.tlyo_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlyo_Settings.Location = new System.Drawing.Point(96, 97);
             this.tlyo_Settings.Name = "tlyo_Settings";
@@ -285,25 +285,15 @@
             this.lbx_opportunitie.FormattingEnabled = true;
             this.lbx_opportunitie.ItemHeight = 29;
             this.lbx_opportunitie.Items.AddRange(new object[] {
-            "1",
             "2",
-            "3",
             "4",
-            "5",
             "6",
-            "7",
             "8",
-            "9",
             "10",
-            "11",
             "12",
-            "13",
             "14",
-            "15",
             "16",
-            "17",
             "18",
-            "19",
             "20"});
             this.lbx_opportunitie.Location = new System.Drawing.Point(165, 3);
             this.lbx_opportunitie.Name = "lbx_opportunitie";
@@ -311,21 +301,6 @@
             this.lbx_opportunitie.Size = new System.Drawing.Size(119, 39);
             this.lbx_opportunitie.TabIndex = 5;
             this.lbx_opportunitie.SelectedIndexChanged += new System.EventHandler(this.lbx_opportunitie_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(40, 0);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 45);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Lifes?";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbx_rebote
             // 
@@ -796,6 +771,19 @@
             this.btn_Aceptar.UseVisualStyleBackColor = true;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
+            // cbx_Opportunities
+            // 
+            this.cbx_Opportunities.AutoSize = true;
+            this.cbx_Opportunities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_Opportunities.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_Opportunities.Location = new System.Drawing.Point(40, 3);
+            this.cbx_Opportunities.Name = "cbx_Opportunities";
+            this.cbx_Opportunities.Size = new System.Drawing.Size(119, 39);
+            this.cbx_Opportunities.TabIndex = 8;
+            this.cbx_Opportunities.Text = "Lifes";
+            this.cbx_Opportunities.UseVisualStyleBackColor = true;
+            this.cbx_Opportunities.CheckedChanged += new System.EventHandler(this.cbx_Opportunities_CheckedChanged);
+            // 
             // P_GameSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -861,9 +849,9 @@
         public System.Windows.Forms.ListBox lbx_catNuevoAntiguo;
         public System.Windows.Forms.ListBox lbx_catLibro;
         public System.Windows.Forms.ListBox lbx_opportunitie;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox cbx_rebote;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.ListBox lbx_preguntas;
+        private System.Windows.Forms.CheckBox cbx_Opportunities;
     }
 }
