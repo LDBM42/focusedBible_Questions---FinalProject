@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using capaEntidad;
 using capaNegocio;
 using capaDatos;
+using System.Media;
 
 namespace capaPresentacion
 {
@@ -57,20 +58,22 @@ namespace capaPresentacion
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
+        SoundPlayer sonido;
 
 
 
         private void Main_Load(object sender, EventArgs e)
         {
+
             //Evita el Buffer lag al cargar la imagen de fondo
-            SetDoubleBuffered(tableLayoutPanel1);
-            SetDoubleBuffered(tableLayoutPanel2);
-            SetDoubleBuffered(tableLayoutPanel3);
-            SetDoubleBuffered(tableLayoutPanel4);
-            SetDoubleBuffered(tableLayoutPanel5);
-            SetDoubleBuffered(tableLayoutPanel12);
-            SetDoubleBuffered(tableLayoutPanel13);
-            SetDoubleBuffered(tableLayoutPanel14);
+            SetDoubleBuffered(tableLayoutPanel6);
+            SetDoubleBuffered(tableLayoutPanel7);
+            SetDoubleBuffered(tableLayoutPanel8);
+            SetDoubleBuffered(tableLayoutPanel9);
+            SetDoubleBuffered(tableLayoutPanel10);
+            SetDoubleBuffered(tableLayoutPanel11);
+            SetDoubleBuffered(tableLayoutPanel15);
+            SetDoubleBuffered(tableLayoutPanel16);
 
             this.BackgroundImage = Properties.Resources.Focused_bible_landing_01_Fondo;
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -80,14 +83,14 @@ namespace capaPresentacion
             if (lab_User.Text != "User: ")
             {
                 btn_Logout_Login.BackColor = Color.DimGray;
-                btn_Logout_Login.Text = "     Logout";
+                btn_Logout_Login.Text = "LOGOUT | REGISTRATE";
 
                 btn_Partida.Enabled = true; // desbloquear modalidad Partida
             }
             else
             {
-                btn_Logout_Login.BackColor = Color.FromArgb(255, 228, 161, 24);
-                btn_Logout_Login.Text = "      Login";
+                btn_Logout_Login.BackColor = Color.FromArgb(31, 194, 221);
+                btn_Logout_Login.Text = "LOGIN | REGISTRATE";
 
                 btn_Partida.Enabled = false; // bloquear modalidad Partida
             }
@@ -130,21 +133,48 @@ namespace capaPresentacion
         }
 
         #endregion
-        
 
+
+
+        private void reproducirSonido(string nombreArchivo, bool loop)
+        {
+            if (sonido != null)
+            {
+                sonido.Stop();
+            }
+            //SystemSounds.Hand.Play(); // Sonido de windows
+            try
+            {
+                sonido = new SoundPlayer(Application.StartupPath + @"\son\" + nombreArchivo);
+                if (loop == true)
+                {
+                    sonido.PlayLooping();
+                }
+                else
+                {
+                    sonido.Play();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
+            }
+        }
 
 
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
         {
-            Btn_Settings.Image = Properties.Resources.Settings_MouseUp;
+            reproducirSonido("button.wav", false);
+            Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
         }
 
         private void Btn_Settings_MouseLeave(object sender, EventArgs e)
         {
-            Btn_Settings.Image = Properties.Resources.Settings;
+            sonido.Stop();
+            Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02;
         }
 
-        private void btn_newUser_Click(object sender, EventArgs e)
+        private void Btn_Close_Click(object sender, EventArgs e)
         {
             DialogResult salir;
 
@@ -241,6 +271,76 @@ namespace capaPresentacion
             {
                 MessageBox.Show("Algo salió mal, Favor intentarlo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btn_how2Play_MouseEnter(object sender, EventArgs e)
+        {
+            reproducirSonido("button.wav", false);
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_MOUSE_ENTER;
+        }
+
+        private void btn_how2Play_MouseLeave(object sender, EventArgs e)
+        {
+            sonido.Stop();
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
+        }
+
+        private void Btn_Close_MouseEnter(object sender, EventArgs e)
+        {
+            reproducirSonido("button.wav", false);
+            Btn_Close.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar_MOUSE_ENTER;
+        }
+
+        private void Btn_Close_MouseLeave(object sender, EventArgs e)
+        {
+            sonido.Stop();
+            Btn_Close.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar;
+        }
+
+        private void btn_solo_MouseEnter(object sender, EventArgs e)
+        {
+            reproducirSonido("button.wav", false);
+            btn_solo.Image = Properties.Resources.Focused_bible_landing_05_MOUSE_ENTER;
+        }
+
+        private void btn_solo_MouseLeave(object sender, EventArgs e)
+        {
+            sonido.Stop();
+            btn_solo.Image = Properties.Resources.Focused_bible_landing_05;
+        }
+
+        private void btn_debate_MouseEnter(object sender, EventArgs e)
+        {
+            reproducirSonido("button.wav", false);
+            btn_debate.Image = Properties.Resources.Focused_bible_landing_06_MOUSE_ENTER;
+        }
+
+        private void btn_debate_MouseLeave(object sender, EventArgs e)
+        {
+            sonido.Stop();
+            btn_debate.Image = Properties.Resources.Focused_bible_landing_06;
+        }
+
+        private void btn_Partida_MouseEnter(object sender, EventArgs e)
+        {
+            reproducirSonido("button.wav", false);
+            btn_Partida.Image = Properties.Resources.Focused_bible_landing_07_MOUSE_ENTER;
+        }
+
+        private void btn_Partida_MouseLeave(object sender, EventArgs e)
+        {
+            sonido.Stop();
+            btn_Partida.Image = Properties.Resources.Focused_bible_landing_07;
+        }
+
+        private void btn_Logout_Login_MouseEnter(object sender, EventArgs e)
+        {
+            reproducirSonido("button.wav", false);
+        }
+
+        private void btn_Logout_Login_MouseLeave(object sender, EventArgs e)
+        {
+            sonido.Stop();
         }
     }
 }

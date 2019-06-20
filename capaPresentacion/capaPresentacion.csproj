@@ -217,6 +217,10 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2019-06-15 at 2.16.00 AM.jpeg" />
+    <None Include="Resources\WhatsApp Image 2019-06-15 at 2.16.00 AM%281%29.jpeg" />
+    <None Include="Resources\WhatsApp Image 2019-06-14 at 12.09.10 AM.jpeg" />
+    <None Include="Resources\WhatsApp Image 2019-06-14 at 12.09.09 AM.jpeg" />
     <None Include="Resources\Usuario.png" />
     <None Include="Resources\usuario-masculino.png" />
     <None Include="Resources\usuario-femenino.png" />
@@ -234,6 +238,34 @@
     <None Include="Resources\close_gray2.png" />
     <None Include="Resources\Focused-bible-landing-01-Con-Elementos.bmp" />
     <None Include="Resources\Focused-bible-landing-01-Fondo.png" />
+    <None Include="Resources\1720772-128.png" />
+    <None Include="Resources\3672882-48.png" />
+    <None Include="Resources\Focused-bible-DEBATE-01.png" />
+    <None Include="Resources\Focused-bible-DEBATE-02.png" />
+    <None Include="Resources\Focused-bible-landing-01.png" />
+    <None Include="Resources\Focused-bible-landing-02.png" />
+    <None Include="Resources\Focused-bible-landing-03.png" />
+    <None Include="Resources\Focused-bible-landing-04.png" />
+    <None Include="Resources\Focused-bible-landing-05.png" />
+    <None Include="Resources\Focused-bible-landing-06.png" />
+    <None Include="Resources\Focused-bible-landing-07.png" />
+    <None Include="Resources\Focused-bible-SOLO-01.png" />
+    <None Include="Resources\Focused-bible-SOLO-02.png" />
+    <None Include="Resources\Focused-bible-SOLO-03.png" />
+    <None Include="Resources\Focused-bible-SOLO-04.png" />
+    <None Include="Resources\Focused-bible-SOLO-05.png" />
+    <None Include="Resources\Focused-bible-SOLO-06.png" />
+    <None Include="Resources\Focused-bible-SOLO-07.png" />
+    <None Include="Resources\Focused-bible-landing-Cerrar1.png" />
+    <None Include="Resources\Focused-bible-landing-Cerrar.png" />
+    <None Include="Resources\Focused-bible-landing-031.png" />
+    <None Include="Resources\Focused-bible-landing-03-1.png" />
+    <None Include="Resources\Focused-bible-landing-02-MOUSE-ENTER.png" />
+    <None Include="Resources\Focused-bible-landing-03-MOUSE-ENTER.png" />
+    <None Include="Resources\Focused-bible-landing-05-MOUSE-ENTER.png" />
+    <None Include="Resources\Focused-bible-landing-06-MOUSE-ENTER.png" />
+    <None Include="Resources\Focused-bible-landing-07-MOUSE-ENTER.png" />
+    <None Include="Resources\Focused-bible-landing-Cerrar_MOUSE-ENTER.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />
