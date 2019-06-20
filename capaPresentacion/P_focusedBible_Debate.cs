@@ -45,10 +45,12 @@ namespace capaPresentacion
         int countDownTimer3 = 2;
         int score_1 = 0; // puntuacion inicial
         int score_2 = 0; // puntuacion inicial
+        int valueScore = 2; //valor de cada pregunta
         int opportunities_1;
         int opportunities_2;
         int startingTurn = 1; // turno inicial
         int startingRound = 1; // ronda inicial
+        bool reboundTurn = false; // para saber si se está jugando la partida de rebote
         string banner;
         int wins_01 = 0;
         int wins_02 = 0;
@@ -746,7 +748,7 @@ namespace capaPresentacion
 
                 if (answerCorrect == true)
                 {
-                    score_1++;
+                    score_1+=valueScore;
                     lab_ScoreNum.Text = Convert.ToString(score_1);
                 }
                 else
@@ -768,7 +770,7 @@ namespace capaPresentacion
 
                 if (answerCorrect == true)
                 {
-                    score_2++;
+                    score_2+=valueScore;
                     lab_ScoreNum2.Text = Convert.ToString(score_2);
                 }
                 else
@@ -956,7 +958,8 @@ namespace capaPresentacion
             }
 
             answerOriginalColor(); // aqui cambian las respuestas al color original
-            listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+
+            
             uncheckRbtn(); //desmarca las respuestas
             makeVisibleRbtn_andEnabled();//pone las resuestas visibles y abilitadas
             focoRbtn(); // se pone el foco las respuestas para poder seleccionarlas con el teclado
@@ -964,20 +967,108 @@ namespace capaPresentacion
             bloquear_Btn_Submit();
 
 
-            if (startingTurn == 1)
+            /**REBOTE**/
+            if (objEntidad.rebound == true)
             {
-                activarComidin(1);
-                activarPassage(1);
-                PlayerFocus(1);
-                reproducirSonido("levelclearer.wav", true);
+                //sonido.Stop();
+                if (reboundTurn == true)
+                {
+                    reproducirSonido("rebound.wav", false);
+
+                    if (answerCorrect == true)
+                    {
+                        if (startingTurn == 1)
+                        {
+                            activarComidin(1);
+                            activarPassage(1);
+                            PlayerFocus(1);
+                            reproducirSonido("levelclearer.wav", true);
+                        }
+                        else
+                        {
+                            activarComidin(2);
+                            activarPassage(2);
+                            PlayerFocus(2);
+                            reproducirSonido("levelclearer.wav", true);
+                        }
+
+                        valueScore = 1;
+                        listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+                        reboundTurn = false;
+                    }
+;
+                }
+                else // si es el turno normal
+                {
+                    if (answerCorrect == true)
+                    {
+                        if (startingTurn == 1)
+                        {
+                            activarComidin(1);
+                            activarPassage(1);
+                            PlayerFocus(1);
+                            reproducirSonido("levelclearer.wav", true);
+                        }
+                        else
+                        {
+                            activarComidin(2);
+                            activarPassage(2);
+                            PlayerFocus(2);
+                            reproducirSonido("levelclearer.wav", true);
+                        }
+
+                        valueScore = 2;
+                        listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+                    }
+                    else
+                    {
+                        reproducirSonido("rebound.wav", false);
+
+                        if (startingTurn == 1)
+                        {
+                            activarComidin(1);
+                            activarPassage(1);
+                            PlayerFocus(1);
+                            reproducirSonido("levelclearer.wav", true);
+                        }
+                        else
+                        {
+                            activarComidin(2);
+                            activarPassage(2);
+                            PlayerFocus(2);
+                            reproducirSonido("levelclearer.wav", true);
+                        }
+
+                        valueScore = 2;
+                        reboundTurn = true;
+                    }
+                }
+
             }
-            else
+            else // si rebote está desactivado
             {
-                activarComidin(2);
-                activarPassage(2);
-                PlayerFocus(2);
-                reproducirSonido("levelclearer.wav", true);
+                if (startingTurn == 1)
+                {
+                    activarComidin(2);
+                    activarPassage(2);
+                    PlayerFocus(2);
+                    reproducirSonido("levelclearer.wav", true);
+                }
+                else
+                {
+                    activarComidin(1);
+                    activarPassage(1);
+                    PlayerFocus(1);
+                    reproducirSonido("levelclearer.wav", true);
+                }
+
+                listarFocusedBible(objEntidad); //lista las preguntas y respuestas
             }
+
+
+
+
+
         }
         
 

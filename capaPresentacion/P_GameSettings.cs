@@ -105,7 +105,6 @@ namespace capaPresentacion
             cbx_Opportunities.Checked = objEntidad.opportunitiesBoolean;
 
             //Mostrar los elementos seleccionados en los listbox al abrir la ventana
-
             lbx_Rounds.TopIndex = lbx_Rounds.SelectedIndex;
             lbx_time2Answer.TopIndex = lbx_time2Answer.SelectedIndex;
             lbx_Dificuldad_Setting.TopIndex = lbx_Dificuldad_Setting.SelectedIndex;
@@ -334,6 +333,7 @@ namespace capaPresentacion
             objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
             objEntidad.numRounds = Convert.ToInt32(lbx_Rounds.Text);
             objEntidad.time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
+            objEntidad.rebound = cbx_rebote.Checked;
             if (objEntidad.opportunitiesBoolean == false)
             {
                 // las oportunidades son igual a la cantidad de preguntas
@@ -504,6 +504,16 @@ namespace capaPresentacion
                     MessageBox.Show("Las Oportunidades no pueden ser mayores que las Preguntas", "Error");
                     lbx_opportunitie.Text = lbx_preguntas.Text;
                 }
+            }
+        }
+
+        private void cbx_rebote_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbx_rebote.Checked == true)
+            {
+            }
+            else
+            {
             }
         }
     }

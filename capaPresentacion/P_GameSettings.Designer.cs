@@ -40,8 +40,9 @@
             this.tlyo_Settings = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.lbx_preguntas = new System.Windows.Forms.ListBox();
-            this.lbx_opportunitie = new System.Windows.Forms.ListBox();
+            this.cbx_Opportunities = new System.Windows.Forms.CheckBox();
             this.cbx_rebote = new System.Windows.Forms.CheckBox();
+            this.lbx_opportunitie = new System.Windows.Forms.ListBox();
             this.gbx_Settings = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.IniciarJuegoProfesor = new System.Windows.Forms.Timer(this.components);
-            this.cbx_Opportunities = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
@@ -274,6 +274,33 @@
             this.lbx_preguntas.TabIndex = 6;
             this.lbx_preguntas.SelectedIndexChanged += new System.EventHandler(this.lbx_preguntas_SelectedIndexChanged);
             // 
+            // cbx_Opportunities
+            // 
+            this.cbx_Opportunities.AutoSize = true;
+            this.cbx_Opportunities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_Opportunities.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_Opportunities.Location = new System.Drawing.Point(40, 3);
+            this.cbx_Opportunities.Name = "cbx_Opportunities";
+            this.cbx_Opportunities.Size = new System.Drawing.Size(119, 39);
+            this.cbx_Opportunities.TabIndex = 8;
+            this.cbx_Opportunities.Text = "Lifes";
+            this.cbx_Opportunities.UseVisualStyleBackColor = true;
+            this.cbx_Opportunities.CheckedChanged += new System.EventHandler(this.cbx_Opportunities_CheckedChanged);
+            // 
+            // cbx_rebote
+            // 
+            this.cbx_rebote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_rebote.AutoSize = true;
+            this.cbx_rebote.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_rebote.Location = new System.Drawing.Point(567, 3);
+            this.cbx_rebote.Name = "cbx_rebote";
+            this.cbx_rebote.Size = new System.Drawing.Size(134, 39);
+            this.cbx_rebote.TabIndex = 0;
+            this.cbx_rebote.Text = "Rebote?";
+            this.cbx_rebote.UseVisualStyleBackColor = true;
+            this.cbx_rebote.CheckedChanged += new System.EventHandler(this.cbx_rebote_CheckedChanged);
+            // 
             // lbx_opportunitie
             // 
             this.lbx_opportunitie.AllowDrop = true;
@@ -301,19 +328,6 @@
             this.lbx_opportunitie.Size = new System.Drawing.Size(119, 39);
             this.lbx_opportunitie.TabIndex = 5;
             this.lbx_opportunitie.SelectedIndexChanged += new System.EventHandler(this.lbx_opportunitie_SelectedIndexChanged);
-            // 
-            // cbx_rebote
-            // 
-            this.cbx_rebote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_rebote.AutoSize = true;
-            this.cbx_rebote.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_rebote.Location = new System.Drawing.Point(567, 3);
-            this.cbx_rebote.Name = "cbx_rebote";
-            this.cbx_rebote.Size = new System.Drawing.Size(134, 39);
-            this.cbx_rebote.TabIndex = 0;
-            this.cbx_rebote.Text = "Rebote?";
-            this.cbx_rebote.UseVisualStyleBackColor = true;
             // 
             // gbx_Settings
             // 
@@ -770,19 +784,6 @@
             this.btn_Aceptar.Text = "Aceptar";
             this.btn_Aceptar.UseVisualStyleBackColor = true;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
-            // 
-            // cbx_Opportunities
-            // 
-            this.cbx_Opportunities.AutoSize = true;
-            this.cbx_Opportunities.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbx_Opportunities.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_Opportunities.Location = new System.Drawing.Point(40, 3);
-            this.cbx_Opportunities.Name = "cbx_Opportunities";
-            this.cbx_Opportunities.Size = new System.Drawing.Size(119, 39);
-            this.cbx_Opportunities.TabIndex = 8;
-            this.cbx_Opportunities.Text = "Lifes";
-            this.cbx_Opportunities.UseVisualStyleBackColor = true;
-            this.cbx_Opportunities.CheckedChanged += new System.EventHandler(this.cbx_Opportunities_CheckedChanged);
             // 
             // P_GameSettings
             // 
