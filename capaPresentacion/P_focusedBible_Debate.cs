@@ -316,17 +316,20 @@ namespace capaPresentacion
         }
         void cambioDeJugador()
         {
-            if (startingTurn == 1)
-            {
-                countDown.Start();
 
-                startingTurn = 2; //Group 2
-            }
-            else
+            if (reboundTurn == false) // si no hay REBOTE. Por lo que se tiene que cambiar de turno
             {
-                countDown.Start();
-                startingTurn = 1; //Group 1
+                if (startingTurn == 1)
+                {
+                    startingTurn = 2; //Group 2
+                }
+                else
+                {
+                    startingTurn = 1; //Group 1
+                }
             }
+
+            countDown.Start();
         }
         void perder_Ganar()
         {
@@ -970,32 +973,28 @@ namespace capaPresentacion
             /**REBOTE**/
             if (objEntidad.rebound == true)
             {
-                //sonido.Stop();
                 if (reboundTurn == true)
                 {
                     reproducirSonido("rebound.wav", false);
 
-                    if (answerCorrect == true)
+                    if (startingTurn == 1)
                     {
-                        if (startingTurn == 1)
-                        {
-                            activarComidin(1);
-                            activarPassage(1);
-                            PlayerFocus(1);
-                            reproducirSonido("levelclearer.wav", true);
-                        }
-                        else
-                        {
-                            activarComidin(2);
-                            activarPassage(2);
-                            PlayerFocus(2);
-                            reproducirSonido("levelclearer.wav", true);
-                        }
-
-                        valueScore = 1;
-                        listarFocusedBible(objEntidad); //lista las preguntas y respuestas
-                        reboundTurn = false;
+                        activarComidin(1);
+                        activarPassage(1);
+                        PlayerFocus(1);
+                        reproducirSonido("levelclearer.wav", true);
                     }
+                    else
+                    {
+                        activarComidin(2);
+                        activarPassage(2);
+                        PlayerFocus(2);
+                        reproducirSonido("levelclearer.wav", true);
+                    }
+
+                    valueScore = 2;
+                    listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+                    reboundTurn = false; // salir del rebote a su turno real
 ;
                 }
                 else // si es el turno normal
@@ -1039,26 +1038,26 @@ namespace capaPresentacion
                             reproducirSonido("levelclearer.wav", true);
                         }
 
-                        valueScore = 2;
+                        valueScore = 1;
                         reboundTurn = true;
                     }
                 }
 
-            }
+            }//--------------------------------------------------------------------------
             else // si rebote está desactivado
             {
                 if (startingTurn == 1)
                 {
-                    activarComidin(2);
-                    activarPassage(2);
-                    PlayerFocus(2);
+                    activarComidin(1);
+                    activarPassage(1);
+                    PlayerFocus(1);
                     reproducirSonido("levelclearer.wav", true);
                 }
                 else
                 {
-                    activarComidin(1);
-                    activarPassage(1);
-                    PlayerFocus(1);
+                    activarComidin(2);
+                    activarPassage(2);
+                    PlayerFocus(2);
                     reproducirSonido("levelclearer.wav", true);
                 }
 
@@ -1451,6 +1450,7 @@ namespace capaPresentacion
             existe.Show();
             Timer_2Answer.Stop();
             sonido.Stop();
+            reboundTurn = false;
             this.Close(); //Esto cierra la ventana del juego y va a Main
         }
     }
