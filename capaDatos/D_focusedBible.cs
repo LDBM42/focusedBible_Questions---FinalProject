@@ -12,18 +12,6 @@ namespace capaDatos
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
         E_focusedBible preg = new E_focusedBible();
 
-        //public DataTable D_listadoPor_Dificultad(E_focusedBible preg)
-        //{
-        //    SqlCommand cmd = new SqlCommand("sp_listarPor_Dificultad", cn);
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.Parameters.AddWithValue("@codPreg", preg.codPreg);
-        //    cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    DataTable dt = new DataTable();
-        //    da.Fill(dt);
-        //    return dt;
-        //}
-
         public DataTable D_listado(E_focusedBible preg)
         {
             SqlCommand cmd = new SqlCommand("sp_listar", cn);
@@ -49,7 +37,7 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@d", preg.d);
             cmd.Parameters.AddWithValue("@resp", preg.resp);
             cmd.Parameters.AddWithValue("@pasage", preg.pasage);
-            cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
+            cmd.Parameters.AddWithValue("@dificultad", preg.difficulty);
 
             if (cn.State == ConnectionState.Open) cn.Close();
 
@@ -58,42 +46,25 @@ namespace capaDatos
             cn.Close();
         }
 
-
-        public int D_NumFilas()
+        public int D_NumFilas_PorDificultadYCategoria(E_focusedBible preg)
         {
-            SqlCommand cmd = new SqlCommand("sp_listarTodo", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand(preg.queryListarPreguntas, cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt.Rows.Count;//Devuelve el total de filas
         }
 
-        public int D_NumFilas_PorDificultad(E_focusedBible preg)
+        public DataTable D_listadoPor_DificultadYCategoría(E_focusedBible preg)
         {
-            if(preg.dificultad == "All")
-            {
-                preg.dificultad = "Easy";
-            }
-            SqlCommand cmd = new SqlCommand("sp_listarPor_Dificultad", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt.Rows.Count;//Devuelve el total de filas
-        }
-
-        public DataTable D_listadoPor_Dificultad(E_focusedBible preg)
-        {
-            SqlCommand cmd = new SqlCommand("sp_listarPor_Dificultad", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
+            SqlCommand cmd = new SqlCommand(preg.queryListarPreguntas, cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
         }
+
+        
     }
 
 

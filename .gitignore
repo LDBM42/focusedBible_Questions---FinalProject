@@ -6,6 +6,9 @@
 *.user
 *.userosscache
 *.sln.docstates
+.vs/focusedBible_Questions/v15/Server/sqlite3/storage.ide
+.vs/focusedBible_Questions/v15/Server/sqlite3/storage.ide-shm
+.vs/focusedBible_Questions/v15/.suo
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -199,9 +202,6 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
-# SQL Server files
-*.mdf
-*.ldf
 
 # Business Intelligence projects
 *.rdl.data

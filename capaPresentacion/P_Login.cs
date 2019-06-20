@@ -15,11 +15,13 @@ namespace capaPresentacion
         {             
             InitializeComponent();
         }
+
         int countDownTimer;
         public int reOpened;
         int x = 525, xP = 368;
-        Settings Principal;
+        P_Main PMain;
         D_Login login = new D_Login();
+        E_focusedBible objEntidad = new E_focusedBible();
 
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -31,7 +33,6 @@ namespace capaPresentacion
         private void mostrarOcultar(bool t)
         {
             pbx_logo.Visible = !t;
-
         }
         
         private void P_Login_Load(object sender, EventArgs e)
@@ -39,10 +40,14 @@ namespace capaPresentacion
             pbx_logo.Image = Properties.Resources.focusedBible_Questions;
 
             tmr_cuadroAzul.Start();
-            //this.Opacity = 0.95;
                         
-            DataSet ds = login.AutoLoginGetLocal();
-            DataTable dt = ds.Tables[0];
+            DataSet ds = login.AutoLoginGetLocal(); //base de datos local
+
+            DataTable dt = new DataTable();
+            if (reOpened == 0)
+            {
+                dt = ds.Tables[0]; //base de datos remota
+            }
 
 
             if (dt.Rows.Count > 0)
@@ -50,12 +55,11 @@ namespace capaPresentacion
                 text_Usuario.Text = dt.Rows[0]["Usuario"].ToString();
                 text_Password.Text = dt.Rows[0]["Contraseña"].ToString();
 
-                btnEntrar.PerformClick();
-            }
-            else
-            {
-                countDownTimer = 300;
-                timer1.Start();
+                if (reOpened == 0) // si es la primera vez que se entra
+                {
+                    countDownTimer = 1;
+                    timer1.Start(); // para esperar a que cargue la ventana y realizar el autologin
+                }
             }
         }
         
@@ -84,21 +88,13 @@ namespace capaPresentacion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (countDownTimer != 0)
+            if (countDownTimer != 0) // para dar click en el botón de Entrar automaticamene
             {
-                lbl_CountDown.Text = Convert.ToString(countDownTimer);
                 countDownTimer--;
-
-                if (!this.Visible)
-                {
-                    timer1.Stop();
-                }
             }
             else
             {
-                timer1.Stop();
-                MessageBox.Show("Excedio el máximo de tiempo de espera, por motivo de seguridad el programa sera cerrado", "Tiempo Agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Application.Exit();
+                btnEntrar.PerformClick();
             }
         }
 
@@ -118,47 +114,39 @@ namespace capaPresentacion
                 //Guardar Datos Autologgin
                 if (login.AutoLoginSetLocal(E_Usuario.Nombreusuario, E_Usuario.Logged) == 1)
                 {
-                    if (reOpened > 0)
-                    {
-                        try
-                        {
-                            // para saber si el formulario existe, o sea si está abierto o cerrado
-                            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "Settings").SingleOrDefault<Form>();
+                    // para saber si el formulario existe, o sea si está abierto o cerrado
+                    Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
 
-                            existe.Refresh();
-
-                            if (existe != null)
-                            {
-                                this.Close();
-                                //Principal = new Settings();
-                                //Principal.ShowDialog();
-                                existe.Show();
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Principal = new Settings();
-                            Principal.ShowDialog();
-                        }
-
-                    }
-                    else
-                    {
-                        this.DialogResult = DialogResult.OK; //terminar loggin y abrir Principal
-                    }
-                }
+                    CerrarYVolverAAbrirMain(existe); // cierra login y abre la principal
+                }  
             }
             else
             {
-
                 MessageBox.Show("Usuario y/o contraseña incorrectos");
                 text_Password.Text = "";
                 pbx_logo.Visible = true;
 
                 mostrarOcultar(false);
-
             }
         }
+
+        private void CerrarYVolverAAbrirMain(Form existe)
+        {
+            if (existe != null) // para saber si el formulario principal existe
+            {
+                this.AddOwnedForm(existe); //indica que este va a ser el papa del form P_Main
+                existe.Close(); // cerrar ventana principal
+            }
+
+            P_Main PMain = new P_Main(objEntidad);
+            this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
+
+
+            PMain.Show();
+            this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
+            this.Close();
+        }
+
 
         private void P_Login_Paint(object sender, PaintEventArgs e)
         {
@@ -215,7 +203,7 @@ namespace capaPresentacion
 
         private void text_Password_MouseEnter(object sender, EventArgs e)
         {
-            if (text_Password.Text == "PASSWORD")
+            if (text_Password.Text == "CONTRASEÑA")
             {
                 text_Password.Text = "";
                 //text_Password.ForeColor = Color.LightGray;
@@ -227,7 +215,7 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "" && text_Password.Focused == false)
             {
-                text_Password.Text = "PASSWORD";
+                text_Password.Text = "CONTRASEÑA";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
             }
@@ -237,7 +225,7 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "")
             {
-                text_Password.Text = "PASSWORD";
+                text_Password.Text = "CONTRASEÑA";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
             }
@@ -275,11 +263,45 @@ namespace capaPresentacion
             }
         }
 
+
+        //evitar que se presionen las teclas de flechas al estar seleccionado el texto USUARIO o CONTRASEÑA
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // detecta si el campo usuario esta enfocado y si dice Usuario. Hace lo mismo con el de contraseña.
+            if ((text_Usuario.Text == "USUARIO" && text_Usuario.Focused == true) ||
+                (text_Password.Text == "CONTRASEÑA" && text_Password.Focused == true))
+            {
+                //captura la tecla flecha arriba
+                if (keyData == Keys.Up)
+                {
+                    return true;
+                }
+                //captura la tecla flecha abajo
+                if (keyData == Keys.Down)
+                {
+                    return true;
+                }
+                //captura la tecla flecha izquierda
+                if (keyData == Keys.Left)
+                {
+                    return true;
+                }
+                //captura la tecla flecha derecha
+                if (keyData == Keys.Right)
+                {
+                    return true;
+                }
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
         private void text_Usuario_Enter(object sender, EventArgs e)
         {
             if (text_Password.Text == "")
             {
-                text_Password.Text = "PASSWORD";
+                text_Password.Text = "CONTRASEÑA";
                 text_Password.ForeColor = Color.DimGray;
                 text_Password.UseSystemPasswordChar = false;
                 text_Usuario.Focus();
@@ -296,10 +318,18 @@ namespace capaPresentacion
             }
         }
 
+        private void llab_nuevoUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            P_Usuario usuario = new P_Usuario();
+            usuario.Show();
+
+            this.Hide();
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+            CerrarYVolverAAbrirMain(existe); // cierra login y abre la principal
         }
 
     }

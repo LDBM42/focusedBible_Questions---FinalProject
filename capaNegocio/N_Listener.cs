@@ -11,9 +11,14 @@ namespace capaNegocio
     {
         D_Listener objDato = new D_Listener();
 
-        public string N_Empezar()
+        public string N_Listener_Comando(int ID)
         {
-            return objDato.D_Empezar();
+            return objDato.D_Listener_Comando(ID);
+        }
+
+        public void N_Listener_Detener_O_Iniciar(int ID, string Comando)
+        {
+            objDato.D_Listener_Detener_O_Iniciar(1, "");
         }
     }
 }

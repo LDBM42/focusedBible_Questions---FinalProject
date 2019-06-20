@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -82,11 +82,40 @@
     <Compile Include="Banners.Designer.cs">
       <DependentUpon>Banners.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="P_focusedBible_Debate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_focusedBible_Debate.Designer.cs">
+      <DependentUpon>P_focusedBible_Debate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_GameSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_GameSettings.Designer.cs">
+      <DependentUpon>P_GameSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="HowToPlay.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HowToPlay.Designer.cs">
       <DependentUpon>HowToPlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Main.Designer.cs">
+      <DependentUpon>P_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_Debate_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Debate_Main.designer.cs">
+      <DependentUpon>P_Debate_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="P_Login.cs">
       <SubType>Form</SubType>
@@ -94,10 +123,12 @@
     <Compile Include="P_Login.Designer.cs">
       <DependentUpon>P_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="P_SeleccionCategoria.cs" />
+    <Compile Include="P_Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Splash.designer.cs">
+      <DependentUpon>P_Splash.cs</DependentUpon>
     </Compile>
     <Compile Include="P_Usuario.cs">
       <SubType>Form</SubType>
@@ -105,44 +136,41 @@
     <Compile Include="P_Usuario.Designer.cs">
       <DependentUpon>P_Usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="P_focusedBibles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="P_focusedBibles.Designer.cs">
-      <DependentUpon>P_focusedBibles.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="P_QueryListarPreguntas.cs" />
     <EmbeddedResource Include="Banners.resx">
       <DependentUpon>Banners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_focusedBible_Debate.resx">
+      <DependentUpon>P_focusedBible_Debate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_GameSettings.resx">
+      <DependentUpon>P_GameSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HowToPlay.resx">
       <DependentUpon>HowToPlay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="P_Main.resx">
+      <DependentUpon>P_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Debate_Main.resx">
+      <DependentUpon>P_Debate_Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="P_Login.resx">
       <DependentUpon>P_Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="P_Splash.resx">
+      <DependentUpon>P_Splash.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="P_Usuario.resx">
       <DependentUpon>P_Usuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="P_focusedBibles.resx">
-      <DependentUpon>P_focusedBibles.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,6 +217,9 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Usuario.png" />
+    <None Include="Resources\usuario-masculino.png" />
+    <None Include="Resources\usuario-femenino.png" />
     <None Include="Resources\Under-Construction.png" />
     <None Include="Resources\UsuarioBig.png" />
     <None Include="Resources\how2Play.png" />
@@ -198,7 +229,11 @@
     <None Include="Resources\minimize_gray.png" />
     <None Include="Resources\close_gray1.png" />
     <None Include="Resources\minimize_gray1.png" />
-    <None Include="Resources\logout.png" />
+    <None Include="Resources\Administrador.png" />
+    <None Include="Resources\go2Main.png" />
+    <None Include="Resources\close_gray2.png" />
+    <None Include="Resources\Focused-bible-landing-01-Con-Elementos.bmp" />
+    <None Include="Resources\Focused-bible-landing-01-Fondo.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

@@ -13,7 +13,6 @@ namespace capaDatos
 
         public int ExistUser(string sUsuario)
         {
-            MessageBox.Show(sUsuario);
             object retVal = null;
             SqlCommand cmd = new SqlCommand("sp_Data_FUsuario_ExistUser", cn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -37,18 +36,27 @@ namespace capaDatos
             return Convert.ToInt32(retVal);
         }
 
-
-
-        public int Insertar(string sUsuario, string sPassword, string sTipo, int sLogged)
+        public DataTable UsuarioGenero(string sUsuario)
         {
+            SqlCommand cmd = new SqlCommand("sp_Usuario_Genero", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Usuario", sUsuario);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
-            MessageBox.Show(sUsuario);
+
+        public int Insertar(string sUsuario, string sPassword, string sTipo, string sGenero)
+        {
             object retVal = null;
             SqlCommand cmd = new SqlCommand("sp_Data_FUsuario_Insertar", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Usuario", sUsuario);
             cmd.Parameters.AddWithValue("@Password", sPassword);
             cmd.Parameters.AddWithValue("@Tipo", sTipo);
+            cmd.Parameters.AddWithValue("@Genero", sGenero);
             cn.Open();
 
             try
@@ -69,7 +77,7 @@ namespace capaDatos
 
         }
 
-        public int Actualizar(string sUsuario, string sPassword, string sTipo)
+        public int Actualizar(string sUsuario, string sPassword, string sTipo, string sGenero)
         {
             object retVal = null;
             SqlCommand cmd = new SqlCommand("sp_Data_FUsuario_Actualizar", cn);
@@ -77,6 +85,7 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@Usuario", sUsuario);
             cmd.Parameters.AddWithValue("@Password", sPassword);
             cmd.Parameters.AddWithValue("@Tipo", sTipo);
+            cmd.Parameters.AddWithValue("@Genero", sGenero);
             cn.Open();
 
             try

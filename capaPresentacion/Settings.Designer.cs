@@ -612,7 +612,6 @@
             this.btn_how2Play.Size = new System.Drawing.Size(58, 74);
             this.btn_how2Play.TabIndex = 14;
             this.btn_how2Play.UseVisualStyleBackColor = false;
-            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
             // 
             // tableLayoutPanel13
             // 

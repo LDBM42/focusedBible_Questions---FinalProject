@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 
+using capaEntidad;
+
 namespace capaPresentacion
 {
     static class Program
@@ -14,16 +16,22 @@ namespace capaPresentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
-            P_Login login = new P_Login();
-            login.ShowDialog();
+            P_Splash splash = new P_Splash();
+            splash.ShowDialog();
 
             //
             // Si el login es correcto, procedo con la apertura normal
             // de la aplicacion
             //
-            if (login.DialogResult == DialogResult.OK)
-                Application.Run(new Settings());
+            if (splash.DialogResult == DialogResult.OK)
+            {
+                E_focusedBible objEntidad = new E_focusedBible();
+
+                P_Main main = new P_Main(objEntidad);
+                main.Show();
+                Application.Run();
+            }
+
         }
     }
 }
