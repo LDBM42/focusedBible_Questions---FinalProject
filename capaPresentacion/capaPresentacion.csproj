@@ -90,6 +90,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="P_focusedBible_SoloyPartida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_focusedBible_SoloyPartida.Designer.cs">
+      <DependentUpon>P_focusedBible_SoloyPartida.cs</DependentUpon>
+    </Compile>
     <Compile Include="P_focusedBible_Debate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     <Compile Include="P_QueryListarPreguntas.cs" />
     <EmbeddedResource Include="Banners.resx">
       <DependentUpon>Banners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_focusedBible_SoloyPartida.resx">
+      <DependentUpon>P_focusedBible_SoloyPartida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_focusedBible_Debate.resx">
       <DependentUpon>P_focusedBible_Debate.cs</DependentUpon>
@@ -275,6 +284,10 @@
     <None Include="Resources\Focused-bible-landing-Cerrar_MOUSE-ENTER.png" />
     <None Include="Resources\Focused-bible-landing-06-DISABLED.png" />
     <None Include="Resources\Focused-bible-landing-07-DISABLED.png" />
+    <None Include="Resources\Login_Registrate.png" />
+    <None Include="Resources\LogOut_MouseEnter.png" />
+    <None Include="Resources\Login_Registrate_MouseEnter.png" />
+    <None Include="Resources\LogOut.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

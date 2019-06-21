@@ -30,35 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_Main));
             this.lab_User = new System.Windows.Forms.Label();
-            this.btn_Logout_Login = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.pbx_Logo = new System.Windows.Forms.PictureBox();
-            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Partida = new System.Windows.Forms.Button();
-            this.btn_debate = new System.Windows.Forms.Button();
-            this.btn_solo = new System.Windows.Forms.Button();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.pbx_Logo = new System.Windows.Forms.PictureBox();
+            this.btn_Partida = new System.Windows.Forms.Button();
+            this.btn_debate = new System.Windows.Forms.Button();
+            this.btn_solo = new System.Windows.Forms.Button();
             this.Btn_Settings = new System.Windows.Forms.PictureBox();
+            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.btn_how2Play = new System.Windows.Forms.Button();
             this.Btn_Close = new System.Windows.Forms.Button();
+            this.btn_Logout_Login = new System.Windows.Forms.Button();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
             this.SuspendLayout();
             // 
             // lab_User
@@ -73,26 +73,6 @@
             this.lab_User.TabIndex = 15;
             this.lab_User.Text = "User:";
             this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btn_Logout_Login
-            // 
-            this.btn_Logout_Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(194)))), ((int)(((byte)(221)))));
-            this.btn_Logout_Login.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Logout_Login.FlatAppearance.BorderSize = 0;
-            this.btn_Logout_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Logout_Login.Font = new System.Drawing.Font("Avenir Next Demi Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Logout_Login.ForeColor = System.Drawing.Color.White;
-            this.btn_Logout_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Logout_Login.Location = new System.Drawing.Point(872, 3);
-            this.btn_Logout_Login.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.btn_Logout_Login.Name = "btn_Logout_Login";
-            this.btn_Logout_Login.Size = new System.Drawing.Size(177, 28);
-            this.btn_Logout_Login.TabIndex = 16;
-            this.btn_Logout_Login.Text = "LOGIN | REGISTRATE";
-            this.btn_Logout_Login.UseVisualStyleBackColor = false;
-            this.btn_Logout_Login.Click += new System.EventHandler(this.btn_Logout_Login_Click);
-            this.btn_Logout_Login.MouseEnter += new System.EventHandler(this.btn_Logout_Login_MouseEnter);
-            this.btn_Logout_Login.MouseLeave += new System.EventHandler(this.btn_Logout_Login_MouseLeave);
             // 
             // tableLayoutPanel6
             // 
@@ -169,31 +149,6 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(400, 229);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
-            // pbx_Logo
-            // 
-            this.pbx_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Logo.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_04;
-            this.pbx_Logo.Location = new System.Drawing.Point(31, 3);
-            this.pbx_Logo.Name = "pbx_Logo";
-            this.pbx_Logo.Size = new System.Drawing.Size(337, 213);
-            this.pbx_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbx_Logo.TabIndex = 0;
-            this.pbx_Logo.TabStop = false;
-            // 
-            // pbx_Sound
-            // 
-            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
-            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Sound.Location = new System.Drawing.Point(1061, 3);
-            this.pbx_Sound.Name = "pbx_Sound";
-            this.pbx_Sound.Size = new System.Drawing.Size(30, 25);
-            this.pbx_Sound.TabIndex = 17;
-            this.pbx_Sound.TabStop = false;
-            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
-            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
-            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
-            // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.BackColor = System.Drawing.Color.Transparent;
@@ -235,6 +190,79 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(995, 283);
             this.tableLayoutPanel11.TabIndex = 0;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel15.ColumnCount = 3;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel15.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(4, 587);
+            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 3;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.61856F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(1224, 77);
+            this.tableLayoutPanel15.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.Location = new System.Drawing.Point(371, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(481, 51);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Focused Bible @2019 ALL RIGHTS RESERVED";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel16.ColumnCount = 10;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel16.Controls.Add(this.Btn_Settings, 7, 0);
+            this.tableLayoutPanel16.Controls.Add(this.pbx_Sound, 3, 0);
+            this.tableLayoutPanel16.Controls.Add(this.lab_User, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.btn_how2Play, 5, 0);
+            this.tableLayoutPanel16.Controls.Add(this.Btn_Close, 9, 0);
+            this.tableLayoutPanel16.Controls.Add(this.btn_Logout_Login, 1, 0);
+            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 1;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 31);
+            this.tableLayoutPanel16.TabIndex = 3;
+            // 
+            // pbx_Logo
+            // 
+            this.pbx_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Logo.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_04;
+            this.pbx_Logo.Location = new System.Drawing.Point(31, 3);
+            this.pbx_Logo.Name = "pbx_Logo";
+            this.pbx_Logo.Size = new System.Drawing.Size(337, 213);
+            this.pbx_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_Logo.TabIndex = 0;
+            this.pbx_Logo.TabStop = false;
             // 
             // btn_Partida
             // 
@@ -302,70 +330,9 @@
             this.btn_solo.Text = "SOLO";
             this.btn_solo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_solo.UseVisualStyleBackColor = true;
+            this.btn_solo.Click += new System.EventHandler(this.btn_solo_Click);
             this.btn_solo.MouseEnter += new System.EventHandler(this.btn_solo_MouseEnter);
             this.btn_solo.MouseLeave += new System.EventHandler(this.btn_solo_MouseLeave);
-            // 
-            // tableLayoutPanel15
-            // 
-            this.tableLayoutPanel15.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel15.ColumnCount = 3;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel15.Controls.Add(this.label1, 1, 0);
-            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(4, 587);
-            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 3;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.61856F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(1224, 77);
-            this.tableLayoutPanel15.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.Color.LightGray;
-            this.label1.Location = new System.Drawing.Point(371, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(481, 51);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Focused Bible @2019 ALL RIGHTS RESERVED";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel16
-            // 
-            this.tableLayoutPanel16.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel16.ColumnCount = 10;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.tableLayoutPanel16.Controls.Add(this.Btn_Settings, 7, 0);
-            this.tableLayoutPanel16.Controls.Add(this.pbx_Sound, 3, 0);
-            this.tableLayoutPanel16.Controls.Add(this.lab_User, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.btn_how2Play, 5, 0);
-            this.tableLayoutPanel16.Controls.Add(this.Btn_Close, 9, 0);
-            this.tableLayoutPanel16.Controls.Add(this.btn_Logout_Login, 1, 0);
-            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
-            this.tableLayoutPanel16.RowCount = 1;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 31);
-            this.tableLayoutPanel16.TabIndex = 3;
             // 
             // Btn_Settings
             // 
@@ -380,6 +347,20 @@
             this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
             this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_Settings_MouseEnter);
             this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_Settings_MouseLeave);
+            // 
+            // pbx_Sound
+            // 
+            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
+            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Sound.Location = new System.Drawing.Point(1061, 3);
+            this.pbx_Sound.Name = "pbx_Sound";
+            this.pbx_Sound.Size = new System.Drawing.Size(30, 25);
+            this.pbx_Sound.TabIndex = 17;
+            this.pbx_Sound.TabStop = false;
+            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
+            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
+            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
             // 
             // btn_how2Play
             // 
@@ -426,6 +407,30 @@
             this.Btn_Close.MouseEnter += new System.EventHandler(this.Btn_Close_MouseEnter);
             this.Btn_Close.MouseLeave += new System.EventHandler(this.Btn_Close_MouseLeave);
             // 
+            // btn_Logout_Login
+            // 
+            this.btn_Logout_Login.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Logout_Login.BackgroundImage = global::capaPresentacion.Properties.Resources.Login_Registrate;
+            this.btn_Logout_Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Logout_Login.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Logout_Login.FlatAppearance.BorderSize = 0;
+            this.btn_Logout_Login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_Logout_Login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_Logout_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logout_Login.Font = new System.Drawing.Font("Avenir Next Demi Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Logout_Login.ForeColor = System.Drawing.Color.White;
+            this.btn_Logout_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Logout_Login.Location = new System.Drawing.Point(872, 3);
+            this.btn_Logout_Login.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.btn_Logout_Login.Name = "btn_Logout_Login";
+            this.btn_Logout_Login.Size = new System.Drawing.Size(177, 28);
+            this.btn_Logout_Login.TabIndex = 16;
+            this.btn_Logout_Login.Text = "LOGIN | REGISTRATE";
+            this.btn_Logout_Login.UseVisualStyleBackColor = false;
+            this.btn_Logout_Login.Click += new System.EventHandler(this.btn_Logout_Login_Click);
+            this.btn_Logout_Login.MouseEnter += new System.EventHandler(this.btn_Logout_Login_MouseEnter);
+            this.btn_Logout_Login.MouseLeave += new System.EventHandler(this.btn_Logout_Login_MouseLeave);
+            // 
             // P_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -446,15 +451,15 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -82,18 +82,22 @@ namespace capaPresentacion
             this.BackgroundImage = Properties.Resources.Focused_bible_landing_01_Fondo;
             BackgroundImageLayout = ImageLayout.Stretch;
 
+            if (E_Usuario.Nombreusuario == null || E_Usuario.Nombreusuario == "")
+            {
+                E_Usuario.Nombreusuario = "Invitado";
+            }
 
             lab_User.Text = "User: " + E_Usuario.Nombreusuario;
-            if (lab_User.Text != "User: ")
+            if (lab_User.Text != "User: Invitado")
             {
-                btn_Logout_Login.BackColor = Color.DimGray;
+                btn_Logout_Login.BackgroundImage = Properties.Resources.LogOut;
                 btn_Logout_Login.Text = "LOGOUT | REGISTRATE";
 
                 btn_Partida.Enabled = true; // desbloquear modalidad Partida
             }
             else
             {
-                btn_Logout_Login.BackColor = Color.FromArgb(31, 194, 221);
+                btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate;
                 btn_Logout_Login.Text = "LOGIN | REGISTRATE";
 
                 btn_Partida.Enabled = false; // bloquear modalidad Partida
@@ -200,7 +204,7 @@ namespace capaPresentacion
 
         private void btn_Logout_Login_Click(object sender, EventArgs e)
         {
-            if (lab_User.Text == "User: ") // si está deslogueado
+            if (lab_User.Text == "User: Invitado") // si está deslogueado
             {
                 P_Login login = new P_Login();
                 login.Show();
@@ -313,11 +317,29 @@ namespace capaPresentacion
         private void btn_Logout_Login_MouseEnter(object sender, EventArgs e)
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
+
+            if (lab_User.Text == "User: Invitado")
+            {
+                btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate_MouseEnter;
+            }
+            else
+            {
+                btn_Logout_Login.BackgroundImage = Properties.Resources.LogOut_MouseEnter;
+            }
         }
 
         private void btn_Logout_Login_MouseLeave(object sender, EventArgs e)
         {
             objEntidad.StopButtonSound();
+
+            if (lab_User.Text == "User: Invitado")
+            {
+                btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate;
+            }
+            else
+            {
+                btn_Logout_Login.BackgroundImage = Properties.Resources.LogOut;
+            }
         }
 
         private void btn_debate_EnabledChanged(object sender, EventArgs e)
@@ -386,6 +408,13 @@ namespace capaPresentacion
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
             }
+        }
+
+        private void btn_solo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            P_focusedBible_SoloyPartida soloMain = new P_focusedBible_SoloyPartida(objEntidad);
+            soloMain.ShowDialog();
         }
     }
 }
