@@ -36,6 +36,24 @@ namespace capaPresentacion
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            if (objEntidad.enableButtonSound)
+            {
+                btn_soundButton.Text = "Sonido Boton ON";
+            }
+            else
+            {
+                btn_soundButton.Text = "Sonido Boton OFF";
+            }
+
+            if (objEntidad.enableGameSound)
+            {
+                btn_soundGame.Text = "Sonido Juego ON";
+            }
+            else
+            {
+                btn_soundGame.Text = "Sonido Juego OFF";
+            }
+
             //seleccionar elementos previamente seleccionados
             if (objEntidad.catEvangelios_yOtros[0] != null)
             {
@@ -514,6 +532,34 @@ namespace capaPresentacion
             }
             else
             {
+            }
+        }
+
+        private void btn_soundButton_Click(object sender, EventArgs e)
+        {
+            if (btn_soundButton.Text == "Sonido Boton ON")
+            {
+                objEntidad.enableButtonSound = false;
+                btn_soundButton.Text = "Sonido Boton OFF";
+            }
+            else
+            {
+                objEntidad.enableButtonSound = true;
+                btn_soundButton.Text = "Sonido Boton ON";
+            }
+        }
+
+        private void btn_soundGame_Click(object sender, EventArgs e)
+        {
+            if (btn_soundGame.Text == "Sonido Juego ON")
+            {
+                objEntidad.enableGameSound = false;
+                btn_soundGame.Text = "Sonido Juego OFF";
+            }
+            else
+            {
+                objEntidad.enableGameSound = true;
+                btn_soundGame.Text = "Sonido Juego ON";
             }
         }
     }

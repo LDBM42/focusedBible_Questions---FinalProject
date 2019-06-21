@@ -62,6 +62,8 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.IniciarJuegoProfesor = new System.Windows.Forms.Timer(this.components);
+            this.btn_soundButton = new System.Windows.Forms.Button();
+            this.btn_soundGame = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
@@ -96,6 +98,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel4.Controls.Add(this.btn_soundGame, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel12, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Pxb_Logo, 1, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -162,6 +165,7 @@
             this.tableLayoutPanel3.Controls.Add(this.tlyo_Settings, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.gbx_Settings, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.btn_soundButton, 2, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -785,6 +789,28 @@
             this.btn_Aceptar.UseVisualStyleBackColor = true;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
+            // btn_soundButton
+            // 
+            this.btn_soundButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_soundButton.Location = new System.Drawing.Point(846, 97);
+            this.btn_soundButton.Name = "btn_soundButton";
+            this.btn_soundButton.Size = new System.Drawing.Size(89, 45);
+            this.btn_soundButton.TabIndex = 5;
+            this.btn_soundButton.Text = "Sonido Boton ON";
+            this.btn_soundButton.UseVisualStyleBackColor = true;
+            this.btn_soundButton.Click += new System.EventHandler(this.btn_soundButton_Click);
+            // 
+            // btn_soundGame
+            // 
+            this.btn_soundGame.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_soundGame.Location = new System.Drawing.Point(37, 97);
+            this.btn_soundGame.Name = "btn_soundGame";
+            this.btn_soundGame.Size = new System.Drawing.Size(89, 45);
+            this.btn_soundGame.TabIndex = 6;
+            this.btn_soundGame.Text = "Sonido Juego ON";
+            this.btn_soundGame.UseVisualStyleBackColor = true;
+            this.btn_soundGame.Click += new System.EventHandler(this.btn_soundGame_Click);
+            // 
             // P_GameSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -854,5 +880,7 @@
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.ListBox lbx_preguntas;
         private System.Windows.Forms.CheckBox cbx_Opportunities;
+        private System.Windows.Forms.Button btn_soundGame;
+        private System.Windows.Forms.Button btn_soundButton;
     }
 }

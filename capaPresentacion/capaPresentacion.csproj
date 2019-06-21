@@ -82,6 +82,9 @@
     <Compile Include="Banners.Designer.cs">
       <DependentUpon>Banners.cs</DependentUpon>
     </Compile>
+    <Compile Include="ButtonRoundBorder.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,6 +220,10 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Sound_MouseLeave_ON.png" />
+    <None Include="Resources\Sound_MouseLeave_OFF.png" />
+    <None Include="Resources\Sound_MouseEnter_ON.png" />
+    <None Include="Resources\Sound_MouseEnter_OFF.png" />
     <None Include="Resources\WhatsApp Image 2019-06-15 at 2.16.00 AM.jpeg" />
     <None Include="Resources\WhatsApp Image 2019-06-15 at 2.16.00 AM%281%29.jpeg" />
     <None Include="Resources\WhatsApp Image 2019-06-14 at 12.09.10 AM.jpeg" />
@@ -266,6 +273,8 @@
     <None Include="Resources\Focused-bible-landing-06-MOUSE-ENTER.png" />
     <None Include="Resources\Focused-bible-landing-07-MOUSE-ENTER.png" />
     <None Include="Resources\Focused-bible-landing-Cerrar_MOUSE-ENTER.png" />
+    <None Include="Resources\Focused-bible-landing-06-DISABLED.png" />
+    <None Include="Resources\Focused-bible-landing-07-DISABLED.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

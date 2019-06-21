@@ -17,6 +17,7 @@ namespace capaPresentacion
 {
     public partial class P_Main : Form
     {
+
         public P_Main(E_focusedBible Configuracion)
         {
             if (Configuracion.catEvangelios_yOtros != null)
@@ -46,6 +47,10 @@ namespace capaPresentacion
                 objEntidad.questions2Answer = "Todas";
                 objEntidad.rebound = false;
                 objEntidad.opportunitiesBoolean = true;
+
+                objEntidad.enableButtonSound = true;
+                objEntidad.enableGameSound = true;
+                objEntidad.enableAllSounds = true;
             }
 
             InitializeComponent();
@@ -58,7 +63,6 @@ namespace capaPresentacion
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
-        SoundPlayer sonido;
 
 
 
@@ -135,42 +139,15 @@ namespace capaPresentacion
         #endregion
 
 
-
-        private void reproducirSonido(string nombreArchivo, bool loop)
-        {
-            if (sonido != null)
-            {
-                sonido.Stop();
-            }
-            //SystemSounds.Hand.Play(); // Sonido de windows
-            try
-            {
-                sonido = new SoundPlayer(Application.StartupPath + @"\son\" + nombreArchivo);
-                if (loop == true)
-                {
-                    sonido.PlayLooping();
-                }
-                else
-                {
-                    sonido.Play();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex);
-            }
-        }
-
-
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
         {
-            reproducirSonido("button.wav", false);
+            objEntidad.reproducirSonidoBoton("button.wav", false);
             Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
         }
 
         private void Btn_Settings_MouseLeave(object sender, EventArgs e)
         {
-            sonido.Stop();
+            objEntidad.StopButtonSound();
             Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02;
         }
 
@@ -275,72 +252,140 @@ namespace capaPresentacion
 
         private void btn_how2Play_MouseEnter(object sender, EventArgs e)
         {
-            reproducirSonido("button.wav", false);
+            objEntidad.reproducirSonidoBoton("button.wav", false);
             btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_MOUSE_ENTER;
         }
 
         private void btn_how2Play_MouseLeave(object sender, EventArgs e)
         {
-            sonido.Stop();
+            objEntidad.StopButtonSound();
             btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
         }
 
         private void Btn_Close_MouseEnter(object sender, EventArgs e)
         {
-            reproducirSonido("button.wav", false);
+            objEntidad.reproducirSonidoBoton("button.wav", false);
             Btn_Close.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar_MOUSE_ENTER;
         }
 
         private void Btn_Close_MouseLeave(object sender, EventArgs e)
         {
-            sonido.Stop();
+            objEntidad.StopButtonSound();
             Btn_Close.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar;
         }
 
         private void btn_solo_MouseEnter(object sender, EventArgs e)
         {
-            reproducirSonido("button.wav", false);
-            btn_solo.Image = Properties.Resources.Focused_bible_landing_05_MOUSE_ENTER;
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_solo.BackgroundImage = Properties.Resources.Focused_bible_landing_05_MOUSE_ENTER;
         }
 
         private void btn_solo_MouseLeave(object sender, EventArgs e)
         {
-            sonido.Stop();
-            btn_solo.Image = Properties.Resources.Focused_bible_landing_05;
+            objEntidad.StopButtonSound();
+            btn_solo.BackgroundImage = Properties.Resources.Focused_bible_landing_05;
         }
 
         private void btn_debate_MouseEnter(object sender, EventArgs e)
         {
-            reproducirSonido("button.wav", false);
-            btn_debate.Image = Properties.Resources.Focused_bible_landing_06_MOUSE_ENTER;
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_debate.BackgroundImage = Properties.Resources.Focused_bible_landing_06_MOUSE_ENTER;
         }
 
         private void btn_debate_MouseLeave(object sender, EventArgs e)
         {
-            sonido.Stop();
-            btn_debate.Image = Properties.Resources.Focused_bible_landing_06;
+            objEntidad.StopButtonSound();
+            btn_debate.BackgroundImage = Properties.Resources.Focused_bible_landing_06;
         }
 
         private void btn_Partida_MouseEnter(object sender, EventArgs e)
         {
-            reproducirSonido("button.wav", false);
-            btn_Partida.Image = Properties.Resources.Focused_bible_landing_07_MOUSE_ENTER;
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_Partida.BackgroundImage = Properties.Resources.Focused_bible_landing_07_MOUSE_ENTER;
         }
 
         private void btn_Partida_MouseLeave(object sender, EventArgs e)
         {
-            sonido.Stop();
-            btn_Partida.Image = Properties.Resources.Focused_bible_landing_07;
+            objEntidad.StopButtonSound();
+            btn_Partida.BackgroundImage = Properties.Resources.Focused_bible_landing_07;
         }
 
         private void btn_Logout_Login_MouseEnter(object sender, EventArgs e)
         {
-            reproducirSonido("button.wav", false);
+            objEntidad.reproducirSonidoBoton("button.wav", false);
         }
 
         private void btn_Logout_Login_MouseLeave(object sender, EventArgs e)
         {
-            sonido.Stop();
+            objEntidad.StopButtonSound();
+        }
+
+        private void btn_debate_EnabledChanged(object sender, EventArgs e)
+        {
+            if (btn_debate.Enabled == false)
+            {
+                btn_debate.BackgroundImage = Properties.Resources.Focused_bible_landing_06_DISABLED;
+            }
+            else
+            {
+                btn_debate.BackgroundImage = Properties.Resources.Focused_bible_landing_06;
+            }
+        }
+
+        private void btn_Partida_EnabledChanged(object sender, EventArgs e)
+        {
+            if (btn_Partida.Enabled == false)
+            {
+                btn_Partida.BackgroundImage = Properties.Resources.Focused_bible_landing_07_DISABLED;
+            }
+            else
+            {
+                btn_Partida.BackgroundImage = Properties.Resources.Focused_bible_landing_07;
+            }
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableAllSounds == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableAllSounds = false;
+                objEntidad.enableGameSound = false;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableAllSounds = true;
+                objEntidad.enableGameSound = true;
+                objEntidad.enableButtonSound = true;
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableAllSounds == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            objEntidad.StopButtonSound();
+            if (objEntidad.enableAllSounds == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
     }
 }

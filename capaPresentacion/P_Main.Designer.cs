@@ -29,116 +29,37 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_Main));
-            this.Btn_Settings = new System.Windows.Forms.PictureBox();
-            this.btn_solo = new System.Windows.Forms.Button();
-            this.btn_Partida = new System.Windows.Forms.Button();
-            this.btn_how2Play = new System.Windows.Forms.Button();
             this.lab_User = new System.Windows.Forms.Label();
             this.btn_Logout_Login = new System.Windows.Forms.Button();
-            this.Btn_Close = new System.Windows.Forms.Button();
-            this.btn_debate = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.pbx_Logo = new System.Windows.Forms.PictureBox();
+            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Partida = new System.Windows.Forms.Button();
+            this.btn_debate = new System.Windows.Forms.Button();
+            this.btn_solo = new System.Windows.Forms.Button();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
+            this.Btn_Settings = new System.Windows.Forms.PictureBox();
+            this.btn_how2Play = new System.Windows.Forms.Button();
+            this.Btn_Close = new System.Windows.Forms.Button();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Btn_Settings
-            // 
-            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_02;
-            this.Btn_Settings.Location = new System.Drawing.Point(1123, 3);
-            this.Btn_Settings.Name = "Btn_Settings";
-            this.Btn_Settings.Size = new System.Drawing.Size(40, 39);
-            this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Btn_Settings.TabIndex = 1;
-            this.Btn_Settings.TabStop = false;
-            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
-            this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_Settings_MouseEnter);
-            this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_Settings_MouseLeave);
-            // 
-            // btn_solo
-            // 
-            this.btn_solo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_solo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_solo.FlatAppearance.BorderSize = 0;
-            this.btn_solo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_solo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_solo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_solo.Font = new System.Drawing.Font("Avenir Next", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_solo.ForeColor = System.Drawing.Color.White;
-            this.btn_solo.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_05;
-            this.btn_solo.Location = new System.Drawing.Point(42, 36);
-            this.btn_solo.Name = "btn_solo";
-            this.btn_solo.Padding = new System.Windows.Forms.Padding(0, 30, 0, 30);
-            this.btn_solo.Size = new System.Drawing.Size(292, 208);
-            this.btn_solo.TabIndex = 17;
-            this.btn_solo.Text = "SOLO";
-            this.btn_solo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_solo.UseVisualStyleBackColor = true;
-            this.btn_solo.MouseEnter += new System.EventHandler(this.btn_solo_MouseEnter);
-            this.btn_solo.MouseLeave += new System.EventHandler(this.btn_solo_MouseLeave);
-            // 
-            // btn_Partida
-            // 
-            this.btn_Partida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Partida.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Partida.FlatAppearance.BorderSize = 0;
-            this.btn_Partida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_Partida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_Partida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Partida.Font = new System.Drawing.Font("Avenir Next", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Partida.ForeColor = System.Drawing.Color.White;
-            this.btn_Partida.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_07;
-            this.btn_Partida.Location = new System.Drawing.Point(656, 36);
-            this.btn_Partida.Name = "btn_Partida";
-            this.btn_Partida.Padding = new System.Windows.Forms.Padding(0, 30, 0, 30);
-            this.btn_Partida.Size = new System.Drawing.Size(292, 208);
-            this.btn_Partida.TabIndex = 19;
-            this.btn_Partida.Text = "PARTIDA";
-            this.btn_Partida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Partida.UseVisualStyleBackColor = true;
-            this.btn_Partida.MouseEnter += new System.EventHandler(this.btn_Partida_MouseEnter);
-            this.btn_Partida.MouseLeave += new System.EventHandler(this.btn_Partida_MouseLeave);
-            // 
-            // btn_how2Play
-            // 
-            this.btn_how2Play.BackColor = System.Drawing.Color.Transparent;
-            this.btn_how2Play.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_landing_03_1;
-            this.btn_how2Play.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_how2Play.FlatAppearance.BorderSize = 0;
-            this.btn_how2Play.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_how2Play.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_how2Play.Location = new System.Drawing.Point(1068, 3);
-            this.btn_how2Play.Name = "btn_how2Play";
-            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_how2Play.Size = new System.Drawing.Size(42, 39);
-            this.btn_how2Play.TabIndex = 14;
-            this.btn_how2Play.UseVisualStyleBackColor = false;
-            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
-            this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
-            this.btn_how2Play.MouseLeave += new System.EventHandler(this.btn_how2Play_MouseLeave);
             // 
             // lab_User
             // 
@@ -148,7 +69,7 @@
             this.lab_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
             this.lab_User.Location = new System.Drawing.Point(3, 0);
             this.lab_User.Name = "lab_User";
-            this.lab_User.Size = new System.Drawing.Size(849, 45);
+            this.lab_User.Size = new System.Drawing.Size(863, 31);
             this.lab_User.TabIndex = 15;
             this.lab_User.Text = "User:";
             this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,61 +83,16 @@
             this.btn_Logout_Login.Font = new System.Drawing.Font("Avenir Next Demi Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Logout_Login.ForeColor = System.Drawing.Color.White;
             this.btn_Logout_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Logout_Login.Location = new System.Drawing.Point(858, 3);
+            this.btn_Logout_Login.Location = new System.Drawing.Point(872, 3);
             this.btn_Logout_Login.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_Logout_Login.Name = "btn_Logout_Login";
-            this.btn_Logout_Login.Size = new System.Drawing.Size(197, 42);
+            this.btn_Logout_Login.Size = new System.Drawing.Size(177, 28);
             this.btn_Logout_Login.TabIndex = 16;
             this.btn_Logout_Login.Text = "LOGIN | REGISTRATE";
             this.btn_Logout_Login.UseVisualStyleBackColor = false;
             this.btn_Logout_Login.Click += new System.EventHandler(this.btn_Logout_Login_Click);
             this.btn_Logout_Login.MouseEnter += new System.EventHandler(this.btn_Logout_Login_MouseEnter);
             this.btn_Logout_Login.MouseLeave += new System.EventHandler(this.btn_Logout_Login_MouseLeave);
-            // 
-            // Btn_Close
-            // 
-            this.Btn_Close.BackColor = System.Drawing.Color.Transparent;
-            this.Btn_Close.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Close.BackgroundImage")));
-            this.Btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Btn_Close.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_Close.FlatAppearance.BorderSize = 0;
-            this.Btn_Close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Btn_Close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Close.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
-            this.Btn_Close.ForeColor = System.Drawing.Color.Transparent;
-            this.Btn_Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Close.Location = new System.Drawing.Point(1176, 3);
-            this.Btn_Close.Name = "Btn_Close";
-            this.Btn_Close.Size = new System.Drawing.Size(45, 39);
-            this.Btn_Close.TabIndex = 16;
-            this.Btn_Close.UseVisualStyleBackColor = false;
-            this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
-            this.Btn_Close.MouseEnter += new System.EventHandler(this.Btn_Close_MouseEnter);
-            this.Btn_Close.MouseLeave += new System.EventHandler(this.Btn_Close_MouseLeave);
-            // 
-            // btn_debate
-            // 
-            this.btn_debate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_debate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_debate.FlatAppearance.BorderSize = 0;
-            this.btn_debate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_debate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_debate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_debate.Font = new System.Drawing.Font("Avenir Next", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_debate.ForeColor = System.Drawing.Color.White;
-            this.btn_debate.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_06;
-            this.btn_debate.Location = new System.Drawing.Point(349, 36);
-            this.btn_debate.Name = "btn_debate";
-            this.btn_debate.Padding = new System.Windows.Forms.Padding(0, 30, 0, 30);
-            this.btn_debate.Size = new System.Drawing.Size(292, 208);
-            this.btn_debate.TabIndex = 18;
-            this.btn_debate.Text = "DUO";
-            this.btn_debate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_debate.UseVisualStyleBackColor = true;
-            this.btn_debate.Click += new System.EventHandler(this.btn_debate_Click);
-            this.btn_debate.MouseEnter += new System.EventHandler(this.btn_debate_MouseEnter);
-            this.btn_debate.MouseLeave += new System.EventHandler(this.btn_debate_MouseLeave);
             // 
             // tableLayoutPanel6
             // 
@@ -251,8 +127,8 @@
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 4;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.059702F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.58084F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.838323F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.67665F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.61078F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.53731F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1232, 668);
@@ -267,12 +143,12 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(4, 57);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(4, 43);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1224, 223);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1224, 237);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -290,7 +166,7 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.9799F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.020101F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(400, 215);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(400, 229);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // pbx_Logo
@@ -299,10 +175,24 @@
             this.pbx_Logo.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_04;
             this.pbx_Logo.Location = new System.Drawing.Point(31, 3);
             this.pbx_Logo.Name = "pbx_Logo";
-            this.pbx_Logo.Size = new System.Drawing.Size(337, 200);
+            this.pbx_Logo.Size = new System.Drawing.Size(337, 213);
             this.pbx_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbx_Logo.TabIndex = 0;
             this.pbx_Logo.TabStop = false;
+            // 
+            // pbx_Sound
+            // 
+            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
+            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Sound.Location = new System.Drawing.Point(1061, 3);
+            this.pbx_Sound.Name = "pbx_Sound";
+            this.pbx_Sound.Size = new System.Drawing.Size(30, 25);
+            this.pbx_Sound.TabIndex = 17;
+            this.pbx_Sound.TabStop = false;
+            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
+            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
+            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
             // 
             // tableLayoutPanel10
             // 
@@ -318,7 +208,7 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(1224, 290);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(1224, 291);
             this.tableLayoutPanel10.TabIndex = 1;
             // 
             // tableLayoutPanel11
@@ -343,8 +233,77 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(995, 282);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(995, 283);
             this.tableLayoutPanel11.TabIndex = 0;
+            // 
+            // btn_Partida
+            // 
+            this.btn_Partida.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_landing_07;
+            this.btn_Partida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Partida.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Partida.FlatAppearance.BorderSize = 0;
+            this.btn_Partida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_Partida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_Partida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Partida.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Partida.ForeColor = System.Drawing.Color.White;
+            this.btn_Partida.Location = new System.Drawing.Point(656, 36);
+            this.btn_Partida.Name = "btn_Partida";
+            this.btn_Partida.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.btn_Partida.Size = new System.Drawing.Size(292, 209);
+            this.btn_Partida.TabIndex = 19;
+            this.btn_Partida.Text = "PARTIDA";
+            this.btn_Partida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Partida.UseVisualStyleBackColor = true;
+            this.btn_Partida.EnabledChanged += new System.EventHandler(this.btn_Partida_EnabledChanged);
+            this.btn_Partida.MouseEnter += new System.EventHandler(this.btn_Partida_MouseEnter);
+            this.btn_Partida.MouseLeave += new System.EventHandler(this.btn_Partida_MouseLeave);
+            // 
+            // btn_debate
+            // 
+            this.btn_debate.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_landing_06;
+            this.btn_debate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_debate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_debate.FlatAppearance.BorderSize = 0;
+            this.btn_debate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_debate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_debate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_debate.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_debate.ForeColor = System.Drawing.Color.White;
+            this.btn_debate.Location = new System.Drawing.Point(349, 36);
+            this.btn_debate.Name = "btn_debate";
+            this.btn_debate.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.btn_debate.Size = new System.Drawing.Size(292, 209);
+            this.btn_debate.TabIndex = 18;
+            this.btn_debate.Text = "DUO";
+            this.btn_debate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_debate.UseVisualStyleBackColor = true;
+            this.btn_debate.EnabledChanged += new System.EventHandler(this.btn_debate_EnabledChanged);
+            this.btn_debate.Click += new System.EventHandler(this.btn_debate_Click);
+            this.btn_debate.MouseEnter += new System.EventHandler(this.btn_debate_MouseEnter);
+            this.btn_debate.MouseLeave += new System.EventHandler(this.btn_debate_MouseLeave);
+            // 
+            // btn_solo
+            // 
+            this.btn_solo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_landing_05;
+            this.btn_solo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_solo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_solo.FlatAppearance.BorderSize = 0;
+            this.btn_solo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_solo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_solo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_solo.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_solo.ForeColor = System.Drawing.Color.White;
+            this.btn_solo.Location = new System.Drawing.Point(42, 36);
+            this.btn_solo.Name = "btn_solo";
+            this.btn_solo.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.btn_solo.Size = new System.Drawing.Size(292, 209);
+            this.btn_solo.TabIndex = 17;
+            this.btn_solo.Text = "SOLO";
+            this.btn_solo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_solo.UseVisualStyleBackColor = true;
+            this.btn_solo.MouseEnter += new System.EventHandler(this.btn_solo_MouseEnter);
+            this.btn_solo.MouseLeave += new System.EventHandler(this.btn_solo_MouseLeave);
             // 
             // tableLayoutPanel15
             // 
@@ -355,14 +314,14 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel15.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(4, 586);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(4, 587);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.61856F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(1224, 78);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(1224, 77);
             this.tableLayoutPanel15.TabIndex = 2;
             // 
             // label1
@@ -374,7 +333,7 @@
             this.label1.Location = new System.Drawing.Point(371, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(481, 52);
+            this.label1.Size = new System.Drawing.Size(481, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Focused Bible @2019 ALL RIGHTS RESERVED";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -382,34 +341,95 @@
             // tableLayoutPanel16
             // 
             this.tableLayoutPanel16.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel16.ColumnCount = 8;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.86971F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.61238F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.6224073F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.990228F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.6224073F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.821582F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.6211643F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.815119F));
-            this.tableLayoutPanel16.Controls.Add(this.Btn_Settings, 5, 0);
-            this.tableLayoutPanel16.Controls.Add(this.btn_how2Play, 3, 0);
-            this.tableLayoutPanel16.Controls.Add(this.Btn_Close, 7, 0);
-            this.tableLayoutPanel16.Controls.Add(this.btn_Logout_Login, 1, 0);
+            this.tableLayoutPanel16.ColumnCount = 10;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel16.Controls.Add(this.Btn_Settings, 7, 0);
+            this.tableLayoutPanel16.Controls.Add(this.pbx_Sound, 3, 0);
             this.tableLayoutPanel16.Controls.Add(this.lab_User, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.btn_how2Play, 5, 0);
+            this.tableLayoutPanel16.Controls.Add(this.Btn_Close, 9, 0);
+            this.tableLayoutPanel16.Controls.Add(this.btn_Logout_Login, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 45);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 31);
             this.tableLayoutPanel16.TabIndex = 3;
+            // 
+            // Btn_Settings
+            // 
+            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_02;
+            this.Btn_Settings.Location = new System.Drawing.Point(1145, 3);
+            this.Btn_Settings.Name = "Btn_Settings";
+            this.Btn_Settings.Size = new System.Drawing.Size(30, 25);
+            this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Settings.TabIndex = 1;
+            this.Btn_Settings.TabStop = false;
+            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
+            this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_Settings_MouseEnter);
+            this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_Settings_MouseLeave);
+            // 
+            // btn_how2Play
+            // 
+            this.btn_how2Play.BackColor = System.Drawing.Color.Transparent;
+            this.btn_how2Play.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_landing_03_1;
+            this.btn_how2Play.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_how2Play.FlatAppearance.BorderSize = 0;
+            this.btn_how2Play.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_how2Play.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_how2Play.Location = new System.Drawing.Point(1103, 3);
+            this.btn_how2Play.Name = "btn_how2Play";
+            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_how2Play.Size = new System.Drawing.Size(30, 25);
+            this.btn_how2Play.TabIndex = 14;
+            this.btn_how2Play.UseVisualStyleBackColor = false;
+            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
+            this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
+            this.btn_how2Play.MouseLeave += new System.EventHandler(this.btn_how2Play_MouseLeave);
+            // 
+            // Btn_Close
+            // 
+            this.Btn_Close.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Close.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Close.BackgroundImage")));
+            this.Btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_Close.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Close.FlatAppearance.BorderSize = 0;
+            this.Btn_Close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Btn_Close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Close.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.Btn_Close.ForeColor = System.Drawing.Color.Transparent;
+            this.Btn_Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Close.Location = new System.Drawing.Point(1187, 3);
+            this.Btn_Close.Name = "Btn_Close";
+            this.Btn_Close.Size = new System.Drawing.Size(34, 25);
+            this.Btn_Close.TabIndex = 16;
+            this.Btn_Close.UseVisualStyleBackColor = false;
+            this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
+            this.Btn_Close.MouseEnter += new System.EventHandler(this.Btn_Close_MouseEnter);
+            this.Btn_Close.MouseLeave += new System.EventHandler(this.Btn_Close_MouseLeave);
             // 
             // P_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_landing_01_Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1292, 735);
             this.Controls.Add(this.tableLayoutPanel6);
@@ -422,18 +442,19 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -457,5 +478,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.PictureBox pbx_Logo;
+        private System.Windows.Forms.PictureBox pbx_Sound;
     }
 }

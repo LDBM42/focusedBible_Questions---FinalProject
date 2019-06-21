@@ -86,7 +86,7 @@ namespace capaPresentacion
             countDownTimer2 = objEntidad.time2Answer;
             Timer_2Answer.Start();
             banner = "Round" + startingRound;
-            reproducirSonido("levelclearer.wav", true);
+            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
             objEntidad.difficulty = objEntidad.difficulty;
             objEntidad.catEvangelios_yOtros = objEntidad.catEvangelios_yOtros;
             objEntidad.catLibro = objEntidad.catLibro;
@@ -248,36 +248,11 @@ namespace capaPresentacion
             btn_Submit.Enabled = false;
         }
         
-        private void reproducirSonido(string nombreArchivo, bool loop)
-        {
-            if (sonido != null)
-            {
-                sonido.Stop();
-            }
-            //SystemSounds.Hand.Play(); // Sonido de windows
-            try
-            {
-                sonido = new SoundPlayer(Application.StartupPath + @"\son\" + nombreArchivo);
-                if (loop == true)
-                {
-                    sonido.PlayLooping();
-                }
-                else
-                {
-                    sonido.Play();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex);
-            }
-        }
-        
         void BannerStart(string banner)
         {
             Thread.Sleep(2000);
             Timer_2Answer.Stop();
-            sonido.Stop();
+            objEntidad.StopGameSound();
             this.banner = banner;
             Banner = new Banners(banner);
             Banner.Show();
@@ -285,7 +260,7 @@ namespace capaPresentacion
 
             if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
             {
-                reproducirSonido("start-ready-go.wav", false);
+                objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
             }
         }
         void StartAgan()
@@ -295,13 +270,13 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer))) // significa que el juego ha terminado
             {
                 Timer_2Answer.Stop();
-                sonido.Stop();
+                objEntidad.StopGameSound();
 
                 DialogResult respuesta = MessageBox.Show("The Game has Finished!\nDo you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
                 if (respuesta == DialogResult.Yes)
                 {
 
-                    reproducirSonido("start-ready-go.wav", false);
+                    objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
                     Thread.Sleep(700);
                     restart = true;
                     reset_PlayAgain();
@@ -340,7 +315,7 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)) )
             {
                 Timer_2Answer.Stop(); //detener conteo
-                reproducirSonido("game-over.wav", false);
+                objEntidad.reproducirSonidoJuego("game-over.wav", false);
                 
                 if (startingRound == objEntidad.numRounds) // si es el ultimo round
                 {
@@ -586,7 +561,7 @@ namespace capaPresentacion
             {
                 correctAnswer();
 
-                reproducirSonido("retro-lose.wav", false);
+                objEntidad.reproducirSonidoJuego("retro-lose.wav", false);
                 lab_Anuncios.ForeColor = Color.Brown;
                 lab_Anuncios.Text = "Wrong Answer";
 
@@ -631,9 +606,9 @@ namespace capaPresentacion
         }
         void correctAnswerSound()
         {
-            reproducirSonido("correctAnswer3.wav", false);
+            objEntidad.reproducirSonidoJuego("correctAnswer3.wav", false);
             Thread.Sleep(400);
-            reproducirSonido("cheering-and-clapping2.wav", false);
+            objEntidad.reproducirSonidoJuego("cheering-and-clapping2.wav", false);
         }
         void PlayerFocus(int turno)
         {
@@ -975,21 +950,21 @@ namespace capaPresentacion
             {
                 if (reboundTurn == true)
                 {
-                    reproducirSonido("rebound.wav", false);
+                    objEntidad.reproducirSonidoJuego("rebound.wav", false);
 
                     if (startingTurn == 1)
                     {
                         activarComidin(1);
                         activarPassage(1);
                         PlayerFocus(1);
-                        reproducirSonido("levelclearer.wav", true);
+                        objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                     }
                     else
                     {
                         activarComidin(2);
                         activarPassage(2);
                         PlayerFocus(2);
-                        reproducirSonido("levelclearer.wav", true);
+                        objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                     }
 
                     valueScore = 2;
@@ -1006,14 +981,14 @@ namespace capaPresentacion
                             activarComidin(1);
                             activarPassage(1);
                             PlayerFocus(1);
-                            reproducirSonido("levelclearer.wav", true);
+                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                         }
                         else
                         {
                             activarComidin(2);
                             activarPassage(2);
                             PlayerFocus(2);
-                            reproducirSonido("levelclearer.wav", true);
+                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                         }
 
                         valueScore = 2;
@@ -1021,21 +996,21 @@ namespace capaPresentacion
                     }
                     else
                     {
-                        reproducirSonido("rebound.wav", false);
+                        objEntidad.reproducirSonidoJuego("rebound.wav", false);
 
                         if (startingTurn == 1)
                         {
                             activarComidin(1);
                             activarPassage(1);
                             PlayerFocus(1);
-                            reproducirSonido("levelclearer.wav", true);
+                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                         }
                         else
                         {
                             activarComidin(2);
                             activarPassage(2);
                             PlayerFocus(2);
-                            reproducirSonido("levelclearer.wav", true);
+                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                         }
 
                         valueScore = 1;
@@ -1051,14 +1026,14 @@ namespace capaPresentacion
                     activarComidin(1);
                     activarPassage(1);
                     PlayerFocus(1);
-                    reproducirSonido("levelclearer.wav", true);
+                    objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                 }
                 else
                 {
                     activarComidin(2);
                     activarPassage(2);
                     PlayerFocus(2);
-                    reproducirSonido("levelclearer.wav", true);
+                    objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                 }
 
                 listarFocusedBible(objEntidad); //lista las preguntas y respuestas
@@ -1275,7 +1250,7 @@ namespace capaPresentacion
             {
                 if (countDownTimer2 <= 3)
                 {
-                    reproducirSonido("countDown.wav", false);
+                    objEntidad.reproducirSonidoJuego("countDown.wav", false);
                 }
 
                 lab_Anuncios.Text = Convert.ToString(countDownTimer2);
@@ -1449,7 +1424,7 @@ namespace capaPresentacion
 
             existe.Show();
             Timer_2Answer.Stop();
-            sonido.Stop();
+            objEntidad.StopGameSound();
             reboundTurn = false;
             this.Close(); //Esto cierra la ventana del juego y va a Main
         }

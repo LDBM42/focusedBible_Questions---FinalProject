@@ -303,6 +303,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_landing_06_DISABLED {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_landing_06_DISABLED", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_landing_06_MOUSE_ENTER {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_landing_06_MOUSE_ENTER", resourceCulture);
@@ -316,6 +326,16 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Focused_bible_landing_07 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_landing_07", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_landing_07_DISABLED {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_landing_07_DISABLED", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -526,6 +546,46 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Settings_MouseUp {
             get {
                 object obj = ResourceManager.GetObject("Settings_MouseUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sound_MouseEnter_OFF {
+            get {
+                object obj = ResourceManager.GetObject("Sound_MouseEnter_OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sound_MouseEnter_ON {
+            get {
+                object obj = ResourceManager.GetObject("Sound_MouseEnter_ON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sound_MouseLeave_OFF {
+            get {
+                object obj = ResourceManager.GetObject("Sound_MouseLeave_OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sound_MouseLeave_ON {
+            get {
+                object obj = ResourceManager.GetObject("Sound_MouseLeave_ON", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
