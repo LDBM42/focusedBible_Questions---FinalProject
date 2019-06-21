@@ -40,8 +40,9 @@
             this.tlyo_Settings = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.lbx_preguntas = new System.Windows.Forms.ListBox();
-            this.lbx_opportunitie = new System.Windows.Forms.ListBox();
+            this.cbx_Opportunities = new System.Windows.Forms.CheckBox();
             this.cbx_rebote = new System.Windows.Forms.CheckBox();
+            this.lbx_opportunitie = new System.Windows.Forms.ListBox();
             this.gbx_Settings = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,7 +62,8 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.IniciarJuegoProfesor = new System.Windows.Forms.Timer(this.components);
-            this.cbx_Opportunities = new System.Windows.Forms.CheckBox();
+            this.btn_soundButton = new System.Windows.Forms.Button();
+            this.btn_soundGame = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
@@ -96,6 +98,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel4.Controls.Add(this.btn_soundGame, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel12, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Pxb_Logo, 1, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -162,6 +165,7 @@
             this.tableLayoutPanel3.Controls.Add(this.tlyo_Settings, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.gbx_Settings, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.btn_soundButton, 2, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -274,6 +278,33 @@
             this.lbx_preguntas.TabIndex = 6;
             this.lbx_preguntas.SelectedIndexChanged += new System.EventHandler(this.lbx_preguntas_SelectedIndexChanged);
             // 
+            // cbx_Opportunities
+            // 
+            this.cbx_Opportunities.AutoSize = true;
+            this.cbx_Opportunities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_Opportunities.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_Opportunities.Location = new System.Drawing.Point(40, 3);
+            this.cbx_Opportunities.Name = "cbx_Opportunities";
+            this.cbx_Opportunities.Size = new System.Drawing.Size(119, 39);
+            this.cbx_Opportunities.TabIndex = 8;
+            this.cbx_Opportunities.Text = "Lifes";
+            this.cbx_Opportunities.UseVisualStyleBackColor = true;
+            this.cbx_Opportunities.CheckedChanged += new System.EventHandler(this.cbx_Opportunities_CheckedChanged);
+            // 
+            // cbx_rebote
+            // 
+            this.cbx_rebote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_rebote.AutoSize = true;
+            this.cbx_rebote.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_rebote.Location = new System.Drawing.Point(567, 3);
+            this.cbx_rebote.Name = "cbx_rebote";
+            this.cbx_rebote.Size = new System.Drawing.Size(134, 39);
+            this.cbx_rebote.TabIndex = 0;
+            this.cbx_rebote.Text = "Rebote?";
+            this.cbx_rebote.UseVisualStyleBackColor = true;
+            this.cbx_rebote.CheckedChanged += new System.EventHandler(this.cbx_rebote_CheckedChanged);
+            // 
             // lbx_opportunitie
             // 
             this.lbx_opportunitie.AllowDrop = true;
@@ -301,19 +332,6 @@
             this.lbx_opportunitie.Size = new System.Drawing.Size(119, 39);
             this.lbx_opportunitie.TabIndex = 5;
             this.lbx_opportunitie.SelectedIndexChanged += new System.EventHandler(this.lbx_opportunitie_SelectedIndexChanged);
-            // 
-            // cbx_rebote
-            // 
-            this.cbx_rebote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_rebote.AutoSize = true;
-            this.cbx_rebote.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_rebote.Location = new System.Drawing.Point(567, 3);
-            this.cbx_rebote.Name = "cbx_rebote";
-            this.cbx_rebote.Size = new System.Drawing.Size(134, 39);
-            this.cbx_rebote.TabIndex = 0;
-            this.cbx_rebote.Text = "Rebote?";
-            this.cbx_rebote.UseVisualStyleBackColor = true;
             // 
             // gbx_Settings
             // 
@@ -771,18 +789,27 @@
             this.btn_Aceptar.UseVisualStyleBackColor = true;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
-            // cbx_Opportunities
+            // btn_soundButton
             // 
-            this.cbx_Opportunities.AutoSize = true;
-            this.cbx_Opportunities.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbx_Opportunities.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_Opportunities.Location = new System.Drawing.Point(40, 3);
-            this.cbx_Opportunities.Name = "cbx_Opportunities";
-            this.cbx_Opportunities.Size = new System.Drawing.Size(119, 39);
-            this.cbx_Opportunities.TabIndex = 8;
-            this.cbx_Opportunities.Text = "Lifes";
-            this.cbx_Opportunities.UseVisualStyleBackColor = true;
-            this.cbx_Opportunities.CheckedChanged += new System.EventHandler(this.cbx_Opportunities_CheckedChanged);
+            this.btn_soundButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_soundButton.Location = new System.Drawing.Point(846, 97);
+            this.btn_soundButton.Name = "btn_soundButton";
+            this.btn_soundButton.Size = new System.Drawing.Size(89, 45);
+            this.btn_soundButton.TabIndex = 5;
+            this.btn_soundButton.Text = "Sonido Boton ON";
+            this.btn_soundButton.UseVisualStyleBackColor = true;
+            this.btn_soundButton.Click += new System.EventHandler(this.btn_soundButton_Click);
+            // 
+            // btn_soundGame
+            // 
+            this.btn_soundGame.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_soundGame.Location = new System.Drawing.Point(37, 97);
+            this.btn_soundGame.Name = "btn_soundGame";
+            this.btn_soundGame.Size = new System.Drawing.Size(89, 45);
+            this.btn_soundGame.TabIndex = 6;
+            this.btn_soundGame.Text = "Sonido Juego ON";
+            this.btn_soundGame.UseVisualStyleBackColor = true;
+            this.btn_soundGame.Click += new System.EventHandler(this.btn_soundGame_Click);
             // 
             // P_GameSettings
             // 
@@ -853,5 +880,7 @@
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.ListBox lbx_preguntas;
         private System.Windows.Forms.CheckBox cbx_Opportunities;
+        private System.Windows.Forms.Button btn_soundGame;
+        private System.Windows.Forms.Button btn_soundButton;
     }
 }

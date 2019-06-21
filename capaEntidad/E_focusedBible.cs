@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,11 +30,104 @@ namespace capaEntidad
         public string questions2Answer { get; set; }
         public bool rebound { get; set; } //almacena si se actibo el rebote o no
         public bool opportunitiesBoolean { get; set; }
+        public bool enableButtonSound { get; set; }
+        public bool enableGameSound { get; set; }
+        public bool enableAllSounds { get; set; }
 
         // para almacenar el query por dificultad
         public string queryListarPreguntas { get; set; }
 
         // para saber si se acaba de salir de la ventana settings a la del juego
         public static bool deSettings { get; set; }
+
+
+
+
+
+
+        //METODOS
+
+        SoundPlayer sonido;
+        public void reproducirSonidoJuego(string nombreArchivo, bool loop)
+        {
+            if (enableAllSounds)
+            {
+                if (enableGameSound)
+                {
+
+                    if (sonido != null)
+                    {
+                        sonido.Stop();
+                    }
+                    //SystemSounds.Hand.Play(); // Sonido de windows
+                    try
+                    {
+                        sonido = new SoundPlayer(System.Windows.Forms.Application.StartupPath + @"\son\" + nombreArchivo);
+                        if (loop == true)
+                        {
+                            sonido.PlayLooping();
+                        }
+                        else
+                        {
+                            sonido.Play();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Error: " + ex);
+                    }
+                }
+            }
+            
+        }
+        public void reproducirSonidoBoton(string nombreArchivo, bool loop)
+        {
+            if (enableAllSounds)
+            {
+                if (enableButtonSound)
+                {
+
+                    if (sonido != null)
+                    {
+                        sonido.Stop();
+                    }
+                    //SystemSounds.Hand.Play(); // Sonido de windows
+                    try
+                    {
+                        sonido = new SoundPlayer(System.Windows.Forms.Application.StartupPath + @"\son\" + nombreArchivo);
+                        if (loop == true)
+                        {
+                            sonido.PlayLooping();
+                        }
+                        else
+                        {
+                            sonido.Play();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Error: " + ex);
+                    }
+                }
+            }
+        }
+
+
+        // detiene el sonido si está abilitada esta opción
+        public void StopButtonSound()
+        {
+            if (enableButtonSound == true) // si el sonido está abilitado
+            {
+                sonido.Stop();
+            }
+        }
+        public void StopGameSound()
+        {
+            if (enableGameSound == true) // si el sonido está abilitado
+            {
+                sonido.Stop();
+            }
+        }
+
     }
 }

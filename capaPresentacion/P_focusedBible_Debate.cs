@@ -45,10 +45,12 @@ namespace capaPresentacion
         int countDownTimer3 = 2;
         int score_1 = 0; // puntuacion inicial
         int score_2 = 0; // puntuacion inicial
+        int valueScore = 2; //valor de cada pregunta
         int opportunities_1;
         int opportunities_2;
         int startingTurn = 1; // turno inicial
         int startingRound = 1; // ronda inicial
+        bool reboundTurn = false; // para saber si se está jugando la partida de rebote
         string banner;
         int wins_01 = 0;
         int wins_02 = 0;
@@ -84,7 +86,7 @@ namespace capaPresentacion
             countDownTimer2 = objEntidad.time2Answer;
             Timer_2Answer.Start();
             banner = "Round" + startingRound;
-            reproducirSonido("levelclearer.wav", true);
+            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
             objEntidad.difficulty = objEntidad.difficulty;
             objEntidad.catEvangelios_yOtros = objEntidad.catEvangelios_yOtros;
             objEntidad.catLibro = objEntidad.catLibro;
@@ -246,36 +248,11 @@ namespace capaPresentacion
             btn_Submit.Enabled = false;
         }
         
-        private void reproducirSonido(string nombreArchivo, bool loop)
-        {
-            if (sonido != null)
-            {
-                sonido.Stop();
-            }
-            //SystemSounds.Hand.Play(); // Sonido de windows
-            try
-            {
-                sonido = new SoundPlayer(Application.StartupPath + @"\son\" + nombreArchivo);
-                if (loop == true)
-                {
-                    sonido.PlayLooping();
-                }
-                else
-                {
-                    sonido.Play();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex);
-            }
-        }
-        
         void BannerStart(string banner)
         {
             Thread.Sleep(2000);
             Timer_2Answer.Stop();
-            sonido.Stop();
+            objEntidad.StopGameSound();
             this.banner = banner;
             Banner = new Banners(banner);
             Banner.Show();
@@ -283,7 +260,7 @@ namespace capaPresentacion
 
             if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
             {
-                reproducirSonido("start-ready-go.wav", false);
+                objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
             }
         }
         void StartAgan()
@@ -293,13 +270,13 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer))) // significa que el juego ha terminado
             {
                 Timer_2Answer.Stop();
-                sonido.Stop();
+                objEntidad.StopGameSound();
 
                 DialogResult respuesta = MessageBox.Show("The Game has Finished!\nDo you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
                 if (respuesta == DialogResult.Yes)
                 {
 
-                    reproducirSonido("start-ready-go.wav", false);
+                    objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
                     Thread.Sleep(700);
                     restart = true;
                     reset_PlayAgain();
@@ -314,17 +291,20 @@ namespace capaPresentacion
         }
         void cambioDeJugador()
         {
-            if (startingTurn == 1)
-            {
-                countDown.Start();
 
-                startingTurn = 2; //Group 2
-            }
-            else
+            if (reboundTurn == false) // si no hay REBOTE. Por lo que se tiene que cambiar de turno
             {
-                countDown.Start();
-                startingTurn = 1; //Group 1
+                if (startingTurn == 1)
+                {
+                    startingTurn = 2; //Group 2
+                }
+                else
+                {
+                    startingTurn = 1; //Group 1
+                }
             }
+
+            countDown.Start();
         }
         void perder_Ganar()
         {
@@ -335,7 +315,7 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)) )
             {
                 Timer_2Answer.Stop(); //detener conteo
-                reproducirSonido("game-over.wav", false);
+                objEntidad.reproducirSonidoJuego("game-over.wav", false);
                 
                 if (startingRound == objEntidad.numRounds) // si es el ultimo round
                 {
@@ -581,7 +561,7 @@ namespace capaPresentacion
             {
                 correctAnswer();
 
-                reproducirSonido("retro-lose.wav", false);
+                objEntidad.reproducirSonidoJuego("retro-lose.wav", false);
                 lab_Anuncios.ForeColor = Color.Brown;
                 lab_Anuncios.Text = "Wrong Answer";
 
@@ -626,9 +606,9 @@ namespace capaPresentacion
         }
         void correctAnswerSound()
         {
-            reproducirSonido("correctAnswer3.wav", false);
+            objEntidad.reproducirSonidoJuego("correctAnswer3.wav", false);
             Thread.Sleep(400);
-            reproducirSonido("cheering-and-clapping2.wav", false);
+            objEntidad.reproducirSonidoJuego("cheering-and-clapping2.wav", false);
         }
         void PlayerFocus(int turno)
         {
@@ -746,7 +726,7 @@ namespace capaPresentacion
 
                 if (answerCorrect == true)
                 {
-                    score_1++;
+                    score_1+=valueScore;
                     lab_ScoreNum.Text = Convert.ToString(score_1);
                 }
                 else
@@ -768,7 +748,7 @@ namespace capaPresentacion
 
                 if (answerCorrect == true)
                 {
-                    score_2++;
+                    score_2+=valueScore;
                     lab_ScoreNum2.Text = Convert.ToString(score_2);
                 }
                 else
@@ -956,7 +936,8 @@ namespace capaPresentacion
             }
 
             answerOriginalColor(); // aqui cambian las respuestas al color original
-            listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+
+            
             uncheckRbtn(); //desmarca las respuestas
             makeVisibleRbtn_andEnabled();//pone las resuestas visibles y abilitadas
             focoRbtn(); // se pone el foco las respuestas para poder seleccionarlas con el teclado
@@ -964,20 +945,104 @@ namespace capaPresentacion
             bloquear_Btn_Submit();
 
 
-            if (startingTurn == 1)
+            /**REBOTE**/
+            if (objEntidad.rebound == true)
             {
-                activarComidin(1);
-                activarPassage(1);
-                PlayerFocus(1);
-                reproducirSonido("levelclearer.wav", true);
-            }
-            else
+                if (reboundTurn == true)
+                {
+                    objEntidad.reproducirSonidoJuego("rebound.wav", false);
+
+                    if (startingTurn == 1)
+                    {
+                        activarComidin(1);
+                        activarPassage(1);
+                        PlayerFocus(1);
+                        objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                    }
+                    else
+                    {
+                        activarComidin(2);
+                        activarPassage(2);
+                        PlayerFocus(2);
+                        objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                    }
+
+                    valueScore = 2;
+                    listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+                    reboundTurn = false; // salir del rebote a su turno real
+;
+                }
+                else // si es el turno normal
+                {
+                    if (answerCorrect == true)
+                    {
+                        if (startingTurn == 1)
+                        {
+                            activarComidin(1);
+                            activarPassage(1);
+                            PlayerFocus(1);
+                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                        }
+                        else
+                        {
+                            activarComidin(2);
+                            activarPassage(2);
+                            PlayerFocus(2);
+                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                        }
+
+                        valueScore = 2;
+                        listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+                    }
+                    else
+                    {
+                        objEntidad.reproducirSonidoJuego("rebound.wav", false);
+
+                        if (startingTurn == 1)
+                        {
+                            activarComidin(1);
+                            activarPassage(1);
+                            PlayerFocus(1);
+                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                        }
+                        else
+                        {
+                            activarComidin(2);
+                            activarPassage(2);
+                            PlayerFocus(2);
+                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                        }
+
+                        valueScore = 1;
+                        reboundTurn = true;
+                    }
+                }
+
+            }//--------------------------------------------------------------------------
+            else // si rebote está desactivado
             {
-                activarComidin(2);
-                activarPassage(2);
-                PlayerFocus(2);
-                reproducirSonido("levelclearer.wav", true);
+                if (startingTurn == 1)
+                {
+                    activarComidin(1);
+                    activarPassage(1);
+                    PlayerFocus(1);
+                    objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                }
+                else
+                {
+                    activarComidin(2);
+                    activarPassage(2);
+                    PlayerFocus(2);
+                    objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                }
+
+                listarFocusedBible(objEntidad); //lista las preguntas y respuestas
             }
+
+
+
+
+
         }
         
 
@@ -1185,7 +1250,7 @@ namespace capaPresentacion
             {
                 if (countDownTimer2 <= 3)
                 {
-                    reproducirSonido("countDown.wav", false);
+                    objEntidad.reproducirSonidoJuego("countDown.wav", false);
                 }
 
                 lab_Anuncios.Text = Convert.ToString(countDownTimer2);
@@ -1359,7 +1424,8 @@ namespace capaPresentacion
 
             existe.Show();
             Timer_2Answer.Stop();
-            sonido.Stop();
+            objEntidad.StopGameSound();
+            reboundTurn = false;
             this.Close(); //Esto cierra la ventana del juego y va a Main
         }
     }
