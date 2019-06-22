@@ -48,9 +48,9 @@ namespace capaPresentacion
                 objEntidad.rebound = false;
                 objEntidad.opportunitiesBoolean = true;
 
-                objEntidad.enableButtonSound = true;
-                objEntidad.enableGameSound = true;
-                objEntidad.enableAllSounds = true;
+                objEntidad.enableButtonSound = false;
+                objEntidad.enableGameSound = false;
+                objEntidad.enableAllSounds = false;
             }
 
             InitializeComponent();
@@ -63,6 +63,33 @@ namespace capaPresentacion
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
+
+
+        // Las siguentes dos funciones son para
+        //evitar los problemas de Buffer por tener layouts transparentes
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(Control c)
+        {
+            if (SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        #endregion
 
 
 
@@ -113,35 +140,22 @@ namespace capaPresentacion
                 btn_debate.Enabled = false; // bloquear modalidad debate
             }
 
-        }
-
-
-        // Las siguentes dos funciones son para
-        //evitar los problemas de Buffer por tener layouts transparentes
-        #region .. Double Buffered function ..
-        public static void SetDoubleBuffered(Control c)
-        {
-            if (SystemInformation.TerminalServerSession)
-                return;
-            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            aProp.SetValue(c, true, null);
-        }
-
-        #endregion
-        #region .. code for Flucuring ..
-
-        protected override CreateParams CreateParams
-        {
-            get
+            if (objEntidad.enableAllSounds == true)
             {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;
-                return cp;
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+                objEntidad.enableAllSounds = true;
+                objEntidad.enableGameSound = true;
+                objEntidad.enableButtonSound = true;
             }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+                objEntidad.enableAllSounds = false;
+                objEntidad.enableGameSound = false;
+                objEntidad.enableButtonSound = false;
+            }
+
         }
-
-        #endregion
-
 
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
         {
@@ -151,7 +165,6 @@ namespace capaPresentacion
 
         private void Btn_Settings_MouseLeave(object sender, EventArgs e)
         {
-            objEntidad.StopButtonSound();
             Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02;
         }
 
@@ -262,7 +275,6 @@ namespace capaPresentacion
 
         private void btn_how2Play_MouseLeave(object sender, EventArgs e)
         {
-            objEntidad.StopButtonSound();
             btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
         }
 
@@ -274,7 +286,6 @@ namespace capaPresentacion
 
         private void Btn_Close_MouseLeave(object sender, EventArgs e)
         {
-            objEntidad.StopButtonSound();
             Btn_Close.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar;
         }
 
@@ -286,7 +297,6 @@ namespace capaPresentacion
 
         private void btn_solo_MouseLeave(object sender, EventArgs e)
         {
-            objEntidad.StopButtonSound();
             btn_solo.BackgroundImage = Properties.Resources.Focused_bible_landing_05;
         }
 
@@ -298,7 +308,6 @@ namespace capaPresentacion
 
         private void btn_debate_MouseLeave(object sender, EventArgs e)
         {
-            objEntidad.StopButtonSound();
             btn_debate.BackgroundImage = Properties.Resources.Focused_bible_landing_06;
         }
 
@@ -310,7 +319,6 @@ namespace capaPresentacion
 
         private void btn_Partida_MouseLeave(object sender, EventArgs e)
         {
-            objEntidad.StopButtonSound();
             btn_Partida.BackgroundImage = Properties.Resources.Focused_bible_landing_07;
         }
 
@@ -330,8 +338,6 @@ namespace capaPresentacion
 
         private void btn_Logout_Login_MouseLeave(object sender, EventArgs e)
         {
-            objEntidad.StopButtonSound();
-
             if (lab_User.Text == "User: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate;
@@ -399,7 +405,6 @@ namespace capaPresentacion
 
         private void pbx_Sound_MouseLeave(object sender, EventArgs e)
         {
-            objEntidad.StopButtonSound();
             if (objEntidad.enableAllSounds == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;

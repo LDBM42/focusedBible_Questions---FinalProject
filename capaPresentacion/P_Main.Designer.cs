@@ -144,8 +144,8 @@
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.9799F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.020101F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.95633F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.04367F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(400, 229);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
@@ -259,7 +259,7 @@
             this.pbx_Logo.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_04;
             this.pbx_Logo.Location = new System.Drawing.Point(31, 3);
             this.pbx_Logo.Name = "pbx_Logo";
-            this.pbx_Logo.Size = new System.Drawing.Size(337, 213);
+            this.pbx_Logo.Size = new System.Drawing.Size(337, 199);
             this.pbx_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbx_Logo.TabIndex = 0;
             this.pbx_Logo.TabStop = false;

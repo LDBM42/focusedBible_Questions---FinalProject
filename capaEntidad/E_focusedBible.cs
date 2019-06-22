@@ -114,13 +114,6 @@ namespace capaEntidad
 
 
         // detiene el sonido si está abilitada esta opción
-        public void StopButtonSound()
-        {
-            if (enableButtonSound == true) // si el sonido está abilitado
-            {
-                sonido.Stop();
-            }
-        }
         public void StopGameSound()
         {
             if (enableGameSound == true) // si el sonido está abilitado
