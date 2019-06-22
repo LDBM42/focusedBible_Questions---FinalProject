@@ -82,13 +82,14 @@
     <Compile Include="Banners.Designer.cs">
       <DependentUpon>Banners.cs</DependentUpon>
     </Compile>
-    <Compile Include="ButtonRoundBorder.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="CornerRadiusSetter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="P_DobbleBuffer.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="P_focusedBible_SoloyPartida.cs">
       <SubType>Form</SubType>
@@ -272,8 +273,6 @@
     <None Include="Resources\Focused-bible-SOLO-05.png" />
     <None Include="Resources\Focused-bible-SOLO-06.png" />
     <None Include="Resources\Focused-bible-SOLO-07.png" />
-    <None Include="Resources\Focused-bible-landing-Cerrar1.png" />
-    <None Include="Resources\Focused-bible-landing-Cerrar.png" />
     <None Include="Resources\Focused-bible-landing-031.png" />
     <None Include="Resources\Focused-bible-landing-03-1.png" />
     <None Include="Resources\Focused-bible-landing-02-MOUSE-ENTER.png" />
@@ -288,6 +287,12 @@
     <None Include="Resources\LogOut_MouseEnter.png" />
     <None Include="Resources\Login_Registrate_MouseEnter.png" />
     <None Include="Resources\LogOut.png" />
+    <None Include="Resources\Focused-bible-SOLO-07_MouseEnter.png" />
+    <None Include="Resources\Boton_Empezar_MouseEnter.png" />
+    <None Include="Resources\Boton_Empezar_MouseLeave.png" />
+    <None Include="Resources\Focused-bible-landing-Cerrar.png" />
+    <None Include="Resources\Fondo_Debate_Main.png" />
+    <None Include="Resources\Fondo_Debate_Main_ConTextBox.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

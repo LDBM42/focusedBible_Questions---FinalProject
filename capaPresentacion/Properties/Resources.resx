@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Focused_bible_landing_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -138,9 +141,6 @@
   </data>
   <data name="Focused_bible_landing_01_Fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-01-Fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sound_MouseLeave_ON" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sound_MouseLeave_ON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Focused_bible_landing_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,8 +163,8 @@
   <data name="Focused_bible_landing_06_DISABLED" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-06-DISABLED.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Passage_Mouse_Leave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\passage_mouse_leave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sound_MouseEnter_ON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sound_MouseEnter_ON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="focusedBible_Questions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\img\focusedBible_Questions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,26 +181,23 @@
   <data name="50-percent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\50-percent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Sound_MouseLeave_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sound_MouseLeave_OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Focused_bible_landing_03_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-03-MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Sound_MouseEnter_ON" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sound_MouseEnter_ON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_landing_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Focused-bible-landing-01-Con-Elementos3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-01-Con-Elementos.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Passage_Mouse_Leave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\passage_mouse_leave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="50-percentClic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\50-percentClic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_SOLO_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-SOLO-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sound_MouseEnter_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sound_MouseEnter_OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_landing_07_DISABLED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-07-DISABLED.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minimize_gray1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize_gray1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,11 +208,11 @@
   <data name="Focused_bible_SOLO_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-SOLO-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_DEBATE_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-DEBATE-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_SOLO_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-SOLO-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_landing_04" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_landing_07_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-07-MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Focused-bible-landing-03-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-03-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,29 +220,32 @@
   <data name="Focused_bible_landing_06_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-06-MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_landing_07_DISABLED" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-07-DISABLED.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Focused_bible_SOLO_04" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-SOLO-04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="50-percent_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\50-percent_On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_landing_07_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-07-MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Focused_bible_landing_Cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-Cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_landing_06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-06.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="go2Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\go2Main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Focused_bible_landing_04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_SOLO_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-SOLO-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_DEBATE_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-DEBATE-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="UsuarioBig" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UsuarioBig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_landing_Cerrar_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-Cerrar_MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_DEBATE_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-DEBATE-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Settings_MouseUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Settings_MouseUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,23 +253,23 @@
   <data name="50-percentEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\50-percentEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_landing_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Passage_N_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Passage_N_A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minimize_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize_gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused-bible-landing-03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-031.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_landing_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="how2Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\how2Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_landing_06" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-06.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Login_Registrate_MouseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login_Registrate_MouseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_landing_Cerrar_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-Cerrar_MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Under-Construction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Under-Construction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,20 +277,29 @@
   <data name="close_gray1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_gray1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_landing_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused-bible-landing-03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-031.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sound_MouseLeave_ON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sound_MouseLeave_ON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_SOLO_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-SOLO-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogOut_MouseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogOut_MouseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_DEBATE_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-DEBATE-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sound_MouseEnter_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sound_MouseEnter_OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Login_Registrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login_Registrate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sound_MouseLeave_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sound_MouseLeave_OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usuario-masculino" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario-masculino.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close_gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Focused_bible_SOLO_07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-SOLO-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,16 +307,22 @@
   <data name="Focused_bible_landing_02_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-02-MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Login_Registrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Login_Registrate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused-bible-SOLO-07_MouseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-SOLO-07_MouseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Login_Registrate_MouseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Login_Registrate_MouseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Boton_Empezar_MouseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_Empezar_MouseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Boton_Empezar_MouseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_Empezar_MouseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogOut_MouseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogOut_MouseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_landing_Cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-Cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fondo_Debate_Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fondo_Debate_Main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fondo_Debate_Main_ConTextBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fondo_Debate_Main_ConTextBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

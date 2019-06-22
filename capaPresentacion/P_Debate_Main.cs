@@ -30,6 +30,7 @@ namespace capaPresentacion
         P_GameSettings GameSettings;
         D_Login login = new D_Login();
         P_focusedBible_Debate PfocusedB;
+        HowToPlay howToPlay;
         string g1_Name;
         string g2_Name;
         public string difficulty;
@@ -198,12 +199,13 @@ namespace capaPresentacion
 
         private void Btn_SettingsBtn_goToMain_MouseEnter(object sender, EventArgs e)
         {
-            Btn_Settings.Image = Properties.Resources.Settings_MouseUp;
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
         }
 
         private void Btn_SettingsBtn_goToMain_MouseLeave(object sender, EventArgs e)
         {
-            Btn_Settings.Image = Properties.Resources.Settings;
+            Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02;
         }
 
         private void Btn_Settings_Click(object sender, EventArgs e)
@@ -235,13 +237,98 @@ namespace capaPresentacion
 
         public void Change_Settings()
         {
-            g1_Name = tbx_Grupo1.Text;
-            g2_Name = tbx_Grupo2.Text;
+            objEntidad.group1 = tbx_Grupo1.Text;
+            objEntidad.group2 = tbx_Grupo2.Text;
         }
+
+
+        // Las siguentes dos funciones son para
+        //evitar los problemas de Buffer por tener layouts transparentes
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(Control c)
+        {
+            if (SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        #endregion
+
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
         {
+            SetDoubleBuffered(tableLayoutPanel6);
+            SetDoubleBuffered(tableLayoutPanel7);
+            SetDoubleBuffered(tableLayoutPanel8);
+            SetDoubleBuffered(tableLayoutPanel10);
+            SetDoubleBuffered(tableLayoutPanel11);
+            SetDoubleBuffered(tableLayoutPanel13);
+            SetDoubleBuffered(tableLayoutPanel15);
+            SetDoubleBuffered(tableLayoutPanel8);
+            SetDoubleBuffered(tableLayoutPanel19);
+            SetDoubleBuffered(tableLayoutPanel20);
+            SetDoubleBuffered(tableLayoutPanel21);
 
+
+            this.BackgroundImage = Properties.Resources.Fondo_Debate_Main_ConTextBox;
+            BackgroundImageLayout = ImageLayout.Stretch;
+
+            tbx_Grupo1.Text = objEntidad.group1;
+            tbx_Grupo2.Text = objEntidad.group2;
+
+        }
+
+        private void btn_how2Play_Click(object sender, EventArgs e)
+        {
+            howToPlay = new HowToPlay();
+            howToPlay.ShowDialog();
+        }
+
+        private void btn_goToMain_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
+        }
+
+        private void btn_goToMain_MouseLeave(object sender, EventArgs e)
+        {
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07;
+        }
+
+        private void btn_how2Play_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_MOUSE_ENTER;
+        }
+
+        private void btn_how2Play_MouseLeave(object sender, EventArgs e)
+        {
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
+        }
+
+        private void btn_IniciarDebate_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_IniciarDebate.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
+        }
+
+        private void btn_IniciarDebate_MouseLeave(object sender, EventArgs e)
+        {
+            btn_IniciarDebate.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
         }
     }
 }
