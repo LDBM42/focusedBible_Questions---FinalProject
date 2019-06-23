@@ -49,8 +49,7 @@ namespace capaPresentacion
                 objEntidad.opportunitiesBoolean = true;
 
                 objEntidad.enableButtonSound = false;
-                objEntidad.enableGameSound = false;
-                objEntidad.enableAllSounds = false;
+                objEntidad.enableGameSound = true;
             }
 
             InitializeComponent();
@@ -140,18 +139,14 @@ namespace capaPresentacion
                 btn_debate.Enabled = false; // bloquear modalidad debate
             }
 
-            if (objEntidad.enableAllSounds == true)
+            if (objEntidad.enableButtonSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
-                objEntidad.enableAllSounds = true;
-                objEntidad.enableGameSound = true;
                 objEntidad.enableButtonSound = true;
             }
             else
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
-                objEntidad.enableAllSounds = false;
-                objEntidad.enableGameSound = false;
                 objEntidad.enableButtonSound = false;
             }
 
@@ -374,18 +369,14 @@ namespace capaPresentacion
 
         private void pbx_Sound_Click(object sender, EventArgs e)
         {
-            if (objEntidad.enableAllSounds == true)
+            if (objEntidad.enableButtonSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
-                objEntidad.enableAllSounds = false;
-                objEntidad.enableGameSound = false;
                 objEntidad.enableButtonSound = false;
             }
             else
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
-                objEntidad.enableAllSounds = true;
-                objEntidad.enableGameSound = true;
                 objEntidad.enableButtonSound = true;
             }
         }
@@ -393,7 +384,7 @@ namespace capaPresentacion
         private void pbx_Sound_MouseEnter(object sender, EventArgs e)
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
-            if (objEntidad.enableAllSounds == true)
+            if (objEntidad.enableButtonSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
             }
@@ -405,7 +396,7 @@ namespace capaPresentacion
 
         private void pbx_Sound_MouseLeave(object sender, EventArgs e)
         {
-            if (objEntidad.enableAllSounds == true)
+            if (objEntidad.enableButtonSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
             }

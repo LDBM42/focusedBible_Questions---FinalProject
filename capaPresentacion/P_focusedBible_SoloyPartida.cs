@@ -21,7 +21,7 @@ namespace capaPresentacion
             InitializeComponent();
         }
 
-
+        
         #region Variables y Objetos
         int timeToIncrease = 15; // tiempo que incrementa al elegir el comodin pasage
         Banners Banner;
@@ -225,8 +225,6 @@ namespace capaPresentacion
                 }
             }
 
-
-            cambioDePregunta();
             countDown.Start();
 
             btn_Submit.Enabled = false;
@@ -487,6 +485,7 @@ namespace capaPresentacion
                 && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer)))
                 {
                     answerCorrect = false;
+                    cambioDePregunta();
                 }
 
             }
@@ -502,6 +501,7 @@ namespace capaPresentacion
                 && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer)))
                 {
                     answerCorrect = true;
+                    cambioDePregunta();
                 }
             }
         }
@@ -704,6 +704,7 @@ namespace capaPresentacion
 
             activarComidin();
             activarPassage();
+            Timer_2Answer.Start();
             objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
 
             listarFocusedBible(objEntidad); //lista las preguntas y respuestas
