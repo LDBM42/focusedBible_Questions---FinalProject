@@ -63,26 +63,6 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1720772_128 {
-            get {
-                object obj = ResourceManager.GetObject("_1720772_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3672882_48 {
-            get {
-                object obj = ResourceManager.GetObject("_3672882_48", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _50_percent {
             get {
                 object obj = ResourceManager.GetObject("50-percent", resourceCulture);
@@ -206,6 +186,16 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Focused_bible_DEBATE_02 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_DEBATE_02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_DUO_WINNER_Trophy_01 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_DUO_WINNER_Trophy_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,16 +383,6 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Focused_bible_SOLO_01 {
-            get {
-                object obj = ResourceManager.GetObject("Focused_bible_SOLO_01", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_SOLO_02 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_SOLO_02", resourceCulture);
@@ -466,6 +446,26 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Focused_bible_SOLO_07_MouseEnter {
             get {
                 object obj = ResourceManager.GetObject("Focused-bible-SOLO-07_MouseEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_SOLO_Pasage_03 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_SOLO_Pasage_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_SOLO_Reloj_04 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_SOLO_Reloj_04", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

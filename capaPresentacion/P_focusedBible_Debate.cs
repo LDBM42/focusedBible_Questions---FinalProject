@@ -45,11 +45,11 @@ namespace capaPresentacion
         int countDownTimer3 = 2;
         int score_1 = 0; // puntuacion inicial
         int score_2 = 0; // puntuacion inicial
-        int valueScore = 2; //valor de cada pregunta
         int opportunities_1;
         int opportunities_2;
-        int startingTurn = 1; // turno inicial
         int startingRound = 1; // ronda inicial
+        int valueScore = 2; //valor de cada pregunta
+        int startingTurn = 1; // turno inicial
         bool reboundTurn = false; // para saber si se está jugando la partida de rebote
         string banner;
         int wins_01 = 0;
@@ -315,8 +315,10 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)) )
             {
                 Timer_2Answer.Stop(); //detener conteo
+
                 objEntidad.reproducirSonidoJuego("game-over.wav", false);
-                
+
+
                 if (startingRound == objEntidad.numRounds) // si es el ultimo round
                 {
                     Thread.Sleep(1500);
@@ -399,6 +401,8 @@ namespace capaPresentacion
                 enumerate = 1; // para ponerle número a las preguntas
                 startingRound = 1;
                 startingTurn = 1;
+                valueScore = 2; //valor de cada pregunta
+                reboundTurn = false; // para saber si se está jugando la partida de rebote
                 wins_01 = 0;
                 wins_02 = 0;
                 score_1 = 0;
@@ -950,8 +954,6 @@ namespace capaPresentacion
             {
                 if (reboundTurn == true)
                 {
-                    objEntidad.reproducirSonidoJuego("rebound.wav", false);
-
                     if (startingTurn == 1)
                     {
                         activarComidin(1);
@@ -996,25 +998,33 @@ namespace capaPresentacion
                     }
                     else
                     {
-                        objEntidad.reproducirSonidoJuego("rebound.wav", false);
-
-                        if (startingTurn == 1)
+                        if (restart == false) // so no es un reinicio
                         {
-                            activarComidin(1);
-                            activarPassage(1);
-                            PlayerFocus(1);
-                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                            objEntidad.reproducirSonidoJuego("rebound.wav", false);
+                            Thread.Sleep(100);
+
+                            if (startingTurn == 1)
+                            {
+                                activarComidin(1);
+                                activarPassage(1);
+                                PlayerFocus(1);
+                                objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                            }
+                            else
+                            {
+                                activarComidin(2);
+                                activarPassage(2);
+                                PlayerFocus(2);
+                                objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                            }
+
+                            valueScore = 1;
+                            reboundTurn = true;
                         }
                         else
                         {
-                            activarComidin(2);
-                            activarPassage(2);
-                            PlayerFocus(2);
-                            objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+                            listarFocusedBible(objEntidad); //lista las preguntas y respuestas
                         }
-
-                        valueScore = 1;
-                        reboundTurn = true;
                     }
                 }
 
