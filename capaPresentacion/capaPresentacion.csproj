@@ -88,6 +88,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="P_Debate_Ganador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Debate_Ganador.designer.cs">
+      <DependentUpon>P_Debate_Ganador.cs</DependentUpon>
+    </Compile>
     <Compile Include="P_focusedBible_SoloyPartida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     <Compile Include="P_QueryListarPreguntas.cs" />
     <EmbeddedResource Include="Banners.resx">
       <DependentUpon>Banners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Debate_Ganador.resx">
+      <DependentUpon>P_Debate_Ganador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_focusedBible_SoloyPartida.resx">
       <DependentUpon>P_focusedBible_SoloyPartida.cs</DependentUpon>
@@ -289,13 +298,16 @@
     <None Include="Resources\Focused-bible-landing-Cerrar.png" />
     <None Include="Resources\Fondo_Debate_Main.png" />
     <None Include="Resources\Fondo_Debate_Main_ConTextBox.png" />
-    <None Include="Resources\Focused-bible-SOLO-Reloj-04.png" />
     <None Include="Resources\Focused-bible-DUO-WINNER-Trophy-01.png" />
-    <None Include="Resources\Focused-bible-SOLO-06.png" />
     <None Include="Resources\Focused-bible-SOLO-Pasage-03.png" />
+    <None Include="Resources\Focused-bible-SOLO-06.png" />
+    <None Include="Resources\Focused-bible-DUO-WINNER_Background-01.png" />
+    <None Include="Resources\Focused-bible-SOLO-Reloj-04.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />
+    <None Include="Resources\Reiniciar_ENTER.png" />
+    <None Include="Resources\Reiniciar_LEAVE.png" />
     <Content Include="Resources\Settings_MouseUp.png" />
     <Content Include="Resources\Settings.png" />
   </ItemGroup>
