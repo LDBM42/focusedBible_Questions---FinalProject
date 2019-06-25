@@ -23,6 +23,7 @@ namespace capaEntidad
         public string group1 { get; set; }
         public string group2 { get; set; }
         public string pasage { get; set; }
+        public string winner { get; set; }
         public string difficulty { get; set; }
         public string [] catEvangelios_yOtros { get; set; }
         public string [] catLibro { get; set; }
@@ -33,6 +34,10 @@ namespace capaEntidad
         public bool enableButtonSound { get; set; }
         public bool enableGameSound { get; set; }
         public bool enableAllSounds { get; set; }
+
+
+        public string[,] finalResults { get; set; }
+
 
         // para almacenar el query por dificultad
         public string queryListarPreguntas { get; set; }
@@ -50,64 +55,57 @@ namespace capaEntidad
         SoundPlayer sonido;
         public void reproducirSonidoJuego(string nombreArchivo, bool loop)
         {
-            if (enableAllSounds)
+            if (enableGameSound)
             {
-                if (enableGameSound)
-                {
 
-                    if (sonido != null)
+                if (sonido != null)
+                {
+                    sonido.Stop();
+                }
+                //SystemSounds.Hand.Play(); // Sonido de windows
+                try
+                {
+                    sonido = new SoundPlayer(System.Windows.Forms.Application.StartupPath + @"\son\" + nombreArchivo);
+                    if (loop == true)
                     {
-                        sonido.Stop();
+                        sonido.PlayLooping();
                     }
-                    //SystemSounds.Hand.Play(); // Sonido de windows
-                    try
+                    else
                     {
-                        sonido = new SoundPlayer(System.Windows.Forms.Application.StartupPath + @"\son\" + nombreArchivo);
-                        if (loop == true)
-                        {
-                            sonido.PlayLooping();
-                        }
-                        else
-                        {
-                            sonido.Play();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Error: " + ex);
+                        sonido.Play();
                     }
                 }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error: " + ex);
+                }
             }
-            
         }
         public void reproducirSonidoBoton(string nombreArchivo, bool loop)
         {
-            if (enableAllSounds)
+            if (enableButtonSound)
             {
-                if (enableButtonSound)
-                {
 
-                    if (sonido != null)
+                if (sonido != null)
+                {
+                    sonido.Stop();
+                }
+                //SystemSounds.Hand.Play(); // Sonido de windows
+                try
+                {
+                    sonido = new SoundPlayer(System.Windows.Forms.Application.StartupPath + @"\son\" + nombreArchivo);
+                    if (loop == true)
                     {
-                        sonido.Stop();
+                        sonido.PlayLooping();
                     }
-                    //SystemSounds.Hand.Play(); // Sonido de windows
-                    try
+                    else
                     {
-                        sonido = new SoundPlayer(System.Windows.Forms.Application.StartupPath + @"\son\" + nombreArchivo);
-                        if (loop == true)
-                        {
-                            sonido.PlayLooping();
-                        }
-                        else
-                        {
-                            sonido.Play();
-                        }
+                        sonido.Play();
                     }
-                    catch (Exception ex)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Error: " + ex);
-                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error: " + ex);
                 }
             }
         }

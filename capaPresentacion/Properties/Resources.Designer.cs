@@ -193,6 +193,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_DUO_WINNER_Background_01 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-DUO-WINNER_Background-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_DUO_WINNER_Trophy_01 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_DUO_WINNER_Trophy_01", resourceCulture);
@@ -616,6 +626,26 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Passage_N_A {
             get {
                 object obj = ResourceManager.GetObject("Passage_N_A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reiniciar_ENTER {
+            get {
+                object obj = ResourceManager.GetObject("Reiniciar_ENTER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reiniciar_LEAVE {
+            get {
+                object obj = ResourceManager.GetObject("Reiniciar_LEAVE", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
