@@ -203,6 +203,11 @@ namespace capaPresentacion
         {
             RestartTimer_2Answer();
 
+            pbx_50_1.Enabled = false;
+            pbx_Passage_1.Enabled = false;
+            pbx_50_2.Enabled = false;
+            pbx_Passage_2.Enabled = false;
+
             if (rbtn_a.Checked == true)
             {
                 if (objEntidad.resp == 'a')
@@ -294,6 +299,12 @@ namespace capaPresentacion
                 reset_PlayAgain();
 
                 objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
+            }
+            else
+            {
+                //RESOLVER MACOOOOOOOOOOOOOOOOOOOOOOOOOOOOO DE QUE NO SE CIERRA Y SIGUE TRABAJANDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+                btn_goToMain.PerformClick();
+                this.Close();
             }
         }
         void cambioDeJugador()
@@ -1451,11 +1462,11 @@ namespace capaPresentacion
             // para saber si el formulario existe, o sea, si está abierto o cerrado
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
 
+            this.Close(); //Esto cierra la ventana del juego y va a Main
             existe.Show();
             Timer_2Answer.Stop();
             objEntidad.StopGameSound();
             reboundTurn = false;
-            this.Close(); //Esto cierra la ventana del juego y va a Main
         }
     }
 }

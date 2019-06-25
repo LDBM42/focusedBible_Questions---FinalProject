@@ -88,20 +88,7 @@ namespace capaPresentacion
 
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
-
-            if (existe != null) // para saber si el formulario principal existe
-            {
-                this.AddOwnedForm(existe); //indica que este va a ser el papa del form P_Main
-                existe.Close(); // cerrar ventana principal
-            }
-
-            P_Main PMain = new P_Main(objEntidad);
-            this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
-
-            PMain.Show();
-            this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
-            this.Close();
+             this.Close();
         }
 
         private void btn_goToMain_KeyPress(object sender, KeyPressEventArgs e)
