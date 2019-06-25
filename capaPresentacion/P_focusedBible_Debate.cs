@@ -108,6 +108,12 @@ namespace capaPresentacion
             SetFinalResults(); // almacena los resultados finales de los jugadores
 
 
+            // Las siguentes dos funciones son para
+            //evitar los problemas de Buffer por tener layouts transparentes
+            SetDoubleBuffered(tableLayoutPanel1);
+            BackgroundImage = Properties.Resources.Focused_bible_DUO_WINNER_Background_01; //Este metodo es para cargar la imagen de fondo
+
+
             //ocultar Oportunidades si no se evaluará en base a oportunidades
             if (objEntidad.opportunitiesBoolean == false)
             {
@@ -115,6 +121,13 @@ namespace capaPresentacion
                 lab_LifesNum2.Visible = false;
                 lab_Lifes.Visible = false;
                 lab_Lifes2.Visible = false;
+                lab_Score.Visible = false;
+                lab_Score2.Visible = false;
+                lab_Group1.Visible = false;
+                lab_Group2.Visible = false;
+                lb_participante1.Visible = false;
+                lb_participante2.Visible = false;
+
             }
             else
             {
@@ -122,6 +135,12 @@ namespace capaPresentacion
                 lab_LifesNum2.Visible = true;
                 lab_Lifes.Visible = true;
                 lab_Lifes2.Visible = true;
+                lab_Score.Visible = true;
+                lab_Score2.Visible = true;
+                lab_Group1.Visible = true;
+                lab_Group2.Visible = true;
+                lb_participante1.Visible = true;
+                lb_participante2.Visible = true;
             }
         }
 
@@ -199,7 +218,7 @@ namespace capaPresentacion
 
         }
         
-        private void btn_Submit_Click(object sender, EventArgs e)
+        private void btn_Submit_Click_1(object sender, EventArgs e)
         {
             RestartTimer_2Answer();
 
@@ -474,7 +493,7 @@ namespace capaPresentacion
 
             lab_50_1.Text = "+3";
             lab_50_2.Text = "+3";
-            pbx_50_1.Enabled = true;
+            pbx_50.Enabled = true;
             pbx_50_2.Enabled = true;
             lab_50_1.Enabled = true;
             lab_50_2.Enabled = true;
@@ -697,12 +716,18 @@ namespace capaPresentacion
                 lab_LifesNum.ForeColor = Color.Brown;
                 lab_Score.ForeColor = Color.FromArgb(135, 135, 135);
                 lab_ScoreNum.ForeColor = Color.FromArgb(228, 161, 24);
+                lb_participante1.ForeColor = Color.FromArgb(135, 135, 135);
+                lab_Group1.ForeColor = Color.FromArgb(135, 135, 135);
+                pB_player1.BackgroundImage = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
                 tlyo_Wins_P1.Visible = true;
 
                 lab_Lifes2.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_LifesNum2.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_Score2.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_ScoreNum2.ForeColor = Color.FromArgb(237, 237, 237);
+                lb_participante2.ForeColor = Color.FromArgb(237, 237, 237);
+                lab_Group2.ForeColor = Color.FromArgb(237, 237, 237);
+                pB_player2.BackgroundImage = Properties.Resources.Focused_bible_landing_02;
                 tlyo_Wins_P2.Visible = false;
             }
             else // si el turno es 2
@@ -711,12 +736,18 @@ namespace capaPresentacion
                 lab_LifesNum2.ForeColor = Color.Brown;
                 lab_Score2.ForeColor = Color.FromArgb(135, 135, 135);
                 lab_ScoreNum2.ForeColor = Color.FromArgb(228, 161, 24);
+                lb_participante2.ForeColor = Color.FromArgb(135, 135, 135);
+                lab_Group2.ForeColor = Color.FromArgb(135, 135, 135);
+                pB_player2.BackgroundImage = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
                 tlyo_Wins_P2.Visible = true;
 
                 lab_Lifes.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_LifesNum.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_Score.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_ScoreNum.ForeColor = Color.FromArgb(237, 237, 237);
+                lb_participante1.ForeColor = Color.FromArgb(237, 237, 237);
+                lab_Group1.ForeColor = Color.FromArgb(237, 237, 237);
+                pB_player1.BackgroundImage = Properties.Resources.Focused_bible_landing_02;
                 tlyo_Wins_P1.Visible = false;
             }
         }
@@ -726,7 +757,7 @@ namespace capaPresentacion
             if (turno == 1 && lab_50_1.Text == "0")
             {
                 lab_50_1.Enabled = false;
-                pbx_50_1.Enabled = false;
+                pbx_50.Enabled = false;
             }
             else
                 if (turno == 2 && lab_50_2.Text == "0")
@@ -774,7 +805,7 @@ namespace capaPresentacion
             else
             {
                 click50_1 = 0; // reiniciar a 0 para poder usar el comodin 50% en su proximo turno
-                pbx_50_1.Enabled = true; // activar comodin anterior al cambiar de turno
+                pbx_50.Enabled = true; // activar comodin anterior al cambiar de turno
 
                 clickPassage_1 = 0; // reiniciar a 0 para poder usar el comodin Passage en su proximo turno
                 pbx_Passage_1.Enabled = true; // activar comodin anterior al cambiar de turno
@@ -795,7 +826,7 @@ namespace capaPresentacion
             }
         }
         
-        private void btn_Exit_Click(object sender, EventArgs e)
+        private void btn_Exit_Click_1(object sender, EventArgs e)
         {
             DialogResult salir;
             if (startingTurn == 1)
@@ -818,14 +849,14 @@ namespace capaPresentacion
         {
             if (lab_50_1.Text != "0")
             {
-                pbx_50_1.Image = Properties.Resources._50_percent_MouseOn;
+                pbx_50.Image = Properties.Resources._50_percent_MouseOn;
             }
         }
         private void pbx_50_MouseLeave(object sender, EventArgs e)
         {
-            pbx_50_1.Image = Properties.Resources._50_percent;
+            pbx_50.Image = Properties.Resources._50_percent;
         }
-        private void pbx_50_Click(object sender, EventArgs e)
+        private void pbx_50_Click_1(object sender, EventArgs e)
         {
             if (lab_50_1.Text != "0")
             {
@@ -833,7 +864,7 @@ namespace capaPresentacion
                 countDownComodin_1--;
                 lab_50_1.Text = comodin50_1[countDownComodin_1];
                 random50();
-                pbx_50_1.Enabled = false;
+                pbx_50.Enabled = false;
                 focoRbtn();
 
                 btn_Submit.Enabled = false; //para evitar que se presione submit sin estar seleccionada ninguna respuesta
@@ -852,7 +883,7 @@ namespace capaPresentacion
         {
             pbx_50_2.Image = Properties.Resources._50_percent;
         }
-        private void pbx_50_2_Click(object sender, EventArgs e)
+        private void pbx_50_2_Click_1(object sender, EventArgs e)
         {
             if (lab_50_2.Text != "0")
             {
@@ -873,12 +904,12 @@ namespace capaPresentacion
             {
                 pbx_50_2.Visible = false;
                 lab_50_2.Visible = false;
-                pbx_50_1.Visible = true;
+                pbx_50.Visible = true;
                 lab_50_1.Visible = true;
             }
             else
             {
-                pbx_50_1.Visible = false;
+                pbx_50.Visible = false;
                 lab_50_1.Visible = false;
                 pbx_50_2.Visible = true;
                 lab_50_2.Visible = true;
@@ -1091,27 +1122,27 @@ namespace capaPresentacion
 
 
         //eventos para seleccionar a travez del teclado
-        private void rbtn_a_KeyPress(object sender, KeyPressEventArgs e)
+        private void rbtn_a_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void rbtn_b_KeyPress(object sender, KeyPressEventArgs e)
+        private void rbtn_b_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void rbtn_c_KeyPress(object sender, KeyPressEventArgs e)
+        private void rbtn_c_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void rbtn_d_KeyPress(object sender, KeyPressEventArgs e)
+        private void rbtn_d_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void btn_Submit_KeyPress(object sender, KeyPressEventArgs e)
+        private void btn_Submit_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void btn_Exit_KeyPress(object sender, KeyPressEventArgs e)
+        private void btn_Exit_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
@@ -1173,7 +1204,7 @@ namespace capaPresentacion
                 {
                     click50_1++;
                     pbx_50_MouseEnter(this, new EventArgs());
-                    pbx_50_Click(this, new EventArgs());
+                    pbx_50_Click_1(this, new EventArgs());
                     Thread.Sleep(200);
                     pbx_50_MouseLeave(this, new EventArgs());
                 }
@@ -1182,7 +1213,7 @@ namespace capaPresentacion
                 {
                     click50_2++;
                     pbx_50_2_MouseEnter(this, new EventArgs());
-                    pbx_50_2_Click(this, new EventArgs());
+                    pbx_50_2_Click_1(this, new EventArgs());
                     Thread.Sleep(200);
                     pbx_50_2_MouseLeave(this, new EventArgs());
                 }
@@ -1196,7 +1227,7 @@ namespace capaPresentacion
                     {
                         clickPassage_1++;
                         pbx_Passage_1_MouseEnter(this, new EventArgs());
-                        pbx_Passage_1_Click(this, new EventArgs());
+                        pbx_Passage_1_Click_1(this, new EventArgs());
                         Thread.Sleep(200);
                         pbx_Passage_1_MouseLeave(this, new EventArgs());
                     }
@@ -1205,7 +1236,7 @@ namespace capaPresentacion
                     {
                         clickPassage_2++;
                         pbx_Passage_2_MouseEnter(this, new EventArgs());
-                        pbx_Passage_2_Click(this, new EventArgs());
+                        pbx_Passage_2_Click_1(this, new EventArgs());
                         Thread.Sleep(200);
                         pbx_Passage_2_MouseLeave(this, new EventArgs());
                     }
@@ -1241,7 +1272,7 @@ namespace capaPresentacion
         }
         
 
-        private void rbtn_a_CheckedChanged(object sender, EventArgs e)
+        private void rbtn_a_CheckedChanged_1(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
                 btn_Submit.Enabled = true;
@@ -1252,7 +1283,7 @@ namespace capaPresentacion
                 btn_Submit.Enabled = false;
             }
         }
-        private void rbtn_b_CheckedChanged(object sender, EventArgs e)
+        private void rbtn_b_CheckedChanged_1(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
                 btn_Submit.Enabled = true;
@@ -1263,7 +1294,7 @@ namespace capaPresentacion
                 btn_Submit.Enabled = false;
             }
         }
-        private void rbtn_c_CheckedChanged(object sender, EventArgs e)
+        private void rbtn_c_CheckedChanged_1(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
                 btn_Submit.Enabled = true;
@@ -1274,7 +1305,7 @@ namespace capaPresentacion
                 btn_Submit.Enabled = false;
             }
         }
-        private void rbtn_d_CheckedChanged(object sender, EventArgs e)
+        private void rbtn_d_CheckedChanged_1(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
                 btn_Submit.Enabled = true;
@@ -1359,7 +1390,7 @@ namespace capaPresentacion
         {
             pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave;
         }
-        private void pbx_Passage_1_Click(object sender, EventArgs e)
+        private void pbx_Passage_1_Click_1(object sender, EventArgs e)
         {
             if (lab_Passage_1.Text != "0")
             {
@@ -1383,7 +1414,7 @@ namespace capaPresentacion
         {
             pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave;
         }
-        private void pbx_Passage_2_Click(object sender, EventArgs e)
+        private void pbx_Passage_2_Click_1(object sender, EventArgs e)
         {
             if (lab_Passage_2.Text != "0")
             {
@@ -1459,7 +1490,7 @@ namespace capaPresentacion
             }
         }
 
-        private void btn_goToMain_Click(object sender, EventArgs e)
+        private void btn_goToMain_Click_1(object sender, EventArgs e)
         {
             // para saber si el formulario existe, o sea, si está abierto o cerrado
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
@@ -1470,5 +1501,51 @@ namespace capaPresentacion
             reboundTurn = false;
             this.Close(); //Esto cierra la ventana del juego y va a Main
         }
+
+        // Las siguentes dos funciones son para
+        //evitar los problemas de Buffer por tener layouts transparentes
+
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(Control c)
+        {
+            if (SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
+
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #endregion
+
+     
     }
 }
