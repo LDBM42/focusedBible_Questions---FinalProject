@@ -273,7 +273,9 @@ namespace capaPresentacion
         }
         void BannerWinner()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
+            objEntidad.reproducirSonidoJuego("finalSuccess.wav", false);
+            Thread.Sleep(1000);
             Timer_2Answer.Stop();
             objEntidad.StopGameSound();
             Winner = new P_Debate_Ganador(objEntidad);
@@ -288,12 +290,10 @@ namespace capaPresentacion
 
             if (Winner.DialogResult == DialogResult.OK)
             {
-
-                objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
-                Thread.Sleep(700);
                 restart = true;
                 reset_PlayAgain();
 
+                objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
             }
         }
         void cambioDeJugador()
@@ -425,6 +425,7 @@ namespace capaPresentacion
 
             if (restart == true)
             {
+
                 restart = false;
 
                 i = 0;
@@ -439,6 +440,7 @@ namespace capaPresentacion
                 score_1 = 0;
                 score_2 = 0;
                 objEntidad.pasage = "";
+                objEntidad.winner = ""; // resetear winner
                 lab_Rounds_Left.Text = startingRound + "/" + objEntidad.numRounds;
                 lab_Rounds_Right.Text = startingRound + "/" + objEntidad.numRounds;
                 lab_Wins_P1.Text = Convert.ToString(wins_01);
@@ -454,16 +456,6 @@ namespace capaPresentacion
             countDownPassage_1 = 3;
             countDownPassage_2 = 3;
             Lab_Passage_Shown_1.Text = "";
-
-            Timer_2Answer.Start();
-
-
-            if (objEntidad.winner == lab_Group1.Text || objEntidad.winner == lab_Group2.Text || banner == "Es un empate!")
-            {
-                AfterCountDown(true);
-                banner = "Round" + startingRound; // resetear banner
-            }
-
 
 
             lab_LifesNum.Text = Convert.ToString(opportunities_1);
@@ -487,8 +479,6 @@ namespace capaPresentacion
             lab_Passage_2.Enabled = true;
             pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave;
             pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave;
-
-
 
         }
 
@@ -667,8 +657,6 @@ namespace capaPresentacion
 
                 cambiarColoryJugador(turno);
 
-                Timer_2Answer.Start();
-
             }
             else // si el turno es 2
             {
@@ -686,7 +674,6 @@ namespace capaPresentacion
 
                 cambiarColoryJugador(turno);
 
-                Timer_2Answer.Start();
             }
         }
         void cambiarColoryJugador(int turno)
@@ -958,19 +945,18 @@ namespace capaPresentacion
                 {
                     perder_Ganar();
                 }// si no se acabó el juego entonces reinicia ciertos elementos de los jugadores
-                else if(objEntidad.winner != lab_Group1.Text && objEntidad.winner != lab_Group2.Text)
+                else if(objEntidad.winner != lab_Group1.Text && objEntidad.winner != lab_Group2.Text && objEntidad.winner != "Es un empate!")
                 {
-                    AfterCountDown();
+                     AfterCountDown();
                 }
             }
         }
 
-        void AfterCountDown(bool restart = false)
+        void AfterCountDown()
         {
-            if (restart == true)
-            {
-                Thread.Sleep(1500);
-            }
+
+            Timer_2Answer.Start();
+
 
             answerOriginalColor(); // aqui cambian las respuestas al color original
 
@@ -980,6 +966,8 @@ namespace capaPresentacion
             focoRbtn(); // se pone el foco las respuestas para poder seleccionarlas con el teclado
 
             bloquear_Btn_Submit();
+
+
 
 
             /**REBOTE**/
@@ -1031,7 +1019,7 @@ namespace capaPresentacion
                     }
                     else
                     {
-                        if (restart == false) // so no es un reinicio
+                        if (restart == false) // no es un reinicio
                         {
                             objEntidad.reproducirSonidoJuego("rebound.wav", false);
                             Thread.Sleep(100);
@@ -1064,6 +1052,8 @@ namespace capaPresentacion
             }//--------------------------------------------------------------------------
             else // si rebote está desactivado
             {
+
+
                 if (startingTurn == 1)
                 {
                     activarComidin(1);
@@ -1082,10 +1072,7 @@ namespace capaPresentacion
                 listarFocusedBible(objEntidad); //lista las preguntas y respuestas
             }
 
-
-
-
-
+            
         }
         
 
@@ -1319,12 +1306,12 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Activated(object sender, EventArgs e)
         {
-            Timer_2Answer.Start();
+            //Timer_2Answer.Start();
 
-            if (sonido != null)
-            {
-                sonido.PlayLooping();
-            }
+            //if (sonido != null)
+            //{
+            //    sonido.PlayLooping();
+            //}
           
         }
 

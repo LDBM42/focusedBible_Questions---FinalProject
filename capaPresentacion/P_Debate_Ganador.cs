@@ -54,6 +54,7 @@ namespace capaPresentacion
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
         {
+            objEntidad.reproducirSonidoJuego("fanfare.wav", true);
             SetDoubleBuffered(tableLayoutPanel7);
             SetDoubleBuffered(tableLayoutPanel19);
             SetDoubleBuffered(tableLayoutPanel21);
