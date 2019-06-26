@@ -66,3 +66,24 @@ C:\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.csproj.Co
 C:\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.csproj.CopyComplete
 C:\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.dll
 C:\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.pdb
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\BDUsuario.mdf
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\BDUsuario_log.ldf
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\capaDatos.dll
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\capaDatos.pdb
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\appium-dotnet-driver.dll
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\capaEntidad.dll
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\Castle.Core.dll
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\Newtonsoft.Json.dll
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\WebDriver.dll
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\WebDriver.Support.dll
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\capaEntidad.pdb
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\appium-dotnet-driver.xml
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\Castle.Core.xml
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\Newtonsoft.Json.xml
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\WebDriver.xml
+C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\WebDriver.Support.xml
+C:\focusedBible_Questions-FinalProject\capaDatos\obj\Debug\capaDatos.csprojAssemblyReference.cache
+C:\focusedBible_Questions-FinalProject\capaDatos\obj\Debug\capaDatos.csproj.CoreCompileInputs.cache
+C:\focusedBible_Questions-FinalProject\capaDatos\obj\Debug\capaDatos.csproj.CopyComplete
+C:\focusedBible_Questions-FinalProject\capaDatos\obj\Debug\capaDatos.dll
+C:\focusedBible_Questions-FinalProject\capaDatos\obj\Debug\capaDatos.pdb

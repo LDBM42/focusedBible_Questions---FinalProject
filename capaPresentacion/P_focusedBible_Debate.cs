@@ -792,25 +792,7 @@ namespace capaPresentacion
                 }
             }
         }
-        
-        private void btn_Exit_Click(object sender, EventArgs e)
-        {
-            DialogResult salir;
-            if (startingTurn == 1)
-            {
-                salir = MessageBox.Show(lab_Group1.Text + ", Are Sure you want to Exit?", "Warning", MessageBoxButtons.YesNo);
-            }
-            else
-            {
-                salir = MessageBox.Show(lab_Group2.Text + ", Are Sure you want to Exit?", "Warning", MessageBoxButtons.YesNo);
-            }
 
-            if (salir == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-
-        }
         
         private void pbx_50_MouseEnter(object sender, EventArgs e)
         {
@@ -1127,9 +1109,9 @@ namespace capaPresentacion
                 if (e.KeyChar == (char)13 && btn_Submit.Enabled == true) //si la tecla pesionada es igual a ENTER (13)
             {
                 // si el foco esta en exit entonces se da clic a Exit, pero si esta en otro lado, da clic en Submit
-                if (btn_Exit.Focused == true)
+                if (btn_goToMain.Focused == true)
                 {
-                    btn_Exit.PerformClick();
+                    btn_goToMain.PerformClick();
                 }
                 else
                 {
@@ -1467,6 +1449,11 @@ namespace capaPresentacion
             Timer_2Answer.Stop();
             objEntidad.StopGameSound();
             reboundTurn = false;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -34,12 +34,18 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ganador_debate = new System.Windows.Forms.Label();
+            this.pbx_Trofeo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_goToMain = new System.Windows.Forms.Button();
+            this.btn_reiniciar = new System.Windows.Forms.Button();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.pB_ScoreNum = new System.Windows.Forms.PictureBox();
+            this.pB_comodines = new System.Windows.Forms.PictureBox();
+            this.pB_tiempo = new System.Windows.Forms.PictureBox();
             this.lb_ScoreNum = new System.Windows.Forms.Label();
             this.lb_comodinPassage = new System.Windows.Forms.Label();
             this.lb_comodin50 = new System.Windows.Forms.Label();
@@ -51,22 +57,16 @@
             this.lab_ScoreNum2 = new System.Windows.Forms.Label();
             this.lab_Passage_2 = new System.Windows.Forms.Label();
             this.lab_comodin50_2 = new System.Windows.Forms.Label();
-            this.pbx_Trofeo = new System.Windows.Forms.PictureBox();
-            this.btn_goToMain = new System.Windows.Forms.Button();
-            this.btn_reiniciar = new System.Windows.Forms.Button();
-            this.pB_ScoreNum = new System.Windows.Forms.PictureBox();
-            this.pB_comodines = new System.Windows.Forms.PictureBox();
-            this.pB_tiempo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Trofeo)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Trofeo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_ScoreNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_comodines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_tiempo)).BeginInit();
@@ -161,6 +161,17 @@
             this.lbl_ganador_debate.Text = "WILIAN LIZ";
             this.lbl_ganador_debate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pbx_Trofeo
+            // 
+            this.pbx_Trofeo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_DUO_WINNER_Trophy_01;
+            this.pbx_Trofeo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_Trofeo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Trofeo.Location = new System.Drawing.Point(3, 3);
+            this.pbx_Trofeo.Name = "pbx_Trofeo";
+            this.pbx_Trofeo.Size = new System.Drawing.Size(394, 190);
+            this.pbx_Trofeo.TabIndex = 0;
+            this.pbx_Trofeo.TabStop = false;
+            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
@@ -181,13 +192,13 @@
             // 
             this.tableLayoutPanel8.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel8.ColumnCount = 7;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.01223F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.040915F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.79663F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.040864F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.03424F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.040864F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.03424F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel8.Controls.Add(this.btn_goToMain, 4, 0);
             this.tableLayoutPanel8.Controls.Add(this.btn_reiniciar, 6, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -198,6 +209,51 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(392, 33);
             this.tableLayoutPanel8.TabIndex = 5;
+            // 
+            // btn_goToMain
+            // 
+            this.btn_goToMain.BackColor = System.Drawing.Color.Transparent;
+            this.btn_goToMain.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_07;
+            this.btn_goToMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_goToMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_goToMain.FlatAppearance.BorderSize = 0;
+            this.btn_goToMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_goToMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_goToMain.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_goToMain.Location = new System.Drawing.Point(303, 3);
+            this.btn_goToMain.Name = "btn_goToMain";
+            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_goToMain.Size = new System.Drawing.Size(33, 27);
+            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.UseVisualStyleBackColor = false;
+            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
+            this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);
+            this.btn_goToMain.MouseEnter += new System.EventHandler(this.btn_goToMain_MouseEnter);
+            this.btn_goToMain.MouseLeave += new System.EventHandler(this.btn_goToMain_MouseLeave);
+            // 
+            // btn_reiniciar
+            // 
+            this.btn_reiniciar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_reiniciar.BackgroundImage = global::capaPresentacion.Properties.Resources.Reiniciar_LEAVE;
+            this.btn_reiniciar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_reiniciar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_reiniciar.FlatAppearance.BorderSize = 0;
+            this.btn_reiniciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_reiniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_reiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reiniciar.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_reiniciar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_reiniciar.Location = new System.Drawing.Point(353, 3);
+            this.btn_reiniciar.Name = "btn_reiniciar";
+            this.btn_reiniciar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_reiniciar.Size = new System.Drawing.Size(36, 27);
+            this.btn_reiniciar.TabIndex = 16;
+            this.btn_reiniciar.UseVisualStyleBackColor = false;
+            this.btn_reiniciar.Click += new System.EventHandler(this.btn_reiniciar_Click);
+            this.btn_reiniciar.MouseEnter += new System.EventHandler(this.btn_reiniciar_MouseEnter);
+            this.btn_reiniciar.MouseLeave += new System.EventHandler(this.btn_reiniciar_MouseLeave);
             // 
             // tableLayoutPanel19
             // 
@@ -285,6 +341,48 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.00015F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(920, 317);
             this.tableLayoutPanel9.TabIndex = 0;
+            // 
+            // pB_ScoreNum
+            // 
+            this.pB_ScoreNum.BackColor = System.Drawing.Color.Transparent;
+            this.pB_ScoreNum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pB_ScoreNum.BackgroundImage")));
+            this.pB_ScoreNum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pB_ScoreNum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pB_ScoreNum.Location = new System.Drawing.Point(60, 61);
+            this.pB_ScoreNum.Margin = new System.Windows.Forms.Padding(4);
+            this.pB_ScoreNum.Name = "pB_ScoreNum";
+            this.pB_ScoreNum.Size = new System.Drawing.Size(50, 62);
+            this.pB_ScoreNum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pB_ScoreNum.TabIndex = 0;
+            this.pB_ScoreNum.TabStop = false;
+            // 
+            // pB_comodines
+            // 
+            this.pB_comodines.BackColor = System.Drawing.Color.Transparent;
+            this.pB_comodines.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_Pasage_03;
+            this.pB_comodines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pB_comodines.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pB_comodines.Location = new System.Drawing.Point(60, 131);
+            this.pB_comodines.Margin = new System.Windows.Forms.Padding(4);
+            this.pB_comodines.Name = "pB_comodines";
+            this.pB_comodines.Size = new System.Drawing.Size(50, 62);
+            this.pB_comodines.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pB_comodines.TabIndex = 1;
+            this.pB_comodines.TabStop = false;
+            // 
+            // pB_tiempo
+            // 
+            this.pB_tiempo.BackColor = System.Drawing.Color.Transparent;
+            this.pB_tiempo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_02;
+            this.pB_tiempo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pB_tiempo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pB_tiempo.Location = new System.Drawing.Point(60, 201);
+            this.pB_tiempo.Margin = new System.Windows.Forms.Padding(4);
+            this.pB_tiempo.Name = "pB_tiempo";
+            this.pB_tiempo.Size = new System.Drawing.Size(50, 62);
+            this.pB_tiempo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pB_tiempo.TabIndex = 2;
+            this.pB_tiempo.TabStop = false;
             // 
             // lb_ScoreNum
             // 
@@ -451,104 +549,6 @@
             this.lab_comodin50_2.Text = "2";
             this.lab_comodin50_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbx_Trofeo
-            // 
-            this.pbx_Trofeo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_DUO_WINNER_Trophy_01;
-            this.pbx_Trofeo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbx_Trofeo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Trofeo.Location = new System.Drawing.Point(3, 3);
-            this.pbx_Trofeo.Name = "pbx_Trofeo";
-            this.pbx_Trofeo.Size = new System.Drawing.Size(394, 190);
-            this.pbx_Trofeo.TabIndex = 0;
-            this.pbx_Trofeo.TabStop = false;
-            // 
-            // btn_goToMain
-            // 
-            this.btn_goToMain.BackColor = System.Drawing.Color.Transparent;
-            this.btn_goToMain.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_07;
-            this.btn_goToMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_goToMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_goToMain.FlatAppearance.BorderSize = 0;
-            this.btn_goToMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_goToMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_goToMain.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_goToMain.Location = new System.Drawing.Point(276, 3);
-            this.btn_goToMain.Name = "btn_goToMain";
-            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_goToMain.Size = new System.Drawing.Size(49, 27);
-            this.btn_goToMain.TabIndex = 15;
-            this.btn_goToMain.UseVisualStyleBackColor = false;
-            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
-            this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);
-            this.btn_goToMain.MouseEnter += new System.EventHandler(this.btn_goToMain_MouseEnter);
-            this.btn_goToMain.MouseLeave += new System.EventHandler(this.btn_goToMain_MouseLeave);
-            // 
-            // btn_reiniciar
-            // 
-            this.btn_reiniciar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_reiniciar.BackgroundImage = global::capaPresentacion.Properties.Resources.Reiniciar_LEAVE;
-            this.btn_reiniciar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_reiniciar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_reiniciar.FlatAppearance.BorderSize = 0;
-            this.btn_reiniciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_reiniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_reiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reiniciar.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_reiniciar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_reiniciar.Location = new System.Drawing.Point(339, 3);
-            this.btn_reiniciar.Name = "btn_reiniciar";
-            this.btn_reiniciar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_reiniciar.Size = new System.Drawing.Size(50, 27);
-            this.btn_reiniciar.TabIndex = 16;
-            this.btn_reiniciar.UseVisualStyleBackColor = false;
-            this.btn_reiniciar.Click += new System.EventHandler(this.btn_reiniciar_Click);
-            this.btn_reiniciar.MouseEnter += new System.EventHandler(this.btn_reiniciar_MouseEnter);
-            this.btn_reiniciar.MouseLeave += new System.EventHandler(this.btn_reiniciar_MouseLeave);
-            // 
-            // pB_ScoreNum
-            // 
-            this.pB_ScoreNum.BackColor = System.Drawing.Color.Transparent;
-            this.pB_ScoreNum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pB_ScoreNum.BackgroundImage")));
-            this.pB_ScoreNum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pB_ScoreNum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pB_ScoreNum.Location = new System.Drawing.Point(60, 61);
-            this.pB_ScoreNum.Margin = new System.Windows.Forms.Padding(4);
-            this.pB_ScoreNum.Name = "pB_ScoreNum";
-            this.pB_ScoreNum.Size = new System.Drawing.Size(50, 62);
-            this.pB_ScoreNum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pB_ScoreNum.TabIndex = 0;
-            this.pB_ScoreNum.TabStop = false;
-            // 
-            // pB_comodines
-            // 
-            this.pB_comodines.BackColor = System.Drawing.Color.Transparent;
-            this.pB_comodines.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_Pasage_03;
-            this.pB_comodines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pB_comodines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pB_comodines.Location = new System.Drawing.Point(60, 131);
-            this.pB_comodines.Margin = new System.Windows.Forms.Padding(4);
-            this.pB_comodines.Name = "pB_comodines";
-            this.pB_comodines.Size = new System.Drawing.Size(50, 62);
-            this.pB_comodines.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pB_comodines.TabIndex = 1;
-            this.pB_comodines.TabStop = false;
-            // 
-            // pB_tiempo
-            // 
-            this.pB_tiempo.BackColor = System.Drawing.Color.Transparent;
-            this.pB_tiempo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_02;
-            this.pB_tiempo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pB_tiempo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pB_tiempo.Location = new System.Drawing.Point(60, 201);
-            this.pB_tiempo.Margin = new System.Windows.Forms.Padding(4);
-            this.pB_tiempo.Name = "pB_tiempo";
-            this.pB_tiempo.Size = new System.Drawing.Size(50, 62);
-            this.pB_tiempo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pB_tiempo.TabIndex = 2;
-            this.pB_tiempo.TabStop = false;
-            // 
             // P_Debate_Ganador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -571,6 +571,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Trofeo)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel19.ResumeLayout(false);
@@ -578,7 +579,6 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Trofeo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_ScoreNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_comodines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_tiempo)).EndInit();

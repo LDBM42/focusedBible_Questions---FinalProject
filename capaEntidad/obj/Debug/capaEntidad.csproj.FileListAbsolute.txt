@@ -54,3 +54,20 @@ C:\focusedBible_Questions - FinalProject\capaEntidad\obj\Debug\capaEntidad.cspro
 C:\focusedBible_Questions - FinalProject\capaEntidad\obj\Debug\capaEntidad.csproj.CopyComplete
 C:\focusedBible_Questions - FinalProject\capaEntidad\obj\Debug\capaEntidad.dll
 C:\focusedBible_Questions - FinalProject\capaEntidad\obj\Debug\capaEntidad.pdb
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\capaEntidad.dll
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\capaEntidad.pdb
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\appium-dotnet-driver.dll
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\Castle.Core.dll
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\Newtonsoft.Json.dll
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\WebDriver.dll
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\WebDriver.Support.dll
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\appium-dotnet-driver.xml
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\Castle.Core.xml
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\Newtonsoft.Json.xml
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\WebDriver.xml
+C:\focusedBible_Questions-FinalProject\capaEntidad\bin\Debug\WebDriver.Support.xml
+C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.csprojAssemblyReference.cache
+C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.csproj.CoreCompileInputs.cache
+C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.csproj.CopyComplete
+C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.dll
+C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.pdb
