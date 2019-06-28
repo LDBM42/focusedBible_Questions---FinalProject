@@ -173,6 +173,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BTN_PASAGE_Disabled {
+            get {
+                object obj = ResourceManager.GetObject("BTN_PASAGE_Disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BTN_PASAGE_Leave {
             get {
                 object obj = ResourceManager.GetObject("BTN_PASAGE_Leave", resourceCulture);
@@ -583,6 +593,26 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fondo_DUO_Jugador_1 {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_DUO_Jugador_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_DUO_Jugador_2 {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_DUO_Jugador_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap go2Main {
             get {
                 object obj = ResourceManager.GetObject("go2Main", resourceCulture);
@@ -605,7 +635,7 @@ namespace capaPresentacion.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Grupo1_ImagenDuo_OFF {
             get {
-                object obj = ResourceManager.GetObject("Grupo1_ImagenDuo-OFF", resourceCulture);
+                object obj = ResourceManager.GetObject("Grupo1_ImagenDuo_OFF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -625,7 +655,7 @@ namespace capaPresentacion.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Grupo2_ImagenDuo_OFF {
             get {
-                object obj = ResourceManager.GetObject("Grupo2_ImagenDuo-OFF", resourceCulture);
+                object obj = ResourceManager.GetObject("Grupo2_ImagenDuo_OFF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -756,6 +786,26 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Reiniciar_LEAVE {
             get {
                 object obj = ResourceManager.GetObject("Reiniciar_LEAVE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RESPONDER_Disabled {
+            get {
+                object obj = ResourceManager.GetObject("RESPONDER_Disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RESPONDER_Enter {
+            get {
+                object obj = ResourceManager.GetObject("RESPONDER_Enter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
