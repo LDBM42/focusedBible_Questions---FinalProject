@@ -653,6 +653,8 @@
             this.btn_goToMain.TabIndex = 15;
             this.btn_goToMain.UseVisualStyleBackColor = false;
             this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
+            this.btn_goToMain.MouseEnter += new System.EventHandler(this.btn_goToMain_MouseEnter);
+            this.btn_goToMain.MouseLeave += new System.EventHandler(this.btn_goToMain_MouseLeave);
             // 
             // btn_how2Play
             // 
@@ -673,6 +675,9 @@
             this.btn_how2Play.Size = new System.Drawing.Size(30, 19);
             this.btn_how2Play.TabIndex = 14;
             this.btn_how2Play.UseVisualStyleBackColor = false;
+            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
+            this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
+            this.btn_how2Play.MouseLeave += new System.EventHandler(this.btn_how2Play_MouseLeave);
             // 
             // pbx_Sound
             // 
@@ -684,6 +689,9 @@
             this.pbx_Sound.Size = new System.Drawing.Size(30, 19);
             this.pbx_Sound.TabIndex = 17;
             this.pbx_Sound.TabStop = false;
+            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
+            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
+            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
             // 
             // pictureBox2
             // 

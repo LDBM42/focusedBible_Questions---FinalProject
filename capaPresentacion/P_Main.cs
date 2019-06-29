@@ -143,12 +143,10 @@ namespace capaPresentacion
             if (objEntidad.enableButtonSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
-                objEntidad.enableButtonSound = true;
             }
             else
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
-                objEntidad.enableButtonSound = false;
             }
 
         }
@@ -412,6 +410,18 @@ namespace capaPresentacion
             this.Hide();
             P_focusedBible_SoloyPartida soloMain = new P_focusedBible_SoloyPartida(objEntidad);
             soloMain.ShowDialog();
+        }
+
+        private void P_Main_Enter(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
     }
 }

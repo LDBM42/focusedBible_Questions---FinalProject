@@ -57,6 +57,7 @@
             this.lab_ScoreNum2 = new System.Windows.Forms.Label();
             this.lab_Passage_2 = new System.Windows.Forms.Label();
             this.lab_comodin50_2 = new System.Windows.Forms.Label();
+            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -70,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pB_ScoreNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_comodines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_tiempo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel21
@@ -201,6 +203,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel8.Controls.Add(this.btn_goToMain, 4, 0);
             this.tableLayoutPanel8.Controls.Add(this.btn_reiniciar, 6, 0);
+            this.tableLayoutPanel8.Controls.Add(this.pbx_Sound, 2, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(4);
@@ -549,6 +552,20 @@
             this.lab_comodin50_2.Text = "2";
             this.lab_comodin50_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pbx_Sound
+            // 
+            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
+            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Sound.Location = new System.Drawing.Point(253, 3);
+            this.pbx_Sound.Name = "pbx_Sound";
+            this.pbx_Sound.Size = new System.Drawing.Size(33, 27);
+            this.pbx_Sound.TabIndex = 18;
+            this.pbx_Sound.TabStop = false;
+            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
+            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
+            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
+            // 
             // P_Debate_Ganador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -582,6 +599,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pB_ScoreNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_comodines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_tiempo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -615,5 +633,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Button btn_reiniciar;
+        private System.Windows.Forms.PictureBox pbx_Sound;
     }
 }

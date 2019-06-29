@@ -55,9 +55,8 @@ namespace capaEntidad
         SoundPlayer sonido;
         public void reproducirSonidoJuego(string nombreArchivo, bool loop)
         {
-            if (enableGameSound)
+           if (enableGameSound)
             {
-
                 if (sonido != null)
                 {
                     sonido.Stop();
@@ -85,7 +84,6 @@ namespace capaEntidad
         {
             if (enableButtonSound)
             {
-
                 if (sonido != null)
                 {
                     sonido.Stop();

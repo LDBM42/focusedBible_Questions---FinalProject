@@ -101,7 +101,6 @@ namespace capaPresentacion
 
         private void btn_goToMain_MouseEnter(object sender, EventArgs e)
         {
-            objEntidad.reproducirSonidoBoton("button.wav", false);
             btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
         }
 
@@ -117,13 +116,52 @@ namespace capaPresentacion
 
         private void btn_reiniciar_MouseEnter(object sender, EventArgs e)
         {
-            objEntidad.reproducirSonidoBoton("button.wav", false);
             btn_reiniciar.BackgroundImage = Properties.Resources.Reiniciar_ENTER;
         }
 
         private void btn_reiniciar_MouseLeave(object sender, EventArgs e)
         {
             btn_reiniciar.BackgroundImage = Properties.Resources.Reiniciar_LEAVE;
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                objEntidad.StopGameSound();
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableGameSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableGameSound = true;
+                objEntidad.reproducirSonidoJuego("fanfare.wav", true);
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
     }
 }

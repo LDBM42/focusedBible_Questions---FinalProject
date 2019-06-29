@@ -28,6 +28,7 @@ namespace capaPresentacion
         int timeToIncrease = 15; // tiempo que incrementa al elegir el comodin pasage
         Banners Banner;
         P_Debate_Ganador Winner;
+        HowToPlay howToPlay;
         SoundPlayer sonido;
         int?[] noRepetir_PorDificultadyCategoria; // para que no se repitan cuando se eligen solo x dificultad
         E_focusedBible[] lista_porDificultadYCategoria; // Para almacenar la lista completa y asi evitar que se repitan
@@ -129,6 +130,15 @@ namespace capaPresentacion
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
 
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+
             lab_Wins_P1.Text = Convert.ToString(wins_01);
             lab_Wins_P2.Text = Convert.ToString(wins_02);
             tlyo_Wins_P1.Visible = true;
@@ -175,6 +185,7 @@ namespace capaPresentacion
                 pbx_Opportunity_1.Visible = true;
                 pbx_Opportunity_2.Visible = true;
             }
+
         }
 
         void Llenar_listaPorDificultadYCategoria(E_focusedBible dificultad)
@@ -1589,6 +1600,75 @@ namespace capaPresentacion
         private void btn_Submit_MouseLeave(object sender, EventArgs e)
         {
             btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                objEntidad.StopGameSound();
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableGameSound = false;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableGameSound = true;
+                objEntidad.enableButtonSound = true;
+                objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void btn_how2Play_Click(object sender, EventArgs e)
+        {
+            howToPlay = new HowToPlay();
+            howToPlay.ShowDialog();
+        }
+
+        private void btn_how2Play_MouseEnter(object sender, EventArgs e)
+        {
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_MOUSE_ENTER;
+        }
+
+        private void btn_how2Play_MouseLeave(object sender, EventArgs e)
+        {
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
+        }
+
+        private void btn_goToMain_MouseEnter(object sender, EventArgs e)
+        {
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
+        }
+
+        private void btn_goToMain_MouseLeave(object sender, EventArgs e)
+        {
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07;
         }
     }
 }
