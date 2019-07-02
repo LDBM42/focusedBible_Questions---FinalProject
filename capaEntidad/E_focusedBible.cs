@@ -25,7 +25,8 @@ namespace capaEntidad
         public string pasage { get; set; }
         public string winner { get; set; }
         public string difficulty { get; set; }
-        public string [] catEvangelios_yOtros { get; set; }
+        public string[] catEvangelios_yOtros { get; set; }
+        public string[] catEvangelios_yOtrosTemporal { get; set; }
         public string [] catLibro { get; set; }
         public string catNuevoAntiguo { get; set; }
         public string questions2Answer { get; set; }

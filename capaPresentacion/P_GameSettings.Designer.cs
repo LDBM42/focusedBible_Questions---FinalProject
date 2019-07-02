@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_GameSettings));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_soundGame = new System.Windows.Forms.Button();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_User = new System.Windows.Forms.Label();
             this.Pxb_Logo = new System.Windows.Forms.PictureBox();
@@ -61,9 +62,9 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
-            this.IniciarJuegoProfesor = new System.Windows.Forms.Timer(this.components);
             this.btn_soundButton = new System.Windows.Forms.Button();
-            this.btn_soundGame = new System.Windows.Forms.Button();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.IniciarJuegoProfesor = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
@@ -111,6 +112,17 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.00095F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(342, 729);
             this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // btn_soundGame
+            // 
+            this.btn_soundGame.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_soundGame.Location = new System.Drawing.Point(37, 97);
+            this.btn_soundGame.Name = "btn_soundGame";
+            this.btn_soundGame.Size = new System.Drawing.Size(89, 45);
+            this.btn_soundGame.TabIndex = 6;
+            this.btn_soundGame.Text = "Sonido Juego ON";
+            this.btn_soundGame.UseVisualStyleBackColor = true;
+            this.btn_soundGame.Click += new System.EventHandler(this.btn_soundGame_Click);
             // 
             // tableLayoutPanel12
             // 
@@ -166,6 +178,7 @@
             this.tableLayoutPanel3.Controls.Add(this.gbx_Settings, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.btn_soundButton, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 2, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -601,9 +614,9 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Controls.Add(this.lbx_catNuevoAntiguo, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lbx_catLibro, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lbx_catEvangelios_yOtros, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lbx_catNuevoAntiguo, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lbx_catLibro, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lbx_catEvangelios_yOtros, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(39, 236);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -623,12 +636,14 @@
             this.lbx_catNuevoAntiguo.FormattingEnabled = true;
             this.lbx_catNuevoAntiguo.ItemHeight = 29;
             this.lbx_catNuevoAntiguo.Items.AddRange(new object[] {
+            "Todas",
             "Nuevo Testamento",
             "Antiguo Testamento"});
-            this.lbx_catNuevoAntiguo.Location = new System.Drawing.Point(441, 3);
+            this.lbx_catNuevoAntiguo.Location = new System.Drawing.Point(3, 3);
             this.lbx_catNuevoAntiguo.Name = "lbx_catNuevoAntiguo";
-            this.lbx_catNuevoAntiguo.Size = new System.Drawing.Size(214, 46);
+            this.lbx_catNuevoAntiguo.Size = new System.Drawing.Size(213, 46);
             this.lbx_catNuevoAntiguo.TabIndex = 2;
+            this.lbx_catNuevoAntiguo.SelectedIndexChanged += new System.EventHandler(this.lbx_catNuevoAntiguo_SelectedIndexChanged);
             this.lbx_catNuevoAntiguo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lbx_catNuevoAntiguo_KeyPress);
             // 
             // lbx_catLibro
@@ -641,77 +656,11 @@
             this.lbx_catLibro.ForeColor = System.Drawing.Color.Black;
             this.lbx_catLibro.FormattingEnabled = true;
             this.lbx_catLibro.ItemHeight = 29;
-            this.lbx_catLibro.Items.AddRange(new object[] {
-            "Génesis",
-            "Éxodo",
-            "Levítico",
-            "Números",
-            "Deuteronomio",
-            "Josué",
-            "Jueces",
-            "Rut",
-            "1 Samuel",
-            "2 Samuel",
-            "1 Reyes",
-            "2 Reyes",
-            "1 Crónicas",
-            "2 Crónicas",
-            "Esdras",
-            "Nehemías",
-            "Ester",
-            "Job",
-            "Salmos",
-            "Proverbios",
-            "Eclesiastés",
-            "Cantares",
-            "Isaías",
-            "Jeremías",
-            "Lamentaciones",
-            "Ezequiel",
-            "Daniel",
-            "Oseas",
-            "Joel",
-            "Amós",
-            "Abdías",
-            "Jonás",
-            "Miqueas",
-            "Nahúm",
-            "Habacuc",
-            "Sofonías",
-            "Hageo",
-            "Zacarías",
-            "Malaquías",
-            "Mateo",
-            "Marcos",
-            "Lucas",
-            "Juan",
-            "Hechos",
-            "Romanos",
-            "1 Corintios",
-            "2 Corintios",
-            "Gálatas",
-            "Efesios",
-            "Filipenses",
-            "Colosenses",
-            "1 Tesalonicenses",
-            "2 Tesalonicenses",
-            "1 Timoteo",
-            "2 Timoteo",
-            "Tito",
-            "Filemón",
-            "Hebreos",
-            "Santiago",
-            "1 Pedro",
-            "2 Pedro",
-            "1 Juan",
-            "2 Juan",
-            "3 Juan",
-            "Judas",
-            "Apocalipsis"});
-            this.lbx_catLibro.Location = new System.Drawing.Point(222, 3);
+            this.lbx_catLibro.Location = new System.Drawing.Point(441, 3);
+            this.lbx_catLibro.MultiColumn = true;
             this.lbx_catLibro.Name = "lbx_catLibro";
-            this.lbx_catLibro.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbx_catLibro.Size = new System.Drawing.Size(213, 46);
+            this.lbx_catLibro.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbx_catLibro.Size = new System.Drawing.Size(214, 46);
             this.lbx_catLibro.TabIndex = 1;
             this.lbx_catLibro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lbx_catLibro_KeyPress);
             // 
@@ -725,21 +674,9 @@
             this.lbx_catEvangelios_yOtros.ForeColor = System.Drawing.Color.Black;
             this.lbx_catEvangelios_yOtros.FormattingEnabled = true;
             this.lbx_catEvangelios_yOtros.ItemHeight = 29;
-            this.lbx_catEvangelios_yOtros.Items.AddRange(new object[] {
-            "Todas",
-            "Evangelios",
-            "Pentateuco",
-            "históricos",
-            "poéticos",
-            "proféticos mayores",
-            "proféticos menores",
-            "Epístolas paulinas",
-            "Epístolas generales",
-            "Profecías",
-            "Otros"});
-            this.lbx_catEvangelios_yOtros.Location = new System.Drawing.Point(3, 3);
+            this.lbx_catEvangelios_yOtros.Location = new System.Drawing.Point(222, 3);
             this.lbx_catEvangelios_yOtros.Name = "lbx_catEvangelios_yOtros";
-            this.lbx_catEvangelios_yOtros.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lbx_catEvangelios_yOtros.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbx_catEvangelios_yOtros.Size = new System.Drawing.Size(213, 46);
             this.lbx_catEvangelios_yOtros.TabIndex = 0;
             this.lbx_catEvangelios_yOtros.SelectedIndexChanged += new System.EventHandler(this.lbx_catEvangelios_yOtros_SelectedIndexChanged);
@@ -800,16 +737,19 @@
             this.btn_soundButton.UseVisualStyleBackColor = true;
             this.btn_soundButton.Click += new System.EventHandler(this.btn_soundButton_Click);
             // 
-            // btn_soundGame
+            // tableLayoutPanel6
             // 
-            this.btn_soundGame.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_soundGame.Location = new System.Drawing.Point(37, 97);
-            this.btn_soundGame.Name = "btn_soundGame";
-            this.btn_soundGame.Size = new System.Drawing.Size(89, 45);
-            this.btn_soundGame.TabIndex = 6;
-            this.btn_soundGame.Text = "Sonido Juego ON";
-            this.btn_soundGame.UseVisualStyleBackColor = true;
-            this.btn_soundGame.Click += new System.EventHandler(this.btn_soundGame_Click);
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(846, 148);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(89, 409);
+            this.tableLayoutPanel6.TabIndex = 6;
             // 
             // P_GameSettings
             // 
@@ -882,5 +822,6 @@
         private System.Windows.Forms.CheckBox cbx_Opportunities;
         private System.Windows.Forms.Button btn_soundGame;
         private System.Windows.Forms.Button btn_soundButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
     }
 }

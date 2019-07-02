@@ -74,7 +74,7 @@
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_Grupo1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlyo_OportunidadesyPuntos_1 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_Group1 = new System.Windows.Forms.Label();
             this.pbx_Opportunity_1 = new System.Windows.Forms.PictureBox();
             this.pbx_Score_1 = new System.Windows.Forms.PictureBox();
@@ -83,7 +83,7 @@
             this.lab_Puntos1 = new System.Windows.Forms.Label();
             this.pbx_Grupo1 = new System.Windows.Forms.PictureBox();
             this.tlyo_Grupo2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlyo_OportunidadesyPuntos_2 = new System.Windows.Forms.TableLayoutPanel();
             this.pbx_Opportunity_2 = new System.Windows.Forms.PictureBox();
             this.pbx_Score_2 = new System.Windows.Forms.PictureBox();
             this.lab_FijoGrupo2 = new System.Windows.Forms.Label();
@@ -121,12 +121,12 @@
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tlyo_Grupo1.SuspendLayout();
-            this.tableLayoutPanel27.SuspendLayout();
+            this.tlyo_OportunidadesyPuntos_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Opportunity_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Score_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Grupo1)).BeginInit();
             this.tlyo_Grupo2.SuspendLayout();
-            this.tableLayoutPanel29.SuspendLayout();
+            this.tlyo_OportunidadesyPuntos_2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Opportunity_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Score_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Grupo2)).BeginInit();
@@ -797,7 +797,7 @@
             this.tlyo_Grupo1.ColumnCount = 2;
             this.tlyo_Grupo1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlyo_Grupo1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tlyo_Grupo1.Controls.Add(this.tableLayoutPanel27, 1, 0);
+            this.tlyo_Grupo1.Controls.Add(this.tlyo_OportunidadesyPuntos_1, 1, 0);
             this.tlyo_Grupo1.Controls.Add(this.pbx_Grupo1, 0, 0);
             this.tlyo_Grupo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlyo_Grupo1.Location = new System.Drawing.Point(174, 3);
@@ -807,29 +807,29 @@
             this.tlyo_Grupo1.Size = new System.Drawing.Size(398, 114);
             this.tlyo_Grupo1.TabIndex = 0;
             // 
-            // tableLayoutPanel27
+            // tlyo_OportunidadesyPuntos_1
             // 
-            this.tableLayoutPanel27.ColumnCount = 4;
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel27.Controls.Add(this.lab_Group1, 0, 1);
-            this.tableLayoutPanel27.Controls.Add(this.lab_ScoreNum, 2, 1);
-            this.tableLayoutPanel27.Controls.Add(this.pbx_Opportunity_1, 1, 0);
-            this.tableLayoutPanel27.Controls.Add(this.lab_LifesNum, 2, 0);
-            this.tableLayoutPanel27.Controls.Add(this.pbx_Score_1, 1, 1);
-            this.tableLayoutPanel27.Controls.Add(this.lab_FijoGrupo1, 0, 0);
-            this.tableLayoutPanel27.Controls.Add(this.lab_Oportunidades1, 3, 0);
-            this.tableLayoutPanel27.Controls.Add(this.lab_Puntos1, 3, 1);
-            this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel27.Location = new System.Drawing.Point(82, 3);
-            this.tableLayoutPanel27.Name = "tableLayoutPanel27";
-            this.tableLayoutPanel27.RowCount = 2;
-            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(313, 108);
-            this.tableLayoutPanel27.TabIndex = 0;
+            this.tlyo_OportunidadesyPuntos_1.ColumnCount = 4;
+            this.tlyo_OportunidadesyPuntos_1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlyo_OportunidadesyPuntos_1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tlyo_OportunidadesyPuntos_1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
+            this.tlyo_OportunidadesyPuntos_1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tlyo_OportunidadesyPuntos_1.Controls.Add(this.lab_Group1, 0, 1);
+            this.tlyo_OportunidadesyPuntos_1.Controls.Add(this.lab_ScoreNum, 2, 1);
+            this.tlyo_OportunidadesyPuntos_1.Controls.Add(this.pbx_Opportunity_1, 1, 0);
+            this.tlyo_OportunidadesyPuntos_1.Controls.Add(this.lab_LifesNum, 2, 0);
+            this.tlyo_OportunidadesyPuntos_1.Controls.Add(this.pbx_Score_1, 1, 1);
+            this.tlyo_OportunidadesyPuntos_1.Controls.Add(this.lab_FijoGrupo1, 0, 0);
+            this.tlyo_OportunidadesyPuntos_1.Controls.Add(this.lab_Oportunidades1, 3, 0);
+            this.tlyo_OportunidadesyPuntos_1.Controls.Add(this.lab_Puntos1, 3, 1);
+            this.tlyo_OportunidadesyPuntos_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_OportunidadesyPuntos_1.Location = new System.Drawing.Point(82, 3);
+            this.tlyo_OportunidadesyPuntos_1.Name = "tlyo_OportunidadesyPuntos_1";
+            this.tlyo_OportunidadesyPuntos_1.RowCount = 2;
+            this.tlyo_OportunidadesyPuntos_1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlyo_OportunidadesyPuntos_1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlyo_OportunidadesyPuntos_1.Size = new System.Drawing.Size(313, 108);
+            this.tlyo_OportunidadesyPuntos_1.TabIndex = 0;
             // 
             // lab_Group1
             // 
@@ -916,7 +916,7 @@
             this.tlyo_Grupo2.ColumnCount = 2;
             this.tlyo_Grupo2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlyo_Grupo2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tlyo_Grupo2.Controls.Add(this.tableLayoutPanel29, 1, 0);
+            this.tlyo_Grupo2.Controls.Add(this.tlyo_OportunidadesyPuntos_2, 1, 0);
             this.tlyo_Grupo2.Controls.Add(this.pbx_Grupo2, 0, 0);
             this.tlyo_Grupo2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlyo_Grupo2.Location = new System.Drawing.Point(651, 3);
@@ -926,29 +926,29 @@
             this.tlyo_Grupo2.Size = new System.Drawing.Size(398, 114);
             this.tlyo_Grupo2.TabIndex = 1;
             // 
-            // tableLayoutPanel29
+            // tlyo_OportunidadesyPuntos_2
             // 
-            this.tableLayoutPanel29.ColumnCount = 4;
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel29.Controls.Add(this.lab_ScoreNum2, 2, 1);
-            this.tableLayoutPanel29.Controls.Add(this.lab_Group2, 0, 1);
-            this.tableLayoutPanel29.Controls.Add(this.lab_LifesNum2, 2, 0);
-            this.tableLayoutPanel29.Controls.Add(this.pbx_Opportunity_2, 1, 0);
-            this.tableLayoutPanel29.Controls.Add(this.pbx_Score_2, 1, 1);
-            this.tableLayoutPanel29.Controls.Add(this.lab_FijoGrupo2, 0, 0);
-            this.tableLayoutPanel29.Controls.Add(this.lab_Oportunidades2, 3, 0);
-            this.tableLayoutPanel29.Controls.Add(this.lab_Puntos2, 3, 1);
-            this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(82, 3);
-            this.tableLayoutPanel29.Name = "tableLayoutPanel29";
-            this.tableLayoutPanel29.RowCount = 2;
-            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(313, 108);
-            this.tableLayoutPanel29.TabIndex = 0;
+            this.tlyo_OportunidadesyPuntos_2.ColumnCount = 4;
+            this.tlyo_OportunidadesyPuntos_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlyo_OportunidadesyPuntos_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tlyo_OportunidadesyPuntos_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
+            this.tlyo_OportunidadesyPuntos_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tlyo_OportunidadesyPuntos_2.Controls.Add(this.lab_ScoreNum2, 2, 1);
+            this.tlyo_OportunidadesyPuntos_2.Controls.Add(this.lab_Group2, 0, 1);
+            this.tlyo_OportunidadesyPuntos_2.Controls.Add(this.lab_LifesNum2, 2, 0);
+            this.tlyo_OportunidadesyPuntos_2.Controls.Add(this.pbx_Opportunity_2, 1, 0);
+            this.tlyo_OportunidadesyPuntos_2.Controls.Add(this.pbx_Score_2, 1, 1);
+            this.tlyo_OportunidadesyPuntos_2.Controls.Add(this.lab_FijoGrupo2, 0, 0);
+            this.tlyo_OportunidadesyPuntos_2.Controls.Add(this.lab_Oportunidades2, 3, 0);
+            this.tlyo_OportunidadesyPuntos_2.Controls.Add(this.lab_Puntos2, 3, 1);
+            this.tlyo_OportunidadesyPuntos_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_OportunidadesyPuntos_2.Location = new System.Drawing.Point(82, 3);
+            this.tlyo_OportunidadesyPuntos_2.Name = "tlyo_OportunidadesyPuntos_2";
+            this.tlyo_OportunidadesyPuntos_2.RowCount = 2;
+            this.tlyo_OportunidadesyPuntos_2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlyo_OportunidadesyPuntos_2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlyo_OportunidadesyPuntos_2.Size = new System.Drawing.Size(313, 108);
+            this.tlyo_OportunidadesyPuntos_2.TabIndex = 0;
             // 
             // pbx_Opportunity_2
             // 
@@ -1399,14 +1399,14 @@
             this.tableLayoutPanel22.ResumeLayout(false);
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tlyo_Grupo1.ResumeLayout(false);
-            this.tableLayoutPanel27.ResumeLayout(false);
-            this.tableLayoutPanel27.PerformLayout();
+            this.tlyo_OportunidadesyPuntos_1.ResumeLayout(false);
+            this.tlyo_OportunidadesyPuntos_1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Opportunity_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Score_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Grupo1)).EndInit();
             this.tlyo_Grupo2.ResumeLayout(false);
-            this.tableLayoutPanel29.ResumeLayout(false);
-            this.tableLayoutPanel29.PerformLayout();
+            this.tlyo_OportunidadesyPuntos_2.ResumeLayout(false);
+            this.tlyo_OportunidadesyPuntos_2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Opportunity_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Score_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Grupo2)).EndInit();
@@ -1488,7 +1488,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
         private System.Windows.Forms.TableLayoutPanel tlyo_Grupo1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
+        private System.Windows.Forms.TableLayoutPanel tlyo_OportunidadesyPuntos_1;
         private System.Windows.Forms.PictureBox pbx_Grupo1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
@@ -1499,7 +1499,7 @@
         public System.Windows.Forms.Label lab_Oportunidades1;
         public System.Windows.Forms.Label lab_Puntos1;
         private System.Windows.Forms.TableLayoutPanel tlyo_Grupo2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
+        private System.Windows.Forms.TableLayoutPanel tlyo_OportunidadesyPuntos_2;
         private System.Windows.Forms.PictureBox pbx_Opportunity_2;
         private System.Windows.Forms.PictureBox pbx_Score_2;
         public System.Windows.Forms.Label lab_FijoGrupo2;

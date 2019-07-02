@@ -20,7 +20,6 @@ namespace capaPresentacion
         public P_GameSettings(E_focusedBible Configuracion)
         {
             objEntidad = Configuracion;
-
             InitializeComponent();
         }
 
@@ -31,8 +30,8 @@ namespace capaPresentacion
         D_Login login = new D_Login();
         P_Debate_Main PDebateMain;
         P_QueryListarPreguntas PQuery;
-        
-        
+
+
 
         private void Settings_Load(object sender, EventArgs e)
         {
@@ -54,15 +53,38 @@ namespace capaPresentacion
                 btn_soundGame.Text = "Sonido Juego OFF";
             }
 
+            lbx_Dificuldad_Setting.Text = objEntidad.difficulty;
+            lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
+
+
             //seleccionar elementos previamente seleccionados
-            if (objEntidad.catEvangelios_yOtros[0] != null)
+            try
             {
-                SeleccionCategoria.SeleccionarCategorías(objEntidad.catEvangelios_yOtros, lbx_catEvangelios_yOtros);
+                if (objEntidad.catEvangelios_yOtros[0] != null)
+                {
+                    SeleccionCategoria.SeleccionarCategorías(objEntidad.catEvangelios_yOtros, lbx_catEvangelios_yOtros);
+                }
             }
-            else
+            catch (Exception)
             {
-                lbx_catEvangelios_yOtros.Text = "Todas";
+                // recuperacion de la exepcion
             }
+
+
+            // try: para evitar que de error al estár todo deseleccionado
+            try
+            {
+                if (objEntidad.catLibro[0] != null || lbx_catLibro.Visible == true)
+                {
+                    SeleccionCategoria.SeleccionarCategorías(objEntidad.catLibro, lbx_catLibro);
+                }
+            }
+            catch (Exception)
+            {
+                // recuperacion de la exepcion
+            }
+
+
 
             if (objEntidad.opportunitiesBoolean == true && objEntidad.questions2Answer != "Todas")
             {
@@ -84,21 +106,6 @@ namespace capaPresentacion
                 }
             }
 
-            // try: para evitar que de error al estár todo deseleccionado
-            try
-            {
-                if (objEntidad.catLibro[0] != null || lbx_catLibro.Visible == true)
-                {
-                    SeleccionCategoria.SeleccionarCategorías(objEntidad.catLibro, lbx_catLibro);
-                }
-            }
-            catch (Exception)
-            {
-                // recuperacion de la exepcion
-            }
-
-            lbx_Dificuldad_Setting.Text = objEntidad.difficulty;
-            lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
 
             if (objEntidad.questions2Answer != "Todas")
             {
@@ -133,7 +140,31 @@ namespace capaPresentacion
             lbx_preguntas.TopIndex = lbx_preguntas.SelectedIndex;
         }
 
-        
+
+        private void LlenarListBoxCategorias()
+        {
+            lbx_catEvangelios_yOtros.DisplayMember = "nombreCat";
+            lbx_catEvangelios_yOtros.ValueMember = "nombreCat";
+            lbx_catEvangelios_yOtros.DataSource = objNego.N_listarCategorias();
+        }
+        private void LlenarListBoxCategoriasXTestamento()
+        {
+            lbx_catEvangelios_yOtros.DisplayMember = "nombreCat";
+            lbx_catEvangelios_yOtros.ValueMember = "nombreCat";
+            lbx_catEvangelios_yOtros.DataSource = objNego.N_listarCategoriasXTestamento(objEntidad);
+        }
+        private void LlenarListBoxLibros()
+        {
+            lbx_catLibro.DisplayMember = "nombreLibro";
+            lbx_catLibro.ValueMember = "nombreLibro";
+            lbx_catLibro.DataSource = objNego.N_listarLibros();
+        }
+        private void LlenarListBoxLibrosXCategorias()
+        {
+            lbx_catLibro.DisplayMember = "nombreLibro";
+            lbx_catLibro.ValueMember = "nombreLibro";
+            lbx_catLibro.DataSource = objNego.N_listarLibrosXCategoria(SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros, "nombreCat"));
+        }
 
 
         private void lbx_Rounds_Leave(object sender, EventArgs e)
@@ -346,8 +377,9 @@ namespace capaPresentacion
         public void Change_Settings()
         {
             objEntidad.difficulty = lbx_Dificuldad_Setting.Text;
-            objEntidad.catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros);
-            objEntidad.catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro);
+            objEntidad.catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros, "nombreCat");
+            objEntidad.catEvangelios_yOtrosTemporal = objEntidad.catEvangelios_yOtros;
+            objEntidad.catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro, "nombreLibro");
             objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
             objEntidad.numRounds = Convert.ToInt32(lbx_Rounds.Text);
             objEntidad.time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
@@ -369,9 +401,8 @@ namespace capaPresentacion
                 TotalQuestToAnswer = 0;
             }
 
-            objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(lbx_catEvangelios_yOtros,
-                                                                                  lbx_catLibro,
-                                                                                  lbx_catNuevoAntiguo,
+            objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(objEntidad.catNuevoAntiguo,
+                                                                                  objEntidad.catLibro,
                                                                                   objEntidad.difficulty,
                                                                                   TotalQuestToAnswer,
                                                                                   objEntidad.opportunitiesBoolean);
@@ -432,26 +463,24 @@ namespace capaPresentacion
 
         private void lbx_catEvangelios_yOtros_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // evitar que se deseleccionen todos los campos
-            try
+            try // si hay alguno seleccionado
             {
-                lbx_catEvangelios_yOtros.SelectedItem.ToString();
+                if (lbx_catEvangelios_yOtros.SelectedItem.ToString() != null)
+                {
+                    lbx_catLibro.Visible = true;
+                    lbx_catLibro.ClearSelected();
+                     
+                    LlenarListBoxLibrosXCategorias();
+                    SeleccionCategoria.bloquearDesbloquearDeseleccionarCamposCategoría(true, lbx_catLibro);
+                }
             }
             catch (Exception)
             {
-                lbx_catEvangelios_yOtros.SetSelected(10, true);
+                lbx_catLibro.Visible = false;
+                SeleccionCategoria.bloquearDesbloquearDeseleccionarCamposCategoría(false, lbx_catLibro);
             }
 
-            if (lbx_catEvangelios_yOtros.SelectedItem.ToString() == "Todas")
-            {
-                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(false, lbx_catNuevoAntiguo);
-                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(false, lbx_catLibro);
-            }
-            else
-            {
-                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(true, lbx_catNuevoAntiguo);
-                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(true, lbx_catLibro);
-            }
+
         }
 
         private void lbx_opportunitie_SelectedIndexChanged(object sender, EventArgs e)
@@ -561,6 +590,35 @@ namespace capaPresentacion
                 objEntidad.enableGameSound = true;
                 btn_soundGame.Text = "Sonido Juego ON";
             }
+        }
+
+        private void lbx_catNuevoAntiguo_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
+
+            try
+            {
+                if (lbx_catNuevoAntiguo.SelectedItem.ToString() != null && lbx_catNuevoAntiguo.SelectedItem.ToString() != "Todas")
+                {
+                    LlenarListBoxCategoriasXTestamento();
+                    lbx_catEvangelios_yOtros.Visible = true;
+                    lbx_catEvangelios_yOtros.ClearSelected();
+                }
+                else
+                {
+                    lbx_catEvangelios_yOtros.Visible = false;
+                    lbx_catLibro.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                lbx_catEvangelios_yOtros.Visible = false;
+                lbx_catLibro.Visible = false;
+            }
+            
+            
+                
+            
         }
     }
 }

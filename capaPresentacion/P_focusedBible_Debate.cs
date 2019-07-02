@@ -120,9 +120,9 @@ namespace capaPresentacion
             SetDoubleBuffered(tableLayoutPanel24);
             SetDoubleBuffered(tableLayoutPanel25);
             SetDoubleBuffered(tlyo_Grupo1);
-            SetDoubleBuffered(tableLayoutPanel27);
+            SetDoubleBuffered(tlyo_OportunidadesyPuntos_1);
             SetDoubleBuffered(tlyo_Grupo2);
-            SetDoubleBuffered(tableLayoutPanel29);
+            SetDoubleBuffered(tlyo_OportunidadesyPuntos_2);
             SetDoubleBuffered(tlyo_Comodines_1);
             SetDoubleBuffered(tlyo_Comodines_2);
 
@@ -177,6 +177,19 @@ namespace capaPresentacion
                 lab_LifesNum2.Visible = false;
                 pbx_Opportunity_1.Visible = false;
                 pbx_Opportunity_2.Visible = false;
+                lab_Oportunidades1.Visible = false;
+                lab_Oportunidades2.Visible = false;
+                tlyo_OportunidadesyPuntos_1.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_1.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_1.RowStyles[0].Height = 0;
+                tlyo_OportunidadesyPuntos_1.RowStyles[1].Height = 100;
+                tlyo_OportunidadesyPuntos_2.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_2.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_2.RowStyles[0].Height = 0;
+                tlyo_OportunidadesyPuntos_2.RowStyles[1].Height = 100;
+
+                lab_Group1.TextAlign = ContentAlignment.MiddleCenter;
+                lab_Group2.TextAlign = ContentAlignment.MiddleCenter;
             }
             else
             {
@@ -184,6 +197,19 @@ namespace capaPresentacion
                 lab_LifesNum2.Visible = true;
                 pbx_Opportunity_1.Visible = true;
                 pbx_Opportunity_2.Visible = true;
+                lab_Oportunidades1.Visible = true;
+                lab_Oportunidades2.Visible = true;
+                tlyo_OportunidadesyPuntos_1.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_1.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_1.RowStyles[0].Height = 50;
+                tlyo_OportunidadesyPuntos_1.RowStyles[1].Height = 50;
+                tlyo_OportunidadesyPuntos_2.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_2.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_2.RowStyles[0].Height = 50;
+                tlyo_OportunidadesyPuntos_2.RowStyles[1].Height = 50;
+
+                lab_Group1.TextAlign = ContentAlignment.TopCenter;
+                lab_Group2.TextAlign = ContentAlignment.TopCenter;
             }
 
         }
@@ -361,6 +387,10 @@ namespace capaPresentacion
             {
                 restart = true;
                 reset_PlayAgain();
+                restart = true;
+
+                lista_porDificultadYCategoria = new E_focusedBible[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)];
+                Llenar_listaPorDificultadYCategoria(objEntidad);
 
                 objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
             }
@@ -408,15 +438,37 @@ namespace capaPresentacion
                     //condicion para saber quien perdió
                     if (startingTurn == 1)
                     {
-                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
-                        objEntidad.winner = lab_Group2.Text;
+                        if (score_1 > score_2)
+                        {
+                            objEntidad.winner = lab_Group1.Text;
+                        }
+                        else
+                        if (score_1 < score_2)
+                        {
+                            objEntidad.winner = lab_Group2.Text;
+                        }
+                        else
+                        {
+                            objEntidad.winner = "Es un empate!";
+                        }
                         SetFinalResults();
                         BannerWinner();
                     }
                     else
                     {
-                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
-                        objEntidad.winner = lab_Group1.Text;
+                        if (score_1 > score_2)
+                        {
+                            objEntidad.winner = lab_Group1.Text;
+                        }
+                        else
+                        if (score_1 < score_2)
+                        {
+                            objEntidad.winner = lab_Group2.Text;
+                        }
+                        else
+                        {
+                            objEntidad.winner = "Es un empate!";
+                        }
                         SetFinalResults();
                         BannerWinner();
                     }
@@ -436,14 +488,12 @@ namespace capaPresentacion
                     else
                         if (score_2 > score_1)
                     {
-                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
                         objEntidad.winner = lab_Group2.Text;
                         SetFinalResults();
                         BannerWinner();
                     }
                     else
                     {
-                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
                         objEntidad.winner = lab_Group1.Text;
                         SetFinalResults();
                         BannerWinner();
@@ -613,20 +663,52 @@ namespace capaPresentacion
         {
             if ('a' == objEntidad.resp)
             {
-                rbtn_a.ForeColor = Color.FromArgb(70, 172, 195);
+                if (objEntidad.rebound == true)   // para que no se encienda la resp correcta si se va a rebotar
+                {
+                    if (reboundTurn == true)
+                    {
+                        rbtn_a.ForeColor = Color.FromArgb(70, 172, 195);
+                    }
+                    else
+                    {
+                        rbtn_a.ForeColor = Color.FromArgb(225, 225, 225);
+                        rbtn_a.Enabled = false;
+                    }
+                }
+                else
+                {
+                    rbtn_a.ForeColor = Color.FromArgb(70, 172, 195);
+                }
 
-                rbtn_b.ForeColor = Color.FromArgb(225, 225, 225);
-                rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
-                rbtn_d.ForeColor = Color.FromArgb(225, 225, 225);
+                    rbtn_b.ForeColor = Color.FromArgb(225, 225, 225);
+                    rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
+                    rbtn_d.ForeColor = Color.FromArgb(225, 225, 225);
 
-                rbtn_b.Enabled = false;
-                rbtn_c.Enabled = false;
-                rbtn_d.Enabled = false;
+                    rbtn_b.Enabled = false;
+                    rbtn_c.Enabled = false;
+                    rbtn_d.Enabled = false;
+
             }
             else
                 if ('b' == objEntidad.resp)
             {
-                rbtn_b.ForeColor = Color.FromArgb(70, 172, 195);
+                if (objEntidad.rebound == true)   // para que no se encienda la resp correcta si se va a rebotar
+                {
+                    if (reboundTurn == true)
+                    {
+                        rbtn_b.ForeColor = Color.FromArgb(70, 172, 195);
+                    }
+                    else
+                    {
+                        rbtn_b.ForeColor = Color.FromArgb(225, 225, 225);
+                        rbtn_b.Enabled = false;
+                    }
+                }
+                else
+                {
+                    rbtn_b.ForeColor = Color.FromArgb(70, 172, 195);
+                }
+
 
                 rbtn_a.ForeColor = Color.FromArgb(225, 225, 225);
                 rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
@@ -639,7 +721,23 @@ namespace capaPresentacion
             else
                 if ('c' == objEntidad.resp)
             {
-                rbtn_c.ForeColor = Color.FromArgb(70, 172, 195);
+                if (objEntidad.rebound == true)   // para que no se encienda la resp correcta si se va a rebotar
+                {
+                    if (reboundTurn == true)
+                    {
+                        rbtn_c.ForeColor = Color.FromArgb(70, 172, 195);
+                    }
+                    else
+                    {
+                        rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
+                        rbtn_c.Enabled = false;
+                    }
+                }
+                else
+                {
+                    rbtn_c.ForeColor = Color.FromArgb(70, 172, 195);
+                }
+
 
                 rbtn_a.ForeColor = Color.FromArgb(225, 225, 225);
                 rbtn_b.ForeColor = Color.FromArgb(225, 225, 225);
@@ -652,7 +750,23 @@ namespace capaPresentacion
             else
                 if ('d' == objEntidad.resp)
             {
-                rbtn_d.ForeColor = Color.FromArgb(70, 172, 195);
+                if (objEntidad.rebound == true)   // para que no se encienda la resp correcta si se va a rebotar
+                {
+                    if (reboundTurn == true)
+                    {
+                        rbtn_d.ForeColor = Color.FromArgb(70, 172, 195);
+                    }
+                    else
+                    {
+                        rbtn_d.ForeColor = Color.FromArgb(225, 225, 225);
+                        rbtn_d.Enabled = false;
+                    }
+                }
+                else
+                {
+                    rbtn_d.ForeColor = Color.FromArgb(70, 172, 195);
+                }
+
 
                 rbtn_a.ForeColor = Color.FromArgb(225, 225, 225);
                 rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
@@ -1046,6 +1160,8 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
                 {
                     perder_Ganar();
+                    Thread.Sleep(2000);
+                    AfterCountDown();
                 }// si no se acabó el juego entonces reinicia ciertos elementos de los jugadores
                 else if(objEntidad.winner != lab_Group1.Text && objEntidad.winner != lab_Group2.Text && objEntidad.winner != "Es un empate!")
                 {
@@ -1070,6 +1186,9 @@ namespace capaPresentacion
             bloquear_Btn_Submit();
 
 
+            //resetear color original de la pregunta
+            lab_Pregunta.ForeColor = Color.FromArgb(32, 52, 61);
+
 
 
             /**REBOTE**/
@@ -1082,6 +1201,7 @@ namespace capaPresentacion
                         activarComidin(1);
                         activarPassage(1);
                         PlayerFocus(1);
+                        cambioDeTurno(2);
                         objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                     }
                     else
@@ -1089,6 +1209,7 @@ namespace capaPresentacion
                         activarComidin(2);
                         activarPassage(2);
                         PlayerFocus(2);
+                        cambioDeTurno(1);
                         objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                     }
 
@@ -1106,6 +1227,7 @@ namespace capaPresentacion
                             activarComidin(1);
                             activarPassage(1);
                             PlayerFocus(1);
+                            cambioDeTurno(2);
                             objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                         }
                         else
@@ -1113,6 +1235,7 @@ namespace capaPresentacion
                             activarComidin(2);
                             activarPassage(2);
                             PlayerFocus(2);
+                            cambioDeTurno(1);
                             objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                         }
 
@@ -1125,12 +1248,15 @@ namespace capaPresentacion
                         {
                             objEntidad.reproducirSonidoJuego("rebound.wav", false);
                             Thread.Sleep(100);
+                            // poner color rojo a la pregunta al ser un rebote
+                            lab_Pregunta.ForeColor = Color.FromArgb(222, 79, 49);
 
                             if (startingTurn == 1)
                             {
                                 activarComidin(1);
                                 activarPassage(1);
                                 PlayerFocus(1);
+                                cambioDeTurno(2);
                                 objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                             }
                             else
@@ -1138,6 +1264,7 @@ namespace capaPresentacion
                                 activarComidin(2);
                                 activarPassage(2);
                                 PlayerFocus(2);
+                                cambioDeTurno(1);
                                 objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                             }
 
@@ -1174,7 +1301,8 @@ namespace capaPresentacion
                 listarFocusedBible(objEntidad); //lista las preguntas y respuestas
             }
 
-            
+
+            restart = false;
         }
         
 
@@ -1542,6 +1670,7 @@ namespace capaPresentacion
                 tlyo_Comodines.ColumnStyles[0].SizeType = SizeType.Percent;
                 tlyo_Comodines.ColumnStyles[1].SizeType = SizeType.Percent;
                 tlyo_Comodines.ColumnStyles[0].Width = 100;
+                tlyo_Comodines.ColumnStyles[1].Width = 0;
             }
             else
             {
@@ -1584,12 +1713,12 @@ namespace capaPresentacion
         {
             // para saber si el formulario existe, o sea, si está abierto o cerrado
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+            
+            Timer_2Answer.Stop();
+            objEntidad.StopGameSound();
 
             this.Close(); //Esto cierra la ventana del juego y va a Main
             existe.Show();
-            Timer_2Answer.Stop();
-            objEntidad.StopGameSound();
-            reboundTurn = false;
         }
 
         private void btn_Submit_MouseEnter(object sender, EventArgs e)

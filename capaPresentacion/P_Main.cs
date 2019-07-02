@@ -29,16 +29,14 @@ namespace capaPresentacion
                 /***INICIALIZANDO TODO***/
 
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
-                objEntidad.catEvangelios_yOtros = new string[1]; // se crea de uno para almacenar "Todas" en uno y no dejar los demas NULL 
+                objEntidad.catEvangelios_yOtros = new string[10];
                 objEntidad.catLibro = new string[66];
 
                 objEntidad.difficulty = "Todas";
-                objEntidad.catEvangelios_yOtros[0] = "Todas";
+                objEntidad.catNuevoAntiguo = "Todas";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
-                objEntidad.queryListarPreguntas = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
-                                                "INNER JOIN " +
-                                                "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
-                                                "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+                objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad ";
+
                 objEntidad.numRounds = 1;
                 objEntidad.time2Answer = 20;
                 objEntidad.opportunities = 2;
