@@ -23,6 +23,7 @@ namespace capaPresentacion
             InitializeComponent();
         }
 
+        HowToPlay howToPlay;
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
@@ -30,32 +31,88 @@ namespace capaPresentacion
         D_Login login = new D_Login();
         P_Debate_Main PDebateMain;
         P_QueryListarPreguntas PQuery;
+        bool soundsVisible = false;
+
+
+
+
+        // Las siguentes dos funciones son para
+        //evitar los problemas de Buffer por tener layouts transparentes
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(Control c)
+        {
+            if (SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        #endregion
+
 
 
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            if (objEntidad.enableButtonSound)
-            {
-                btn_soundButton.Text = "Sonido Boton ON";
-            }
-            else
-            {
-                btn_soundButton.Text = "Sonido Boton OFF";
-            }
+            SetDoubleBuffered(tableLayoutPanel1);
+            SetDoubleBuffered(tableLayoutPanel2);
+            SetDoubleBuffered(tableLayoutPanel3);
+            SetDoubleBuffered(tableLayoutPanel4);
+            SetDoubleBuffered(tableLayoutPanel6);
+            SetDoubleBuffered(tableLayoutPanel7);
+            SetDoubleBuffered(tableLayoutPanel8);
+            SetDoubleBuffered(tableLayoutPanel16);
+            SetDoubleBuffered(tableLayoutPanel17);
+            SetDoubleBuffered(tableLayoutPanel22);
+            SetDoubleBuffered(tableLayoutPanel23);
 
-            if (objEntidad.enableGameSound)
-            {
-                btn_soundGame.Text = "Sonido Juego ON";
-            }
-            else
-            {
-                btn_soundGame.Text = "Sonido Juego OFF";
-            }
+            this.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Fondo_01;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
 
             lbx_Dificuldad_Setting.Text = objEntidad.difficulty;
             lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
 
+
+            // actualizar estado del sonido
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave;
+            }
+            else
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave_OFF;
+            }
+
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseLeave;
+            }
+            else
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseLeave_OFF;
+            }
+
+            if (objEntidad.enableButtonSound == true || objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON_NEUTRO;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
 
             //seleccionar elementos previamente seleccionados
             try
@@ -208,7 +265,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -224,7 +281,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -240,7 +297,7 @@ namespace capaPresentacion
                 // 'e' almacena la tecla presionada
                 if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -435,7 +492,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -451,7 +508,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -467,7 +524,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -542,11 +599,14 @@ namespace capaPresentacion
         {
             if (cbx_Opportunities.Checked) // si está activado
             {
+                cbx_Opportunities.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Checked_01;
                 lbx_opportunitie.Enabled = true;
                 objEntidad.opportunitiesBoolean = true;
             }
             else
             {
+                cbx_Opportunities.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+
                 if (lbx_preguntas.Text == "Todas") // si está desactivado y preguntas es igual a todas
                 {
                     cbx_Opportunities.Checked = true;
@@ -575,38 +635,17 @@ namespace capaPresentacion
         {
             if (cbx_rebote.Checked == true)
             {
+                cbx_rebote.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Checked_01;
             }
             else
             {
-            }
-        }
-
-        private void btn_soundButton_Click(object sender, EventArgs e)
-        {
-            if (btn_soundButton.Text == "Sonido Boton ON")
-            {
-                objEntidad.enableButtonSound = false;
-                btn_soundButton.Text = "Sonido Boton OFF";
-            }
-            else
-            {
-                objEntidad.enableButtonSound = true;
-                btn_soundButton.Text = "Sonido Boton ON";
+                cbx_rebote.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
             }
         }
 
         private void btn_soundGame_Click(object sender, EventArgs e)
         {
-            if (btn_soundGame.Text == "Sonido Juego ON")
-            {
-                objEntidad.enableGameSound = false;
-                btn_soundGame.Text = "Sonido Juego OFF";
-            }
-            else
-            {
-                objEntidad.enableGameSound = true;
-                btn_soundGame.Text = "Sonido Juego ON";
-            }
+            
         }
 
         private void lbx_catNuevoAntiguo_SelectedIndexChanged(object sender, EventArgs e)
@@ -619,23 +658,208 @@ namespace capaPresentacion
                 {
                     LlenarListBoxCategoriasXTestamento();
                     lbx_catEvangelios_yOtros.Visible = true;
+                    lab_tipoDeLibro.Visible = true;
                     lbx_catEvangelios_yOtros.ClearSelected();
                 }
                 else
                 {
                     lbx_catEvangelios_yOtros.Visible = false;
                     lbx_catLibro.Visible = false;
+
+                    lab_libro.Visible = false;
+                    lab_tipoDeLibro.Visible = false;
                 }
             }
             catch (Exception)
             {
                 lbx_catEvangelios_yOtros.Visible = false;
                 lbx_catLibro.Visible = false;
+
+                lab_libro.Visible = false;
+                lab_tipoDeLibro.Visible = false;
             }
             
             
-                
-            
+        }
+
+        private void btn_Aceptar_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_Aceptar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
+        }
+
+        private void btn_Aceptar_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Aceptar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
+        }
+
+        private void btn_goToMain_Click(object sender, EventArgs e)
+        {
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+
+            if (existe != null) // para saber si el formulario principal existe
+            {
+                this.AddOwnedForm(existe); //indica que este va a ser el papa del form P_Main
+                existe.Close(); // cerrar ventana principal
+            }
+
+            P_Main PMain = new P_Main(objEntidad);
+            this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
+
+            PMain.Show();
+            this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
+            this.Close();
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (soundsVisible)
+            {
+                pbx_gameSound.Visible = false;
+                pbx_buttonSound.Visible = false;
+
+                soundsVisible = false;
+            }
+            else
+            {
+
+                pbx_buttonSound.Visible = true;
+
+                pbx_gameSound.Visible = true;
+
+                soundsVisible = true;
+            }
+        }
+
+        private void pbx_gameSound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter_OFF;
+                objEntidad.enableGameSound = false;
+            }
+            else
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter;
+                objEntidad.enableGameSound = true;
+            }
+        }
+
+        private void pbx_buttonSound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter_OFF;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter;
+                objEntidad.enableButtonSound = true;
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true || objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON_NEUTRO;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true || objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON_NEUTRO;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void btn_how2Play_Click(object sender, EventArgs e)
+        {
+            howToPlay = new HowToPlay();
+            howToPlay.ShowDialog();
+        }
+
+        private void btn_how2Play_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_MOUSE_ENTER;
+        }
+
+        private void btn_how2Play_MouseLeave(object sender, EventArgs e)
+        {
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
+        }
+
+        private void btn_goToMain_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
+        }
+
+        private void btn_goToMain_MouseLeave(object sender, EventArgs e)
+        {
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07;
+        }
+
+        private void pbx_buttonSound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter;
+            }
+            else
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_buttonSound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseLeave;
+            }
+            else
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseLeave_OFF;
+            }
+        }
+
+        private void pbx_gameSound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter;
+            }
+            else
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_gameSound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave;
+            }
+            else
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave_OFF;
+            }
         }
     }
 }

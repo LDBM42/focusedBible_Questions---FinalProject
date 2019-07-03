@@ -203,6 +203,46 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clickSound_MouseEnter {
+            get {
+                object obj = ResourceManager.GetObject("clickSound_MouseEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clickSound_MouseEnter_OFF {
+            get {
+                object obj = ResourceManager.GetObject("clickSound_MouseEnter_OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clickSound_MouseLeave {
+            get {
+                object obj = ResourceManager.GetObject("clickSound_MouseLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clickSound_MouseLeave_OFF {
+            get {
+                object obj = ResourceManager.GetObject("clickSound_MouseLeave_OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_gray {
             get {
                 object obj = ResourceManager.GetObject("close_gray", resourceCulture);
@@ -236,6 +276,36 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Focused_bible_Comodines {
             get {
                 object obj = ResourceManager.GetObject("Focused-bible-Comodines", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_Checked_01 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-CONFIGURACIÓN-Checked-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_Fondo_01 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-CONFIGURACIÓN-Fondo-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_Unchecked_01 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-CONFIGURACIÓN-Unchecked-01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,6 +703,46 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GameSound_MouseEnter {
+            get {
+                object obj = ResourceManager.GetObject("GameSound_MouseEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GameSound_MouseEnter_OFF {
+            get {
+                object obj = ResourceManager.GetObject("GameSound_MouseEnter_OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GameSound_MouseLeave {
+            get {
+                object obj = ResourceManager.GetObject("GameSound_MouseLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GameSound_MouseLeave_OFF {
+            get {
+                object obj = ResourceManager.GetObject("GameSound_MouseLeave_OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap go2Main {
             get {
                 object obj = ResourceManager.GetObject("go2Main", resourceCulture);
@@ -883,6 +993,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sound_MouseEnter_ON_NEUTRO {
+            get {
+                object obj = ResourceManager.GetObject("Sound_MouseEnter_ON_NEUTRO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sound_MouseLeave_OFF {
             get {
                 object obj = ResourceManager.GetObject("Sound_MouseLeave_OFF", resourceCulture);
@@ -896,6 +1016,16 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Sound_MouseLeave_ON {
             get {
                 object obj = ResourceManager.GetObject("Sound_MouseLeave_ON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sound_MouseLeave_ON_NEUTRO {
+            get {
+                object obj = ResourceManager.GetObject("Sound_MouseLeave_ON_NEUTRO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

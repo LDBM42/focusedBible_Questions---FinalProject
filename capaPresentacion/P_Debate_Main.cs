@@ -31,8 +31,6 @@ namespace capaPresentacion
         D_Login login = new D_Login();
         P_focusedBible_Debate PfocusedB;
         HowToPlay howToPlay;
-        string g1_Name;
-        string g2_Name;
         public string difficulty;
         public string queryPorDificultad;
         public string[] catEvangelios_yOtros = new string[10];

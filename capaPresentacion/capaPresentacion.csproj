@@ -236,6 +236,10 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Sound_MouseLeave_ON_NEUTRO.png" />
+    <None Include="Resources\Sound_MouseEnter_ON_NEUTRO.png" />
+    <None Include="Resources\Sound_MouseEnter_ON - NEUTRO.png" />
+    <None Include="Resources\Sound_MouseLeave_ON - NEUTRO.png" />
     <None Include="Resources\Sound_MouseLeave_ON.png" />
     <None Include="Resources\Sound_MouseLeave_OFF.png" />
     <None Include="Resources\Sound_MouseEnter_ON.png" />
@@ -319,6 +323,17 @@
     <None Include="Resources\BTN_PASAGE_Disabled.png" />
     <None Include="Resources\Focused-bible-Comodines.png" />
     <None Include="Resources\Focused-bible-WrongAnswers.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-Unchecked-01.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-Checked-01.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-Fondo-01.png" />
+    <None Include="Resources\clickSound_MouseLeave.png" />
+    <None Include="Resources\clickSound_MouseEnter.png" />
+    <None Include="Resources\GameSound_MouseEnter.png" />
+    <None Include="Resources\GameSound_MouseLeave.png" />
+    <None Include="Resources\GameSound_MouseLeave_OFF.png" />
+    <None Include="Resources\GameSound_MouseEnter_OFF.png" />
+    <None Include="Resources\clickSound_MouseLeave_OFF.png" />
+    <None Include="Resources\clickSound_MouseEnter_OFF.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />
