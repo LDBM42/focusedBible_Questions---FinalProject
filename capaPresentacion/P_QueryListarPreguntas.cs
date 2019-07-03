@@ -50,7 +50,10 @@ namespace capaPresentacion
             if (testamentos == "Todas" && difficulty != "Todas")
             {
                 Query += string.Format("WHERE dificultad ='{0}'", difficulty);
-            } 
+            }
+
+
+            Query += " ORDER BY NEWID()";
 
             return Query;
         }

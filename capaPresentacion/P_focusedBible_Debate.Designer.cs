@@ -1309,6 +1309,7 @@
             // 
             // lab_Categoria
             // 
+            this.lab_Categoria.AutoEllipsis = true;
             this.lab_Categoria.AutoSize = true;
             this.lab_Categoria.BackColor = System.Drawing.Color.Transparent;
             this.lab_Categoria.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -233,6 +233,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_Comodines {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-Comodines", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_DEBATE_01 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_DEBATE_01", resourceCulture);
@@ -556,6 +566,16 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Focused_bible_SOLO_Reloj_04 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_SOLO_Reloj_04", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_WrongAnswers {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-WrongAnswers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -38,9 +38,11 @@ namespace capaPresentacion
         int numeroPrueba;
         int codPregNoRepetir;
         int click50_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
-        int click50_2 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
+        int click50_2 = 0; // para saber si el jugador(es) 2 ya ha entrado al evento click de el comodin 50%
         int clickPassage_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el Passage_1
-        int clickPassage_2 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el Passage_1
+        int clickPassage_2 = 0; // para saber si el jugador(es) 2 ya ha entrado al evento click de el Passage_1
+        int totalComodins_1 = 0; // total de comodines usados
+        int totalComodins_2 = 0; // total de comodines usados
         int i = 0;
         int countUp = 0;
         int countDownTimer = 3;
@@ -48,12 +50,16 @@ namespace capaPresentacion
         int countDownTimer3 = 2;
         int score_1 = 0; // puntuacion inicial
         int score_2 = 0; // puntuacion inicial
+        int wrongAnswer_1 = 0; // Respuestas incorrectas
+        int wrongAnswer_2 = 0;
         int opportunities_1;
         int opportunities_2;
         int startingRound = 1; // ronda inicial
         int valueScore = 2; //valor de cada pregunta
         int startingTurn = 1; // turno inicial
         bool reboundTurn = false; // para saber si se está jugando la partida de rebote
+        bool pointLost_1 = false; // par asaber si ya se ha perdido un punto y no volver a perderlo al Rebotar la pregunta
+        bool pointLost_2 = false; // par asaber si ya se ha perdido un punto y no volver a perderlo al Rebotar la pregunta
         string banner;
         int wins_01 = 0;
         int wins_02 = 0;
@@ -146,7 +152,8 @@ namespace capaPresentacion
             lab_Rounds_Left.Text = startingRound + "/" + objEntidad.numRounds;
             lab_Rounds_Right.Text = startingRound + "/" + objEntidad.numRounds;
             lab_Difficulty.Text = objEntidad.difficulty;
-            lab_Categoria.Text = objEntidad.catEvangelios_yOtros[0];
+            // asignar categorias y en caso de no haber ninguna colocar Todas ----------------------
+            lab_Categoria.Text = objEntidad.categories2Show == null || objEntidad.categories2Show == "" ? "Todas" : objEntidad.categories2Show;
             lab_LifesNum.Text = Convert.ToString(opportunities_1);
             lab_LifesNum2.Text = Convert.ToString(opportunities_2);
             lab_Group1.Text = objEntidad.group1;
@@ -418,6 +425,54 @@ namespace capaPresentacion
 
             countDown.Start();
         }
+
+
+        /* CRITERIOS PARA SABER QUIEN GANO-----------------------------------------*/
+        void GetWinner()
+        {
+            totalComodins_1 = usedPassageComodin_1 + used50Comodin_1;
+            totalComodins_2 = usedPassageComodin_2 + used50Comodin_2;
+
+            /* POR SCORE */
+            if (score_1 > score_2)  // si la puntiacion del 1ro es mayor que la del 2do
+            {
+                objEntidad.winner = lab_Group1.Text;
+            }
+            else
+                if (score_2 > score_1)  // si la puntiacion del 2do es mayor que la del 1ro
+            {
+                objEntidad.winner = lab_Group2.Text;
+            }
+            else /* POR INCORRECT ANSWER */
+            {
+                if (wrongAnswer_1 < wrongAnswer_2) // si las respuestas incorrectas del 1ro son menores que las del 2do
+                {
+                    objEntidad.winner = lab_Group1.Text;
+                }
+                else
+                    if (wrongAnswer_2 < wrongAnswer_1) // si las respuestas incorrectas del 2do son menores que las del 1ro
+                {
+                    objEntidad.winner = lab_Group2.Text;
+                }
+                else /* POR USED COMODINS */
+                {
+                    if (totalComodins_1 < totalComodins_2) // si el 1ro uso menos comodines que el 2do
+                    {
+                        objEntidad.winner = lab_Group1.Text;
+                    }
+                    else if (totalComodins_2 < totalComodins_1)  // si el 2do uso menos comodines que el 1ro
+                    {
+                        objEntidad.winner = lab_Group2.Text;
+                    }
+                    else
+                    {
+                        objEntidad.winner = "Es un empate!";
+                    }
+
+                }
+            }
+        }
+
         void perder_Ganar()
         {
             //condicion para perder
@@ -431,73 +486,14 @@ namespace capaPresentacion
                 objEntidad.reproducirSonidoJuego("game-over.wav", false);
 
 
-                if (startingRound == objEntidad.numRounds) // si es el ultimo round
+                if (startingRound == objEntidad.numRounds || (countUp == noRepetir_PorDificultadyCategoria.Length)) // si es el ultimo round
                 {
                     Thread.Sleep(1500);
 
                     //condicion para saber quien perdió
-                    if (startingTurn == 1)
-                    {
-                        if (score_1 > score_2)
-                        {
-                            objEntidad.winner = lab_Group1.Text;
-                        }
-                        else
-                        if (score_1 < score_2)
-                        {
-                            objEntidad.winner = lab_Group2.Text;
-                        }
-                        else
-                        {
-                            objEntidad.winner = "Es un empate!";
-                        }
-                        SetFinalResults();
-                        BannerWinner();
-                    }
-                    else
-                    {
-                        if (score_1 > score_2)
-                        {
-                            objEntidad.winner = lab_Group1.Text;
-                        }
-                        else
-                        if (score_1 < score_2)
-                        {
-                            objEntidad.winner = lab_Group2.Text;
-                        }
-                        else
-                        {
-                            objEntidad.winner = "Es un empate!";
-                        }
-                        SetFinalResults();
-                        BannerWinner();
-                    }
-                }
-                else
-                    if (((countUp == noRepetir_PorDificultadyCategoria.Length))) // si se acaban las preguntas, se acaba el juego
-                {
-                    Thread.Sleep(1500);
-
-                    //condicion para saber quien perdió
-                    if (score_1 == score_2)
-                    {
-                        objEntidad.winner = "Es un empate!";
-                        SetFinalResults();
-                        BannerWinner();
-                    }
-                    else
-                        if (score_2 > score_1)
-                    {
-                        objEntidad.winner = lab_Group2.Text;
-                        SetFinalResults();
-                        BannerWinner();
-                    }
-                    else
-                    {
-                        objEntidad.winner = lab_Group1.Text;
-                        SetFinalResults();
-                        BannerWinner();
-                    }
+                    GetWinner();
+                    SetFinalResults();
+                    BannerWinner();
                 }
                 else
                 {
@@ -511,13 +507,13 @@ namespace capaPresentacion
             objEntidad.finalResults[0, 0] = lab_ScoreNum.Text;
             objEntidad.finalResults[1, 0] = lab_ScoreNum2.Text;
 
-            // comodin pasage grupo 1 y 2
-            objEntidad.finalResults[0, 1] = usedPassageComodin_1.ToString();
-            objEntidad.finalResults[1, 1] = usedPassageComodin_2.ToString();
+            // respuestas incorrectas grupo 1 y 2
+            objEntidad.finalResults[0, 1] = wrongAnswer_1.ToString();
+            objEntidad.finalResults[1, 1] = wrongAnswer_2.ToString();
 
-            // comodin 50% grupo 1 y 2
-            objEntidad.finalResults[0, 2] = used50Comodin_1.ToString();
-            objEntidad.finalResults[1, 2] = used50Comodin_2.ToString();
+            // comodines totales grupo 1 y 2
+            objEntidad.finalResults[0, 2] = Convert.ToString(totalComodins_1);
+            objEntidad.finalResults[1, 2] = Convert.ToString(totalComodins_2);
         }
         void ChangeRound()
         {
@@ -564,6 +560,10 @@ namespace capaPresentacion
                 wins_02 = 0;
                 score_1 = 0;
                 score_2 = 0;
+                wrongAnswer_1 = 0;
+                wrongAnswer_2 = 0;
+                pointLost_1 = false;
+                pointLost_2 = false;
                 objEntidad.pasage = "";
                 objEntidad.winner = ""; // resetear winner
                 lab_Rounds_Left.Text = startingRound + "/" + objEntidad.numRounds;
@@ -967,6 +967,7 @@ namespace capaPresentacion
 
                 clickPassage_2 = 0; // reiniciar a 0 para poder usar el comodin Passage en su proximo turno
                 pbx_Passage_2.Enabled = true; // activar comodin anterior al cambiar de turno
+                lab_Passage_2.Enabled = true;
                 Lab_Passage_Shown_2.Text = "";
                 tlyo_Comodines_2.RowStyles[0].SizeType = SizeType.Percent;
                 tlyo_Comodines_2.RowStyles[1].SizeType = SizeType.Percent;
@@ -981,7 +982,21 @@ namespace capaPresentacion
                 }
                 else
                 {
-                    opportunities_1--;
+                    if (objEntidad.rebound == true) // si esta activado el rebote
+                    {
+                        if (pointLost_1 == false)
+                        {
+                            opportunities_1--;
+                            wrongAnswer_1++; // Respuestas incorrectas
+                            pointLost_1 = true;
+                        }
+                    }
+                    else // sino esta activado el rebote
+                    {
+                        opportunities_1--;
+                        wrongAnswer_1++; // Respuestas incorrectas
+                    }
+
                     lab_LifesNum.Text = Convert.ToString(opportunities_1);
                     perder_Ganar();
                 }
@@ -993,6 +1008,7 @@ namespace capaPresentacion
 
                 clickPassage_1 = 0; // reiniciar a 0 para poder usar el comodin Passage en su proximo turno
                 pbx_Passage_1.Enabled = true; // activar comodin anterior al cambiar de turno
+                lab_Passage_1.Enabled = true;
                 Lab_Passage_Shown_1.Text = "";
                 tlyo_Comodines_1.RowStyles[0].SizeType = SizeType.Percent;
                 tlyo_Comodines_1.RowStyles[1].SizeType = SizeType.Percent;
@@ -1007,7 +1023,22 @@ namespace capaPresentacion
                 }
                 else
                 {
-                    opportunities_2--;
+                    if (objEntidad.rebound == true) // si esta activado el rebote
+                    {
+                        if (pointLost_2 == false)
+                        {
+                            opportunities_2--;
+                            wrongAnswer_2++; // Respuestas incorrectas
+                            pointLost_2 = true;
+                        }
+                    }
+                    else // sino esta activado el rebote
+                    {
+                        opportunities_2--;
+                        wrongAnswer_2++; // Respuestas incorrectas
+                    }
+
+
                     lab_LifesNum2.Text = Convert.ToString(opportunities_2);
                     perder_Ganar();
                 }
@@ -1198,6 +1229,8 @@ namespace capaPresentacion
                 {
                     if (startingTurn == 1)
                     {
+                        pointLost_1 = false;
+
                         activarComidin(1);
                         activarPassage(1);
                         PlayerFocus(1);
@@ -1206,6 +1239,8 @@ namespace capaPresentacion
                     }
                     else
                     {
+                        pointLost_2 = false;
+
                         activarComidin(2);
                         activarPassage(2);
                         PlayerFocus(2);
@@ -1224,6 +1259,8 @@ namespace capaPresentacion
                     {
                         if (startingTurn == 1)
                         {
+                            pointLost_1 = false;
+
                             activarComidin(1);
                             activarPassage(1);
                             PlayerFocus(1);
@@ -1232,6 +1269,8 @@ namespace capaPresentacion
                         }
                         else
                         {
+                            pointLost_2 = false;
+
                             activarComidin(2);
                             activarPassage(2);
                             PlayerFocus(2);
@@ -1253,6 +1292,8 @@ namespace capaPresentacion
 
                             if (startingTurn == 1)
                             {
+                                pointLost_1 = false;
+
                                 activarComidin(1);
                                 activarPassage(1);
                                 PlayerFocus(1);
@@ -1261,6 +1302,8 @@ namespace capaPresentacion
                             }
                             else
                             {
+                                pointLost_2 = false;
+
                                 activarComidin(2);
                                 activarPassage(2);
                                 PlayerFocus(2);
@@ -1270,6 +1313,7 @@ namespace capaPresentacion
 
                             valueScore = 1;
                             reboundTurn = true;
+                            blockPassage(); //si no existe pasage de referencia, se bloquea este comodin
                         }
                         else
                         {

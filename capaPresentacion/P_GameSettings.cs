@@ -378,12 +378,15 @@ namespace capaPresentacion
         {
             objEntidad.difficulty = lbx_Dificuldad_Setting.Text;
             objEntidad.catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros, "nombreCat");
-            objEntidad.catEvangelios_yOtrosTemporal = objEntidad.catEvangelios_yOtros;
             objEntidad.catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro, "nombreLibro");
             objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
             objEntidad.numRounds = Convert.ToInt32(lbx_Rounds.Text);
             objEntidad.time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
             objEntidad.rebound = cbx_rebote.Checked;
+
+            GetCategories2Show(); // arma el string con las diferentes categorías a mostrar.
+
+
             if (objEntidad.opportunitiesBoolean == false)
             {
                 // las oportunidades son igual a la cantidad de preguntas
@@ -407,6 +410,20 @@ namespace capaPresentacion
                                                                                   TotalQuestToAnswer,
                                                                                   objEntidad.opportunitiesBoolean);
         }
+
+        private void GetCategories2Show()
+        {
+            objEntidad.categories2Show = "";
+
+            foreach (var category in objEntidad.catLibro)
+            {
+                objEntidad.categories2Show += category + ", ";
+            }
+
+            objEntidad.categories2Show = objEntidad.categories2Show.TrimEnd();
+            objEntidad.categories2Show = objEntidad.categories2Show.TrimEnd(',');
+        }
+
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {

@@ -35,7 +35,7 @@ namespace capaPresentacion
                 objEntidad.difficulty = "Todas";
                 objEntidad.catNuevoAntiguo = "Todas";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
-                objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad ";
+                objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad  ORDER BY NEWID()";
 
                 objEntidad.numRounds = 1;
                 objEntidad.time2Answer = 20;
