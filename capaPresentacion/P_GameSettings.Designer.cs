@@ -51,8 +51,8 @@
             this.pbx_gameSound = new System.Windows.Forms.PictureBox();
             this.pbx_buttonSound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlyo_configuracionJuego = new System.Windows.Forms.TableLayoutPanel();
+            this.tlyo_categorias = new System.Windows.Forms.TableLayoutPanel();
             this.lab_libro = new System.Windows.Forms.Label();
             this.lab_tipoDeLibro = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -83,8 +83,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbx_gameSound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_buttonSound)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tlyo_configuracionJuego.SuspendLayout();
+            this.tlyo_categorias.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -95,13 +95,13 @@
             // 
             this.lab_User.AutoSize = true;
             this.lab_User.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_User.Font = new System.Drawing.Font("Catamaran ExtraBold", 15F, System.Drawing.FontStyle.Bold);
-            this.lab_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
+            this.lab_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lab_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
             this.lab_User.Location = new System.Drawing.Point(211, 0);
             this.lab_User.Name = "lab_User";
             this.lab_User.Size = new System.Drawing.Size(177, 31);
             this.lab_User.TabIndex = 15;
-            this.lab_User.Text = "User:";
+            this.lab_User.Text = "Usuario:";
             this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbx_opportunitie
@@ -131,6 +131,8 @@
             this.lbx_opportunitie.Size = new System.Drawing.Size(202, 40);
             this.lbx_opportunitie.TabIndex = 5;
             this.lbx_opportunitie.SelectedIndexChanged += new System.EventHandler(this.lbx_opportunitie_SelectedIndexChanged);
+            this.lbx_opportunitie.Enter += new System.EventHandler(this.lbx_opportunitie_Enter);
+            this.lbx_opportunitie.Leave += new System.EventHandler(this.lbx_opportunitie_Leave);
             // 
             // lbx_preguntas
             // 
@@ -179,6 +181,8 @@
             this.lbx_preguntas.Size = new System.Drawing.Size(258, 40);
             this.lbx_preguntas.TabIndex = 6;
             this.lbx_preguntas.SelectedIndexChanged += new System.EventHandler(this.lbx_preguntas_SelectedIndexChanged);
+            this.lbx_preguntas.Enter += new System.EventHandler(this.lbx_preguntas_Enter);
+            this.lbx_preguntas.Leave += new System.EventHandler(this.lbx_preguntas_Leave);
             // 
             // lbx_catNuevoAntiguo
             // 
@@ -205,6 +209,7 @@
             // 
             this.lbx_catLibro.BackColor = System.Drawing.Color.White;
             this.lbx_catLibro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbx_catLibro.ColumnWidth = 143;
             this.lbx_catLibro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbx_catLibro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbx_catLibro.Font = new System.Drawing.Font("Catamaran Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -217,6 +222,7 @@
             this.lbx_catLibro.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbx_catLibro.Size = new System.Drawing.Size(160, 40);
             this.lbx_catLibro.TabIndex = 1;
+            this.lbx_catLibro.SelectedIndexChanged += new System.EventHandler(this.lbx_catLibro_SelectedIndexChanged);
             this.lbx_catLibro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lbx_catLibro_KeyPress);
             // 
             // lbx_catEvangelios_yOtros
@@ -516,7 +522,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel1, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.tlyo_configuracionJuego, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 162);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -525,54 +531,56 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1226, 460);
             this.tableLayoutPanel7.TabIndex = 14;
             // 
-            // tableLayoutPanel1
+            // tlyo_configuracionJuego
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 0, 7);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(174, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 8;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.00002F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50001F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50001F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50001F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.00002F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50001F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.999896F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.00002F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(827, 454);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tlyo_configuracionJuego.ColumnCount = 1;
+            this.tlyo_configuracionJuego.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlyo_configuracionJuego.Controls.Add(this.tlyo_categorias, 0, 5);
+            this.tlyo_configuracionJuego.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tlyo_configuracionJuego.Controls.Add(this.label3, 0, 0);
+            this.tlyo_configuracionJuego.Controls.Add(this.label7, 0, 4);
+            this.tlyo_configuracionJuego.Controls.Add(this.tableLayoutPanel4, 0, 2);
+            this.tlyo_configuracionJuego.Controls.Add(this.tableLayoutPanel3, 0, 3);
+            this.tlyo_configuracionJuego.Controls.Add(this.tableLayoutPanel8, 0, 7);
+            this.tlyo_configuracionJuego.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_configuracionJuego.Location = new System.Drawing.Point(174, 3);
+            this.tlyo_configuracionJuego.Name = "tlyo_configuracionJuego";
+            this.tlyo_configuracionJuego.RowCount = 8;
+            this.tlyo_configuracionJuego.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.00002F));
+            this.tlyo_configuracionJuego.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50001F));
+            this.tlyo_configuracionJuego.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50001F));
+            this.tlyo_configuracionJuego.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50001F));
+            this.tlyo_configuracionJuego.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.00002F));
+            this.tlyo_configuracionJuego.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50001F));
+            this.tlyo_configuracionJuego.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.999896F));
+            this.tlyo_configuracionJuego.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.00002F));
+            this.tlyo_configuracionJuego.Size = new System.Drawing.Size(827, 454);
+            this.tlyo_configuracionJuego.TabIndex = 2;
             // 
-            // tableLayoutPanel6
+            // tlyo_categorias
             // 
-            this.tableLayoutPanel6.ColumnCount = 6;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.8F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.2F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.Controls.Add(this.lab_libro, 4, 0);
-            this.tableLayoutPanel6.Controls.Add(this.lbx_catLibro, 5, 0);
-            this.tableLayoutPanel6.Controls.Add(this.lab_tipoDeLibro, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.lbx_catNuevoAntiguo, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.lbx_catEvangelios_yOtros, 3, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 294);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(821, 46);
-            this.tableLayoutPanel6.TabIndex = 12;
+            this.tlyo_categorias.ColumnCount = 6;
+            this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.8F));
+            this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.2F));
+            this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_categorias.Controls.Add(this.lab_libro, 4, 0);
+            this.tlyo_categorias.Controls.Add(this.lbx_catLibro, 5, 0);
+            this.tlyo_categorias.Controls.Add(this.lab_tipoDeLibro, 2, 0);
+            this.tlyo_categorias.Controls.Add(this.lbx_catNuevoAntiguo, 1, 0);
+            this.tlyo_categorias.Controls.Add(this.label11, 0, 0);
+            this.tlyo_categorias.Controls.Add(this.lbx_catEvangelios_yOtros, 3, 0);
+            this.tlyo_categorias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_categorias.Location = new System.Drawing.Point(3, 294);
+            this.tlyo_categorias.Name = "tlyo_categorias";
+            this.tlyo_categorias.RowCount = 1;
+            this.tlyo_categorias.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlyo_categorias.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tlyo_categorias.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tlyo_categorias.Size = new System.Drawing.Size(821, 46);
+            this.tlyo_categorias.TabIndex = 12;
             // 
             // lab_libro
             // 
@@ -971,10 +979,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbx_gameSound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_buttonSound)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
+            this.tlyo_configuracionJuego.ResumeLayout(false);
+            this.tlyo_configuracionJuego.PerformLayout();
+            this.tlyo_categorias.ResumeLayout(false);
+            this.tlyo_categorias.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -997,7 +1005,6 @@
         public System.Windows.Forms.ListBox lbx_catNuevoAntiguo;
         public System.Windows.Forms.ListBox lbx_catLibro;
         public System.Windows.Forms.ListBox lbx_opportunitie;
-        private System.Windows.Forms.CheckBox cbx_rebote;
         public System.Windows.Forms.ListBox lbx_preguntas;
         private System.Windows.Forms.CheckBox cbx_Opportunities;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
@@ -1012,7 +1019,7 @@
         private System.Windows.Forms.Timer Timer_Banner;
         private System.Windows.Forms.Timer Timer_2Answer;
         private System.Windows.Forms.Timer countDown;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlyo_configuracionJuego;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
@@ -1020,11 +1027,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        public System.Windows.Forms.ListBox lbx_time2Answer;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel tlyo_categorias;
         private System.Windows.Forms.Label lab_libro;
         private System.Windows.Forms.Label lab_tipoDeLibro;
         private System.Windows.Forms.Label label11;
@@ -1032,5 +1035,10 @@
         private System.Windows.Forms.PictureBox pbx_gameSound;
         private System.Windows.Forms.PictureBox pbx_buttonSound;
         private System.Windows.Forms.Button btn_how2Play;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        public System.Windows.Forms.ListBox lbx_time2Answer;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox cbx_rebote;
+        private System.Windows.Forms.Label label6;
     }
 }

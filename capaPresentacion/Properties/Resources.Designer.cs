@@ -353,6 +353,26 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_FondoLogin_NewUser {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_FondoLogin_NewUser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_FondoNewUser {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_FondoNewUser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_landing_01 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_landing_01", resourceCulture);
@@ -1033,16 +1053,6 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Under_Construction {
-            get {
-                object obj = ResourceManager.GetObject("Under-Construction", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Usuario {
             get {
                 object obj = ResourceManager.GetObject("Usuario", resourceCulture);
@@ -1066,16 +1076,6 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap usuario_masculino {
             get {
                 object obj = ResourceManager.GetObject("usuario-masculino", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap UsuarioBig {
-            get {
-                object obj = ResourceManager.GetObject("UsuarioBig", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

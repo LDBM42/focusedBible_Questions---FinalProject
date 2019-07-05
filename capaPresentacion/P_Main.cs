@@ -112,8 +112,8 @@ namespace capaPresentacion
                 E_Usuario.Nombreusuario = "Invitado";
             }
 
-            lab_User.Text = "User: " + E_Usuario.Nombreusuario;
-            if (lab_User.Text != "User: Invitado")
+            lab_User.Text = "Usuario: " + E_Usuario.Nombreusuario;
+            if (lab_User.Text != "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.LogOut;
                 btn_Logout_Login.Text = "LOGOUT | REGISTRATE";
@@ -129,7 +129,7 @@ namespace capaPresentacion
             }
 
             // Privilegios Administrador
-            if (lab_User.Text == "User: Admin")
+            if (lab_User.Text == "Usuario: Admin")
             {
                 btn_debate.Enabled = true; // desbloquear modalidad debate
             }
@@ -209,7 +209,7 @@ namespace capaPresentacion
 
         private void btn_Logout_Login_Click(object sender, EventArgs e)
         {
-            if (lab_User.Text == "User: Invitado") // si está deslogueado
+            if (lab_User.Text == "Usuario: Invitado") // si está deslogueado
             {
                 P_Login login = new P_Login();
                 login.Show();
@@ -318,7 +318,7 @@ namespace capaPresentacion
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
 
-            if (lab_User.Text == "User: Invitado")
+            if (lab_User.Text == "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate_MouseEnter;
             }
@@ -330,7 +330,7 @@ namespace capaPresentacion
 
         private void btn_Logout_Login_MouseLeave(object sender, EventArgs e)
         {
-            if (lab_User.Text == "User: Invitado")
+            if (lab_User.Text == "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate;
             }

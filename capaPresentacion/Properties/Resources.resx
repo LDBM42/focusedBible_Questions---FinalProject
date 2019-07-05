@@ -259,9 +259,6 @@
   <data name="focusedBible_Questions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\img\focusedBible_Questions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UsuarioBig" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UsuarioBig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="minimize_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize_gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -358,9 +355,6 @@
   <data name="Focused_bible_SOLO_07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-SOLO-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Under-Construction" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Under-Construction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Grupo1_ImagenDuo_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Grupo1_ImagenDuo-OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -429,5 +423,11 @@
   </data>
   <data name="Sound_MouseLeave_ON_NEUTRO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sound_MouseLeave_ON_NEUTRO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_FondoLogin_NewUser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-FondoLogin_NewUser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_FondoNewUser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-FondoNewUser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

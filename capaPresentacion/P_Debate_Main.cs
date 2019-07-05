@@ -187,7 +187,7 @@ namespace capaPresentacion
 
         private void btn_newUser_Click(object sender, EventArgs e)
         {
-            P_Usuario usuario = new P_Usuario();
+            P_Usuario usuario = new P_Usuario(true);
             usuario.Show();
 
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();
