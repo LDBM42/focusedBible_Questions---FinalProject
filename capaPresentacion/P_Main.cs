@@ -29,16 +29,14 @@ namespace capaPresentacion
                 /***INICIALIZANDO TODO***/
 
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
-                objEntidad.catEvangelios_yOtros = new string[1]; // se crea de uno para almacenar "Todas" en uno y no dejar los demas NULL 
+                objEntidad.catEvangelios_yOtros = new string[10];
                 objEntidad.catLibro = new string[66];
 
                 objEntidad.difficulty = "Todas";
-                objEntidad.catEvangelios_yOtros[0] = "Todas";
+                objEntidad.catNuevoAntiguo = "Todas";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
-                objEntidad.queryListarPreguntas = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
-                                                "INNER JOIN " +
-                                                "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
-                                                "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+                objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad  ORDER BY NEWID()";
+
                 objEntidad.numRounds = 1;
                 objEntidad.time2Answer = 20;
                 objEntidad.opportunities = 2;
@@ -114,8 +112,8 @@ namespace capaPresentacion
                 E_Usuario.Nombreusuario = "Invitado";
             }
 
-            lab_User.Text = "User: " + E_Usuario.Nombreusuario;
-            if (lab_User.Text != "User: Invitado")
+            lab_User.Text = "Usuario: " + E_Usuario.Nombreusuario;
+            if (lab_User.Text != "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.LogOut;
                 btn_Logout_Login.Text = "LOGOUT | REGISTRATE";
@@ -131,7 +129,7 @@ namespace capaPresentacion
             }
 
             // Privilegios Administrador
-            if (lab_User.Text == "User: Admin")
+            if (lab_User.Text == "Usuario: Admin")
             {
                 btn_debate.Enabled = true; // desbloquear modalidad debate
             }
@@ -211,7 +209,7 @@ namespace capaPresentacion
 
         private void btn_Logout_Login_Click(object sender, EventArgs e)
         {
-            if (lab_User.Text == "User: Invitado") // si está deslogueado
+            if (lab_User.Text == "Usuario: Invitado") // si está deslogueado
             {
                 P_Login login = new P_Login();
                 login.Show();
@@ -320,7 +318,7 @@ namespace capaPresentacion
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
 
-            if (lab_User.Text == "User: Invitado")
+            if (lab_User.Text == "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate_MouseEnter;
             }
@@ -332,7 +330,7 @@ namespace capaPresentacion
 
         private void btn_Logout_Login_MouseLeave(object sender, EventArgs e)
         {
-            if (lab_User.Text == "User: Invitado")
+            if (lab_User.Text == "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate;
             }

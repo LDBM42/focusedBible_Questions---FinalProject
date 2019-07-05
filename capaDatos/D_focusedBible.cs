@@ -45,6 +45,61 @@ namespace capaDatos
             cmd.ExecuteNonQuery(); // Ejecutar la consulta 
             cn.Close();
         }
+        
+        public DataTable D_listarCategorias()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT nombreCat FROM Categorias", cn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable D_listarLibros()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT nombreLibro FROM Libros", cn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        
+        public DataTable D_listarCategoriasXTestamento(E_focusedBible preg)
+        {
+            SqlCommand cmd = new SqlCommand("sp_ListarCategoriasxTestamento", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@testamento", preg.catNuevoAntiguo);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable D_listarLibrosXCategoria(string [] catEvangelios_yOtros)
+        {
+            string[] arregloTemporal = new string[10] {"","","","","","","","","",""};
+            for (int index = 0; index < catEvangelios_yOtros.Length; index++)
+            {
+                arregloTemporal[index] = catEvangelios_yOtros[index];
+            }
+
+            SqlCommand cmd = new SqlCommand("sp_ListarLibrosxCategorias", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@nombreCat1", arregloTemporal[0]);
+            cmd.Parameters.AddWithValue("@nombreCat2", arregloTemporal[1]);
+            cmd.Parameters.AddWithValue("@nombreCat3", arregloTemporal[2]);
+            cmd.Parameters.AddWithValue("@nombreCat4", arregloTemporal[3]);
+            cmd.Parameters.AddWithValue("@nombreCat5", arregloTemporal[4]);
+            cmd.Parameters.AddWithValue("@nombreCat6", arregloTemporal[5]);
+            cmd.Parameters.AddWithValue("@nombreCat7", arregloTemporal[6]);
+            cmd.Parameters.AddWithValue("@nombreCat8", arregloTemporal[7]);
+            cmd.Parameters.AddWithValue("@nombreCat9", arregloTemporal[8]);
+            cmd.Parameters.AddWithValue("@nombreCat10", arregloTemporal[9]);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
         public int D_NumFilas_PorDificultadYCategoria(E_focusedBible preg)
         {
@@ -64,7 +119,25 @@ namespace capaDatos
             return dt;
         }
 
-        
+
+        /*
+        public int D_NumFilas_PorDificultadYCategoria(E_focusedBible preg)
+        {
+            SqlCommand cmd = new SqlCommand(preg.queryListarPreguntas, cn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt.Rows.Count;//Devuelve el total de filas
+        }
+
+        public DataTable D_listadoPor_DificultadYCategoría(E_focusedBible preg)
+        {
+            SqlCommand cmd = new SqlCommand(preg.queryListarPreguntas, cn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }*/
     }
 
 

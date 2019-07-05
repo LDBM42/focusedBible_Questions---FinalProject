@@ -11,17 +11,20 @@ namespace capaPresentacion
 {
     public partial class P_Usuario : Form
     {
-        public P_Usuario()
+        public P_Usuario(bool rol)
         {
+            this.rol = rol; // para activar o desactivar el rol
+
             InitializeComponent();
         }
 
+        bool rol = true;
         int countDownTimer;
         public int reOpened;
-        int x = 525, xP = 368;
+        int x = 525;
         string genero = "M";
         D_Usuario usuario = new D_Usuario();
-
+        E_focusedBible objEntidad = new E_focusedBible();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -29,21 +32,48 @@ namespace capaPresentacion
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
 
-        private void mostrarOcultar(bool t)
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
         {
-            pbx_logo.Visible = !t;
-
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
-
+        #endregion
 
         private void P_Usuario_Load(object sender, EventArgs e)
         {
-            pbx_logo.Image = Properties.Resources.focusedBible_Questions;
+            pnl_fondoLogo.BackgroundImage = Properties.Resources.Focused_bible_landing_01;
+            pnl_fondoLogo.BackgroundImageLayout = ImageLayout.None;
+
+            // activar o desactivar la seleccion del rol
+            if (rol)
+            {
+                cbx_Rol.Enabled = true;
+            }
+            else
+            {
+                cbx_Rol.Enabled = false;
+            }
 
             tmr_cuadroBlanco.Start();
            
             countDownTimer = 300;
             timer1.Start();
+
+
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
 
 
@@ -54,8 +84,8 @@ namespace capaPresentacion
             string resultado = "";
             if (text_Usuario.Text == "") resultado += "El campo: Usuario,\n";
             if (text_Password.Text == "") resultado += "El campo: Contraseña,\n";
-            if (text_Usuario.Text == "Usuario") resultado += "El campo: Usuario,\n";
-            if (text_Password.Text == "Contraseña") resultado += "El campo: Contraseña,\n";
+            if (text_Usuario.Text == "USUARIO") resultado += "El campo: Usuario,\n";
+            if (text_Password.Text == "CONTRASEÑA") resultado += "El campo: Contraseña,\n";
 
             return resultado;
         }
@@ -92,10 +122,9 @@ namespace capaPresentacion
 
         private void text_Usuario_MouseEnter(object sender, EventArgs e)
         {
-            if (text_Usuario.Text == "Usuario")
+            if (text_Usuario.Text == "USUARIO")
             {
                 text_Usuario.Text = "";
-                //text_Usuario.ForeColor = Color.LightGray;
             }
         }
 
@@ -103,17 +132,16 @@ namespace capaPresentacion
         {
             if (text_Usuario.Text == "" && text_Usuario.Focused == false)
             {
-                text_Usuario.Text = "Usuario";
-                text_Usuario.ForeColor = Color.DimGray;
+                text_Usuario.Text = "USUARIO";
+                text_Usuario.ForeColor = Color.FromArgb(32, 52, 61);
             }
         }
 
         private void text_Password_MouseEnter(object sender, EventArgs e)
         {
-            if (text_Password.Text == "Contraseña")
+            if (text_Password.Text == "CONTRASEÑA")
             {
                 text_Password.Text = "";
-                //text_Password.ForeColor = Color.LightGray;
                 text_Password.UseSystemPasswordChar = true;
             }
         }
@@ -122,8 +150,8 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "" && text_Password.Focused == false)
             {
-                text_Password.Text = "Contraseña";
-                text_Password.ForeColor = Color.DimGray;
+                text_Password.Text = "CONTRASEÑA";
+                text_Password.ForeColor = Color.FromArgb(32, 52, 61);
                 text_Password.UseSystemPasswordChar = false;
             }
         }
@@ -132,8 +160,8 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "")
             {
-                text_Password.Text = "Contraseña";
-                text_Password.ForeColor = Color.DimGray;
+                text_Password.Text = "CONTRASEÑA";
+                text_Password.ForeColor = Color.FromArgb(32, 52, 61);
                 text_Password.UseSystemPasswordChar = false;
             }
         }
@@ -142,8 +170,8 @@ namespace capaPresentacion
         {
             if (text_Usuario.Text == "")
             {
-                text_Usuario.Text = "Usuario";
-                text_Usuario.ForeColor = Color.DimGray;
+                text_Usuario.Text = "USUARIO";
+                text_Usuario.ForeColor = Color.FromArgb(32, 52, 61);
             }
         }
 
@@ -159,13 +187,13 @@ namespace capaPresentacion
         }
 
 
-        
-        //evitar que se presionen las teclas de flechas al estar seleccionado el texto USUARIO o CONTRASEÑA
+
+        //evitar que se presionen las teclas de flechas al estar seleccionado el texto USUARIO o contraseña
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // detecta si el campo usuario esta enfocado y si dice Usuario. Hace lo mismo con el de contraseña.
-            if ((text_Usuario.Text == "Usuario" && text_Usuario.Focused == true) ||
-                (text_Password.Text == "Contraseña" && text_Password.Focused == true))
+            if ((text_Usuario.Text == "USUARIO" && text_Usuario.Focused == true) ||
+                (text_Password.Text == "CONTRASEÑA" && text_Password.Focused == true))
             {
                 //captura la tecla flecha arriba
                 if (keyData == Keys.Up)
@@ -208,8 +236,8 @@ namespace capaPresentacion
         {
             if (text_Password.Text == "")
             {
-                text_Password.Text = "Contraseña";
-                text_Password.ForeColor = Color.DimGray;
+                text_Password.Text = "CONTRASEÑA";
+                text_Password.ForeColor = Color.FromArgb(32, 52, 61);
                 text_Password.UseSystemPasswordChar = false;
                 text_Usuario.Focus();
             }
@@ -224,11 +252,14 @@ namespace capaPresentacion
                 //Cambiar botón de crear a Actualizar
                 btn_Crear.Text = "ACTUALIZAR";
 
-                #region Cambios segun genero y nombre
+                #region Cambios segun genero, rol y nombre
                 //Selecciona el genero según genero del usuario
-                DataTable genero = usuario.UsuarioGenero(text_Usuario.Text);
+                DataTable generoYTipo = usuario.UsuarioGeneroYTipo(text_Usuario.Text);
 
-                if (genero.Rows[0]["Genero"].ToString() == "M") // si es masculino
+                //Seleccionar rol según rol del usuario registrado
+                cbx_Rol.Text = generoYTipo.Rows[0]["Tipo"].ToString();
+
+                    if (generoYTipo.Rows[0]["Genero"].ToString() == "M") // si es masculino
                 {
                     rb_Masculino.Checked = true;
 
@@ -236,9 +267,8 @@ namespace capaPresentacion
 
                     rb_Masculino.Enabled = true;
                     rb_Femenino.Enabled = true;
-                    cb_Rol.Enabled = true;
                 }
-                else if (genero.Rows[0]["Genero"].ToString() == "F") // si es femenino
+                else if (generoYTipo.Rows[0]["Genero"].ToString() == "F") // si es femenino
                 {
                     rb_Femenino.Checked = true;
 
@@ -246,18 +276,16 @@ namespace capaPresentacion
 
                     rb_Masculino.Enabled = true;
                     rb_Femenino.Enabled = true;
-                    cb_Rol.Enabled = true;
                 }
 
-                else if (genero.Rows[0]["Genero"].ToString() == "Admin") // si es administrador
-                {                  
+                else if (generoYTipo.Rows[0]["Genero"].ToString() == "Admin") // si es administrador
+                {   
                     rb_Femenino.Checked = false;
                     rb_Masculino.Checked = false;
                     rb_Masculino.Enabled = false;
                     rb_Femenino.Enabled = false;
 
-                    cb_Rol.SelectedItem = "Admin";
-                    cb_Rol.Enabled = false;
+                    cbx_Rol.SelectedItem = "Admin";
 
                     pbx_Usuario.Image = Properties.Resources.Administrador;
                 }
@@ -266,13 +294,12 @@ namespace capaPresentacion
             }
             else
             {
-                if (text_Usuario.Text == "Usuario" || text_Usuario.Text == "") // si es nuevo
+                if (text_Usuario.Text == "USUARIO" || text_Usuario.Text == "") // si es nuevo
                 {
                     rb_Masculino.Enabled = true;
                     rb_Femenino.Enabled = true;
 
-                    cb_Rol.SelectedItem = "Usuario";
-                    cb_Rol.Enabled = true;
+                    cbx_Rol.SelectedItem = "Estudiante";
 
                     rb_Masculino.Checked = true;
 
@@ -282,9 +309,17 @@ namespace capaPresentacion
                 {
                     pbx_Usuario.Image = Properties.Resources.usuario_masculino;
                 }
-                else // si es femenino
+                else if (rb_Femenino.Checked == true)// si es femenino
                 {
                     pbx_Usuario.Image = Properties.Resources.usuario_femenino;
+                }
+                else
+                {
+                    cbx_Rol.SelectedItem = "Estudiante";
+                    rb_Femenino.Checked = false;
+                    rb_Masculino.Checked = false;
+                    rb_Masculino.Enabled = true;
+                    rb_Femenino.Enabled = true;
                 }
                 
                 btn_Crear.Text = "CREAR"; //Cambiar botón de Actualizar a crear
@@ -292,8 +327,8 @@ namespace capaPresentacion
 
                 if (text_Usuario.Text == "")
             {
-                text_Usuario.Text = "Usuario";
-                text_Usuario.ForeColor = Color.DimGray;
+                text_Usuario.Text = "USUARIO";
+                text_Usuario.ForeColor = Color.FromArgb(32, 52, 61);
                 text_Password.Focus();
             }
         }
@@ -310,9 +345,19 @@ namespace capaPresentacion
             }
         }
 
-        private void btnMinimize_Click(object sender, EventArgs e)
+        private void pbx_Sound_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableButtonSound = true;
+
+            }
         }
 
 
@@ -321,14 +366,13 @@ namespace capaPresentacion
         {
             if (x >= 250)
             {
-                pnl_White.Size = new Size(x, 330);
+                pnl_fondoLogo.Size = new Size(x, 330);
                 x = x - 25;
-
-                pbx_logo.Location = new Point(xP, 40);
-                xP = xP - 29;
             }
             else
             {
+                pnl_fondoLogo.BackgroundImage = Properties.Resources.Focused_bible_FondoLogin_NewUser;
+                pnl_fondoLogo.BackgroundImageLayout = ImageLayout.Stretch;
                 tmr_cuadroBlanco.Stop();
             }
         }
@@ -355,10 +399,10 @@ namespace capaPresentacion
         
         private void P_Usuario_Paint(object sender, PaintEventArgs e)
         {
-            Pen pen = new Pen(Color.FromArgb(255, 40, 40, 40), 2);
+            Pen pen = new Pen(Color.FromArgb(255, 32, 52, 61), 2);
             e.Graphics.DrawLine(pen, 312, 215, 719, 215);
 
-            Pen pen2 = new Pen(Color.FromArgb(255, 40, 40, 40), 2);
+            Pen pen2 = new Pen(Color.FromArgb(255, 32, 52, 61), 2);
             e.Graphics.DrawLine(pen2, 312, 280, 719, 280);
         }
 
@@ -370,6 +414,54 @@ namespace capaPresentacion
         private void rb_Femenino_CheckedChanged(object sender, EventArgs e)
         {
             pbx_Usuario.Image = Properties.Resources.usuario_femenino;
+        }
+
+        private void btn_Crear_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_Crear.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
+            btn_Crear.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void btn_Crear_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Crear.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
+        }
+
+        private void btnMinimize_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void btnMinimize_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void btnClose_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btnClose.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar_MOUSE_ENTER;
+        }
+
+        private void btnClose_MouseLeave(object sender, EventArgs e)
+        {
+            btnClose.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar;
         }
 
         private void btn_Crear_Click(object sender, EventArgs e)
@@ -396,7 +488,7 @@ namespace capaPresentacion
                     if (usuario.ExistUser(text_Usuario.Text) > 0) //Actualizar registro
                     {
 
-                        if (usuario.Actualizar(text_Usuario.Text, text_Password.Text, "Admin", genero) == 1)
+                        if (usuario.Actualizar(text_Usuario.Text, text_Password.Text, cbx_Rol.SelectedItem.ToString(), genero) == 1)
                         {
                             MessageBox.Show("Datos Actualizados Correctamente");
                             P_Usuario_Load(null, null);
@@ -404,7 +496,7 @@ namespace capaPresentacion
                     }
                     else //Nuevo registro
                     {
-                        if (usuario.Insertar(text_Usuario.Text, text_Password.Text, "Admin", genero) > 0)
+                        if (usuario.Insertar(text_Usuario.Text, text_Password.Text, cbx_Rol.SelectedItem.ToString(), genero) > 0)
                         {
                             MessageBox.Show("Usuario " + text_Usuario.Text +  " Agregado Correctamente");
                             P_Usuario_Load(null, null);

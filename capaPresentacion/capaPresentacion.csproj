@@ -236,6 +236,13 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Usuario.png" />
+    <None Include="Resources\usuario-masculino.png" />
+    <None Include="Resources\usuario-femenino.png" />
+    <None Include="Resources\Sound_MouseLeave_ON_NEUTRO.png" />
+    <None Include="Resources\Sound_MouseEnter_ON_NEUTRO.png" />
+    <None Include="Resources\Sound_MouseEnter_ON - NEUTRO.png" />
+    <None Include="Resources\Sound_MouseLeave_ON - NEUTRO.png" />
     <None Include="Resources\Sound_MouseLeave_ON.png" />
     <None Include="Resources\Sound_MouseLeave_OFF.png" />
     <None Include="Resources\Sound_MouseEnter_ON.png" />
@@ -244,9 +251,6 @@
     <None Include="Resources\WhatsApp Image 2019-06-15 at 2.16.00 AM%281%29.jpeg" />
     <None Include="Resources\WhatsApp Image 2019-06-14 at 12.09.10 AM.jpeg" />
     <None Include="Resources\WhatsApp Image 2019-06-14 at 12.09.09 AM.jpeg" />
-    <None Include="Resources\Usuario.png" />
-    <None Include="Resources\usuario-masculino.png" />
-    <None Include="Resources\usuario-femenino.png" />
     <None Include="Resources\Under-Construction.png" />
     <None Include="Resources\UsuarioBig.png" />
     <None Include="Resources\how2Play.png" />
@@ -256,7 +260,6 @@
     <None Include="Resources\minimize_gray.png" />
     <None Include="Resources\close_gray1.png" />
     <None Include="Resources\minimize_gray1.png" />
-    <None Include="Resources\Administrador.png" />
     <None Include="Resources\go2Main.png" />
     <None Include="Resources\close_gray2.png" />
     <None Include="Resources\Focused-bible-landing-01-Con-Elementos.bmp" />
@@ -317,6 +320,22 @@
     <None Include="Resources\Fondo_DUO_Jugador_1.png" />
     <None Include="Resources\Fondo_DUO_Jugador_2.png" />
     <None Include="Resources\BTN_PASAGE_Disabled.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-Unchecked-01.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-Checked-01.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-Fondo-01.png" />
+    <None Include="Resources\clickSound_MouseLeave.png" />
+    <None Include="Resources\clickSound_MouseEnter.png" />
+    <None Include="Resources\GameSound_MouseEnter.png" />
+    <None Include="Resources\GameSound_MouseLeave.png" />
+    <None Include="Resources\GameSound_MouseLeave_OFF.png" />
+    <None Include="Resources\GameSound_MouseEnter_OFF.png" />
+    <None Include="Resources\clickSound_MouseLeave_OFF.png" />
+    <None Include="Resources\clickSound_MouseEnter_OFF.png" />
+    <None Include="Resources\Focused-bible-WrongAnswers.png" />
+    <None Include="Resources\Focused-bible-Comodines.png" />
+    <None Include="Resources\Focused-bible-FondoLogin_NewUser.png" />
+    <None Include="Resources\Administrador.png" />
+    <None Include="Resources\Focused-bible-FondoNewUser.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

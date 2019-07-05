@@ -18,9 +18,10 @@ namespace capaPresentacion
 
         int countDownTimer;
         public int reOpened;
-        int x = 525, xP = 368;
+        int x = 525;
         P_Main PMain;
         D_Login login = new D_Login();
+        D_Usuario usuario = new D_Usuario();
         E_focusedBible objEntidad = new E_focusedBible();
 
 
@@ -30,14 +31,25 @@ namespace capaPresentacion
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
 
-        private void mostrarOcultar(bool t)
+
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
         {
-            pbx_logo.Visible = !t;
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
-        
+        #endregion
+
+
         private void P_Login_Load(object sender, EventArgs e)
         {
-            pbx_logo.Image = Properties.Resources.focusedBible_Questions;
+            pnl_fondoLogo.BackgroundImage = Properties.Resources.Focused_bible_landing_01;
+            pnl_fondoLogo.BackgroundImageLayout = ImageLayout.None;
 
             tmr_cuadroAzul.Start();
                         
@@ -61,27 +73,46 @@ namespace capaPresentacion
                     timer1.Start(); // para esperar a que cargue la ventana y realizar el autologin
                 }
             }
+
+
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
         
 
 
-        private void btnMinimize_Click(object sender, EventArgs e)
+        private void pbx_Sound_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableButtonSound = true;
+
+            }
         }
 
         private void tmr_cuadroAzul_Tick(object sender, EventArgs e)
         {
             if (x >= 250)
             {
-                pnl_Azul.Size = new Size(x, 330);
+                pnl_fondoLogo.Size = new Size(x, 330);
                 x = x - 25;
-
-                pbx_logo.Location = new Point(xP, 42);
-                xP = xP - 29;
             }
             else
             {
+                pnl_fondoLogo.BackgroundImage = Properties.Resources.Focused_bible_FondoLogin_NewUser;
+                pnl_fondoLogo.BackgroundImageLayout = ImageLayout.Stretch;
                 tmr_cuadroAzul.Stop();
             }
         }
@@ -124,9 +155,6 @@ namespace capaPresentacion
             {
                 MessageBox.Show("Usuario y/o contraseña incorrectos");
                 text_Password.Text = "";
-                pbx_logo.Visible = true;
-
-                mostrarOcultar(false);
             }
         }
 
@@ -150,10 +178,10 @@ namespace capaPresentacion
 
         private void P_Login_Paint(object sender, PaintEventArgs e)
         {
-            Pen pen = new Pen(Color.FromArgb(255, 40, 40, 40), 2);
+            Pen pen = new Pen(Color.FromArgb(255, 32, 52, 61), 2);
             e.Graphics.DrawLine(pen, 312, 215, 719, 215);
 
-            Pen pen2 = new Pen(Color.FromArgb(255, 40, 40, 40), 2);
+            Pen pen2 = new Pen(Color.FromArgb(255, 32, 52, 61), 2);
             e.Graphics.DrawLine(pen2, 312, 280, 719, 280);
         }
 
@@ -188,7 +216,6 @@ namespace capaPresentacion
             if (text_Usuario.Text == "USUARIO")
             {
                 text_Usuario.Text = "";
-                //text_Usuario.ForeColor = Color.LightGray;
             }
         }
 
@@ -197,7 +224,7 @@ namespace capaPresentacion
             if (text_Usuario.Text == "" && text_Usuario.Focused == false)
             {
                 text_Usuario.Text = "USUARIO";
-                text_Usuario.ForeColor = Color.DimGray;
+                text_Usuario.ForeColor = Color.FromArgb(32, 52, 61);
             }
         }
 
@@ -206,7 +233,6 @@ namespace capaPresentacion
             if (text_Password.Text == "CONTRASEÑA")
             {
                 text_Password.Text = "";
-                //text_Password.ForeColor = Color.LightGray;
                 text_Password.UseSystemPasswordChar = true;
             }
         }
@@ -216,7 +242,7 @@ namespace capaPresentacion
             if (text_Password.Text == "" && text_Password.Focused == false)
             {
                 text_Password.Text = "CONTRASEÑA";
-                text_Password.ForeColor = Color.DimGray;
+                text_Password.ForeColor = Color.FromArgb(32, 52, 61);
                 text_Password.UseSystemPasswordChar = false;
             }
         }
@@ -226,7 +252,7 @@ namespace capaPresentacion
             if (text_Password.Text == "")
             {
                 text_Password.Text = "CONTRASEÑA";
-                text_Password.ForeColor = Color.DimGray;
+                text_Password.ForeColor = Color.FromArgb(32, 52, 61);
                 text_Password.UseSystemPasswordChar = false;
             }
         }
@@ -236,7 +262,7 @@ namespace capaPresentacion
             if (text_Usuario.Text == "")
             {
                 text_Usuario.Text = "USUARIO";
-                text_Usuario.ForeColor = Color.DimGray;
+                text_Usuario.ForeColor = Color.FromArgb(32, 52, 61);
             }
         }
 
@@ -302,7 +328,7 @@ namespace capaPresentacion
             if (text_Password.Text == "")
             {
                 text_Password.Text = "CONTRASEÑA";
-                text_Password.ForeColor = Color.DimGray;
+                text_Password.ForeColor = Color.FromArgb(32, 52, 61);
                 text_Password.UseSystemPasswordChar = false;
                 text_Usuario.Focus();
             }
@@ -310,17 +336,47 @@ namespace capaPresentacion
 
         private void text_Password_Enter(object sender, EventArgs e)
         {
+
+            if (usuario.ExistUser(text_Usuario.Text) > 0) //Si el usuario existe
+            {
+                #region Cambios segun genero y nombre
+                //Selecciona el genero según genero del usuario
+                DataTable genero = usuario.UsuarioGeneroYTipo(text_Usuario.Text);
+
+                if (genero.Rows[0]["Genero"].ToString() == "M") // si es masculino
+                {
+                    pbx_Usuario.Image = Properties.Resources.usuario_masculino;
+                }
+                else if (genero.Rows[0]["Genero"].ToString() == "F") // si es femenino
+                {
+                    pbx_Usuario.Image = Properties.Resources.usuario_femenino;
+                }
+
+                else if (genero.Rows[0]["Genero"].ToString() == "Admin") // si es administrador
+                {
+                    pbx_Usuario.Image = Properties.Resources.Administrador;
+                }
+                #endregion
+            }
+            else
+            {
+                if (text_Usuario.Text == "USUARIO" || text_Usuario.Text == "") // si es nuevo
+                {
+                    pbx_Usuario.Image = Properties.Resources.Usuario;
+                }
+            }
+
             if (text_Usuario.Text == "")
             {
                 text_Usuario.Text = "USUARIO";
-                text_Usuario.ForeColor = Color.DimGray;
+                text_Usuario.ForeColor = Color.FromArgb(32, 52, 61);
                 text_Password.Focus();
             }
         }
 
         private void llab_nuevoUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            P_Usuario usuario = new P_Usuario();
+            P_Usuario usuario = new P_Usuario(false);
             usuario.Show();
 
             this.Hide();
@@ -332,5 +388,52 @@ namespace capaPresentacion
             CerrarYVolverAAbrirMain(existe); // cierra login y abre la principal
         }
 
+        private void btnEntrar_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btnEntrar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
+            btnEntrar.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void btnEntrar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEntrar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void btnClose_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btnClose.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar_MOUSE_ENTER;
+        }
+
+        private void btnClose_MouseLeave(object sender, EventArgs e)
+        {
+            btnClose.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar;
+        }
     }
 }

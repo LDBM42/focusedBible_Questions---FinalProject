@@ -20,10 +20,10 @@ namespace capaPresentacion
         public P_GameSettings(E_focusedBible Configuracion)
         {
             objEntidad = Configuracion;
-
             InitializeComponent();
         }
 
+        HowToPlay howToPlay;
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
         N_Listener objNegoListener = new N_Listener();
@@ -31,38 +31,117 @@ namespace capaPresentacion
         D_Login login = new D_Login();
         P_Debate_Main PDebateMain;
         P_QueryListarPreguntas PQuery;
-        
-        
+        bool soundsVisible = false;
+
+
+
+
+        // Las siguentes dos funciones son para
+        //evitar los problemas de Buffer por tener layouts transparentes
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(Control c)
+        {
+            if (SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        #endregion
+
+
+
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            if (objEntidad.enableButtonSound)
+            SetDoubleBuffered(tlyo_configuracionJuego);
+            SetDoubleBuffered(tableLayoutPanel2);
+            SetDoubleBuffered(tableLayoutPanel3);
+            SetDoubleBuffered(tableLayoutPanel4);
+            SetDoubleBuffered(tlyo_categorias);
+            SetDoubleBuffered(tableLayoutPanel7);
+            SetDoubleBuffered(tableLayoutPanel8);
+            SetDoubleBuffered(tableLayoutPanel16);
+            SetDoubleBuffered(tableLayoutPanel17);
+            SetDoubleBuffered(tableLayoutPanel22);
+            SetDoubleBuffered(tableLayoutPanel23);
+
+            this.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Fondo_01;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+
+            lbx_Dificuldad_Setting.Text = objEntidad.difficulty;
+            lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
+
+
+            // actualizar estado del sonido
+            if (objEntidad.enableGameSound == true)
             {
-                btn_soundButton.Text = "Sonido Boton ON";
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave;
             }
             else
             {
-                btn_soundButton.Text = "Sonido Boton OFF";
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave_OFF;
             }
 
-            if (objEntidad.enableGameSound)
+            if (objEntidad.enableButtonSound == true)
             {
-                btn_soundGame.Text = "Sonido Juego ON";
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseLeave;
             }
             else
             {
-                btn_soundGame.Text = "Sonido Juego OFF";
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseLeave_OFF;
+            }
+
+            if (objEntidad.enableButtonSound == true || objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON_NEUTRO;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
             }
 
             //seleccionar elementos previamente seleccionados
-            if (objEntidad.catEvangelios_yOtros[0] != null)
+            try
             {
-                SeleccionCategoria.SeleccionarCategorías(objEntidad.catEvangelios_yOtros, lbx_catEvangelios_yOtros);
+                if (objEntidad.catEvangelios_yOtros[0] != null)
+                {
+                    SeleccionCategoria.SeleccionarCategorías(objEntidad.catEvangelios_yOtros, lbx_catEvangelios_yOtros);
+                }
             }
-            else
+            catch (Exception)
             {
-                lbx_catEvangelios_yOtros.Text = "Todas";
+                // recuperacion de la exepcion
             }
+
+
+            // try: para evitar que de error al estár todo deseleccionado
+            try
+            {
+                if (objEntidad.catLibro[0] != null || lbx_catLibro.Visible == true)
+                {
+                    SeleccionCategoria.SeleccionarCategorías(objEntidad.catLibro, lbx_catLibro);
+                }
+            }
+            catch (Exception)
+            {
+                // recuperacion de la exepcion
+            }
+
+
 
             if (objEntidad.opportunitiesBoolean == true && objEntidad.questions2Answer != "Todas")
             {
@@ -84,21 +163,6 @@ namespace capaPresentacion
                 }
             }
 
-            // try: para evitar que de error al estár todo deseleccionado
-            try
-            {
-                if (objEntidad.catLibro[0] != null || lbx_catLibro.Visible == true)
-                {
-                    SeleccionCategoria.SeleccionarCategorías(objEntidad.catLibro, lbx_catLibro);
-                }
-            }
-            catch (Exception)
-            {
-                // recuperacion de la exepcion
-            }
-
-            lbx_Dificuldad_Setting.Text = objEntidad.difficulty;
-            lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
 
             if (objEntidad.questions2Answer != "Todas")
             {
@@ -118,7 +182,7 @@ namespace capaPresentacion
             lbx_opportunitie.Text = Convert.ToString(objEntidad.opportunities);
             lbx_Rounds.Text = Convert.ToString(objEntidad.numRounds);
             lbx_time2Answer.Text = Convert.ToString(objEntidad.time2Answer);
-            lab_User.Text = "User: " + E_Usuario.Nombreusuario;
+            lab_User.Text = "Usuario: " + E_Usuario.Nombreusuario;
             cbx_rebote.Checked = objEntidad.rebound;
             cbx_Opportunities.Checked = objEntidad.opportunitiesBoolean;
 
@@ -133,51 +197,105 @@ namespace capaPresentacion
             lbx_preguntas.TopIndex = lbx_preguntas.SelectedIndex;
         }
 
-        
+
+        private void LlenarListBoxCategorias()
+        {
+            lbx_catEvangelios_yOtros.DisplayMember = "nombreCat";
+            lbx_catEvangelios_yOtros.ValueMember = "nombreCat";
+            lbx_catEvangelios_yOtros.DataSource = objNego.N_listarCategorias();
+        }
+        private void LlenarListBoxCategoriasXTestamento()
+        {
+            lbx_catEvangelios_yOtros.DisplayMember = "nombreCat";
+            lbx_catEvangelios_yOtros.ValueMember = "nombreCat";
+            lbx_catEvangelios_yOtros.DataSource = objNego.N_listarCategoriasXTestamento(objEntidad);
+        }
+        private void LlenarListBoxLibros()
+        {
+            lbx_catLibro.DisplayMember = "nombreLibro";
+            lbx_catLibro.ValueMember = "nombreLibro";
+            lbx_catLibro.DataSource = objNego.N_listarLibros();
+        }
+        private void LlenarListBoxLibrosXCategorias()
+        {
+            lbx_catLibro.DisplayMember = "nombreLibro";
+            lbx_catLibro.ValueMember = "nombreLibro";
+            lbx_catLibro.DataSource = objNego.N_listarLibrosXCategoria(SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros, "nombreCat"));
+        }
+
+
+
 
 
         private void lbx_Rounds_Leave(object sender, EventArgs e)
         {
             //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
-            lbx_Rounds.Font = new Font(lbx_Rounds.Font.Name, 15, lbx_Rounds.Font.Style, lbx_Rounds.Font.Unit);
+            lbx_Rounds.Font = new Font(lbx_Rounds.Font.Name, 10.2f, lbx_Rounds.Font.Style, lbx_Rounds.Font.Unit);
         }
 
         private void lbx_time2Answer_Leave(object sender, EventArgs e)
         {
             //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
-            lbx_time2Answer.Font = new Font(lbx_time2Answer.Font.Name, 15, lbx_time2Answer.Font.Style, lbx_time2Answer.Font.Unit);
+            lbx_time2Answer.Font = new Font(lbx_time2Answer.Font.Name, 10.2f, lbx_time2Answer.Font.Style, lbx_time2Answer.Font.Unit);
         }
 
         private void lbx_Dificuldad_Setting_Leave(object sender, EventArgs e)
         {
             //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
-            lbx_Dificuldad_Setting.Font = new Font(lbx_Dificuldad_Setting.Font.Name, 15, lbx_Dificuldad_Setting.Font.Style, lbx_Dificuldad_Setting.Font.Unit);
+            lbx_Dificuldad_Setting.Font = new Font(lbx_Dificuldad_Setting.Font.Name, 10.2f, lbx_Dificuldad_Setting.Font.Style, lbx_Dificuldad_Setting.Font.Unit);
+        }
+
+        private void lbx_preguntas_Leave(object sender, EventArgs e)
+        {
+            //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+            lbx_preguntas.Font = new Font(lbx_preguntas.Font.Name, 10.2f, lbx_preguntas.Font.Style, lbx_preguntas.Font.Unit);
+        }
+
+        private void lbx_opportunitie_Leave(object sender, EventArgs e)
+        {
+            //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+            lbx_opportunitie.Font = new Font(lbx_opportunitie.Font.Name, 10.2f, lbx_opportunitie.Font.Style, lbx_opportunitie.Font.Unit);
         }
 
         private void lbx_Rounds_Enter(object sender, EventArgs e)
         {
             //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
-            lbx_Rounds.Font = new Font(lbx_Rounds.Font.Name, 31.89f, lbx_Rounds.Font.Style, lbx_Rounds.Font.Unit);
+            lbx_Rounds.Font = new Font(lbx_Rounds.Font.Name, 23f, lbx_Rounds.Font.Style, lbx_Rounds.Font.Unit);
         }
 
         private void lbx_time2Answer_Enter(object sender, EventArgs e)
         {
-            lbx_time2Answer.Font = new Font(lbx_time2Answer.Font.Name, 31.89f, lbx_time2Answer.Font.Style, lbx_time2Answer.Font.Unit);
+            lbx_time2Answer.Font = new Font(lbx_time2Answer.Font.Name, 23f, lbx_time2Answer.Font.Style, lbx_time2Answer.Font.Unit);
             lbx_time2Answer.Focus();
         }
 
         private void lbx_Dificuldad_Setting_Enter(object sender, EventArgs e)
         {
-            lbx_Dificuldad_Setting.Font = new Font(lbx_Dificuldad_Setting.Font.Name, 31.89f, lbx_Dificuldad_Setting.Font.Style, lbx_Dificuldad_Setting.Font.Unit);
-
+            lbx_Dificuldad_Setting.Font = new Font(lbx_Dificuldad_Setting.Font.Name, 23f, lbx_Dificuldad_Setting.Font.Style, lbx_Dificuldad_Setting.Font.Unit);
         }
+
+        private void lbx_preguntas_Enter(object sender, EventArgs e)
+        {
+            //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+            lbx_preguntas.Font = new Font(lbx_preguntas.Font.Name, 23, lbx_preguntas.Font.Style, lbx_preguntas.Font.Unit);
+        }
+
+        private void lbx_opportunitie_Enter(object sender, EventArgs e)
+        {
+            //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+            lbx_opportunitie.Font = new Font(lbx_opportunitie.Font.Name, 23, lbx_opportunitie.Font.Style, lbx_opportunitie.Font.Unit);
+        }
+
+
+
+
 
         private void lbx_Rounds_KeyPress(object sender, KeyPressEventArgs e)
         {
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -193,7 +311,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -209,7 +327,7 @@ namespace capaPresentacion
                 // 'e' almacena la tecla presionada
                 if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -275,7 +393,7 @@ namespace capaPresentacion
 
         private void btn_newUser_Click(object sender, EventArgs e)
         {
-            P_Usuario usuario = new P_Usuario();
+            P_Usuario usuario = new P_Usuario(true);
             usuario.Show();
 
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
@@ -295,7 +413,7 @@ namespace capaPresentacion
 
         private void Settings_Activated(object sender, EventArgs e)
         {
-            lab_User.Text = "User: " + E_Usuario.Nombreusuario;
+            lab_User.Text = "Usuario: " + E_Usuario.Nombreusuario;
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
@@ -346,12 +464,16 @@ namespace capaPresentacion
         public void Change_Settings()
         {
             objEntidad.difficulty = lbx_Dificuldad_Setting.Text;
-            objEntidad.catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros);
-            objEntidad.catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro);
+            objEntidad.catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros, "nombreCat");
+            objEntidad.catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro, "nombreLibro");
             objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
             objEntidad.numRounds = Convert.ToInt32(lbx_Rounds.Text);
             objEntidad.time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
             objEntidad.rebound = cbx_rebote.Checked;
+
+            GetCategories2Show(); // arma el string con las diferentes categorías a mostrar.
+
+
             if (objEntidad.opportunitiesBoolean == false)
             {
                 // las oportunidades son igual a la cantidad de preguntas
@@ -369,13 +491,26 @@ namespace capaPresentacion
                 TotalQuestToAnswer = 0;
             }
 
-            objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(lbx_catEvangelios_yOtros,
-                                                                                  lbx_catLibro,
-                                                                                  lbx_catNuevoAntiguo,
+            objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(objEntidad.catNuevoAntiguo,
+                                                                                  objEntidad.catLibro,
                                                                                   objEntidad.difficulty,
                                                                                   TotalQuestToAnswer,
                                                                                   objEntidad.opportunitiesBoolean);
         }
+
+        private void GetCategories2Show()
+        {
+            objEntidad.categories2Show = "";
+
+            foreach (var category in objEntidad.catLibro)
+            {
+                objEntidad.categories2Show += category + ", ";
+            }
+
+            objEntidad.categories2Show = objEntidad.categories2Show.TrimEnd();
+            objEntidad.categories2Show = objEntidad.categories2Show.TrimEnd(',');
+        }
+
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
@@ -387,7 +522,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -403,7 +538,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -419,7 +554,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_Cancelar.PerformClick();
+                btn_goToMain.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -432,26 +567,26 @@ namespace capaPresentacion
 
         private void lbx_catEvangelios_yOtros_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // evitar que se deseleccionen todos los campos
-            try
+            try // si hay alguno seleccionado
             {
-                lbx_catEvangelios_yOtros.SelectedItem.ToString();
+                if (lbx_catEvangelios_yOtros.SelectedItem.ToString() != null)
+                {
+                    lbx_catLibro.ClearSelected();
+                     
+                    LlenarListBoxLibrosXCategorias();
+                    SeleccionCategoria.bloquearDesbloquearDeseleccionarCamposCategoría(true, lbx_catLibro);
+                }
+                else
+                {
+                    lbx_catEvangelios_yOtros.SetSelected(0, true);
+                }
             }
             catch (Exception)
             {
-                lbx_catEvangelios_yOtros.SetSelected(10, true);
+                lbx_catEvangelios_yOtros.SetSelected(0, true); // evita que se deseleccione
             }
 
-            if (lbx_catEvangelios_yOtros.SelectedItem.ToString() == "Todas")
-            {
-                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(false, lbx_catNuevoAntiguo);
-                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(false, lbx_catLibro);
-            }
-            else
-            {
-                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(true, lbx_catNuevoAntiguo);
-                SeleccionCategoria.bloquearBesbloquearDeseleccionarCamposCategoría(true, lbx_catLibro);
-            }
+
         }
 
         private void lbx_opportunitie_SelectedIndexChanged(object sender, EventArgs e)
@@ -496,11 +631,14 @@ namespace capaPresentacion
         {
             if (cbx_Opportunities.Checked) // si está activado
             {
+                cbx_Opportunities.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Checked_01;
                 lbx_opportunitie.Enabled = true;
                 objEntidad.opportunitiesBoolean = true;
             }
             else
             {
+                cbx_Opportunities.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+
                 if (lbx_preguntas.Text == "Todas") // si está desactivado y preguntas es igual a todas
                 {
                     cbx_Opportunities.Checked = true;
@@ -529,37 +667,317 @@ namespace capaPresentacion
         {
             if (cbx_rebote.Checked == true)
             {
+                cbx_rebote.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Checked_01;
             }
             else
             {
-            }
-        }
-
-        private void btn_soundButton_Click(object sender, EventArgs e)
-        {
-            if (btn_soundButton.Text == "Sonido Boton ON")
-            {
-                objEntidad.enableButtonSound = false;
-                btn_soundButton.Text = "Sonido Boton OFF";
-            }
-            else
-            {
-                objEntidad.enableButtonSound = true;
-                btn_soundButton.Text = "Sonido Boton ON";
+                cbx_rebote.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
             }
         }
 
         private void btn_soundGame_Click(object sender, EventArgs e)
         {
-            if (btn_soundGame.Text == "Sonido Juego ON")
+            
+        }
+
+        private void lbx_catNuevoAntiguo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
+
+            try
             {
-                objEntidad.enableGameSound = false;
-                btn_soundGame.Text = "Sonido Juego OFF";
+                if (lbx_catNuevoAntiguo.SelectedItem.ToString() != null && lbx_catNuevoAntiguo.SelectedItem.ToString() != "Todas")
+                {
+                    LlenarListBoxCategoriasXTestamento();
+
+                    OcultarMostrarTiposYLibros(true); // muestra los tipos de libros y los libros
+                    DisminuirAmpliarEspacioLibros(true); // Incrementar tamaño Libros
+                }
+                else
+                {
+                    OcultarMostrarTiposYLibros(false); // oculta los tipos de libros y los libros
+                    DisminuirAmpliarEspacioLibros(false); // volver a tamaño original
+                }
+            }
+            catch (Exception)
+            {
+                OcultarMostrarTiposYLibros(false); // oculta los tipos de libros y los libros
+                DisminuirAmpliarEspacioLibros(false); // volver a tamaño original
+            }
+
+        }
+
+        void OcultarMostrarTiposYLibros(bool show)
+        {
+            if (show)
+            {
+                tlyo_categorias.ColumnStyles[0].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[1].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[2].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[3].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[4].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[5].SizeType = SizeType.Percent;
+
+                tlyo_categorias.ColumnStyles[0].Width = (float)0.00;
+                tlyo_categorias.ColumnStyles[1].Width = (float)15.80;
+                tlyo_categorias.ColumnStyles[2].Width = (float)14.00;
+                tlyo_categorias.ColumnStyles[3].Width = (float)18.50;
+                tlyo_categorias.ColumnStyles[4].Width = (float)8.10;
+                tlyo_categorias.ColumnStyles[5].Width = (float)43.60;
             }
             else
             {
+                tlyo_categorias.ColumnStyles[0].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[1].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[2].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[3].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[4].SizeType = SizeType.Percent;
+                tlyo_categorias.ColumnStyles[5].SizeType = SizeType.Percent;
+
+                tlyo_categorias.ColumnStyles[0].Width = (float)15.80;
+                tlyo_categorias.ColumnStyles[1].Width = (float)84.20;
+                tlyo_categorias.ColumnStyles[2].Width = (float)0.00;
+                tlyo_categorias.ColumnStyles[3].Width = (float)0.00;
+                tlyo_categorias.ColumnStyles[4].Width = (float)0.00;
+                tlyo_categorias.ColumnStyles[5].Width = (float)0.00;
+            }
+        }
+
+        void DisminuirAmpliarEspacioLibros(bool increaseSize)
+        {
+            if (increaseSize)
+            {
+                tlyo_configuracionJuego.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[2].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[3].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[4].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[5].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[6].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[7].SizeType = SizeType.Percent;
+
+                tlyo_configuracionJuego.RowStyles[0].Height = (float)16.00;
+                tlyo_configuracionJuego.RowStyles[1].Height = (float)11.50;
+                tlyo_configuracionJuego.RowStyles[2].Height = (float)11.50;
+                tlyo_configuracionJuego.RowStyles[3].Height = (float)11.50;
+                tlyo_configuracionJuego.RowStyles[4].Height = (float)14.00;
+                tlyo_configuracionJuego.RowStyles[5].Height = (float)19.50;
+                tlyo_configuracionJuego.RowStyles[6].Height = (float)5.00;
+                tlyo_configuracionJuego.RowStyles[7].Height = (float)11.00;
+            }
+            else
+            {
+                tlyo_configuracionJuego.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[2].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[3].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[4].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[5].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[6].SizeType = SizeType.Percent;
+                tlyo_configuracionJuego.RowStyles[7].SizeType = SizeType.Percent;
+
+                tlyo_configuracionJuego.RowStyles[0].Height = (float)16.00;
+                tlyo_configuracionJuego.RowStyles[1].Height = (float)11.50;
+                tlyo_configuracionJuego.RowStyles[2].Height = (float)11.50;
+                tlyo_configuracionJuego.RowStyles[3].Height = (float)11.50;
+                tlyo_configuracionJuego.RowStyles[4].Height = (float)14.00;
+                tlyo_configuracionJuego.RowStyles[5].Height = (float)11.50;
+                tlyo_configuracionJuego.RowStyles[6].Height = (float)5.00;
+                tlyo_configuracionJuego.RowStyles[7].Height = (float)19.00;
+            }
+        }
+
+            private void btn_Aceptar_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_Aceptar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
+        }
+
+        private void btn_Aceptar_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Aceptar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
+        }
+
+        private void btn_goToMain_Click(object sender, EventArgs e)
+        {
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+
+            if (existe != null) // para saber si el formulario principal existe
+            {
+                this.AddOwnedForm(existe); //indica que este va a ser el papa del form P_Main
+                existe.Close(); // cerrar ventana principal
+            }
+
+            P_Main PMain = new P_Main(objEntidad);
+            this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
+
+            PMain.Show();
+            this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
+            this.Close();
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (soundsVisible)
+            {
+                pbx_gameSound.Visible = false;
+                pbx_buttonSound.Visible = false;
+
+                soundsVisible = false;
+            }
+            else
+            {
+
+                pbx_buttonSound.Visible = true;
+
+                pbx_gameSound.Visible = true;
+
+                soundsVisible = true;
+            }
+        }
+
+        private void pbx_gameSound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter_OFF;
+                objEntidad.enableGameSound = false;
+            }
+            else
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter;
                 objEntidad.enableGameSound = true;
-                btn_soundGame.Text = "Sonido Juego ON";
+            }
+        }
+
+        private void pbx_buttonSound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter_OFF;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter;
+                objEntidad.enableButtonSound = true;
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true || objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON_NEUTRO;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true || objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON_NEUTRO;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void btn_how2Play_Click(object sender, EventArgs e)
+        {
+            howToPlay = new HowToPlay();
+            howToPlay.ShowDialog();
+        }
+
+        private void btn_how2Play_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_MOUSE_ENTER;
+        }
+
+        private void btn_how2Play_MouseLeave(object sender, EventArgs e)
+        {
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
+        }
+
+        private void btn_goToMain_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
+        }
+
+        private void btn_goToMain_MouseLeave(object sender, EventArgs e)
+        {
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07;
+        }
+
+        private void pbx_buttonSound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter;
+            }
+            else
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_buttonSound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseLeave;
+            }
+            else
+            {
+                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseLeave_OFF;
+            }
+        }
+
+        private void pbx_gameSound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter;
+            }
+            else
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_gameSound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave;
+            }
+            else
+            {
+                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave_OFF;
+            }
+        }
+
+        private void lbx_catLibro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // seleccionar el primer elemento si se quiere dejar vacio
+            try
+            {
+                if (lbx_catLibro.SelectedItem.ToString() != null)
+                { }
+            }
+            catch (Exception)
+            {
+                lbx_catLibro.SetSelected(0, true);
             }
         }
     }

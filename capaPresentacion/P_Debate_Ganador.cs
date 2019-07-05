@@ -73,18 +73,20 @@ namespace capaPresentacion
             lab_Group1.Text = objEntidad.group1;
             lab_Group2.Text = objEntidad.group2;
 
-            // puntuacion grupo 1
+            // puntuacion grupo 1 y 2
             lab_ScoreNum1.Text = objEntidad.finalResults[0, 0];
             lab_ScoreNum2.Text = objEntidad.finalResults[1, 0];
 
-            // comodin pasage grupo 1
-            lab_Passage_1.Text = objEntidad.finalResults[0, 1];
-            lab_Passage_2.Text = objEntidad.finalResults[1, 1];
+            // respuestas incorrectas grupo 1 y 2
+            lab_wrongAnswer_1.Text = objEntidad.finalResults[0, 1];
+            lab_wrongAnswer_2.Text = objEntidad.finalResults[1, 1];
 
-            // comodin 50% grupo 1
-            lab_comodin50_1.Text = objEntidad.finalResults[0, 2];
-            lab_comodin50_2.Text = objEntidad.finalResults[1, 2];
+            // comodines totales grupo 1 y 2
+            lab_comodins_1.Text = objEntidad.finalResults[0, 2];
+            lab_comodins_2.Text = objEntidad.finalResults[1, 2];
         }
+
+
 
         private void btn_goToMain_Click(object sender, EventArgs e)
         {

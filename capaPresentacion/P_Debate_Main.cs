@@ -31,8 +31,6 @@ namespace capaPresentacion
         D_Login login = new D_Login();
         P_focusedBible_Debate PfocusedB;
         HowToPlay howToPlay;
-        string g1_Name;
-        string g2_Name;
         public string difficulty;
         public string queryPorDificultad;
         public string[] catEvangelios_yOtros = new string[10];
@@ -44,19 +42,29 @@ namespace capaPresentacion
 
         private void btn_IniciarDebate_Click(object sender, EventArgs e)
         {
-            Change_Settings();
+            int? [] noRepetir_PorDificultadyCategoria = new int?[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)];
 
-            // para saber si el formulario existe, o sea, si está abierto o cerrado
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();
-
-            if (existe != null)
+            // solo se puede jugar si hay mas de cero pregunta seleccionada
+            if (noRepetir_PorDificultadyCategoria.Count() == 0)
             {
-                existe.Close();
+                MessageBox.Show("No existen preguntas que cumplan las categorias y dificultad seleccionadas, Favor Elegir otra opción.", "LO SENTIMOS!");
             }
+            else
+            {
+                Change_Settings();
 
-            PfocusedB = new P_focusedBible_Debate(objEntidad);
-            this.Close();
-            PfocusedB.Show();
+                // para saber si el formulario existe, o sea, si está abierto o cerrado
+                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();
+
+                if (existe != null)
+                {
+                    existe.Close();
+                }
+
+                PfocusedB = new P_focusedBible_Debate(objEntidad);
+                this.Close();
+                PfocusedB.Show();
+            }
         }
 
         private void tbx_Grupo1_TextChanged(object sender, EventArgs e)
@@ -179,7 +187,7 @@ namespace capaPresentacion
 
         private void btn_newUser_Click(object sender, EventArgs e)
         {
-            P_Usuario usuario = new P_Usuario();
+            P_Usuario usuario = new P_Usuario(true);
             usuario.Show();
 
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();

@@ -36,9 +36,9 @@ namespace capaDatos
             return Convert.ToInt32(retVal);
         }
 
-        public DataTable UsuarioGenero(string sUsuario)
+        public DataTable UsuarioGeneroYTipo(string sUsuario)
         {
-            SqlCommand cmd = new SqlCommand("sp_Usuario_Genero", cn);
+            SqlCommand cmd = new SqlCommand("sp_Usuario_Genero_yTipo", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Usuario", sUsuario);
             SqlDataAdapter da = new SqlDataAdapter(cmd);

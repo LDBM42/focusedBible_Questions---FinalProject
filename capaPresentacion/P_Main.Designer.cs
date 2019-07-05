@@ -71,7 +71,7 @@
             this.lab_User.Name = "lab_User";
             this.lab_User.Size = new System.Drawing.Size(863, 31);
             this.lab_User.TabIndex = 15;
-            this.lab_User.Text = "User:";
+            this.lab_User.Text = "Usuario:";
             this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel6
