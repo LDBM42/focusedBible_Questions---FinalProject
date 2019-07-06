@@ -53,9 +53,13 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_configuracionJuego = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_categorias = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbx_selectLibros = new System.Windows.Forms.CheckBox();
             this.lab_libro = new System.Windows.Forms.Label();
-            this.lab_tipoDeLibro = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbx_selectTipoLibros = new System.Windows.Forms.CheckBox();
+            this.lab_tipoDeLibro = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,6 +89,8 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.tlyo_configuracionJuego.SuspendLayout();
             this.tlyo_categorias.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -196,10 +202,11 @@
             this.lbx_catNuevoAntiguo.ItemHeight = 28;
             this.lbx_catNuevoAntiguo.Items.AddRange(new object[] {
             "Todas",
-            "Nuevo Testamento",
-            "Antiguo Testamento"});
+            "Antiguo Testamento",
+            "Nuevo Testamento"});
             this.lbx_catNuevoAntiguo.Location = new System.Drawing.Point(132, 3);
             this.lbx_catNuevoAntiguo.Name = "lbx_catNuevoAntiguo";
+            this.lbx_catNuevoAntiguo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbx_catNuevoAntiguo.Size = new System.Drawing.Size(158, 40);
             this.lbx_catNuevoAntiguo.TabIndex = 2;
             this.lbx_catNuevoAntiguo.SelectedIndexChanged += new System.EventHandler(this.lbx_catNuevoAntiguo_SelectedIndexChanged);
@@ -566,12 +573,12 @@
             this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.2F));
             this.tlyo_categorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlyo_categorias.Controls.Add(this.lab_libro, 4, 0);
+            this.tlyo_categorias.Controls.Add(this.tableLayoutPanel5, 4, 0);
             this.tlyo_categorias.Controls.Add(this.lbx_catLibro, 5, 0);
-            this.tlyo_categorias.Controls.Add(this.lab_tipoDeLibro, 2, 0);
             this.tlyo_categorias.Controls.Add(this.lbx_catNuevoAntiguo, 1, 0);
             this.tlyo_categorias.Controls.Add(this.label11, 0, 0);
             this.tlyo_categorias.Controls.Add(this.lbx_catEvangelios_yOtros, 3, 0);
+            this.tlyo_categorias.Controls.Add(this.tableLayoutPanel1, 2, 0);
             this.tlyo_categorias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlyo_categorias.Location = new System.Drawing.Point(3, 294);
             this.tlyo_categorias.Name = "tlyo_categorias";
@@ -582,6 +589,45 @@
             this.tlyo_categorias.Size = new System.Drawing.Size(821, 46);
             this.tlyo_categorias.TabIndex = 12;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.cbx_selectLibros, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.lab_libro, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(591, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(61, 40);
+            this.tableLayoutPanel5.TabIndex = 4;
+            // 
+            // cbx_selectLibros
+            // 
+            this.cbx_selectLibros.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_selectLibros.AutoSize = true;
+            this.cbx_selectLibros.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            this.cbx_selectLibros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbx_selectLibros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_selectLibros.FlatAppearance.BorderSize = 0;
+            this.cbx_selectLibros.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cbx_selectLibros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cbx_selectLibros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cbx_selectLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_selectLibros.Font = new System.Drawing.Font("Catamaran ExtraBold", 8F, System.Drawing.FontStyle.Bold);
+            this.cbx_selectLibros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
+            this.cbx_selectLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbx_selectLibros.Location = new System.Drawing.Point(3, 23);
+            this.cbx_selectLibros.Name = "cbx_selectLibros";
+            this.cbx_selectLibros.Size = new System.Drawing.Size(55, 14);
+            this.cbx_selectLibros.TabIndex = 5;
+            this.cbx_selectLibros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbx_selectLibros.UseVisualStyleBackColor = true;
+            this.cbx_selectLibros.CheckedChanged += new System.EventHandler(this.cbx_selectLibros_CheckedChanged);
+            // 
             // lab_libro
             // 
             this.lab_libro.AutoSize = true;
@@ -589,28 +635,13 @@
             this.lab_libro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_libro.Font = new System.Drawing.Font("Catamaran ExtraBold", 10F, System.Drawing.FontStyle.Bold);
             this.lab_libro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
-            this.lab_libro.Location = new System.Drawing.Point(591, 0);
+            this.lab_libro.Location = new System.Drawing.Point(3, 0);
             this.lab_libro.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lab_libro.Name = "lab_libro";
-            this.lab_libro.Size = new System.Drawing.Size(64, 46);
+            this.lab_libro.Size = new System.Drawing.Size(58, 20);
             this.lab_libro.TabIndex = 4;
             this.lab_libro.Text = "LIBRO   ";
-            this.lab_libro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lab_tipoDeLibro
-            // 
-            this.lab_tipoDeLibro.AutoSize = true;
-            this.lab_tipoDeLibro.BackColor = System.Drawing.Color.Transparent;
-            this.lab_tipoDeLibro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_tipoDeLibro.Font = new System.Drawing.Font("Catamaran ExtraBold", 10F, System.Drawing.FontStyle.Bold);
-            this.lab_tipoDeLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
-            this.lab_tipoDeLibro.Location = new System.Drawing.Point(296, 0);
-            this.lab_tipoDeLibro.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lab_tipoDeLibro.Name = "lab_tipoDeLibro";
-            this.lab_tipoDeLibro.Size = new System.Drawing.Size(128, 46);
-            this.lab_tipoDeLibro.TabIndex = 3;
-            this.lab_tipoDeLibro.Text = "TIPO DE LIBRO   ";
-            this.lab_tipoDeLibro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lab_libro.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label11
             // 
@@ -626,6 +657,59 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "TESTAMENTO   ";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.cbx_selectTipoLibros, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lab_tipoDeLibro, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(296, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(125, 40);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // cbx_selectTipoLibros
+            // 
+            this.cbx_selectTipoLibros.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_selectTipoLibros.AutoSize = true;
+            this.cbx_selectTipoLibros.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            this.cbx_selectTipoLibros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbx_selectTipoLibros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_selectTipoLibros.FlatAppearance.BorderSize = 0;
+            this.cbx_selectTipoLibros.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cbx_selectTipoLibros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cbx_selectTipoLibros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cbx_selectTipoLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_selectTipoLibros.Font = new System.Drawing.Font("Catamaran ExtraBold", 8F, System.Drawing.FontStyle.Bold);
+            this.cbx_selectTipoLibros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
+            this.cbx_selectTipoLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbx_selectTipoLibros.Location = new System.Drawing.Point(3, 23);
+            this.cbx_selectTipoLibros.Name = "cbx_selectTipoLibros";
+            this.cbx_selectTipoLibros.Size = new System.Drawing.Size(119, 14);
+            this.cbx_selectTipoLibros.TabIndex = 4;
+            this.cbx_selectTipoLibros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbx_selectTipoLibros.UseVisualStyleBackColor = true;
+            this.cbx_selectTipoLibros.CheckedChanged += new System.EventHandler(this.cbx_selectTipoLibros_CheckedChanged);
+            // 
+            // lab_tipoDeLibro
+            // 
+            this.lab_tipoDeLibro.AutoSize = true;
+            this.lab_tipoDeLibro.BackColor = System.Drawing.Color.Transparent;
+            this.lab_tipoDeLibro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_tipoDeLibro.Font = new System.Drawing.Font("Catamaran ExtraBold", 10F, System.Drawing.FontStyle.Bold);
+            this.lab_tipoDeLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
+            this.lab_tipoDeLibro.Location = new System.Drawing.Point(3, 0);
+            this.lab_tipoDeLibro.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lab_tipoDeLibro.Name = "lab_tipoDeLibro";
+            this.lab_tipoDeLibro.Size = new System.Drawing.Size(122, 20);
+            this.lab_tipoDeLibro.TabIndex = 3;
+            this.lab_tipoDeLibro.Text = "TIPO DE LIBRO   ";
+            this.lab_tipoDeLibro.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // tableLayoutPanel2
             // 
@@ -983,6 +1067,10 @@
             this.tlyo_configuracionJuego.PerformLayout();
             this.tlyo_categorias.ResumeLayout(false);
             this.tlyo_categorias.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -1040,5 +1128,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox cbx_rebote;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.CheckBox cbx_selectTipoLibros;
+        private System.Windows.Forms.CheckBox cbx_selectLibros;
     }
 }

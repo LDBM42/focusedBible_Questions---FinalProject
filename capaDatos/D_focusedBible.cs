@@ -64,11 +64,12 @@ namespace capaDatos
             return dt;
         }
         
-        public DataTable D_listarCategoriasXTestamento(E_focusedBible preg)
+        public DataTable D_listarCategoriasXTestamento(string [] testamento)
         {
             SqlCommand cmd = new SqlCommand("sp_ListarCategoriasxTestamento", cn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@testamento", preg.catNuevoAntiguo);
+            cmd.Parameters.AddWithValue("@testamento1", testamento[0]);
+            cmd.Parameters.AddWithValue("@testamento2", testamento[1]);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

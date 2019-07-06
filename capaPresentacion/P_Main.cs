@@ -29,11 +29,11 @@ namespace capaPresentacion
                 /***INICIALIZANDO TODO***/
 
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
+                objEntidad.catNuevoAntiguo = new string[2] { "Todas", ""};
                 objEntidad.catEvangelios_yOtros = new string[10];
                 objEntidad.catLibro = new string[66];
 
                 objEntidad.difficulty = "Todas";
-                objEntidad.catNuevoAntiguo = "Todas";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
                 objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad  ORDER BY NEWID()";
 
