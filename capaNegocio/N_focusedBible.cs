@@ -32,9 +32,9 @@ namespace capaNegocio
             return objDato.D_listarLibros();
         }
 
-        public DataTable N_listarCategoriasXTestamento(E_focusedBible preg)
+        public DataTable N_listarCategoriasXTestamento(string[] testamento)
         {
-            return objDato.D_listarCategoriasXTestamento(preg);
+            return objDato.D_listarCategoriasXTestamento(testamento);
         }
 
         public DataTable N_listarLibrosXCategoria(string [] catEvangelios_yOtros)

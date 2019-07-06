@@ -32,7 +32,8 @@ namespace capaPresentacion
         P_Debate_Main PDebateMain;
         P_QueryListarPreguntas PQuery;
         bool soundsVisible = false;
-
+        string previousTestamentSelection = "Todas"; // para saber cual item estaba seleccionado en el listbox de los testamentos
+        string [] testamento = new string[2];
 
 
 
@@ -83,8 +84,12 @@ namespace capaPresentacion
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
             lbx_Dificuldad_Setting.Text = objEntidad.difficulty;
-            lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
+            //Seleccionar Testamento
+            SeleccionCategoria.SeleccionarCategorías(objEntidad.catNuevoAntiguo,lbx_catNuevoAntiguo);
 
+            //activar o desactivar los checkbox
+            cbx_selectTipoLibros.Checked = objEntidad.selectTipoLibros;
+            cbx_selectLibros.Checked = objEntidad.selectLibros;
 
             // actualizar estado del sonido
             if (objEntidad.enableGameSound == true)
@@ -204,11 +209,11 @@ namespace capaPresentacion
             lbx_catEvangelios_yOtros.ValueMember = "nombreCat";
             lbx_catEvangelios_yOtros.DataSource = objNego.N_listarCategorias();
         }
-        private void LlenarListBoxCategoriasXTestamento()
+        private void LlenarListBoxCategoriasXTestamento(string[] testamento)
         {
             lbx_catEvangelios_yOtros.DisplayMember = "nombreCat";
             lbx_catEvangelios_yOtros.ValueMember = "nombreCat";
-            lbx_catEvangelios_yOtros.DataSource = objNego.N_listarCategoriasXTestamento(objEntidad);
+            lbx_catEvangelios_yOtros.DataSource = objNego.N_listarCategoriasXTestamento(testamento);
         }
         private void LlenarListBoxLibros()
         {
@@ -463,10 +468,35 @@ namespace capaPresentacion
 
         public void Change_Settings()
         {
+
+            //cambiar de texto a numero
+            try
+            {
+                if (lbx_catNuevoAntiguo.SelectedItems[0].ToString() == "Antiguo Testamento" &&
+                       lbx_catNuevoAntiguo.SelectedItems[1].ToString() == "Nuevo Testamento")
+                {
+                    objEntidad.catNuevoAntiguo[0] = "1";
+                    objEntidad.catNuevoAntiguo[1] = "2";
+                }
+            }
+            catch (Exception)
+            {
+                if (lbx_catNuevoAntiguo.SelectedItems[0].ToString() == "Antiguo Testamento")
+                {
+                    objEntidad.catNuevoAntiguo[0] = "1";
+                }
+                else if (lbx_catNuevoAntiguo.SelectedItems[0].ToString() == "Nuevo Testamento")
+                {
+                    objEntidad.catNuevoAntiguo[0] = "2";
+                }
+            }
+
             objEntidad.difficulty = lbx_Dificuldad_Setting.Text;
+            objEntidad.catNuevoAntiguo = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catNuevoAntiguo, "");
             objEntidad.catEvangelios_yOtros = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catEvangelios_yOtros, "nombreCat");
+            objEntidad.selectTipoLibros = cbx_selectTipoLibros.Checked;
             objEntidad.catLibro = SeleccionCategoria.AlmacenarSeleccionCategorías(lbx_catLibro, "nombreLibro");
-            objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
+            objEntidad.selectLibros = cbx_selectLibros.Checked;
             objEntidad.numRounds = Convert.ToInt32(lbx_Rounds.Text);
             objEntidad.time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
             objEntidad.rebound = cbx_rebote.Checked;
@@ -586,7 +616,15 @@ namespace capaPresentacion
                 lbx_catEvangelios_yOtros.SetSelected(0, true); // evita que se deseleccione
             }
 
-
+            // desactivar checkbox si no estan todos seleccionados
+            if (lbx_catEvangelios_yOtros.SelectedItems.Count != lbx_catEvangelios_yOtros.Items.Count)
+            {
+                cbx_selectTipoLibros.Checked = false;
+            }
+            else
+            {
+                cbx_selectTipoLibros.Checked = true;
+            }
         }
 
         private void lbx_opportunitie_SelectedIndexChanged(object sender, EventArgs e)
@@ -682,13 +720,89 @@ namespace capaPresentacion
 
         private void lbx_catNuevoAntiguo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            objEntidad.catNuevoAntiguo = lbx_catNuevoAntiguo.Text;
+            try // si hay alguno seleccionado
+             {
+                if (lbx_catNuevoAntiguo.SelectedItem.ToString() != null)
+                {}
+
+             }
+             catch (Exception a)
+             {
+                lbx_catNuevoAntiguo.SetSelected(0, true); // evita que se deseleccione
+             }
+
+
+            // deseleccionar Todas si otro está seleccionado y deseleccionar las demas si Todas está seleccionado
+            if (lbx_catNuevoAntiguo.SelectedItems.Count > 1)
+            {
+                if (lbx_catNuevoAntiguo.SelectedItems[0].ToString() == "Todas")
+                {
+                    if (lbx_catNuevoAntiguo.SelectedItems.Count == 3)
+                    {
+                        lbx_catNuevoAntiguo.ClearSelected();
+                        lbx_catNuevoAntiguo.SetSelected(0, true); // seleccionar Todas
+                    }
+                    else
+                    {
+                        if (previousTestamentSelection != "Todas")  // Seleccionar todas y deseleccionar las demas
+                        {
+                            if (previousTestamentSelection == "Antiguo Testamento")
+                            {
+                                lbx_catNuevoAntiguo.SetSelected(1, false); // deseleccionar Antiguo Testamento
+                            }
+                            else
+                            {
+                                lbx_catNuevoAntiguo.SetSelected(2, false); // deseleccionar Nuevo Testamento
+                            }
+
+                            lbx_catNuevoAntiguo.SetSelected(0, true); // seleccionar Todas
+                        }
+                        else
+                        {
+                            lbx_catNuevoAntiguo.SetSelected(0, false); // deseleccionar Todas
+                        }
+                    }
+                }
+            }
+            previousTestamentSelection = lbx_catNuevoAntiguo.SelectedItems[0].ToString();
+             
 
             try
             {
                 if (lbx_catNuevoAntiguo.SelectedItem.ToString() != null && lbx_catNuevoAntiguo.SelectedItem.ToString() != "Todas")
                 {
-                    LlenarListBoxCategoriasXTestamento();
+                    //deseleccionar todas las categorias
+                    cbx_selectTipoLibros.Checked = false;
+                    cbx_selectLibros.Checked = false;
+
+
+                    //cambiar de texto a numero
+                    try
+                    {
+                        if (lbx_catNuevoAntiguo.SelectedItems[0].ToString() == "Antiguo Testamento" &&
+                               lbx_catNuevoAntiguo.SelectedItems[1].ToString() == "Nuevo Testamento")
+                        {
+                            testamento[0] = "1";
+                            testamento[1] = "2";
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        if (lbx_catNuevoAntiguo.SelectedItems[0].ToString() == "Antiguo Testamento")
+                        {
+                            testamento[0] = "1";
+                            testamento[1] = "0";
+                        }
+                        else if (lbx_catNuevoAntiguo.SelectedItems[0].ToString() == "Nuevo Testamento")
+                        {
+                            testamento[0] = "2";
+                            testamento[1] = "0";
+                        }
+                    }
+
+
+
+                    LlenarListBoxCategoriasXTestamento(testamento);
 
                     OcultarMostrarTiposYLibros(true); // muestra los tipos de libros y los libros
                     DisminuirAmpliarEspacioLibros(true); // Incrementar tamaño Libros
@@ -978,6 +1092,80 @@ namespace capaPresentacion
             catch (Exception)
             {
                 lbx_catLibro.SetSelected(0, true);
+            }
+            
+            // desactivar checkbox si no estan todos seleccionados
+            if (lbx_catLibro.SelectedItems.Count != lbx_catLibro.Items.Count)
+            {
+                cbx_selectLibros.Checked = false;
+            }
+            else
+            {
+                cbx_selectLibros.Checked = true;
+            }
+        }
+
+        private void cbx_selectTipoLibros_CheckedChanged(object sender, EventArgs e)
+        {
+            //deseleccionar Libros
+            cbx_selectLibros.Checked = false;
+
+            if (cbx_selectTipoLibros.Checked == true)
+            {
+                cbx_selectTipoLibros.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Checked_01;
+                SelectDeselectAll_TipoLibro(true); // selecciona todos los Tipos de libro
+            }
+            else
+            {
+                // desactivar checkbox y deseleccionar solo si todos estaban seleccionados
+                if (lbx_catEvangelios_yOtros.SelectedItems.Count == lbx_catEvangelios_yOtros.Items.Count)
+                {
+                    cbx_selectTipoLibros.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+                    SelectDeselectAll_TipoLibro(false); // deselecciona todos los Tipos de libro
+                }
+                else
+                {
+                    cbx_selectTipoLibros.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+                }
+            }
+        }
+        // selecciona o deselecciona todos los tipos de libros
+        void SelectDeselectAll_TipoLibro(bool select)
+        {
+            for (int index = 0; index < lbx_catEvangelios_yOtros.Items.Count; index++)
+            {
+                lbx_catEvangelios_yOtros.SetSelected(index, select);
+            }
+        }
+        
+
+        private void cbx_selectLibros_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbx_selectLibros.Checked == true)
+            {
+                cbx_selectLibros.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Checked_01;
+                SelectDeselectAll_Libros(true);  // selecciona todos los libros
+            }
+            else
+            {
+                // desactivar checkbox y deseleccionar solo si todos estaban seleccionados
+                if (lbx_catLibro.SelectedItems.Count == lbx_catLibro.Items.Count)
+                {
+                    cbx_selectLibros.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+                    SelectDeselectAll_Libros(false);  // deselecciona todos los libros
+                }
+                else
+                {
+                    cbx_selectLibros.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+                }
+            }
+        }
+        // selecciona o deselecciona todos los tipos de libros
+        void SelectDeselectAll_Libros(bool select)
+        {
+            for (int index = 0; index < lbx_catLibro.Items.Count; index++)
+            {
+                lbx_catLibro.SetSelected(index, select);
             }
         }
     }
