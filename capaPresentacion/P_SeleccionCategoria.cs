@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,13 @@ namespace capaPresentacion
         }
 
         // almacenar los elementos seleccionados en "x" listbox
-        public string[] AlmacenarSeleccionCategorías(ListBox lbx_categoria)
+        public string[] AlmacenarSeleccionCategorías(ListBox lbx_categoria, string nombreColumn)
         {
             string[] categoria = new string[lbx_categoria.SelectedItems.Count];
             for (int index = 0; index <= lbx_categoria.SelectedItems.Count - 1; index++)
             {
-                categoria[index] = lbx_categoria.SelectedItems[index].ToString();
+                DataRowView drv = (DataRowView)lbx_categoria.SelectedItems[index];
+                categoria[index] = drv[nombreColumn].ToString();
             }
 
             return categoria;
@@ -31,9 +33,9 @@ namespace capaPresentacion
 
 
 
-        public void bloquearBesbloquearDeseleccionarCamposCategoría(bool bloquearOcultar, ListBox lbx_categoria)
+        public void bloquearDesbloquearDeseleccionarCamposCategoría(bool bloquearOcultar, ListBox lbx_categoria)
         {
-            // solo si label catLibro está visible. Para que no se seleccione todo.
+            // solo si lbx categoria está visible. Para que no se seleccione todo.
             if (bloquearOcultar == false && lbx_categoria.Enabled == true)
             {
                 for (int index = 0; index <= lbx_categoria.Items.Count - 1; index++)

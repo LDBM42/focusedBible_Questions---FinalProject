@@ -33,11 +33,10 @@ namespace capaPresentacion
                 objEntidad.catLibro = new string[66];
 
                 objEntidad.difficulty = "Todas";
+                objEntidad.catNuevoAntiguo = "Todas";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
-                objEntidad.queryListarPreguntas = "SELECT DISTINCT codPreg, preg, a, b, c, d, resp, pasage from preguntas " +
-                                                "INNER JOIN " +
-                                                "Categoria ON Categoria.catID = preguntas.catLibro OR Categoria.catID = preguntas.catEvangelios_yOtros " +
-                                                "OR Categoria.catID = preguntas.catNuevoAntiguo ";
+                objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad  ORDER BY NEWID()";
+
                 objEntidad.numRounds = 1;
                 objEntidad.time2Answer = 20;
                 objEntidad.opportunities = 2;
@@ -113,8 +112,8 @@ namespace capaPresentacion
                 E_Usuario.Nombreusuario = "Invitado";
             }
 
-            lab_User.Text = "User: " + E_Usuario.Nombreusuario;
-            if (lab_User.Text != "User: Invitado")
+            lab_User.Text = "Usuario: " + E_Usuario.Nombreusuario;
+            if (lab_User.Text != "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.LogOut;
                 btn_Logout_Login.Text = "LOGOUT | REGISTRATE";
@@ -130,7 +129,7 @@ namespace capaPresentacion
             }
 
             // Privilegios Administrador
-            if (lab_User.Text == "User: Admin")
+            if (lab_User.Text == "Usuario: Admin")
             {
                 btn_debate.Enabled = true; // desbloquear modalidad debate
             }
@@ -142,12 +141,10 @@ namespace capaPresentacion
             if (objEntidad.enableButtonSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
-                objEntidad.enableButtonSound = true;
             }
             else
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
-                objEntidad.enableButtonSound = false;
             }
 
         }
@@ -212,7 +209,7 @@ namespace capaPresentacion
 
         private void btn_Logout_Login_Click(object sender, EventArgs e)
         {
-            if (lab_User.Text == "User: Invitado") // si está deslogueado
+            if (lab_User.Text == "Usuario: Invitado") // si está deslogueado
             {
                 P_Login login = new P_Login();
                 login.Show();
@@ -321,7 +318,7 @@ namespace capaPresentacion
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
 
-            if (lab_User.Text == "User: Invitado")
+            if (lab_User.Text == "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate_MouseEnter;
             }
@@ -333,7 +330,7 @@ namespace capaPresentacion
 
         private void btn_Logout_Login_MouseLeave(object sender, EventArgs e)
         {
-            if (lab_User.Text == "User: Invitado")
+            if (lab_User.Text == "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.Login_Registrate;
             }
@@ -411,6 +408,18 @@ namespace capaPresentacion
             this.Hide();
             P_focusedBible_SoloyPartida soloMain = new P_focusedBible_SoloyPartida(objEntidad);
             soloMain.ShowDialog();
+        }
+
+        private void P_Main_Enter(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
     }
 }

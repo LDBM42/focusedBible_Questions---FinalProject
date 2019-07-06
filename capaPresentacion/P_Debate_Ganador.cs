@@ -54,6 +54,7 @@ namespace capaPresentacion
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
         {
+            objEntidad.reproducirSonidoJuego("fanfare.wav", true);
             SetDoubleBuffered(tableLayoutPanel7);
             SetDoubleBuffered(tableLayoutPanel19);
             SetDoubleBuffered(tableLayoutPanel21);
@@ -72,35 +73,24 @@ namespace capaPresentacion
             lab_Group1.Text = objEntidad.group1;
             lab_Group2.Text = objEntidad.group2;
 
-            // puntuacion grupo 1
+            // puntuacion grupo 1 y 2
             lab_ScoreNum1.Text = objEntidad.finalResults[0, 0];
             lab_ScoreNum2.Text = objEntidad.finalResults[1, 0];
 
-            // comodin pasage grupo 1
-            lab_Passage_1.Text = objEntidad.finalResults[0, 1];
-            lab_Passage_2.Text = objEntidad.finalResults[1, 1];
+            // respuestas incorrectas grupo 1 y 2
+            lab_wrongAnswer_1.Text = objEntidad.finalResults[0, 1];
+            lab_wrongAnswer_2.Text = objEntidad.finalResults[1, 1];
 
-            // comodin 50% grupo 1
-            lab_comodin50_1.Text = objEntidad.finalResults[0, 2];
-            lab_comodin50_2.Text = objEntidad.finalResults[1, 2];
+            // comodines totales grupo 1 y 2
+            lab_comodins_1.Text = objEntidad.finalResults[0, 2];
+            lab_comodins_2.Text = objEntidad.finalResults[1, 2];
         }
+
+
 
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
-
-            if (existe != null) // para saber si el formulario principal existe
-            {
-                this.AddOwnedForm(existe); //indica que este va a ser el papa del form P_Main
-                existe.Close(); // cerrar ventana principal
-            }
-
-            P_Main PMain = new P_Main(objEntidad);
-            this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
-
-            PMain.Show();
-            this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
-            this.Close();
+             this.Close();
         }
 
         private void btn_goToMain_KeyPress(object sender, KeyPressEventArgs e)
@@ -113,7 +103,6 @@ namespace capaPresentacion
 
         private void btn_goToMain_MouseEnter(object sender, EventArgs e)
         {
-            objEntidad.reproducirSonidoBoton("button.wav", false);
             btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
         }
 
@@ -129,13 +118,52 @@ namespace capaPresentacion
 
         private void btn_reiniciar_MouseEnter(object sender, EventArgs e)
         {
-            objEntidad.reproducirSonidoBoton("button.wav", false);
             btn_reiniciar.BackgroundImage = Properties.Resources.Reiniciar_ENTER;
         }
 
         private void btn_reiniciar_MouseLeave(object sender, EventArgs e)
         {
             btn_reiniciar.BackgroundImage = Properties.Resources.Reiniciar_LEAVE;
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                objEntidad.StopGameSound();
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableGameSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableGameSound = true;
+                objEntidad.reproducirSonidoJuego("fanfare.wav", true);
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
     }
 }

@@ -28,6 +28,7 @@ namespace capaPresentacion
         int timeToIncrease = 15; // tiempo que incrementa al elegir el comodin pasage
         Banners Banner;
         P_Debate_Ganador Winner;
+        HowToPlay howToPlay;
         SoundPlayer sonido;
         int?[] noRepetir_PorDificultadyCategoria; // para que no se repitan cuando se eligen solo x dificultad
         E_focusedBible[] lista_porDificultadYCategoria; // Para almacenar la lista completa y asi evitar que se repitan
@@ -37,9 +38,11 @@ namespace capaPresentacion
         int numeroPrueba;
         int codPregNoRepetir;
         int click50_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
-        int click50_2 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el comodin 50%
+        int click50_2 = 0; // para saber si el jugador(es) 2 ya ha entrado al evento click de el comodin 50%
         int clickPassage_1 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el Passage_1
-        int clickPassage_2 = 0; // para saber si el jugador(es) 1 ya ha entrado al evento click de el Passage_1
+        int clickPassage_2 = 0; // para saber si el jugador(es) 2 ya ha entrado al evento click de el Passage_1
+        int totalComodins_1 = 0; // total de comodines usados
+        int totalComodins_2 = 0; // total de comodines usados
         int i = 0;
         int countUp = 0;
         int countDownTimer = 3;
@@ -47,12 +50,16 @@ namespace capaPresentacion
         int countDownTimer3 = 2;
         int score_1 = 0; // puntuacion inicial
         int score_2 = 0; // puntuacion inicial
+        int wrongAnswer_1 = 0; // Respuestas incorrectas
+        int wrongAnswer_2 = 0;
         int opportunities_1;
         int opportunities_2;
         int startingRound = 1; // ronda inicial
         int valueScore = 2; //valor de cada pregunta
         int startingTurn = 1; // turno inicial
         bool reboundTurn = false; // para saber si se está jugando la partida de rebote
+        bool pointLost_1 = false; // par asaber si ya se ha perdido un punto y no volver a perderlo al Rebotar la pregunta
+        bool pointLost_2 = false; // par asaber si ya se ha perdido un punto y no volver a perderlo al Rebotar la pregunta
         string banner;
         int wins_01 = 0;
         int wins_02 = 0;
@@ -75,8 +82,69 @@ namespace capaPresentacion
 
 
 
+        // Las siguentes dos funciones son para
+        //evitar los problemas de Buffer por tener layouts transparentes
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(Control c)
+        {
+            if (SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
+        #region .. code for Flucuring ..
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        #endregion
+
+
+
         private void P_focusedBibles_Load(object sender, EventArgs e)
         {
+            //Evita el Buffer lag al cargar la imagen de fondo
+            SetDoubleBuffered(tableLayoutPanel13);
+            SetDoubleBuffered(tableLayoutPanel15);
+            SetDoubleBuffered(tableLayoutPanel16);
+            SetDoubleBuffered(tableLayoutPanel17);
+            SetDoubleBuffered(tableLayoutPanel18);
+            SetDoubleBuffered(tableLayoutPanel19);
+            SetDoubleBuffered(tableLayoutPanel20);
+            SetDoubleBuffered(tableLayoutPanel21);
+            SetDoubleBuffered(tableLayoutPanel22);
+            SetDoubleBuffered(tableLayoutPanel23);
+            SetDoubleBuffered(tableLayoutPanel24);
+            SetDoubleBuffered(tableLayoutPanel25);
+            SetDoubleBuffered(tlyo_Grupo1);
+            SetDoubleBuffered(tlyo_OportunidadesyPuntos_1);
+            SetDoubleBuffered(tlyo_Grupo2);
+            SetDoubleBuffered(tlyo_OportunidadesyPuntos_2);
+            SetDoubleBuffered(tlyo_Comodines_1);
+            SetDoubleBuffered(tlyo_Comodines_2);
+
+            this.BackgroundImage = Properties.Resources.Fondo_DUO_Jugador_1;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+
+
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+
             lab_Wins_P1.Text = Convert.ToString(wins_01);
             lab_Wins_P2.Text = Convert.ToString(wins_02);
             tlyo_Wins_P1.Visible = true;
@@ -84,7 +152,8 @@ namespace capaPresentacion
             lab_Rounds_Left.Text = startingRound + "/" + objEntidad.numRounds;
             lab_Rounds_Right.Text = startingRound + "/" + objEntidad.numRounds;
             lab_Difficulty.Text = objEntidad.difficulty;
-            lab_Categoria.Text = objEntidad.catEvangelios_yOtros[0];
+            // asignar categorias y en caso de no haber ninguna colocar Todas ----------------------
+            lab_Categoria.Text = objEntidad.categories2Show == null || objEntidad.categories2Show == "" ? "Todas" : objEntidad.categories2Show;
             lab_LifesNum.Text = Convert.ToString(opportunities_1);
             lab_LifesNum2.Text = Convert.ToString(opportunities_2);
             lab_Group1.Text = objEntidad.group1;
@@ -108,40 +177,48 @@ namespace capaPresentacion
             SetFinalResults(); // almacena los resultados finales de los jugadores
 
 
-            // Las siguentes dos funciones son para
-            //evitar los problemas de Buffer por tener layouts transparentes
-            SetDoubleBuffered(tableLayoutPanel1);
-            BackgroundImage = Properties.Resources.Focused_bible_DUO_WINNER_Background_01; //Este metodo es para cargar la imagen de fondo
-
-
             //ocultar Oportunidades si no se evaluará en base a oportunidades
             if (objEntidad.opportunitiesBoolean == false)
             {
                 lab_LifesNum.Visible = false;
                 lab_LifesNum2.Visible = false;
-                lab_Lifes.Visible = false;
-                lab_Lifes2.Visible = false;
-                lab_Score.Visible = false;
-                lab_Score2.Visible = false;
-                lab_Group1.Visible = false;
-                lab_Group2.Visible = false;
-                lb_participante1.Visible = false;
-                lb_participante2.Visible = false;
+                pbx_Opportunity_1.Visible = false;
+                pbx_Opportunity_2.Visible = false;
+                lab_Oportunidades1.Visible = false;
+                lab_Oportunidades2.Visible = false;
+                tlyo_OportunidadesyPuntos_1.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_1.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_1.RowStyles[0].Height = 0;
+                tlyo_OportunidadesyPuntos_1.RowStyles[1].Height = 100;
+                tlyo_OportunidadesyPuntos_2.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_2.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_2.RowStyles[0].Height = 0;
+                tlyo_OportunidadesyPuntos_2.RowStyles[1].Height = 100;
 
+                lab_Group1.TextAlign = ContentAlignment.MiddleCenter;
+                lab_Group2.TextAlign = ContentAlignment.MiddleCenter;
             }
             else
             {
                 lab_LifesNum.Visible = true;
                 lab_LifesNum2.Visible = true;
-                lab_Lifes.Visible = true;
-                lab_Lifes2.Visible = true;
-                lab_Score.Visible = true;
-                lab_Score2.Visible = true;
-                lab_Group1.Visible = true;
-                lab_Group2.Visible = true;
-                lb_participante1.Visible = true;
-                lb_participante2.Visible = true;
+                pbx_Opportunity_1.Visible = true;
+                pbx_Opportunity_2.Visible = true;
+                lab_Oportunidades1.Visible = true;
+                lab_Oportunidades2.Visible = true;
+                tlyo_OportunidadesyPuntos_1.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_1.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_1.RowStyles[0].Height = 50;
+                tlyo_OportunidadesyPuntos_1.RowStyles[1].Height = 50;
+                tlyo_OportunidadesyPuntos_2.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_2.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_OportunidadesyPuntos_2.RowStyles[0].Height = 50;
+                tlyo_OportunidadesyPuntos_2.RowStyles[1].Height = 50;
+
+                lab_Group1.TextAlign = ContentAlignment.TopCenter;
+                lab_Group2.TextAlign = ContentAlignment.TopCenter;
             }
+
         }
 
         void Llenar_listaPorDificultadYCategoria(E_focusedBible dificultad)
@@ -218,9 +295,14 @@ namespace capaPresentacion
 
         }
         
-        private void btn_Submit_Click_1(object sender, EventArgs e)
+        private void btn_Submit_Click(object sender, EventArgs e)
         {
             RestartTimer_2Answer();
+
+            pbx_50_1.Enabled = false;
+            pbx_Passage_1.Enabled = false;
+            pbx_50_2.Enabled = false;
+            pbx_Passage_2.Enabled = false;
 
             if (rbtn_a.Checked == true)
             {
@@ -271,7 +353,8 @@ namespace capaPresentacion
             }
 
             cambioDeJugador();
-            
+
+            btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Disabled;
             btn_Submit.Enabled = false;
         }
         
@@ -292,7 +375,9 @@ namespace capaPresentacion
         }
         void BannerWinner()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
+            objEntidad.reproducirSonidoJuego("finalSuccess.wav", false);
+            Thread.Sleep(1000);
             Timer_2Answer.Stop();
             objEntidad.StopGameSound();
             Winner = new P_Debate_Ganador(objEntidad);
@@ -307,12 +392,20 @@ namespace capaPresentacion
 
             if (Winner.DialogResult == DialogResult.OK)
             {
-
-                objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
-                Thread.Sleep(700);
                 restart = true;
                 reset_PlayAgain();
+                restart = true;
 
+                lista_porDificultadYCategoria = new E_focusedBible[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)];
+                Llenar_listaPorDificultadYCategoria(objEntidad);
+
+                objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
+            }
+            else
+            {
+                //RESOLVER MACOOOOOOOOOOOOOOOOOOOOOOOOOOOOO DE QUE NO SE CIERRA Y SIGUE TRABAJANDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+                btn_goToMain.PerformClick();
+                this.Close();
             }
         }
         void cambioDeJugador()
@@ -332,6 +425,54 @@ namespace capaPresentacion
 
             countDown.Start();
         }
+
+
+        /* CRITERIOS PARA SABER QUIEN GANO-----------------------------------------*/
+        void GetWinner()
+        {
+            totalComodins_1 = usedPassageComodin_1 + used50Comodin_1;
+            totalComodins_2 = usedPassageComodin_2 + used50Comodin_2;
+
+            /* POR SCORE */
+            if (score_1 > score_2)  // si la puntiacion del 1ro es mayor que la del 2do
+            {
+                objEntidad.winner = lab_Group1.Text;
+            }
+            else
+                if (score_2 > score_1)  // si la puntiacion del 2do es mayor que la del 1ro
+            {
+                objEntidad.winner = lab_Group2.Text;
+            }
+            else /* POR INCORRECT ANSWER */
+            {
+                if (wrongAnswer_1 < wrongAnswer_2) // si las respuestas incorrectas del 1ro son menores que las del 2do
+                {
+                    objEntidad.winner = lab_Group1.Text;
+                }
+                else
+                    if (wrongAnswer_2 < wrongAnswer_1) // si las respuestas incorrectas del 2do son menores que las del 1ro
+                {
+                    objEntidad.winner = lab_Group2.Text;
+                }
+                else /* POR USED COMODINS */
+                {
+                    if (totalComodins_1 < totalComodins_2) // si el 1ro uso menos comodines que el 2do
+                    {
+                        objEntidad.winner = lab_Group1.Text;
+                    }
+                    else if (totalComodins_2 < totalComodins_1)  // si el 2do uso menos comodines que el 1ro
+                    {
+                        objEntidad.winner = lab_Group2.Text;
+                    }
+                    else
+                    {
+                        objEntidad.winner = "Es un empate!";
+                    }
+
+                }
+            }
+        }
+
         void perder_Ganar()
         {
             //condicion para perder
@@ -345,53 +486,14 @@ namespace capaPresentacion
                 objEntidad.reproducirSonidoJuego("game-over.wav", false);
 
 
-                if (startingRound == objEntidad.numRounds) // si es el ultimo round
+                if (startingRound == objEntidad.numRounds || (countUp == noRepetir_PorDificultadyCategoria.Length)) // si es el ultimo round
                 {
                     Thread.Sleep(1500);
 
                     //condicion para saber quien perdió
-                    if (startingTurn == 1)
-                    {
-                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
-                        objEntidad.winner = lab_Group2.Text;
-                        SetFinalResults();
-                        BannerWinner();
-                    }
-                    else
-                    {
-                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
-                        objEntidad.winner = lab_Group1.Text;
-                        SetFinalResults();
-                        BannerWinner();
-                    }
-                }
-                else
-                    if (((countUp == noRepetir_PorDificultadyCategoria.Length))) // si se acaban las preguntas, se acaba el juego
-                {
-                    Thread.Sleep(1500);
-
-                    //condicion para saber quien perdió
-                    if (score_1 == score_2)
-                    {
-                        objEntidad.winner = "Es un empate!";
-                        SetFinalResults();
-                        BannerWinner();
-                    }
-                    else
-                        if (score_2 > score_1)
-                    {
-                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
-                        objEntidad.winner = lab_Group2.Text;
-                        SetFinalResults();
-                        BannerWinner();
-                    }
-                    else
-                    {
-                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
-                        objEntidad.winner = lab_Group1.Text;
-                        SetFinalResults();
-                        BannerWinner();
-                    }
+                    GetWinner();
+                    SetFinalResults();
+                    BannerWinner();
                 }
                 else
                 {
@@ -405,13 +507,13 @@ namespace capaPresentacion
             objEntidad.finalResults[0, 0] = lab_ScoreNum.Text;
             objEntidad.finalResults[1, 0] = lab_ScoreNum2.Text;
 
-            // comodin pasage grupo 1 y 2
-            objEntidad.finalResults[0, 1] = usedPassageComodin_1.ToString();
-            objEntidad.finalResults[1, 1] = usedPassageComodin_2.ToString();
+            // respuestas incorrectas grupo 1 y 2
+            objEntidad.finalResults[0, 1] = wrongAnswer_1.ToString();
+            objEntidad.finalResults[1, 1] = wrongAnswer_2.ToString();
 
-            // comodin 50% grupo 1 y 2
-            objEntidad.finalResults[0, 2] = used50Comodin_1.ToString();
-            objEntidad.finalResults[1, 2] = used50Comodin_2.ToString();
+            // comodines totales grupo 1 y 2
+            objEntidad.finalResults[0, 2] = Convert.ToString(totalComodins_1);
+            objEntidad.finalResults[1, 2] = Convert.ToString(totalComodins_2);
         }
         void ChangeRound()
         {
@@ -444,6 +546,7 @@ namespace capaPresentacion
 
             if (restart == true)
             {
+
                 restart = false;
 
                 i = 0;
@@ -457,7 +560,12 @@ namespace capaPresentacion
                 wins_02 = 0;
                 score_1 = 0;
                 score_2 = 0;
+                wrongAnswer_1 = 0;
+                wrongAnswer_2 = 0;
+                pointLost_1 = false;
+                pointLost_2 = false;
                 objEntidad.pasage = "";
+                objEntidad.winner = ""; // resetear winner
                 lab_Rounds_Left.Text = startingRound + "/" + objEntidad.numRounds;
                 lab_Rounds_Right.Text = startingRound + "/" + objEntidad.numRounds;
                 lab_Wins_P1.Text = Convert.ToString(wins_01);
@@ -474,16 +582,14 @@ namespace capaPresentacion
             countDownPassage_2 = 3;
             Lab_Passage_Shown_1.Text = "";
 
-            Timer_2Answer.Start();
-
-
-            if (objEntidad.winner == lab_Group1.Text || objEntidad.winner == lab_Group2.Text || banner == "Es un empate!")
-            {
-                AfterCountDown(true);
-                banner = "Round" + startingRound; // resetear banner
-            }
-
-
+            tlyo_Comodines_1.RowStyles[0].SizeType = SizeType.Percent;
+            tlyo_Comodines_1.RowStyles[1].SizeType = SizeType.Percent;
+            tlyo_Comodines_1.RowStyles[0].Height = 0;
+            tlyo_Comodines_1.RowStyles[1].Height = 47;
+            tlyo_Comodines_2.RowStyles[0].SizeType = SizeType.Percent;
+            tlyo_Comodines_2.RowStyles[1].SizeType = SizeType.Percent;
+            tlyo_Comodines_2.RowStyles[0].Height = 0;
+            tlyo_Comodines_2.RowStyles[1].Height = 47;
 
             lab_LifesNum.Text = Convert.ToString(opportunities_1);
             lab_LifesNum2.Text = Convert.ToString(opportunities_2);
@@ -493,7 +599,7 @@ namespace capaPresentacion
 
             lab_50_1.Text = "+3";
             lab_50_2.Text = "+3";
-            pbx_50.Enabled = true;
+            pbx_50_1.Enabled = true;
             pbx_50_2.Enabled = true;
             lab_50_1.Enabled = true;
             lab_50_2.Enabled = true;
@@ -504,10 +610,8 @@ namespace capaPresentacion
             pbx_Passage_2.Enabled = true;
             lab_Passage_1.Enabled = true;
             lab_Passage_2.Enabled = true;
-            pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave;
-            pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave;
-
-
+            pbx_Passage_1.Image = Properties.Resources.BTN_PASAGE_Leave;
+            pbx_Passage_2.Image = Properties.Resources.BTN_PASAGE_Leave;
 
         }
 
@@ -559,20 +663,52 @@ namespace capaPresentacion
         {
             if ('a' == objEntidad.resp)
             {
-                rbtn_a.ForeColor = Color.FromArgb(228, 161, 24);
+                if (objEntidad.rebound == true)   // para que no se encienda la resp correcta si se va a rebotar
+                {
+                    if (reboundTurn == true)
+                    {
+                        rbtn_a.ForeColor = Color.FromArgb(70, 172, 195);
+                    }
+                    else
+                    {
+                        rbtn_a.ForeColor = Color.FromArgb(225, 225, 225);
+                        rbtn_a.Enabled = false;
+                    }
+                }
+                else
+                {
+                    rbtn_a.ForeColor = Color.FromArgb(70, 172, 195);
+                }
 
-                rbtn_b.ForeColor = Color.FromArgb(225, 225, 225);
-                rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
-                rbtn_d.ForeColor = Color.FromArgb(225, 225, 225);
+                    rbtn_b.ForeColor = Color.FromArgb(225, 225, 225);
+                    rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
+                    rbtn_d.ForeColor = Color.FromArgb(225, 225, 225);
 
-                rbtn_b.Enabled = false;
-                rbtn_c.Enabled = false;
-                rbtn_d.Enabled = false;
+                    rbtn_b.Enabled = false;
+                    rbtn_c.Enabled = false;
+                    rbtn_d.Enabled = false;
+
             }
             else
                 if ('b' == objEntidad.resp)
             {
-                rbtn_b.ForeColor = Color.FromArgb(228, 161, 24);
+                if (objEntidad.rebound == true)   // para que no se encienda la resp correcta si se va a rebotar
+                {
+                    if (reboundTurn == true)
+                    {
+                        rbtn_b.ForeColor = Color.FromArgb(70, 172, 195);
+                    }
+                    else
+                    {
+                        rbtn_b.ForeColor = Color.FromArgb(225, 225, 225);
+                        rbtn_b.Enabled = false;
+                    }
+                }
+                else
+                {
+                    rbtn_b.ForeColor = Color.FromArgb(70, 172, 195);
+                }
+
 
                 rbtn_a.ForeColor = Color.FromArgb(225, 225, 225);
                 rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
@@ -585,7 +721,23 @@ namespace capaPresentacion
             else
                 if ('c' == objEntidad.resp)
             {
-                rbtn_c.ForeColor = Color.FromArgb(228, 161, 24);
+                if (objEntidad.rebound == true)   // para que no se encienda la resp correcta si se va a rebotar
+                {
+                    if (reboundTurn == true)
+                    {
+                        rbtn_c.ForeColor = Color.FromArgb(70, 172, 195);
+                    }
+                    else
+                    {
+                        rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
+                        rbtn_c.Enabled = false;
+                    }
+                }
+                else
+                {
+                    rbtn_c.ForeColor = Color.FromArgb(70, 172, 195);
+                }
+
 
                 rbtn_a.ForeColor = Color.FromArgb(225, 225, 225);
                 rbtn_b.ForeColor = Color.FromArgb(225, 225, 225);
@@ -598,7 +750,23 @@ namespace capaPresentacion
             else
                 if ('d' == objEntidad.resp)
             {
-                rbtn_d.ForeColor = Color.FromArgb(228, 161, 24);
+                if (objEntidad.rebound == true)   // para que no se encienda la resp correcta si se va a rebotar
+                {
+                    if (reboundTurn == true)
+                    {
+                        rbtn_d.ForeColor = Color.FromArgb(70, 172, 195);
+                    }
+                    else
+                    {
+                        rbtn_d.ForeColor = Color.FromArgb(225, 225, 225);
+                        rbtn_d.Enabled = false;
+                    }
+                }
+                else
+                {
+                    rbtn_d.ForeColor = Color.FromArgb(70, 172, 195);
+                }
+
 
                 rbtn_a.ForeColor = Color.FromArgb(225, 225, 225);
                 rbtn_c.ForeColor = Color.FromArgb(225, 225, 225);
@@ -616,8 +784,8 @@ namespace capaPresentacion
                 correctAnswer();
 
                 objEntidad.reproducirSonidoJuego("retro-lose.wav", false);
-                lab_Anuncios.ForeColor = Color.Brown;
-                lab_Anuncios.Text = "Wrong Answer";
+                lab_Anuncios.ForeColor = Color.FromArgb(222,79,49);
+                lab_Anuncios.Text = "✘";
 
                 if (opportunities_1 != 0
                 && opportunities_2 != 0
@@ -633,8 +801,8 @@ namespace capaPresentacion
             {
                 correctAnswer();
                 correctAnswerSound();
-                lab_Anuncios.ForeColor = Color.FromArgb(228, 161, 24);
-                lab_Anuncios.Text = "Correct Answer";
+                lab_Anuncios.ForeColor = Color.FromArgb(84,206,222);
+                lab_Anuncios.Text = "✔";
 
                 if (opportunities_1 != 0
                 && opportunities_2 != 0
@@ -674,19 +842,22 @@ namespace capaPresentacion
                     lab_Passage_1.Enabled = true;
                 }
 
-                //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
-                lab_Group1.Font = new Font(lab_Group1.Font.Name, 20, lab_Group1.Font.Style, lab_Group1.Font.Unit);
-                //para cambiar el color a gris
-                lab_Group1.ForeColor = Color.FromArgb(228, 161, 24);
+                //para poder cambiar el ;104;108tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+        //        lab_Group1.Font = new Font(lab_Group1.Font.Name, 20, lab_Group1.Font.Style, lab_Group1.Font.Unit);
+                //para cambiar el color a BLANCO
+                lab_Group1.ForeColor = Color.White;
+                lab_FijoGrupo1.ForeColor = Color.White;
+                lab_Oportunidades1.ForeColor = Color.White;
+                lab_Puntos1.ForeColor = Color.White;
 
-                lab_Group2.Font = new Font(lab_Group2.Font.Name, 10, lab_Group2.Font.Style, lab_Group2.Font.Unit);
-                //para cambiar el color a orange
-                lab_Group2.ForeColor = Color.FromArgb(237, 237, 237);
-
+                //        lab_Group2.Font = new Font(lab_Group2.Font.Name, 10, lab_Group2.Font.Style, lab_Group2.Font.Unit);
+                //para cambiar el color a GRIS
+                lab_Group2.ForeColor = Color.FromArgb(95,104,108);
+                lab_FijoGrupo2.ForeColor = Color.FromArgb(95, 104, 108);
+                lab_Oportunidades2.ForeColor = Color.FromArgb(95, 104, 108);
+                lab_Puntos2.ForeColor = Color.FromArgb(95, 104, 108);
 
                 cambiarColoryJugador(turno);
-
-                Timer_2Answer.Start();
 
             }
             else // si el turno es 2
@@ -697,57 +868,66 @@ namespace capaPresentacion
                     lab_Passage_2.Enabled = true;
                 }
 
-                lab_Group2.Font = new Font(lab_Group2.Font.Name, 20, lab_Group2.Font.Style, lab_Group2.Font.Unit);
-                lab_Group2.ForeColor = Color.FromArgb(228, 161, 24);
+        //       lab_Group2.Font = new Font(lab_Group2.Font.Name, 20, lab_Group2.Font.Style, lab_Group2.Font.Unit);
+                lab_Group2.ForeColor = Color.White;
+                lab_FijoGrupo2.ForeColor = Color.White;
+                lab_Oportunidades2.ForeColor = Color.White;
+                lab_Puntos2.ForeColor = Color.White;
 
-                lab_Group1.Font = new Font(lab_Group1.Font.Name, 10, lab_Group1.Font.Style, lab_Group1.Font.Unit);
-                lab_Group1.ForeColor = Color.FromArgb(237, 237, 237);
+                //       lab_Group1.Font = new Font(lab_Group1.Font.Name, 10, lab_Group1.Font.Style, lab_Group1.Font.Unit);
+                lab_Group1.ForeColor = Color.FromArgb(95,104,108);
+                lab_FijoGrupo1.ForeColor = Color.FromArgb(95, 104, 108);
+                lab_Oportunidades1.ForeColor = Color.FromArgb(95, 104, 108);
+                lab_Puntos1.ForeColor = Color.FromArgb(95, 104, 108);
 
                 cambiarColoryJugador(turno);
 
-                Timer_2Answer.Start();
             }
         }
         void cambiarColoryJugador(int turno)
         {
             if (turno == 1)
             {
-                lab_Lifes.ForeColor = Color.FromArgb(135, 135, 135);
-                lab_LifesNum.ForeColor = Color.Brown;
-                lab_Score.ForeColor = Color.FromArgb(135, 135, 135);
-                lab_ScoreNum.ForeColor = Color.FromArgb(228, 161, 24);
-                lb_participante1.ForeColor = Color.FromArgb(135, 135, 135);
-                lab_Group1.ForeColor = Color.FromArgb(135, 135, 135);
-                pB_player1.BackgroundImage = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
+                this.BackgroundImage = Properties.Resources.Fondo_DUO_Jugador_1;
+                
+                pbx_Grupo1.BackgroundImage = Properties.Resources.Grupo1_ImagenDuo;
+
+                pbx_Opportunity_1.BackgroundImage = Properties.Resources.Focused_bible_SOLO_04;
+                lab_LifesNum.ForeColor = Color.White;
+                pbx_Score_1.BackgroundImage = Properties.Resources.Focused_bible_SOLO_06;
+                lab_ScoreNum.ForeColor = Color.White;
                 tlyo_Wins_P1.Visible = true;
 
-                lab_Lifes2.ForeColor = Color.FromArgb(237, 237, 237);
-                lab_LifesNum2.ForeColor = Color.FromArgb(237, 237, 237);
-                lab_Score2.ForeColor = Color.FromArgb(237, 237, 237);
-                lab_ScoreNum2.ForeColor = Color.FromArgb(237, 237, 237);
-                lb_participante2.ForeColor = Color.FromArgb(237, 237, 237);
-                lab_Group2.ForeColor = Color.FromArgb(237, 237, 237);
-                pB_player2.BackgroundImage = Properties.Resources.Focused_bible_landing_02;
+
+
+                
+                pbx_Grupo2.BackgroundImage = Properties.Resources.Grupo2_ImagenDuo_OFF;
+
+                pbx_Opportunity_2.BackgroundImage = Properties.Resources.Focused_bible_SOLO_04_OFF;
+                lab_LifesNum2.ForeColor = Color.FromArgb(95,104,108);
+                pbx_Score_2.BackgroundImage = Properties.Resources.Focused_bible_SOLO_06_OFF;
+                lab_ScoreNum2.ForeColor = Color.FromArgb(95,104,108);
                 tlyo_Wins_P2.Visible = false;
             }
             else // si el turno es 2
             {
-                lab_Lifes2.ForeColor = Color.FromArgb(135, 135, 135);
-                lab_LifesNum2.ForeColor = Color.Brown;
-                lab_Score2.ForeColor = Color.FromArgb(135, 135, 135);
-                lab_ScoreNum2.ForeColor = Color.FromArgb(228, 161, 24);
-                lb_participante2.ForeColor = Color.FromArgb(135, 135, 135);
-                lab_Group2.ForeColor = Color.FromArgb(135, 135, 135);
-                pB_player2.BackgroundImage = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
+                this.BackgroundImage = Properties.Resources.Fondo_DUO_Jugador_2;
+
+                pbx_Grupo2.BackgroundImage = Properties.Resources.Grupo2_ImagenDuo;
+
+                pbx_Opportunity_2.BackgroundImage = Properties.Resources.Focused_bible_SOLO_04;
+                lab_LifesNum2.ForeColor = Color.White;
+                pbx_Score_2.BackgroundImage = Properties.Resources.Focused_bible_SOLO_06;
+                lab_ScoreNum2.ForeColor = Color.White;
                 tlyo_Wins_P2.Visible = true;
 
-                lab_Lifes.ForeColor = Color.FromArgb(237, 237, 237);
-                lab_LifesNum.ForeColor = Color.FromArgb(237, 237, 237);
-                lab_Score.ForeColor = Color.FromArgb(237, 237, 237);
-                lab_ScoreNum.ForeColor = Color.FromArgb(237, 237, 237);
-                lb_participante1.ForeColor = Color.FromArgb(237, 237, 237);
-                lab_Group1.ForeColor = Color.FromArgb(237, 237, 237);
-                pB_player1.BackgroundImage = Properties.Resources.Focused_bible_landing_02;
+
+                pbx_Grupo1.BackgroundImage = Properties.Resources.Grupo1_ImagenDuo_OFF;
+
+                pbx_Opportunity_1.BackgroundImage = Properties.Resources.Focused_bible_SOLO_04_OFF;
+                lab_LifesNum.ForeColor = Color.FromArgb(95,104,108);
+                pbx_Score_1.BackgroundImage = Properties.Resources.Focused_bible_SOLO_06_OFF;
+                lab_ScoreNum.ForeColor = Color.FromArgb(95,104,108);
                 tlyo_Wins_P1.Visible = false;
             }
         }
@@ -757,7 +937,7 @@ namespace capaPresentacion
             if (turno == 1 && lab_50_1.Text == "0")
             {
                 lab_50_1.Enabled = false;
-                pbx_50.Enabled = false;
+                pbx_50_1.Enabled = false;
             }
             else
                 if (turno == 2 && lab_50_2.Text == "0")
@@ -787,8 +967,13 @@ namespace capaPresentacion
 
                 clickPassage_2 = 0; // reiniciar a 0 para poder usar el comodin Passage en su proximo turno
                 pbx_Passage_2.Enabled = true; // activar comodin anterior al cambiar de turno
+                lab_Passage_2.Enabled = true;
                 Lab_Passage_Shown_2.Text = "";
-                pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave; // volver a cargar imagen inicial
+                tlyo_Comodines_2.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_Comodines_2.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_Comodines_2.RowStyles[0].Height = 0;
+                tlyo_Comodines_2.RowStyles[1].Height = 47;
+                pbx_Passage_2.Image = Properties.Resources.BTN_PASAGE_Leave; // volver a cargar imagen inicial
 
                 if (answerCorrect == true)
                 {
@@ -797,7 +982,21 @@ namespace capaPresentacion
                 }
                 else
                 {
-                    opportunities_1--;
+                    if (objEntidad.rebound == true) // si esta activado el rebote
+                    {
+                        if (pointLost_1 == false)
+                        {
+                            opportunities_1--;
+                            wrongAnswer_1++; // Respuestas incorrectas
+                            pointLost_1 = true;
+                        }
+                    }
+                    else // sino esta activado el rebote
+                    {
+                        opportunities_1--;
+                        wrongAnswer_1++; // Respuestas incorrectas
+                    }
+
                     lab_LifesNum.Text = Convert.ToString(opportunities_1);
                     perder_Ganar();
                 }
@@ -805,12 +1004,17 @@ namespace capaPresentacion
             else
             {
                 click50_1 = 0; // reiniciar a 0 para poder usar el comodin 50% en su proximo turno
-                pbx_50.Enabled = true; // activar comodin anterior al cambiar de turno
+                pbx_50_1.Enabled = true; // activar comodin anterior al cambiar de turno
 
                 clickPassage_1 = 0; // reiniciar a 0 para poder usar el comodin Passage en su proximo turno
                 pbx_Passage_1.Enabled = true; // activar comodin anterior al cambiar de turno
+                lab_Passage_1.Enabled = true;
                 Lab_Passage_Shown_1.Text = "";
-                pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave; // volver a cargar imagen inicial
+                tlyo_Comodines_1.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_Comodines_1.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_Comodines_1.RowStyles[0].Height = 0;
+                tlyo_Comodines_1.RowStyles[1].Height = 47;
+                pbx_Passage_1.Image = Properties.Resources.BTN_PASAGE_Leave; // volver a cargar imagen inicial
 
                 if (answerCorrect == true)
                 {
@@ -819,44 +1023,41 @@ namespace capaPresentacion
                 }
                 else
                 {
-                    opportunities_2--;
+                    if (objEntidad.rebound == true) // si esta activado el rebote
+                    {
+                        if (pointLost_2 == false)
+                        {
+                            opportunities_2--;
+                            wrongAnswer_2++; // Respuestas incorrectas
+                            pointLost_2 = true;
+                        }
+                    }
+                    else // sino esta activado el rebote
+                    {
+                        opportunities_2--;
+                        wrongAnswer_2++; // Respuestas incorrectas
+                    }
+
+
                     lab_LifesNum2.Text = Convert.ToString(opportunities_2);
                     perder_Ganar();
                 }
             }
         }
-        
-        private void btn_Exit_Click_1(object sender, EventArgs e)
-        {
-            DialogResult salir;
-            if (startingTurn == 1)
-            {
-                salir = MessageBox.Show(lab_Group1.Text + ", Are Sure you want to Exit?", "Warning", MessageBoxButtons.YesNo);
-            }
-            else
-            {
-                salir = MessageBox.Show(lab_Group2.Text + ", Are Sure you want to Exit?", "Warning", MessageBoxButtons.YesNo);
-            }
 
-            if (salir == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-
-        }
         
         private void pbx_50_MouseEnter(object sender, EventArgs e)
         {
             if (lab_50_1.Text != "0")
             {
-                pbx_50.Image = Properties.Resources._50_percent_MouseOn;
+                pbx_50_1.Image = Properties.Resources.BTN_50_Move;
             }
         }
         private void pbx_50_MouseLeave(object sender, EventArgs e)
         {
-            pbx_50.Image = Properties.Resources._50_percent;
+            pbx_50_1.Image = Properties.Resources.BTN_50_Leave;
         }
-        private void pbx_50_Click_1(object sender, EventArgs e)
+        private void pbx_50_Click(object sender, EventArgs e)
         {
             if (lab_50_1.Text != "0")
             {
@@ -864,9 +1065,10 @@ namespace capaPresentacion
                 countDownComodin_1--;
                 lab_50_1.Text = comodin50_1[countDownComodin_1];
                 random50();
-                pbx_50.Enabled = false;
+                pbx_50_1.Enabled = false;
                 focoRbtn();
 
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Disabled;
                 btn_Submit.Enabled = false; //para evitar que se presione submit sin estar seleccionada ninguna respuesta
                 uncheckRbtn();
             }
@@ -876,14 +1078,14 @@ namespace capaPresentacion
         {
             if (lab_50_2.Text != "0")
             {
-                pbx_50_2.Image = Properties.Resources._50_percent_MouseOn;
+                pbx_50_2.Image = Properties.Resources.BTN_50_Move;
             }
         }
         private void pbx_50_2_MouseLeave(object sender, EventArgs e)
         {
-            pbx_50_2.Image = Properties.Resources._50_percent;
+            pbx_50_2.Image = Properties.Resources.BTN_50_Leave;
         }
-        private void pbx_50_2_Click_1(object sender, EventArgs e)
+        private void pbx_50_2_Click(object sender, EventArgs e)
         {
             if (lab_50_2.Text != "0")
             {
@@ -893,6 +1095,7 @@ namespace capaPresentacion
                 random50();
                 pbx_50_2.Enabled = false;
                 focoRbtn();
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Disabled;
                 btn_Submit.Enabled = false; //para evitar que se presione submit sin estar seleccionada ninguna respuesta
 
                 uncheckRbtn();
@@ -902,17 +1105,17 @@ namespace capaPresentacion
         {
             if (turno == 1)
             {
-                pbx_50_2.Visible = false;
-                lab_50_2.Visible = false;
-                pbx_50.Visible = true;
-                lab_50_1.Visible = true;
+                tlyo_Comodines.ColumnStyles[0].SizeType = SizeType.Percent;
+                tlyo_Comodines.ColumnStyles[1].SizeType = SizeType.Percent;
+                tlyo_Comodines.ColumnStyles[0].Width = 100;
+                tlyo_Comodines.ColumnStyles[1].Width = 0;
             }
             else
             {
-                pbx_50.Visible = false;
-                lab_50_1.Visible = false;
-                pbx_50_2.Visible = true;
-                lab_50_2.Visible = true;
+                tlyo_Comodines.ColumnStyles[0].SizeType = SizeType.Percent;
+                tlyo_Comodines.ColumnStyles[1].SizeType = SizeType.Percent;
+                tlyo_Comodines.ColumnStyles[0].Width = 0;
+                tlyo_Comodines.ColumnStyles[1].Width = 100;
             }
         }
         void random50()
@@ -988,20 +1191,21 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
                 {
                     perder_Ganar();
-                }// si no se acabó el juego entonces reinicia ciertos elementos de los jugadores
-                else if(objEntidad.winner != lab_Group1.Text && objEntidad.winner != lab_Group2.Text)
-                {
+                    Thread.Sleep(2000);
                     AfterCountDown();
+                }// si no se acabó el juego entonces reinicia ciertos elementos de los jugadores
+                else if(objEntidad.winner != lab_Group1.Text && objEntidad.winner != lab_Group2.Text && objEntidad.winner != "Es un empate!")
+                {
+                     AfterCountDown();
                 }
             }
         }
 
-        void AfterCountDown(bool restart = false)
+        void AfterCountDown()
         {
-            if (restart == true)
-            {
-                Thread.Sleep(1500);
-            }
+
+            Timer_2Answer.Start();
+
 
             answerOriginalColor(); // aqui cambian las respuestas al color original
 
@@ -1013,6 +1217,11 @@ namespace capaPresentacion
             bloquear_Btn_Submit();
 
 
+            //resetear color original de la pregunta
+            lab_Pregunta.ForeColor = Color.FromArgb(32, 52, 61);
+
+
+
             /**REBOTE**/
             if (objEntidad.rebound == true)
             {
@@ -1020,16 +1229,22 @@ namespace capaPresentacion
                 {
                     if (startingTurn == 1)
                     {
+                        pointLost_1 = false;
+
                         activarComidin(1);
                         activarPassage(1);
                         PlayerFocus(1);
+                        cambioDeTurno(2);
                         objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                     }
                     else
                     {
+                        pointLost_2 = false;
+
                         activarComidin(2);
                         activarPassage(2);
                         PlayerFocus(2);
+                        cambioDeTurno(1);
                         objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                     }
 
@@ -1044,16 +1259,22 @@ namespace capaPresentacion
                     {
                         if (startingTurn == 1)
                         {
+                            pointLost_1 = false;
+
                             activarComidin(1);
                             activarPassage(1);
                             PlayerFocus(1);
+                            cambioDeTurno(2);
                             objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                         }
                         else
                         {
+                            pointLost_2 = false;
+
                             activarComidin(2);
                             activarPassage(2);
                             PlayerFocus(2);
+                            cambioDeTurno(1);
                             objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                         }
 
@@ -1062,28 +1283,37 @@ namespace capaPresentacion
                     }
                     else
                     {
-                        if (restart == false) // so no es un reinicio
+                        if (restart == false) // no es un reinicio
                         {
                             objEntidad.reproducirSonidoJuego("rebound.wav", false);
                             Thread.Sleep(100);
+                            // poner color rojo a la pregunta al ser un rebote
+                            lab_Pregunta.ForeColor = Color.FromArgb(222, 79, 49);
 
                             if (startingTurn == 1)
                             {
+                                pointLost_1 = false;
+
                                 activarComidin(1);
                                 activarPassage(1);
                                 PlayerFocus(1);
+                                cambioDeTurno(2);
                                 objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                             }
                             else
                             {
+                                pointLost_2 = false;
+
                                 activarComidin(2);
                                 activarPassage(2);
                                 PlayerFocus(2);
+                                cambioDeTurno(1);
                                 objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
                             }
 
                             valueScore = 1;
                             reboundTurn = true;
+                            blockPassage(); //si no existe pasage de referencia, se bloquea este comodin
                         }
                         else
                         {
@@ -1095,6 +1325,8 @@ namespace capaPresentacion
             }//--------------------------------------------------------------------------
             else // si rebote está desactivado
             {
+
+
                 if (startingTurn == 1)
                 {
                     activarComidin(1);
@@ -1114,35 +1346,33 @@ namespace capaPresentacion
             }
 
 
-
-
-
+            restart = false;
         }
         
 
 
         //eventos para seleccionar a travez del teclado
-        private void rbtn_a_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void rbtn_a_KeyPress(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void rbtn_b_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void rbtn_b_KeyPress(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void rbtn_c_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void rbtn_c_KeyPress(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void rbtn_d_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void rbtn_d_KeyPress(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void btn_Submit_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void btn_Submit_KeyPress(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
-        private void btn_Exit_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void btn_Exit_KeyPress(object sender, KeyPressEventArgs e)
         {
             selectAnswer(e);
         }
@@ -1160,9 +1390,9 @@ namespace capaPresentacion
                 if (e.KeyChar == (char)13 && btn_Submit.Enabled == true) //si la tecla pesionada es igual a ENTER (13)
             {
                 // si el foco esta en exit entonces se da clic a Exit, pero si esta en otro lado, da clic en Submit
-                if (btn_Exit.Focused == true)
+                if (btn_goToMain.Focused == true)
                 {
-                    btn_Exit.PerformClick();
+                    btn_goToMain.PerformClick();
                 }
                 else
                 {
@@ -1174,6 +1404,7 @@ namespace capaPresentacion
             {
                 rbtn_a.Focus();
                 rbtn_a.Checked = true;
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
             }
             else
@@ -1181,6 +1412,7 @@ namespace capaPresentacion
             {
                 rbtn_b.Focus();
                 rbtn_b.Checked = true;
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
             }
             else
@@ -1188,6 +1420,7 @@ namespace capaPresentacion
             {
                 rbtn_c.Focus();
                 rbtn_c.Checked = true;
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
             }
             else
@@ -1195,6 +1428,7 @@ namespace capaPresentacion
             {
                 rbtn_d.Focus();
                 rbtn_d.Checked = true;
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
             }
             else
@@ -1204,7 +1438,7 @@ namespace capaPresentacion
                 {
                     click50_1++;
                     pbx_50_MouseEnter(this, new EventArgs());
-                    pbx_50_Click_1(this, new EventArgs());
+                    pbx_50_Click(this, new EventArgs());
                     Thread.Sleep(200);
                     pbx_50_MouseLeave(this, new EventArgs());
                 }
@@ -1213,7 +1447,7 @@ namespace capaPresentacion
                 {
                     click50_2++;
                     pbx_50_2_MouseEnter(this, new EventArgs());
-                    pbx_50_2_Click_1(this, new EventArgs());
+                    pbx_50_2_Click(this, new EventArgs());
                     Thread.Sleep(200);
                     pbx_50_2_MouseLeave(this, new EventArgs());
                 }
@@ -1227,7 +1461,7 @@ namespace capaPresentacion
                     {
                         clickPassage_1++;
                         pbx_Passage_1_MouseEnter(this, new EventArgs());
-                        pbx_Passage_1_Click_1(this, new EventArgs());
+                        pbx_Passage_1_Click(this, new EventArgs());
                         Thread.Sleep(200);
                         pbx_Passage_1_MouseLeave(this, new EventArgs());
                     }
@@ -1236,7 +1470,7 @@ namespace capaPresentacion
                     {
                         clickPassage_2++;
                         pbx_Passage_2_MouseEnter(this, new EventArgs());
-                        pbx_Passage_2_Click_1(this, new EventArgs());
+                        pbx_Passage_2_Click(this, new EventArgs());
                         Thread.Sleep(200);
                         pbx_Passage_2_MouseLeave(this, new EventArgs());
                     }
@@ -1248,71 +1482,92 @@ namespace capaPresentacion
         {
             if (rbtn_a.Checked == true)
             {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
             }
             else
                 if (rbtn_b.Checked == true)
             {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
             }
             else
                 if (rbtn_c.Checked == true)
             {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
             }
             else
                 if (rbtn_d.Checked == true)
             {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
             }
             else
             {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Disabled;
                 btn_Submit.Enabled = false;
             }
         }
         
 
-        private void rbtn_a_CheckedChanged_1(object sender, EventArgs e)
+        private void rbtn_a_CheckedChanged(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
+            {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
+            }
 
-            if (rbtn_a.ForeColor == Color.FromArgb(228, 161, 24))
+            if (rbtn_a.ForeColor == Color.FromArgb(70, 172, 195))
             {
                 rbtn_a.Checked = false;
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Disabled;
                 btn_Submit.Enabled = false;
             }
         }
-        private void rbtn_b_CheckedChanged_1(object sender, EventArgs e)
+        private void rbtn_b_CheckedChanged(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
+            {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
+            }
 
-            if (rbtn_b.ForeColor == Color.FromArgb(228, 161, 24))
+            if (rbtn_b.ForeColor == Color.FromArgb(70, 172, 195))
             {
                 rbtn_b.Checked = false;
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Disabled;
                 btn_Submit.Enabled = false;
             }
         }
-        private void rbtn_c_CheckedChanged_1(object sender, EventArgs e)
+        private void rbtn_c_CheckedChanged(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
+            {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
+            }
 
-            if (rbtn_c.ForeColor == Color.FromArgb(228, 161, 24))
+            if (rbtn_c.ForeColor == Color.FromArgb(70, 172, 195))
             {
                 rbtn_c.Checked = false;
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Disabled;
                 btn_Submit.Enabled = false;
             }
         }
-        private void rbtn_d_CheckedChanged_1(object sender, EventArgs e)
+        private void rbtn_d_CheckedChanged(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
+            {
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
                 btn_Submit.Enabled = true;
+            }
 
-            if (rbtn_d.ForeColor == Color.FromArgb(228, 161, 24))
+            if (rbtn_d.ForeColor == Color.FromArgb(70, 172, 195))
             {
                 rbtn_d.Checked = false;
+                btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Disabled;
                 btn_Submit.Enabled = false;
             }
         }
@@ -1320,6 +1575,8 @@ namespace capaPresentacion
         // Tiempo para responder la pregunta----------------------------------------
         private void Timer_2Answer_Tick(object sender, EventArgs e)
         {
+            lab_Anuncios.ForeColor = Color.White;
+
             if (countDownTimer2 != 0)
             {
                 if (countDownTimer2 <= 3)
@@ -1350,12 +1607,12 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Activated(object sender, EventArgs e)
         {
-            Timer_2Answer.Start();
+            //Timer_2Answer.Start();
 
-            if (sonido != null)
-            {
-                sonido.PlayLooping();
-            }
+            //if (sonido != null)
+            //{
+            //    sonido.PlayLooping();
+            //}
           
         }
 
@@ -1383,14 +1640,14 @@ namespace capaPresentacion
         {
             if (lab_Passage_1.Text != "0")
             {
-                pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_On;
+                pbx_Passage_1.Image = Properties.Resources.BTN_PASAGE_Move;
             }
         }
         private void pbx_Passage_1_MouseLeave(object sender, EventArgs e)
         {
-            pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave;
+            pbx_Passage_1.Image = Properties.Resources.BTN_PASAGE_Leave;
         }
-        private void pbx_Passage_1_Click_1(object sender, EventArgs e)
+        private void pbx_Passage_1_Click(object sender, EventArgs e)
         {
             if (lab_Passage_1.Text != "0")
             {
@@ -1407,14 +1664,14 @@ namespace capaPresentacion
         {
             if (lab_Passage_2.Text != "0")
             {
-                pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_On;
+                pbx_Passage_2.Image = Properties.Resources.BTN_PASAGE_Move;
             }
         }
         private void pbx_Passage_2_MouseLeave(object sender, EventArgs e)
         {
-            pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave;
+            pbx_Passage_2.Image = Properties.Resources.BTN_PASAGE_Leave;
         }
-        private void pbx_Passage_2_Click_1(object sender, EventArgs e)
+        private void pbx_Passage_2_Click(object sender, EventArgs e)
         {
             if (lab_Passage_2.Text != "0")
             {
@@ -1433,32 +1690,38 @@ namespace capaPresentacion
             {
                 Lab_Passage_Shown_1.Text = objEntidad.pasage;
                 Lab_Passage_Shown_2.Text = "";
+
+                tlyo_Comodines_1.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_Comodines_1.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_Comodines_1.RowStyles[0].Height = 47;
+                tlyo_Comodines_1.RowStyles[1].Height = 0;
             }
             else
             {
                 Lab_Passage_Shown_2.Text = objEntidad.pasage;
                 Lab_Passage_Shown_1.Text = "";
+
+                tlyo_Comodines_2.RowStyles[0].SizeType = SizeType.Percent;
+                tlyo_Comodines_2.RowStyles[1].SizeType = SizeType.Percent;
+                tlyo_Comodines_2.RowStyles[0].Height = 47;
+                tlyo_Comodines_2.RowStyles[1].Height = 0;
             }
         }
         void activarPassage(int turno)
         {
             if (turno == 1)
             {
-                pbx_Passage_2.Visible = false;
-                lab_Passage_2.Visible = false;
-                Lab_Passage_Shown_2.Visible = false;
-                pbx_Passage_1.Visible = true;
-                lab_Passage_1.Visible = true;
-                Lab_Passage_Shown_1.Visible = true;
+                tlyo_Comodines.ColumnStyles[0].SizeType = SizeType.Percent;
+                tlyo_Comodines.ColumnStyles[1].SizeType = SizeType.Percent;
+                tlyo_Comodines.ColumnStyles[0].Width = 100;
+                tlyo_Comodines.ColumnStyles[1].Width = 0;
             }
             else
             {
-                pbx_Passage_1.Visible = false;
-                lab_Passage_1.Visible = false;
-                Lab_Passage_Shown_1.Visible = false;
-                pbx_Passage_2.Visible = true;
-                lab_Passage_2.Visible = true;
-                Lab_Passage_Shown_2.Visible = true;
+                tlyo_Comodines.ColumnStyles[0].SizeType = SizeType.Percent;
+                tlyo_Comodines.ColumnStyles[1].SizeType = SizeType.Percent;
+                tlyo_Comodines.ColumnStyles[0].Width = 0;
+                tlyo_Comodines.ColumnStyles[1].Width = 100;
             }
         }
         void increaseTime2Answer(int timeToIncrease) //aumenta el tiempo 'x' segundos al elegir el comodin Passage
@@ -1473,7 +1736,7 @@ namespace capaPresentacion
                 if (startingTurn == 1 && lab_Passage_1.Text != "0") // si es el turno 1 y no se han acabado
                 {
                     Lab_Passage_Shown_1.Text = "";
-                    pbx_Passage_1.Image = Properties.Resources.Passage_N_A;
+                    pbx_Passage_1.Image = Properties.Resources.BTN_PASAGE_Disabled;
                     //lab_Passage_1.Text = comodinPassage_1[countDownPassage_1];
                     pbx_Passage_1.Enabled = false;
                     lab_Passage_1.Enabled = false;
@@ -1482,7 +1745,7 @@ namespace capaPresentacion
                 if (startingTurn == 2 && lab_Passage_2.Text != "0") // si es el turno 2 y no se han acabado
                 {
                     Lab_Passage_Shown_2.Text = "";
-                    pbx_Passage_2.Image = Properties.Resources.Passage_N_A;
+                    pbx_Passage_2.Image = Properties.Resources.BTN_PASAGE_Disabled;
                     //lab_Passage_1.Text = comodinPassage_2[countDownPassage_2];
                     pbx_Passage_2.Enabled = false;
                     lab_Passage_2.Enabled = false;
@@ -1490,62 +1753,95 @@ namespace capaPresentacion
             }
         }
 
-        private void btn_goToMain_Click_1(object sender, EventArgs e)
+        private void btn_goToMain_Click(object sender, EventArgs e)
         {
             // para saber si el formulario existe, o sea, si está abierto o cerrado
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
-
-            existe.Show();
+            
             Timer_2Answer.Stop();
             objEntidad.StopGameSound();
-            reboundTurn = false;
+
             this.Close(); //Esto cierra la ventana del juego y va a Main
+            existe.Show();
         }
 
-        // Las siguentes dos funciones son para
-        //evitar los problemas de Buffer por tener layouts transparentes
-
-        #region .. Double Buffered function ..
-        public static void SetDoubleBuffered(Control c)
+        private void btn_Submit_MouseEnter(object sender, EventArgs e)
         {
-            if (SystemInformation.TerminalServerSession)
-                return;
-            System.Reflection.PropertyInfo aProp = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            aProp.SetValue(c, true, null);
+            btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Enter;
         }
 
-        #endregion
-
-        #region .. code for Flucuring ..
-
-        protected override CreateParams CreateParams
+        private void btn_Submit_MouseLeave(object sender, EventArgs e)
         {
-            get
+            btn_Submit.BackgroundImage = Properties.Resources.RESPONDER_Leave;
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
             {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;
-                return cp;
+                objEntidad.StopGameSound();
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableGameSound = false;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableGameSound = true;
+                objEntidad.enableButtonSound = true;
+                objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+
             }
         }
 
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
 
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableGameSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
 
+        private void btn_how2Play_Click(object sender, EventArgs e)
+        {
+            howToPlay = new HowToPlay();
+            howToPlay.ShowDialog();
+        }
 
+        private void btn_how2Play_MouseEnter(object sender, EventArgs e)
+        {
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_MOUSE_ENTER;
+        }
 
+        private void btn_how2Play_MouseLeave(object sender, EventArgs e)
+        {
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
+        }
 
+        private void btn_goToMain_MouseEnter(object sender, EventArgs e)
+        {
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
+        }
 
-
-
-
-
-
-
-
-
-
-
-        #endregion
-
-     
+        private void btn_goToMain_MouseLeave(object sender, EventArgs e)
+        {
+            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07;
+        }
     }
 }

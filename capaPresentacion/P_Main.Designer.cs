@@ -67,12 +67,11 @@
             this.lab_User.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lab_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.lab_User.Location = new System.Drawing.Point(2, 0);
-            this.lab_User.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lab_User.Location = new System.Drawing.Point(3, 0);
             this.lab_User.Name = "lab_User";
-            this.lab_User.Size = new System.Drawing.Size(647, 25);
+            this.lab_User.Size = new System.Drawing.Size(863, 31);
             this.lab_User.TabIndex = 15;
-            this.lab_User.Text = "User:";
+            this.lab_User.Text = "Usuario:";
             this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel6
@@ -85,12 +84,13 @@
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 1, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(969, 597);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1292, 735);
             this.tableLayoutPanel6.TabIndex = 15;
             // 
             // tableLayoutPanel7
@@ -103,14 +103,15 @@
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel15, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel16, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(22, 26);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(29, 33);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 4;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.838323F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.67665F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.61078F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.53731F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(924, 543);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1232, 668);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -122,11 +123,12 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 34);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(4, 43);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(918, 193);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1224, 237);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -138,22 +140,22 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.116189F));
             this.tableLayoutPanel9.Controls.Add(this.pbx_Logo, 1, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(309, 3);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(412, 4);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.95633F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.04367F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(300, 187);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(400, 229);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // pbx_Logo
             // 
             this.pbx_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbx_Logo.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_04;
-            this.pbx_Logo.Location = new System.Drawing.Point(23, 2);
-            this.pbx_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbx_Logo.Location = new System.Drawing.Point(31, 3);
             this.pbx_Logo.Name = "pbx_Logo";
-            this.pbx_Logo.Size = new System.Drawing.Size(253, 164);
+            this.pbx_Logo.Size = new System.Drawing.Size(337, 199);
             this.pbx_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbx_Logo.TabIndex = 0;
             this.pbx_Logo.TabStop = false;
@@ -167,11 +169,12 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9F));
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 233);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(4, 288);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(918, 237);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(1224, 291);
             this.tableLayoutPanel10.TabIndex = 1;
             // 
             // tableLayoutPanel11
@@ -189,13 +192,14 @@
             this.tableLayoutPanel11.Controls.Add(this.btn_debate, 3, 1);
             this.tableLayoutPanel11.Controls.Add(this.btn_solo, 1, 1);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(85, 3);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(114, 4);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 3;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(746, 231);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(995, 283);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // btn_Partida
@@ -207,13 +211,12 @@
             this.btn_Partida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_Partida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Partida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Partida.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Partida.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Partida.ForeColor = System.Drawing.Color.White;
-            this.btn_Partida.Location = new System.Drawing.Point(491, 29);
-            this.btn_Partida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Partida.Location = new System.Drawing.Point(656, 36);
             this.btn_Partida.Name = "btn_Partida";
-            this.btn_Partida.Padding = new System.Windows.Forms.Padding(0, 41, 0, 0);
-            this.btn_Partida.Size = new System.Drawing.Size(219, 171);
+            this.btn_Partida.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.btn_Partida.Size = new System.Drawing.Size(292, 209);
             this.btn_Partida.TabIndex = 19;
             this.btn_Partida.Text = "PARTIDA";
             this.btn_Partida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -231,13 +234,12 @@
             this.btn_debate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_debate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_debate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_debate.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_debate.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_debate.ForeColor = System.Drawing.Color.White;
-            this.btn_debate.Location = new System.Drawing.Point(261, 29);
-            this.btn_debate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_debate.Location = new System.Drawing.Point(349, 36);
             this.btn_debate.Name = "btn_debate";
-            this.btn_debate.Padding = new System.Windows.Forms.Padding(0, 41, 0, 0);
-            this.btn_debate.Size = new System.Drawing.Size(219, 171);
+            this.btn_debate.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.btn_debate.Size = new System.Drawing.Size(292, 209);
             this.btn_debate.TabIndex = 18;
             this.btn_debate.Text = "DUO";
             this.btn_debate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -256,13 +258,12 @@
             this.btn_solo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_solo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_solo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_solo.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_solo.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_solo.ForeColor = System.Drawing.Color.White;
-            this.btn_solo.Location = new System.Drawing.Point(31, 29);
-            this.btn_solo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_solo.Location = new System.Drawing.Point(42, 36);
             this.btn_solo.Name = "btn_solo";
-            this.btn_solo.Padding = new System.Windows.Forms.Padding(0, 41, 0, 0);
-            this.btn_solo.Size = new System.Drawing.Size(219, 171);
+            this.btn_solo.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.btn_solo.Size = new System.Drawing.Size(292, 209);
             this.btn_solo.TabIndex = 17;
             this.btn_solo.Text = "SOLO";
             this.btn_solo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -280,13 +281,14 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel15.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 476);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(4, 587);
+            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.61856F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(918, 64);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(1224, 77);
             this.tableLayoutPanel15.TabIndex = 2;
             // 
             // label1
@@ -295,9 +297,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.ForeColor = System.Drawing.Color.LightGray;
-            this.label1.Location = new System.Drawing.Point(278, 0);
+            this.label1.Location = new System.Drawing.Point(371, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(361, 42);
+            this.label1.Size = new System.Drawing.Size(481, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Focused Bible @2019 ALL RIGHTS RESERVED";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -323,21 +326,21 @@
             this.tableLayoutPanel16.Controls.Add(this.Btn_Close, 9, 0);
             this.tableLayoutPanel16.Controls.Add(this.btn_Logout_Login, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(918, 25);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 31);
             this.tableLayoutPanel16.TabIndex = 3;
             // 
             // Btn_Settings
             // 
             this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_02;
-            this.Btn_Settings.Location = new System.Drawing.Point(856, 2);
-            this.Btn_Settings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_Settings.Location = new System.Drawing.Point(1145, 3);
             this.Btn_Settings.Name = "Btn_Settings";
-            this.Btn_Settings.Size = new System.Drawing.Size(23, 21);
+            this.Btn_Settings.Size = new System.Drawing.Size(30, 25);
             this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Btn_Settings.TabIndex = 1;
             this.Btn_Settings.TabStop = false;
@@ -350,10 +353,9 @@
             this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
             this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Sound.Location = new System.Drawing.Point(794, 2);
-            this.pbx_Sound.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbx_Sound.Location = new System.Drawing.Point(1061, 3);
             this.pbx_Sound.Name = "pbx_Sound";
-            this.pbx_Sound.Size = new System.Drawing.Size(23, 21);
+            this.pbx_Sound.Size = new System.Drawing.Size(30, 25);
             this.pbx_Sound.TabIndex = 17;
             this.pbx_Sound.TabStop = false;
             this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
@@ -373,11 +375,10 @@
             this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
             this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
             this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_how2Play.Location = new System.Drawing.Point(825, 2);
-            this.btn_how2Play.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_how2Play.Location = new System.Drawing.Point(1103, 3);
             this.btn_how2Play.Name = "btn_how2Play";
             this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_how2Play.Size = new System.Drawing.Size(23, 21);
+            this.btn_how2Play.Size = new System.Drawing.Size(30, 25);
             this.btn_how2Play.TabIndex = 14;
             this.btn_how2Play.UseVisualStyleBackColor = false;
             this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
@@ -397,10 +398,9 @@
             this.Btn_Close.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
             this.Btn_Close.ForeColor = System.Drawing.Color.Transparent;
             this.Btn_Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Close.Location = new System.Drawing.Point(887, 2);
-            this.Btn_Close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_Close.Location = new System.Drawing.Point(1187, 3);
             this.Btn_Close.Name = "Btn_Close";
-            this.Btn_Close.Size = new System.Drawing.Size(29, 21);
+            this.Btn_Close.Size = new System.Drawing.Size(34, 25);
             this.Btn_Close.TabIndex = 16;
             this.Btn_Close.UseVisualStyleBackColor = false;
             this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
@@ -417,13 +417,13 @@
             this.btn_Logout_Login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_Logout_Login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Logout_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Logout_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Logout_Login.Font = new System.Drawing.Font("Avenir Next Demi Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Logout_Login.ForeColor = System.Drawing.Color.White;
             this.btn_Logout_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Logout_Login.Location = new System.Drawing.Point(653, 2);
-            this.btn_Logout_Login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
+            this.btn_Logout_Login.Location = new System.Drawing.Point(872, 3);
+            this.btn_Logout_Login.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_Logout_Login.Name = "btn_Logout_Login";
-            this.btn_Logout_Login.Size = new System.Drawing.Size(133, 23);
+            this.btn_Logout_Login.Size = new System.Drawing.Size(177, 28);
             this.btn_Logout_Login.TabIndex = 16;
             this.btn_Logout_Login.Text = "LOGIN | REGISTRATE";
             this.btn_Logout_Login.UseVisualStyleBackColor = false;
@@ -433,14 +433,13 @@
             // 
             // P_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(969, 597);
+            this.ClientSize = new System.Drawing.Size(1292, 735);
             this.Controls.Add(this.tableLayoutPanel6);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "P_Main";
@@ -448,6 +447,7 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
+            this.Enter += new System.EventHandler(this.P_Main_Enter);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);

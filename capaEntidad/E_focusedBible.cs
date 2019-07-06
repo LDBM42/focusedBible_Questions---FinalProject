@@ -25,9 +25,10 @@ namespace capaEntidad
         public string pasage { get; set; }
         public string winner { get; set; }
         public string difficulty { get; set; }
-        public string [] catEvangelios_yOtros { get; set; }
+        public string[] catEvangelios_yOtros { get; set; }
         public string [] catLibro { get; set; }
         public string catNuevoAntiguo { get; set; }
+        public string categories2Show { get; set; }
         public string questions2Answer { get; set; }
         public bool rebound { get; set; } //almacena si se actibo el rebote o no
         public bool opportunitiesBoolean { get; set; }
@@ -36,7 +37,7 @@ namespace capaEntidad
         public bool enableAllSounds { get; set; }
 
 
-        public string[,] finalResults { get; set; }
+        public string[,] finalResults { get; set; } // resultados finales
 
 
         // para almacenar el query por dificultad
@@ -55,9 +56,8 @@ namespace capaEntidad
         SoundPlayer sonido;
         public void reproducirSonidoJuego(string nombreArchivo, bool loop)
         {
-            if (enableGameSound)
+           if (enableGameSound)
             {
-
                 if (sonido != null)
                 {
                     sonido.Stop();
@@ -85,7 +85,6 @@ namespace capaEntidad
         {
             if (enableButtonSound)
             {
-
                 if (sonido != null)
                 {
                     sonido.Stop();
