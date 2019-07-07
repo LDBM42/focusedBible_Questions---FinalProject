@@ -88,23 +88,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="P_Debate_Ganador.cs">
+    <Compile Include="P_SOLO_Marcador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="P_Debate_Ganador.designer.cs">
-      <DependentUpon>P_Debate_Ganador.cs</DependentUpon>
+    <Compile Include="P_SOLO_Marcador.designer.cs">
+      <DependentUpon>P_SOLO_Marcador.cs</DependentUpon>
     </Compile>
-    <Compile Include="P_focusedBible_SoloyPartida.cs">
+    <Compile Include="P_DUO_Ganador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="P_focusedBible_SoloyPartida.Designer.cs">
-      <DependentUpon>P_focusedBible_SoloyPartida.cs</DependentUpon>
+    <Compile Include="P_DUO_Ganador.designer.cs">
+      <DependentUpon>P_DUO_Ganador.cs</DependentUpon>
     </Compile>
-    <Compile Include="P_focusedBible_Debate.cs">
+    <Compile Include="P_focusedBible_SOLO_y_PARTIDA.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="P_focusedBible_Debate.Designer.cs">
-      <DependentUpon>P_focusedBible_Debate.cs</DependentUpon>
+    <Compile Include="P_focusedBible_SOLO_y_PARTIDA.Designer.cs">
+      <DependentUpon>P_focusedBible_SOLO_y_PARTIDA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_focusedBible_DUO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_focusedBible_DUO.Designer.cs">
+      <DependentUpon>P_focusedBible_DUO.cs</DependentUpon>
     </Compile>
     <Compile Include="P_GameSettings.cs">
       <SubType>Form</SubType>
@@ -124,11 +130,11 @@
     <Compile Include="P_Main.Designer.cs">
       <DependentUpon>P_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="P_Debate_Main.cs">
+    <Compile Include="P_DUO_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="P_Debate_Main.designer.cs">
-      <DependentUpon>P_Debate_Main.cs</DependentUpon>
+    <Compile Include="P_DUO_Main.designer.cs">
+      <DependentUpon>P_DUO_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="P_Login.cs">
       <SubType>Form</SubType>
@@ -155,14 +161,17 @@
     <EmbeddedResource Include="Banners.resx">
       <DependentUpon>Banners.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="P_Debate_Ganador.resx">
-      <DependentUpon>P_Debate_Ganador.cs</DependentUpon>
+    <EmbeddedResource Include="P_SOLO_Marcador.resx">
+      <DependentUpon>P_SOLO_Marcador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="P_focusedBible_SoloyPartida.resx">
-      <DependentUpon>P_focusedBible_SoloyPartida.cs</DependentUpon>
+    <EmbeddedResource Include="P_DUO_Ganador.resx">
+      <DependentUpon>P_DUO_Ganador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="P_focusedBible_Debate.resx">
-      <DependentUpon>P_focusedBible_Debate.cs</DependentUpon>
+    <EmbeddedResource Include="P_focusedBible_SOLO_y_PARTIDA.resx">
+      <DependentUpon>P_focusedBible_SOLO_y_PARTIDA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_focusedBible_DUO.resx">
+      <DependentUpon>P_focusedBible_DUO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_GameSettings.resx">
       <DependentUpon>P_GameSettings.cs</DependentUpon>
@@ -173,8 +182,8 @@
     <EmbeddedResource Include="P_Main.resx">
       <DependentUpon>P_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="P_Debate_Main.resx">
-      <DependentUpon>P_Debate_Main.cs</DependentUpon>
+    <EmbeddedResource Include="P_DUO_Main.resx">
+      <DependentUpon>P_DUO_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_Login.resx">
       <DependentUpon>P_Login.cs</DependentUpon>
@@ -289,7 +298,6 @@
     <None Include="Resources\Focused-bible-CONFIGURACIÓN-Unchecked-01.png" />
     <None Include="Resources\Focused-bible-DEBATE-01.png" />
     <None Include="Resources\Focused-bible-DEBATE-02.png" />
-    <None Include="Resources\Focused-bible-DUO-WINNER_Background-01.png" />
     <None Include="Resources\Focused-bible-DUO-WINNER-Trophy-01.png" />
     <None Include="Resources\Focused-bible-landing-01.png" />
     <None Include="Resources\Focused-bible-landing-02.png" />
@@ -312,7 +320,6 @@
     <None Include="Resources\Focused-bible-SOLO-03.png" />
     <None Include="Resources\Focused-bible-SOLO-04.png" />
     <None Include="Resources\Focused-bible-SOLO-04_OFF.png" />
-    <None Include="Resources\Focused-bible-SOLO-05.png" />
     <None Include="Resources\Focused-bible-SOLO-06.png" />
     <None Include="Resources\Focused-bible-SOLO-06_OFF.png" />
     <None Include="Resources\Focused-bible-SOLO-07.png" />
@@ -337,6 +344,10 @@
     <None Include="Resources\BTN_PASAGE_Disabled.png" />
     <None Include="Resources\BTN_PASAGE_Leave.png" />
     <None Include="Resources\BTN_PASAGE_Move.png" />
+    <None Include="Resources\Fondo_SOLO.png" />
+    <None Include="Resources\Focused-bible-SOLO-05.png" />
+    <None Include="Resources\Focused-bible-SOLO-marcador-01.png" />
+    <None Include="Resources\Focused-bible-DUO-WINNER_Background-01.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

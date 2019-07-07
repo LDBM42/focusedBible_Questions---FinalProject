@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 using capaDatos;
 using capaEntidad;
@@ -23,9 +24,12 @@ namespace capaPresentacion
         D_Login login = new D_Login();
         D_Usuario usuario = new D_Usuario();
         E_focusedBible objEntidad = new E_focusedBible();
+        DataTable dt;
+        string user;
+        string password;
 
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+       [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
@@ -51,11 +55,11 @@ namespace capaPresentacion
             pnl_fondoLogo.BackgroundImage = Properties.Resources.Focused_bible_landing_01;
             pnl_fondoLogo.BackgroundImageLayout = ImageLayout.None;
 
-            tmr_cuadroAzul.Start();
+            timerFondoLogo.Start();
                         
             DataSet ds = login.AutoLoginGetLocal(); //base de datos local
 
-            DataTable dt = new DataTable();
+            dt = new DataTable();
             if (reOpened == 0)
             {
                 dt = ds.Tables[0]; //base de datos remota
@@ -64,14 +68,8 @@ namespace capaPresentacion
 
             if (dt.Rows.Count > 0)
             {
-                text_Usuario.Text = dt.Rows[0]["Usuario"].ToString();
-                text_Password.Text = dt.Rows[0]["Contraseña"].ToString();
-
-                if (reOpened == 0) // si es la primera vez que se entra
-                {
-                    countDownTimer = 1;
-                    timer1.Start(); // para esperar a que cargue la ventana y realizar el autologin
-                }
+                user = dt.Rows[0]["Usuario"].ToString();
+                password = dt.Rows[0]["Contraseña"].ToString();
             }
 
 
@@ -102,7 +100,7 @@ namespace capaPresentacion
             }
         }
 
-        private void tmr_cuadroAzul_Tick(object sender, EventArgs e)
+        private void timerFondoLogo_Tick(object sender, EventArgs e)
         {
             if (x >= 250)
             {
@@ -113,15 +111,40 @@ namespace capaPresentacion
             {
                 pnl_fondoLogo.BackgroundImage = Properties.Resources.Focused_bible_FondoLogin_NewUser;
                 pnl_fondoLogo.BackgroundImageLayout = ImageLayout.Stretch;
-                tmr_cuadroAzul.Stop();
+                timerFondoLogo.Stop();
+
+                if (reOpened == 0) // si es la primera vez que se entra
+                {
+                    countDownTimer = 1;
+                    text_Usuario.Text = user[0].ToString(); //escribir la primera letra del User Name
+                    timerUser.Start(); // para esperar a que cargue la ventana y realizar el autologin
+                }
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerUser_Tick(object sender, EventArgs e)
         {
-            if (countDownTimer != 0) // para dar click en el botón de Entrar automaticamene
+            if (countDownTimer != dt.Rows[0]["Usuario"].ToString().Count())
             {
-                countDownTimer--;
+                text_Usuario.Text += user[countDownTimer];
+                countDownTimer++;
+            }
+            else
+            {
+                timerUser.Stop();
+                timerPassword.Start();
+                countDownTimer = 1;
+                text_Password.Text = password[0].ToString(); //escribir la primera letra del Password
+            }
+        }
+
+
+        private void timerPassword_Tick(object sender, EventArgs e)
+        {
+            if (countDownTimer != dt.Rows[0]["Contraseña"].ToString().Count())
+            {
+                text_Password.Text += password[countDownTimer];
+                countDownTimer++;
             }
             else
             {

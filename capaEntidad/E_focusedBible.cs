@@ -39,7 +39,7 @@ namespace capaEntidad
         public bool enableAllSounds { get; set; }
 
 
-        public string[,] finalResults { get; set; } // resultados finales
+        public string[,] finalResultsDUO { get; set; } // resultados finales
 
 
         // para almacenar el query por dificultad

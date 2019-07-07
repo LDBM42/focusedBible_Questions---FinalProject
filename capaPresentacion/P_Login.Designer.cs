@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tmr_cuadroAzul = new System.Windows.Forms.Timer(this.components);
+            this.timerUser = new System.Windows.Forms.Timer(this.components);
+            this.timerFondoLogo = new System.Windows.Forms.Timer(this.components);
             this.pnl_fondoLogo = new System.Windows.Forms.Panel();
             this.lbl_CountDown = new System.Windows.Forms.Label();
             this.text_Password = new System.Windows.Forms.TextBox();
             this.text_Usuario = new System.Windows.Forms.TextBox();
             this.llab_nuevoUsuario = new System.Windows.Forms.LinkLabel();
             this.lbl_Login = new System.Windows.Forms.Label();
+            this.timerPassword = new System.Windows.Forms.Timer(this.components);
             this.pbx_Usuario = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
@@ -47,15 +48,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
             this.SuspendLayout();
             // 
-            // timer1
+            // timerUser
             // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerUser.Tick += new System.EventHandler(this.timerUser_Tick);
             // 
-            // tmr_cuadroAzul
+            // timerFondoLogo
             // 
-            this.tmr_cuadroAzul.Interval = 30;
-            this.tmr_cuadroAzul.Tick += new System.EventHandler(this.tmr_cuadroAzul_Tick);
+            this.timerFondoLogo.Interval = 30;
+            this.timerFondoLogo.Tick += new System.EventHandler(this.timerFondoLogo_Tick);
             // 
             // pnl_fondoLogo
             // 
@@ -145,6 +145,10 @@
             this.lbl_Login.Text = "LOGIN";
             this.lbl_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timerPassword
+            // 
+            this.timerPassword.Tick += new System.EventHandler(this.timerPassword_Tick);
+            // 
             // pbx_Usuario
             // 
             this.pbx_Usuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -215,10 +219,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(780, 396);
+            this.Controls.Add(this.pnl_fondoLogo);
             this.Controls.Add(this.lbl_Login);
             this.Controls.Add(this.pbx_Usuario);
             this.Controls.Add(this.llab_nuevoUsuario);
-            this.Controls.Add(this.pnl_fondoLogo);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbx_Sound);
             this.Controls.Add(this.btnEntrar);
@@ -243,8 +247,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer tmr_cuadroAzul;
+        private System.Windows.Forms.Timer timerUser;
+        private System.Windows.Forms.Timer timerFondoLogo;
         private System.Windows.Forms.Panel pnl_fondoLogo;
         private System.Windows.Forms.Label lbl_CountDown;
         private System.Windows.Forms.PictureBox btnClose;
@@ -255,5 +259,6 @@
         private System.Windows.Forms.LinkLabel llab_nuevoUsuario;
         private System.Windows.Forms.Label lbl_Login;
         private System.Windows.Forms.PictureBox pbx_Usuario;
+        private System.Windows.Forms.Timer timerPassword;
     }
 }

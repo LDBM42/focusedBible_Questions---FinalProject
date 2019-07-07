@@ -156,13 +156,9 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\WebDriver.xml
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\WebDriver.Support.xml
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csprojAssemblyReference.cache
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.Banners.resources
-C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Debate_Ganador.resources
-C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible_SoloyPartida.resources
-C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible_Debate.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_GameSettings.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.HowToPlay.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Main.resources
-C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Debate_Main.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Login.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Splash.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Usuario.resources
@@ -172,3 +168,8 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentaci
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.CopyComplete
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.exe
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.pdb
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible_DUO.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible_SOLO_y_PARTIDA.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_DUO_Ganador.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_DUO_Main.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_SOLO_Marcador.resources
