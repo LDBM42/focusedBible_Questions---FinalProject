@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.pnl_fondoLogo = new System.Windows.Forms.Panel();
             this.lbl_CountDown = new System.Windows.Forms.Label();
-            this.btn_Crear = new System.Windows.Forms.Button();
             this.text_Password = new System.Windows.Forms.TextBox();
             this.text_Usuario = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -45,6 +44,7 @@
             this.pbx_Usuario = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
+            this.btn_Crear = new System.Windows.Forms.Button();
             this.pnl_fondoLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Usuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -74,27 +74,6 @@
             this.lbl_CountDown.TabIndex = 2;
             this.lbl_CountDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_CountDown.Visible = false;
-            // 
-            // btn_Crear
-            // 
-            this.btn_Crear.BackgroundImage = global::capaPresentacion.Properties.Resources.Boton_Empezar_MouseLeave;
-            this.btn_Crear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Crear.FlatAppearance.BorderSize = 0;
-            this.btn_Crear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_Crear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_Crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Crear.Font = new System.Drawing.Font("Catamaran", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Crear.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Crear.Location = new System.Drawing.Point(311, 373);
-            this.btn_Crear.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Crear.Name = "btn_Crear";
-            this.btn_Crear.Size = new System.Drawing.Size(408, 47);
-            this.btn_Crear.TabIndex = 18;
-            this.btn_Crear.Text = "CREAR";
-            this.btn_Crear.UseVisualStyleBackColor = false;
-            this.btn_Crear.Click += new System.EventHandler(this.btn_Crear_Click);
-            this.btn_Crear.MouseEnter += new System.EventHandler(this.btn_Crear_MouseEnter);
-            this.btn_Crear.MouseLeave += new System.EventHandler(this.btn_Crear_MouseLeave);
             // 
             // text_Password
             // 
@@ -270,6 +249,27 @@
             this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
             this.pbx_Sound.MouseEnter += new System.EventHandler(this.btnMinimize_MouseEnter);
             this.pbx_Sound.MouseLeave += new System.EventHandler(this.btnMinimize_MouseLeave);
+            // 
+            // btn_Crear
+            // 
+            this.btn_Crear.BackgroundImage = global::capaPresentacion.Properties.Resources.Boton_Empezar_MouseLeave;
+            this.btn_Crear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Crear.FlatAppearance.BorderSize = 0;
+            this.btn_Crear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_Crear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_Crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Crear.Font = new System.Drawing.Font("Catamaran", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Crear.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_Crear.Location = new System.Drawing.Point(311, 373);
+            this.btn_Crear.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Crear.Name = "btn_Crear";
+            this.btn_Crear.Size = new System.Drawing.Size(408, 47);
+            this.btn_Crear.TabIndex = 18;
+            this.btn_Crear.Text = "CREAR";
+            this.btn_Crear.UseVisualStyleBackColor = false;
+            this.btn_Crear.Click += new System.EventHandler(this.btn_Crear_Click);
+            this.btn_Crear.MouseEnter += new System.EventHandler(this.btn_Crear_MouseEnter);
+            this.btn_Crear.MouseLeave += new System.EventHandler(this.btn_Crear_MouseLeave);
             // 
             // P_Usuario
             // 

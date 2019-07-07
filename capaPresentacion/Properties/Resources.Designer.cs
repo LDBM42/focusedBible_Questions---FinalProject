@@ -653,6 +653,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_SOLO_marcador_01 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-SOLO-marcador-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_SOLO_Pasage_03 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_SOLO_Pasage_03", resourceCulture);
@@ -726,6 +736,16 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Fondo_DUO_Jugador_2 {
             get {
                 object obj = ResourceManager.GetObject("Fondo_DUO_Jugador_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_SOLO {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_SOLO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

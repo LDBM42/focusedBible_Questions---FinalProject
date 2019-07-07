@@ -29,7 +29,7 @@ namespace capaPresentacion
         N_Listener objNegoListener = new N_Listener();
         P_SeleccionCategoria SeleccionCategoria = new P_SeleccionCategoria();
         D_Login login = new D_Login();
-        P_Debate_Main PDebateMain;
+        P_DUO_Main PDebateMain;
         P_QueryListarPreguntas PQuery;
         bool soundsVisible = false;
         string previousTestamentSelection = "Todas"; // para saber cual item estaba seleccionado en el listbox de los testamentos
@@ -438,7 +438,7 @@ namespace capaPresentacion
                     existe.Dispose();
                     GC.Collect();
 
-                    PDebateMain = new P_Debate_Main(objEntidad);
+                    PDebateMain = new P_DUO_Main(objEntidad);
 
                     PDebateMain.Show();
                     this.Hide();
