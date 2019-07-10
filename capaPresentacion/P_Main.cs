@@ -29,11 +29,11 @@ namespace capaPresentacion
                 /***INICIALIZANDO TODO***/
 
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
+                objEntidad.catNuevoAntiguo = new string[2] { "Todas", ""};
                 objEntidad.catEvangelios_yOtros = new string[10];
                 objEntidad.catLibro = new string[66];
 
                 objEntidad.difficulty = "Todas";
-                objEntidad.catNuevoAntiguo = "Todas";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
                 objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad  ORDER BY NEWID()";
 
@@ -176,7 +176,7 @@ namespace capaPresentacion
         private void btn_debate_Click(object sender, EventArgs e)
         {
             this.Hide();
-            P_Debate_Main debateMain = new P_Debate_Main(objEntidad);
+            P_DUO_Main debateMain = new P_DUO_Main(objEntidad);
             debateMain.ShowDialog();
         }
 
@@ -406,8 +406,8 @@ namespace capaPresentacion
         private void btn_solo_Click(object sender, EventArgs e)
         {
             this.Hide();
-            P_focusedBible_SoloyPartida soloMain = new P_focusedBible_SoloyPartida(objEntidad);
-            soloMain.ShowDialog();
+            P_focusedBible_SOLO_y_PARTIDA soloMain = new P_focusedBible_SOLO_y_PARTIDA(objEntidad);
+            soloMain.Show();
         }
 
         private void P_Main_Enter(object sender, EventArgs e)

@@ -10,7 +10,7 @@ namespace capaPresentacion
     public class P_QueryListarPreguntas
     {
 
-        public string QueryPorCategoriayDificultad(string testamentos, string [] categoria, string difficulty, 
+        public string QueryPorCategoriayDificultad(string [] testamentos, string [] categoria, string difficulty, 
                                                      int LimitOfQuestions, bool opportunities)
         {
             string Query;
@@ -26,7 +26,7 @@ namespace capaPresentacion
 
 
             //Crear Query para consultar por categorias en la base de datos
-            if (testamentos != "Todas")
+            if (testamentos[0] != "Todas")
             {
                 Query += "WHERE nombreLibro IN(";
 
@@ -47,7 +47,7 @@ namespace capaPresentacion
             }
 
 
-            if (testamentos == "Todas" && difficulty != "Todas")
+            if (testamentos[0] == "Todas" && difficulty != "Todas")
             {
                 Query += string.Format("WHERE dificultad ='{0}'", difficulty);
             }

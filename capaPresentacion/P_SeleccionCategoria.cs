@@ -11,7 +11,7 @@ namespace capaPresentacion
     class P_SeleccionCategoria
     {
         public void SeleccionarCategorías(string[] categoria, ListBox lbx_categoria)
-        {
+        {         
             for (int index = 0; index <= categoria.Length - 1; index++)
             {
                 lbx_categoria.SetSelected(lbx_categoria.FindString(categoria[index]), true);
@@ -24,8 +24,16 @@ namespace capaPresentacion
             string[] categoria = new string[lbx_categoria.SelectedItems.Count];
             for (int index = 0; index <= lbx_categoria.SelectedItems.Count - 1; index++)
             {
-                DataRowView drv = (DataRowView)lbx_categoria.SelectedItems[index];
-                categoria[index] = drv[nombreColumn].ToString();
+                if (nombreColumn == "")
+                {
+                    categoria[index] = lbx_categoria.SelectedItems[index].ToString();
+                }
+                else
+                {
+                    DataRowView drv = (DataRowView)lbx_categoria.SelectedItems[index];
+                    categoria[index] = drv[nombreColumn].ToString();
+                }
+
             }
 
             return categoria;
