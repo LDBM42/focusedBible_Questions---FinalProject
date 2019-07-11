@@ -173,3 +173,5 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentaci
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_DUO_Ganador.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_DUO_Main.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_SOLO_Marcador.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_PARTIDA_PROFE_Main.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_PARTIDA_ALUMNO_Main.resources

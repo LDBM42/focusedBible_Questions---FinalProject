@@ -113,6 +113,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _status_connected {
+            get {
+                object obj = ResourceManager.GetObject("_status_connected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Administrador {
             get {
                 object obj = ResourceManager.GetObject("Administrador", resourceCulture);
@@ -1076,6 +1086,26 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Sound_MouseLeave_ON_NEUTRO {
             get {
                 object obj = ResourceManager.GetObject("Sound_MouseLeave_ON_NEUTRO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap status_busy {
+            get {
+                object obj = ResourceManager.GetObject("status-busy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap status_offline {
+            get {
+                object obj = ResourceManager.GetObject("status-offline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

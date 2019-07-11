@@ -26,7 +26,6 @@ namespace capaPresentacion
 
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
-        N_Listener objNegoListener = new N_Listener();
         P_GameSettings GameSettings;
         D_Login login = new D_Login();
         P_focusedBible_DUO PfocusedB;
@@ -238,8 +237,7 @@ namespace capaPresentacion
 
             GameSettings = new P_GameSettings(objEntidad);
             existe2.Hide();
-            //this.Hide();
-            GameSettings.Show();
+            GameSettings.ShowDialog();
         }
 
 

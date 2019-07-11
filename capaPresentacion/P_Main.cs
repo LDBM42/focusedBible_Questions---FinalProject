@@ -59,7 +59,6 @@ namespace capaPresentacion
         P_GameSettings GameSettings;
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
-        N_Listener objNegoListener = new N_Listener();
         D_Login login = new D_Login();
 
 
@@ -129,7 +128,7 @@ namespace capaPresentacion
             }
 
             // Privilegios Administrador
-            if (lab_User.Text == "Usuario: Admin")
+            if (E_Usuario.Rol == "Admin")
             {
                 btn_debate.Enabled = true; // desbloquear modalidad debate
             }
@@ -173,11 +172,11 @@ namespace capaPresentacion
             }
         }
 
-        private void btn_debate_Click(object sender, EventArgs e)
+        private void btn_duo_Click(object sender, EventArgs e)
         {
             this.Hide();
-            P_DUO_Main debateMain = new P_DUO_Main(objEntidad);
-            debateMain.ShowDialog();
+            P_DUO_Main duoMain = new P_DUO_Main(objEntidad);
+            duoMain.ShowDialog();
         }
 
         private void btn_how2Play_Click(object sender, EventArgs e)
@@ -405,6 +404,8 @@ namespace capaPresentacion
 
         private void btn_solo_Click(object sender, EventArgs e)
         {
+            objEntidad.solo_O_Partida = "SOLO";
+
             this.Hide();
             P_focusedBible_SOLO_y_PARTIDA soloMain = new P_focusedBible_SOLO_y_PARTIDA(objEntidad);
             soloMain.Show();
@@ -419,6 +420,24 @@ namespace capaPresentacion
             else
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void btn_Partida_Click(object sender, EventArgs e)
+        {
+            objEntidad.solo_O_Partida = "PARTIDA";
+
+            if (E_Usuario.Rol == "Admin")
+            {
+                this.Hide();
+                P_PARTIDA_PROFE_Main partidaProfeMain = new P_PARTIDA_PROFE_Main(objEntidad);
+                partidaProfeMain.ShowDialog();
+            }
+            else
+            {
+                this.Hide();
+                P_PARTIDA_ALUMNO_Main partidaAlumnoMain = new P_PARTIDA_ALUMNO_Main(objEntidad);
+                partidaAlumnoMain.ShowDialog();
             }
         }
     }

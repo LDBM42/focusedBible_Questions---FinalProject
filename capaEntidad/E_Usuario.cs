@@ -23,7 +23,14 @@
             get { return _password; }
             set { _password = value; }
         }
-       
+
+        private static string _rol;
+        public static string Rol
+        {
+            get { return _rol; }
+            set { _rol = value; }
+        }
+
         private static int _logged;
 
         public static int Logged

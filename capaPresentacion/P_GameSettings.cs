@@ -26,7 +26,6 @@ namespace capaPresentacion
         HowToPlay howToPlay;
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
-        N_Listener objNegoListener = new N_Listener();
         P_SeleccionCategoria SeleccionCategoria = new P_SeleccionCategoria();
         D_Login login = new D_Login();
         P_DUO_Main PDebateMain;
