@@ -22,14 +22,8 @@ namespace capaPresentacion
             InitializeComponent();
         }
 
-        // Destructor
-        ~P_focusedBible_SOLO_y_PARTIDA()
-        {
-            Timer_2Answer.Stop();
-            objEntidad.StopGameSound();
-        }
 
-
+        N_Listener objNegoListener = new N_Listener();//-------------------------------------------
         #region Variables y Objetos
         int timeToIncrease = 15; // tiempo que incrementa al elegir el comodin pasage
         Banners Banner;
@@ -40,6 +34,9 @@ namespace capaPresentacion
         E_focusedBible[] lista_porDificultadYCategoria; // Para almacenar la lista completa y asi evitar que se repitan
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
+        DataSet ds;
+        DataTable dt;
+
         bool answerCorrect;
         int numeroPrueba;
         int codPregNoRepetir;
@@ -1051,13 +1048,19 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Activated(object sender, EventArgs e)
         {
-            //Timer_2Answer.Start();
+            if (objEntidad.solo_O_Partida == "PARTIDA")
+            {
+                ds = objNegoListener.N_Listener_Comando(1);
+                dt = ds.Tables[0];
 
-            //if (sonido != null)
-            //{
-            //    sonido.PlayLooping();
-            //}
-          
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0]["Comando"].ToString() == "stop")
+                    {
+                        btn_goToMain.PerformClick();
+                    }
+                }
+            }
         }
 
         private void Timer_Banner_Tick(object sender, EventArgs e)

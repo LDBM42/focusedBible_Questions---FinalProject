@@ -222,6 +222,7 @@
             this.btn_Partida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_Partida.UseVisualStyleBackColor = true;
             this.btn_Partida.EnabledChanged += new System.EventHandler(this.btn_Partida_EnabledChanged);
+            this.btn_Partida.Click += new System.EventHandler(this.btn_Partida_Click);
             this.btn_Partida.MouseEnter += new System.EventHandler(this.btn_Partida_MouseEnter);
             this.btn_Partida.MouseLeave += new System.EventHandler(this.btn_Partida_MouseLeave);
             // 
@@ -245,7 +246,7 @@
             this.btn_debate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_debate.UseVisualStyleBackColor = true;
             this.btn_debate.EnabledChanged += new System.EventHandler(this.btn_debate_EnabledChanged);
-            this.btn_debate.Click += new System.EventHandler(this.btn_debate_Click);
+            this.btn_debate.Click += new System.EventHandler(this.btn_duo_Click);
             this.btn_debate.MouseEnter += new System.EventHandler(this.btn_debate_MouseEnter);
             this.btn_debate.MouseLeave += new System.EventHandler(this.btn_debate_MouseLeave);
             // 

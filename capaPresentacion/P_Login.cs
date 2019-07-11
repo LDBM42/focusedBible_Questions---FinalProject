@@ -163,6 +163,7 @@ namespace capaPresentacion
                 E_Usuario.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
                 E_Usuario.Nombreusuario = dt.Rows[0]["Usuario"].ToString();
                 E_Usuario.Password = dt.Rows[0]["Password"].ToString();
+                E_Usuario.Rol = dt.Rows[0]["Tipo"].ToString();
                 E_Usuario.Logged = 1; // para activar autologgin
 
                 //Guardar Datos Autologgin

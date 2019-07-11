@@ -13,24 +13,23 @@ namespace capaDatos
     {
         SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
         SqlCommand sqlCommand;
-        string Comando;
 
-        public string D_Listener_Comando(int ID) // Empezar el juego en todas las maquinas conectadas u otro comando indicado.
+        public DataSet D_Listener_Comando(int ID) // Empezar el juego en todas las maquinas conectadas u otro comando indicado.
         {
-            sqlCommand = new SqlCommand("SELECT Comando FROM Listener WHERE ID =" + ID, sqlConnection);
+            sqlCommand = new SqlCommand("SELECT Comando, codigoProfe FROM Listener WHERE ID =" + ID, sqlConnection);
 
             if (sqlConnection.State == ConnectionState.Open) sqlConnection.Close();
 
             sqlConnection.Open();
-            Comando = sqlCommand.ExecuteScalar().ToString();
-            sqlConnection.Close();
-
-            return Comando;
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+            DataSet dt = new DataSet();
+            da.Fill(dt);
+            return dt;
         }
 
-        public void D_Listener_Detener_O_Iniciar(int ID, string Comando) // Detener inicio en maquinas conectadas u otro comando indicado.
+        public void D_Listener_Detener_O_Iniciar(int ID, string Comando, string codigoProfe) // Detener inicio en maquinas conectadas u otro comando indicado.
         {
-            sqlCommand = new SqlCommand("Update Listener SET Comando = '" + Comando + "' WHERE ID =" + ID, sqlConnection);
+            sqlCommand = new SqlCommand("Update Listener SET Comando = '" + Comando + "', codigoProfe = '" + codigoProfe + "' WHERE ID =" + ID, sqlConnection);
 
             if (sqlConnection.State == ConnectionState.Open) sqlConnection.Close();
 

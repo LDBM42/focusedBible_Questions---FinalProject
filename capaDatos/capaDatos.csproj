@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="D_AlumnoPartida.cs" />
     <Compile Include="D_focusedBible.cs" />
     <Compile Include="D_Listener.cs" />
     <Compile Include="D_Login.cs" />

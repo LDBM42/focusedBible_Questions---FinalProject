@@ -38,6 +38,8 @@ namespace capaEntidad
         public bool enableGameSound { get; set; }
         public bool enableAllSounds { get; set; }
 
+        public string solo_O_Partida { get; set; }
+
 
         public string[,] finalResultsDUO { get; set; } // resultados finales
 

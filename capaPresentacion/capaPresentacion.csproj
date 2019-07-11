@@ -88,6 +88,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="P_PARTIDA_ALUMNO_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_PARTIDA_ALUMNO_Main.designer.cs">
+      <DependentUpon>P_PARTIDA_ALUMNO_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_PARTIDA_PROFE_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_PARTIDA_PROFE_Main.designer.cs">
+      <DependentUpon>P_PARTIDA_PROFE_Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="P_SOLO_Marcador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +172,12 @@
     <Compile Include="P_QueryListarPreguntas.cs" />
     <EmbeddedResource Include="Banners.resx">
       <DependentUpon>Banners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_PARTIDA_ALUMNO_Main.resx">
+      <DependentUpon>P_PARTIDA_ALUMNO_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_PARTIDA_PROFE_Main.resx">
+      <DependentUpon>P_PARTIDA_PROFE_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_SOLO_Marcador.resx">
       <DependentUpon>P_SOLO_Marcador.cs</DependentUpon>
@@ -245,6 +263,9 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\status-busy.png" />
+    <None Include="Resources\_status_connected.png" />
+    <None Include="Resources\status-offline.png" />
     <None Include="Resources\usuario-masculino.png" />
     <None Include="Resources\usuario-femenino.png" />
     <None Include="Resources\Usuario.png" />
