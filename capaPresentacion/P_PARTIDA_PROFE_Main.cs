@@ -32,7 +32,6 @@ namespace capaPresentacion
         P_GameSettings GameSettings;
 
 
-
         public string difficulty;
         public string queryPorDificultad;
         public string[] catEvangelios_yOtros = new string[10];
@@ -42,6 +41,7 @@ namespace capaPresentacion
         public int time2Answer;
 
 
+
         private void P_Debate_Main_Load(object sender, EventArgs e)
         {
             SetDoubleBuffered(tableLayoutPanel7);
@@ -49,7 +49,9 @@ namespace capaPresentacion
             SetDoubleBuffered(tableLayoutPanel15);
             SetDoubleBuffered(tableLayoutPanel20);
             SetDoubleBuffered(tableLayoutPanel21);
-            
+
+            objNegoAlumno.N_EliminarTodo(); // borrar todos los alumnos de la lista
+
             listarAlumnos();
             timer_ActualizarEstadoLista.Start(); // iniciar actualizar lista cada 2 segundos
             
@@ -66,7 +68,7 @@ namespace capaPresentacion
         private void listarAlumnos()
         {
 
-            DataTable dt = objNegoAlumno.N_listado(objEntidadAlumno);
+            DataTable dt = objNegoAlumno.N_listado();
             //DataSource permite vaciar un DataTable en un dataGridView
             dgvAlumnos.DataSource = dt;
         }
@@ -111,6 +113,11 @@ namespace capaPresentacion
 
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
+            //detener la partida
+            objNegoListener.N_Listener_Detener_O_Iniciar(1, "stop", "");
+            objNegoAlumno.N_EliminarTodo(); // borrar todos los alumnos de la lista
+
+
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
 
             if (existe != null) // para saber si el formulario principal existe
@@ -136,37 +143,7 @@ namespace capaPresentacion
             }
         }
 
-        private void OpenSettings()
-        {
-
-            try
-            {   // para saber si el formulario existe, o sea si está abierto o cerrado
-                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Login").SingleOrDefault<Form>();
-                Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();
-
-                if (existe != null)
-                {
-                    existe.Close();
-                }
-
-                if (existe2 != null) // para cerrar el juego, en caso de haberse iniciado
-                {
-                    existe2.Close();
-                }
-
-                P_Login login = new P_Login();
-                login.reOpened++;
-                this.Hide();
-                login.Show();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo salió mal, Favor intentarlo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-        }
-
-
+        
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
@@ -264,7 +241,9 @@ namespace capaPresentacion
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
+            //detener la partida
             objNegoListener.N_Listener_Detener_O_Iniciar(1, "stop", "");
+            objNegoAlumno.N_EliminarTodo(); // borrar todos los alumnos de la lista
         }
 
         private void P_PARTIDA_PROFE_Main_Activated(object sender, EventArgs e)

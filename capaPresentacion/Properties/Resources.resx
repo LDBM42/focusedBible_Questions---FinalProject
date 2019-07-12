@@ -163,9 +163,6 @@
   <data name="focusedBible_Questions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\img\focusedBible_Questions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="50-percentClic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\50-percentClic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Focused-bible-CONFIGURACIÓN-Fondo-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-CONFIGURACIÓN-Fondo-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,9 +193,6 @@
   <data name="Fondo_SOLO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fondo_SOLO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="50-percent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\50-percent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="how2Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\how2Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -210,9 +204,6 @@
   </data>
   <data name="close_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="50-percentEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\50-percentEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Focused_bible_landing_03_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-03-MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -391,14 +382,8 @@
   <data name="GameSound_MouseEnter_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GameSound_MouseEnter_OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="50-percent_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\50-percent_On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Grupo1_ImagenDuo_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Grupo1_ImagenDuo-OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="50-percent_MouseOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\50-percent_MouseOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Grupo2_ImagenDuo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Grupo2_ImagenDuo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

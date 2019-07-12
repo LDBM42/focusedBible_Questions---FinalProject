@@ -381,7 +381,7 @@ namespace capaPresentacion
                     existe2.Close();
                 }
 
-                P_Login login = new P_Login();
+                P_Login login = new P_Login(objEntidad);
                 login.reOpened++;
                 this.Hide();
                 login.Show();
@@ -397,7 +397,7 @@ namespace capaPresentacion
 
         private void btn_newUser_Click(object sender, EventArgs e)
         {
-            P_Usuario usuario = new P_Usuario(true);
+            P_Usuario usuario = new P_Usuario(true, objEntidad);
             usuario.Show();
 
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();

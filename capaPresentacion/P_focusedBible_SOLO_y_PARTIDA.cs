@@ -12,9 +12,10 @@ namespace capaPresentacion
 {
     public partial class P_focusedBible_SOLO_y_PARTIDA : Form
     {
-        public P_focusedBible_SOLO_y_PARTIDA(E_focusedBible Configuracion)
+        public P_focusedBible_SOLO_y_PARTIDA(E_focusedBible Configuracion, E_Alumnos Alumno = null)
         {
             objEntidad = Configuracion;
+            objEntidadAlumno = Alumno;
 
             opportunities = objEntidad.opportunities;
             objEntidad.finalResultsDUO = new string[2, 3];
@@ -33,9 +34,12 @@ namespace capaPresentacion
         int?[] noRepetir_PorDificultadyCategoria; // para que no se repitan cuando se eligen solo x dificultad
         E_focusedBible[] lista_porDificultadYCategoria; // Para almacenar la lista completa y asi evitar que se repitan
         E_focusedBible objEntidad = new E_focusedBible();
+        E_Alumnos objEntidadAlumno = new E_Alumnos();
         N_focusedBible objNego = new N_focusedBible();
+        N_AlumnoPartida objNegoAlumno = new N_AlumnoPartida();
         DataSet ds;
         DataTable dt;
+        DataTable dtListar;
 
         bool answerCorrect;
         int numeroPrueba;
@@ -153,6 +157,8 @@ namespace capaPresentacion
             SetFinalResults(); // almacena los resultados finales de los jugadores
 
 
+            dtListar = objNegoAlumno.N_listado();
+
             //ocultar Oportunidades si no se evaluará en base a oportunidades
             if (objEntidad.opportunitiesBoolean == false)
             {
@@ -179,6 +185,9 @@ namespace capaPresentacion
                 lab_Jugador.TextAlign = ContentAlignment.MiddleRight;
             }
 
+
+            //optener el id del alumno
+            objEntidadAlumno.Id = Convert.ToInt32(dtListar.Rows[0]["Id"]);
         }
 
         void Llenar_listaPorDificultadYCategoria(E_focusedBible dificultad)
@@ -372,7 +381,7 @@ namespace capaPresentacion
 
         void FinDelJuego()
         {
-            //condicion para perder
+            //condicion para terminarse el juego
             if ( opportunities == 0
                 || ((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)) )
@@ -386,9 +395,19 @@ namespace capaPresentacion
                 {
                     Thread.Sleep(1500);
 
-                    //condicion para saber quien perdió
+                    //condicion para la puntuacion del jugador
                     SetFinalResults();
-                    BannerFinalScore();
+
+                    if (objEntidad.solo_O_Partida == "PARTIDA")
+                    {
+                        objEntidadAlumno.Terminado = "True";
+                        objNegoAlumno.N_Editar(objEntidadAlumno);
+
+                    }
+                    else
+                    {
+                        BannerFinalScore();
+                    }
                 }
                 else
                 {
@@ -1137,6 +1156,11 @@ namespace capaPresentacion
 
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
+            if (objEntidad.solo_O_Partida == "PARTIDA")
+            {
+                objNegoAlumno.N_EliminarAlumno(objEntidadAlumno); // eliminar alumno de la partida por salir
+            }
+
             // para saber si el formulario existe, o sea, si está abierto o cerrado
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
             
