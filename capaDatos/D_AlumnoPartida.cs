@@ -12,7 +12,7 @@ namespace capaDatos
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
         E_Alumnos Alumno = new E_Alumnos();
 
-        public DataTable D_listado(E_Alumnos AlumnoPartida)
+        public DataTable D_listado()
         {
             SqlCommand cmd = new SqlCommand("sp_AlumnoPartida_listarTodo", cn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -85,7 +85,16 @@ namespace capaDatos
             cn.Close();
         }
 
-
+        public DataTable D_EliminarAlumno(E_Alumnos Alumno)
+        {
+            SqlCommand cmd = new SqlCommand("sp_AlumnoPartida_EliminarAlumno", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", Alumno.Id);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
     }
 

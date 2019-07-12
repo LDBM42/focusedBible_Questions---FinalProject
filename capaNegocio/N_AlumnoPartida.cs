@@ -11,9 +11,9 @@ namespace capaNegocio
         E_Alumnos AlumnoPartida = new E_Alumnos();
 
 
-        public DataTable N_listado(E_Alumnos AlumnoPartida)
+        public DataTable N_listado()
         {
-            return objDato.D_listado(AlumnoPartida);
+            return objDato.D_listado();
         }
         
         public void N_Insertar(E_Alumnos AlumnoPartida)
@@ -31,6 +31,10 @@ namespace capaNegocio
             objDato.D_EliminarTodo();
         }
 
+        public DataTable N_EliminarAlumno(E_Alumnos AlumnoPartida)
+        {
+            return objDato.D_EliminarAlumno(AlumnoPartida);
+        }
     }
 
 }

@@ -32,6 +32,7 @@ namespace capaPresentacion
         P_GameSettings GameSettings;
         DataSet ds;
         DataTable dt;
+        DataTable dtListar;
 
         public int countDown = 5;
         public bool lockStart = true;
@@ -65,9 +66,11 @@ namespace capaPresentacion
             if (objNegoAlumno.N_Editar(objEntidadAlumno) == 0)
             {
                 objNegoAlumno.N_Insertar(objEntidadAlumno);
-            }               
+            }
 
+            dtListar = objNegoAlumno.N_listado();
 
+            //para evitar el acceso a la partida si ya se ha iniciado
             if (startStopGame("start"))
             {
                 lockStart = true;
@@ -82,7 +85,6 @@ namespace capaPresentacion
             this.BackgroundImage = Properties.Resources.Fondo_Debate_Main_ConTextBox;
             BackgroundImageLayout = ImageLayout.Stretch;
         }
-
 
         private bool startStopGame(string comando)
         {
@@ -103,6 +105,11 @@ namespace capaPresentacion
         
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
+            //optener el id del alumno
+            objEntidadAlumno.Id = Convert.ToInt32(dtListar.Rows[0]["Id"]);
+            objNegoAlumno.N_EliminarAlumno(objEntidadAlumno); // eliminar alumno de la partida por salir
+            
+
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
 
             if (existe != null) // para saber si el formulario principal existe
@@ -126,36 +133,6 @@ namespace capaPresentacion
             {
                 this.DialogResult = DialogResult.OK; //cierra el esta ventana y deja vista la ventana Main
             }
-        }
-
-        private void OpenSettings()
-        {
-
-            try
-            {   // para saber si el formulario existe, o sea si está abierto o cerrado
-                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Login").SingleOrDefault<Form>();
-                Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBible_Debate").SingleOrDefault<Form>();
-
-                if (existe != null)
-                {
-                    existe.Close();
-                }
-
-                if (existe2 != null) // para cerrar el juego, en caso de haberse iniciado
-                {
-                    existe2.Close();
-                }
-
-                P_Login login = new P_Login();
-                login.reOpened++;
-                this.Hide();
-                login.Show();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo salió mal, Favor intentarlo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
         }
 
 
@@ -255,7 +232,9 @@ namespace capaPresentacion
                         objEntidadAlumno.Estado = "True";
                         objNegoAlumno.N_Editar(objEntidadAlumno);
 
-                        MessageBox.Show("Codigo Valido!");
+                        circularProgressBar.Visible = true;
+                        LoadBar.Start();
+                        tbx_codigoPartida.Enabled = false;
                     }
                     else
                     {
@@ -276,19 +255,29 @@ namespace capaPresentacion
                 {
                     timer2Start.Start();
                 }
+                else if (startStopGame("stop"))
+                {
+                    btn_goToMain.PerformClick();
+                }
             }
         }
 
         private void timer2Start_Tick(object sender, EventArgs e)
         {
+            LoadBar.Stop(); // detener label Esperando
+            circularProgressBar.Font = new Font(circularProgressBar.Font.Name, 40f, circularProgressBar.Font.Style, circularProgressBar.Font.Unit);
+
+
             if (countDown > 0)
             {
                 countDown--;
+                circularProgressBar.Text = countDown.ToString();
                 lab_countDown2Srart.Text = countDown.ToString();
             }
             else
             {
                 timer2Start.Stop();
+
 
                 ds = objNegoListener.N_Listener_Comando(1);
                 dt = ds.Tables[0];
@@ -298,7 +287,7 @@ namespace capaPresentacion
                     if (dt.Rows[0]["codigoProfe"].ToString() == tbx_codigoPartida.Text)
                     {
                         this.Hide();
-                        P_focusedBible_SOLO_y_PARTIDA soloMain = new P_focusedBible_SOLO_y_PARTIDA(objEntidad);
+                        P_focusedBible_SOLO_y_PARTIDA soloMain = new P_focusedBible_SOLO_y_PARTIDA(objEntidad, objEntidadAlumno);
                         soloMain.Show();
                     }
                     else
@@ -307,6 +296,28 @@ namespace capaPresentacion
                         tbx_codigoPartida.Enabled = false;
                     }
                 }
+            }
+        }
+
+
+        
+        private void LoadBar_Tick(object sender, EventArgs e)
+        {
+            if (circularProgressBar.Text == "Esperando")
+            {
+                circularProgressBar.Text = "Esperando.";
+            }
+            else if (circularProgressBar.Text == "Esperando.")
+            {
+                circularProgressBar.Text = "Esperando..";
+            }
+            else if (circularProgressBar.Text == "Esperando..")
+            {
+                circularProgressBar.Text = "Esperando...";
+            }
+            else
+            {
+                circularProgressBar.Text = "Esperando";
             }
         }
     }

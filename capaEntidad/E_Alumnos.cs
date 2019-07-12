@@ -2,6 +2,8 @@
 {
     public class E_Alumnos
     {
+        public int Id { get; set; }
+
         public string NombreUsuario { get; set; }
 
         public string Estado { get; set; }

@@ -34,10 +34,10 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.pB_logo = new System.Windows.Forms.PictureBox();
             this.tbx_codigoPartida = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_countDown2Srart = new System.Windows.Forms.Label();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.circularProgressBar = new CircularProgressBar.CircularProgressBar();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,10 +46,12 @@
             this.btn_goToMain = new System.Windows.Forms.Button();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.timer2Start = new System.Windows.Forms.Timer(this.components);
+            this.LoadBar = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pB_logo)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
@@ -133,21 +135,6 @@
             this.tbx_codigoPartida.TabIndex = 1;
             this.tbx_codigoPartida.TextChanged += new System.EventHandler(this.tbx_codigoPartida_TextChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Avenir Next", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
-            this.label1.Location = new System.Drawing.Point(877, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "JUGAROR / GRUPO 1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.BackColor = System.Drawing.Color.Transparent;
@@ -155,7 +142,6 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.85714F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-            this.tableLayoutPanel8.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel8.Controls.Add(this.lab_countDown2Srart, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -187,6 +173,7 @@
             this.tableLayoutPanel10.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Controls.Add(this.circularProgressBar, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(353, 4);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4);
@@ -197,6 +184,40 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(516, 415);
             this.tableLayoutPanel10.TabIndex = 0;
+            // 
+            // circularProgressBar
+            // 
+            this.circularProgressBar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.circularProgressBar.AnimationSpeed = 500;
+            this.circularProgressBar.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar.Font = new System.Drawing.Font("Avenir Next", 14F, System.Drawing.FontStyle.Bold);
+            this.circularProgressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
+            this.circularProgressBar.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.circularProgressBar.InnerMargin = 2;
+            this.circularProgressBar.InnerWidth = -1;
+            this.circularProgressBar.Location = new System.Drawing.Point(83, 35);
+            this.circularProgressBar.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar.Name = "circularProgressBar";
+            this.circularProgressBar.OuterColor = System.Drawing.Color.Gray;
+            this.circularProgressBar.OuterMargin = -25;
+            this.circularProgressBar.OuterWidth = 26;
+            this.circularProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(143)))), ((int)(((byte)(163)))));
+            this.circularProgressBar.ProgressWidth = 25;
+            this.circularProgressBar.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar.Size = new System.Drawing.Size(350, 322);
+            this.circularProgressBar.StartAngle = 270;
+            this.circularProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.circularProgressBar.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar.SubscriptText = "";
+            this.circularProgressBar.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBar.SuperscriptText = "";
+            this.circularProgressBar.TabIndex = 0;
+            this.circularProgressBar.Text = "Esperando";
+            this.circularProgressBar.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBar.Value = 68;
+            this.circularProgressBar.Visible = false;
             // 
             // tableLayoutPanel18
             // 
@@ -335,6 +356,11 @@
             this.timer2Start.Interval = 1000;
             this.timer2Start.Tick += new System.EventHandler(this.timer2Start_Tick);
             // 
+            // LoadBar
+            // 
+            this.LoadBar.Interval = 300;
+            this.LoadBar.Tick += new System.EventHandler(this.LoadBar_Tick);
+            // 
             // P_PARTIDA_ALUMNO_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -358,6 +384,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pB_logo)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel19.ResumeLayout(false);
             this.tableLayoutPanel19.PerformLayout();
@@ -381,10 +408,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
         private System.Windows.Forms.Label lab_duo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbx_codigoPartida;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Timer timer2Start;
         private System.Windows.Forms.Label lab_countDown2Srart;
+        private CircularProgressBar.CircularProgressBar circularProgressBar;
+        private System.Windows.Forms.Timer LoadBar;
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lab_duo = new System.Windows.Forms.Label();
             this.tbx_codigoPartida = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,28 +41,29 @@
             this.btn_IniciarDebate = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.Btn_Settings = new System.Windows.Forms.PictureBox();
+            this.btn_goToMain = new System.Windows.Forms.Button();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.pB_logo = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.timer_ActualizarEstadoLista = new System.Windows.Forms.Timer(this.components);
             this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Connected = new System.Windows.Forms.DataGridViewImageColumn();
             this.Terminado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Finish = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.pB_logo = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.Btn_Settings = new System.Windows.Forms.PictureBox();
-            this.btn_goToMain = new System.Windows.Forms.Button();
-            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.timer_ActualizarEstadoLista = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.tableLayoutPanel18.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pB_logo)).BeginInit();
             this.tableLayoutPanel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_logo)).BeginInit();
             this.tableLayoutPanel21.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,8 +138,8 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(600, 71);
             this.tableLayoutPanel15.TabIndex = 1;
             // 
@@ -193,107 +194,60 @@
             this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvAlumnos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Avenir Next Demi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Avenir Next Demi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Alumno,
+            this.Id,
             this.Estado,
             this.Connected,
             this.Terminado,
             this.Finish});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Avenir Next Demi Bold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Avenir Next Demi Bold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.Enabled = false;
             this.dgvAlumnos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
             this.dgvAlumnos.Location = new System.Drawing.Point(3, 3);
             this.dgvAlumnos.MultiSelect = false;
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Avenir Next Demi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Avenir Next Demi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAlumnos.RowHeadersVisible = false;
+            this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAlumnos.RowTemplate.Height = 24;
             this.dgvAlumnos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAlumnos.ShowCellErrors = false;
             this.dgvAlumnos.ShowCellToolTips = false;
+            this.dgvAlumnos.ShowEditingIcon = false;
+            this.dgvAlumnos.ShowRowErrors = false;
             this.dgvAlumnos.Size = new System.Drawing.Size(602, 338);
             this.dgvAlumnos.TabIndex = 14;
             this.dgvAlumnos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAlumnos_CellFormatting);
-            // 
-            // Alumno
-            // 
-            this.Alumno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Alumno.DataPropertyName = "Alumno";
-            this.Alumno.FillWeight = 75F;
-            this.Alumno.HeaderText = "Alumnos";
-            this.Alumno.Name = "Alumno";
-            this.Alumno.ReadOnly = true;
-            this.Alumno.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Alumno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Estado
-            // 
-            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.FillWeight = 15F;
-            this.Estado.HeaderText = "Conectado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Estado.Visible = false;
-            // 
-            // Connected
-            // 
-            this.Connected.FillWeight = 15F;
-            this.Connected.HeaderText = "Conectado";
-            this.Connected.Image = global::capaPresentacion.Properties.Resources.status_offline;
-            this.Connected.Name = "Connected";
-            this.Connected.ReadOnly = true;
-            this.Connected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Terminado
-            // 
-            this.Terminado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Terminado.DataPropertyName = "Terminado";
-            this.Terminado.FillWeight = 15F;
-            this.Terminado.HeaderText = "Terminado";
-            this.Terminado.Name = "Terminado";
-            this.Terminado.ReadOnly = true;
-            this.Terminado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Terminado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Terminado.Visible = false;
-            // 
-            // Finish
-            // 
-            this.Finish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Finish.FillWeight = 20F;
-            this.Finish.HeaderText = "Terminado";
-            this.Finish.Image = global::capaPresentacion.Properties.Resources.status_offline;
-            this.Finish.Name = "Finish";
-            this.Finish.ReadOnly = true;
-            this.Finish.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // tableLayoutPanel18
             // 
@@ -318,37 +272,6 @@
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.658126F));
             this.tableLayoutPanel18.Size = new System.Drawing.Size(1232, 668);
             this.tableLayoutPanel18.TabIndex = 0;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.70395F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.05921F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.116189F));
-            this.tableLayoutPanel7.Controls.Add(this.pB_logo, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(620, 202);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.86784F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.13216F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(608, 423);
-            this.tableLayoutPanel7.TabIndex = 4;
-            // 
-            // pB_logo
-            // 
-            this.pB_logo.BackColor = System.Drawing.Color.Transparent;
-            this.pB_logo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pB_logo.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_04;
-            this.pB_logo.Location = new System.Drawing.Point(367, 255);
-            this.pB_logo.Margin = new System.Windows.Forms.Padding(4);
-            this.pB_logo.Name = "pB_logo";
-            this.pB_logo.Size = new System.Drawing.Size(193, 121);
-            this.pB_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pB_logo.TabIndex = 0;
-            this.pB_logo.TabStop = false;
             // 
             // tableLayoutPanel20
             // 
@@ -408,6 +331,37 @@
             this.btn_goToMain.MouseEnter += new System.EventHandler(this.btn_goToMain_MouseEnter);
             this.btn_goToMain.MouseLeave += new System.EventHandler(this.btn_goToMain_MouseLeave);
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.70395F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.05921F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.116189F));
+            this.tableLayoutPanel7.Controls.Add(this.pB_logo, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(620, 202);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.86784F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.13216F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(608, 423);
+            this.tableLayoutPanel7.TabIndex = 4;
+            // 
+            // pB_logo
+            // 
+            this.pB_logo.BackColor = System.Drawing.Color.Transparent;
+            this.pB_logo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pB_logo.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_04;
+            this.pB_logo.Location = new System.Drawing.Point(367, 255);
+            this.pB_logo.Margin = new System.Windows.Forms.Padding(4);
+            this.pB_logo.Name = "pB_logo";
+            this.pB_logo.Size = new System.Drawing.Size(193, 121);
+            this.pB_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pB_logo.TabIndex = 0;
+            this.pB_logo.TabStop = false;
+            // 
             // tableLayoutPanel21
             // 
             this.tableLayoutPanel21.BackColor = System.Drawing.Color.Transparent;
@@ -438,6 +392,69 @@
             this.timer_ActualizarEstadoLista.Interval = 2000;
             this.timer_ActualizarEstadoLista.Tick += new System.EventHandler(this.timer_ActualizarEstadoLista_Tick);
             // 
+            // Alumno
+            // 
+            this.Alumno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Alumno.DataPropertyName = "Alumno";
+            this.Alumno.FillWeight = 70F;
+            this.Alumno.HeaderText = "Alumnos";
+            this.Alumno.Name = "Alumno";
+            this.Alumno.ReadOnly = true;
+            this.Alumno.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Alumno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.FillWeight = 15F;
+            this.Estado.HeaderText = "Conectado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Estado.Visible = false;
+            // 
+            // Connected
+            // 
+            this.Connected.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Connected.FillWeight = 15F;
+            this.Connected.HeaderText = "Conectado";
+            this.Connected.Image = global::capaPresentacion.Properties.Resources.status_offline;
+            this.Connected.Name = "Connected";
+            this.Connected.ReadOnly = true;
+            this.Connected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Terminado
+            // 
+            this.Terminado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Terminado.DataPropertyName = "Terminado";
+            this.Terminado.FillWeight = 15F;
+            this.Terminado.HeaderText = "Terminado";
+            this.Terminado.Name = "Terminado";
+            this.Terminado.ReadOnly = true;
+            this.Terminado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Terminado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Terminado.Visible = false;
+            // 
+            // Finish
+            // 
+            this.Finish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Finish.FillWeight = 15F;
+            this.Finish.HeaderText = "Terminado";
+            this.Finish.Image = global::capaPresentacion.Properties.Resources.status_offline;
+            this.Finish.Name = "Finish";
+            this.Finish.ReadOnly = true;
+            this.Finish.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // P_PARTIDA_PROFE_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -460,10 +477,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pB_logo)).EndInit();
             this.tableLayoutPanel20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pB_logo)).EndInit();
             this.tableLayoutPanel21.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -485,12 +502,13 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Timer timer_ActualizarEstadoLista;
         private System.Windows.Forms.DataGridView dgvAlumnos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.PictureBox pB_logo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Alumno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewImageColumn Connected;
         private System.Windows.Forms.DataGridViewTextBoxColumn Terminado;
         private System.Windows.Forms.DataGridViewImageColumn Finish;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.PictureBox pB_logo;
     }
 }

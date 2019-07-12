@@ -12,8 +12,9 @@ namespace capaPresentacion
 {
     public partial class P_Login : Form
     {
-        public P_Login()
-        {             
+        public P_Login(E_focusedBible Configuracion)
+        {
+            objEntidad = Configuracion;
             InitializeComponent();
         }
 
@@ -68,6 +69,7 @@ namespace capaPresentacion
 
             if (dt.Rows.Count > 0)
             {
+                E_Usuario.Logged = 1; //para que no se desactive el autologin ya activado anteriormente
                 user = dt.Rows[0]["Usuario"].ToString();
                 password = dt.Rows[0]["Contraseña"].ToString();
             }
@@ -96,7 +98,6 @@ namespace capaPresentacion
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
                 objEntidad.enableButtonSound = true;
-
             }
         }
 
@@ -113,7 +114,7 @@ namespace capaPresentacion
                 pnl_fondoLogo.BackgroundImageLayout = ImageLayout.Stretch;
                 timerFondoLogo.Stop();
 
-                if (reOpened == 0) // si es la primera vez que se entra
+                if (reOpened == 0 && dt.Rows.Count > 0) // si es la primera vez que se entra
                 {
                     countDownTimer = 1;
                     text_Usuario.Text = user[0].ToString(); //escribir la primera letra del User Name
@@ -149,6 +150,7 @@ namespace capaPresentacion
             else
             {
                 btnEntrar.PerformClick();
+                reOpened = 1; // para solo entra automaticamente la primera vez que se entra al juego
             }
         }
 
@@ -164,7 +166,13 @@ namespace capaPresentacion
                 E_Usuario.Nombreusuario = dt.Rows[0]["Usuario"].ToString();
                 E_Usuario.Password = dt.Rows[0]["Password"].ToString();
                 E_Usuario.Rol = dt.Rows[0]["Tipo"].ToString();
-                E_Usuario.Logged = 1; // para activar autologgin
+
+
+
+                if (cbx_autoLogin.Checked == true) // verificar si está activado el autologin
+                {
+                    E_Usuario.Logged = 1; // para activar autologgin
+                }
 
                 //Guardar Datos Autologgin
                 if (login.AutoLoginSetLocal(E_Usuario.Nombreusuario, E_Usuario.Logged) == 1)
@@ -400,7 +408,7 @@ namespace capaPresentacion
 
         private void llab_nuevoUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            P_Usuario usuario = new P_Usuario(false);
+            P_Usuario usuario = new P_Usuario(false, objEntidad);
             usuario.Show();
 
             this.Hide();
@@ -458,6 +466,18 @@ namespace capaPresentacion
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
             btnClose.BackgroundImage = Properties.Resources.Focused_bible_landing_Cerrar;
+        }
+
+        private void P_Login_Activated(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
     }
 }

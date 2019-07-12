@@ -210,7 +210,7 @@ namespace capaPresentacion
         {
             if (lab_User.Text == "Usuario: Invitado") // si está deslogueado
             {
-                P_Login login = new P_Login();
+                P_Login login = new P_Login(objEntidad);
                 login.Show();
 
                 this.Hide();
@@ -247,7 +247,7 @@ namespace capaPresentacion
                     existe.Close();
                 }
 
-                P_Login login = new P_Login();
+                P_Login login = new P_Login(objEntidad);
                 login.reOpened++;
                 this.Hide();
                 login.Show();

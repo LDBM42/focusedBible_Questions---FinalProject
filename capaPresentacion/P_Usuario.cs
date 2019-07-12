@@ -11,8 +11,9 @@ namespace capaPresentacion
 {
     public partial class P_Usuario : Form
     {
-        public P_Usuario(bool rol)
+        public P_Usuario(bool rol, E_focusedBible Configuracion)
         {
+            objEntidad = Configuracion;
             this.rol = rol; // para activar o desactivar el rol
 
             InitializeComponent();
@@ -347,7 +348,7 @@ namespace capaPresentacion
 
         private void pbx_Sound_Click(object sender, EventArgs e)
         {
-            if (objEntidad.enableGameSound == true)
+            if (objEntidad.enableButtonSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
                 objEntidad.enableButtonSound = false;
@@ -356,7 +357,6 @@ namespace capaPresentacion
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
                 objEntidad.enableButtonSound = true;
-
             }
         }
 

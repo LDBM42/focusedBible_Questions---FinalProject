@@ -42,6 +42,7 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.btnEntrar = new System.Windows.Forms.Button();
+            this.cbx_autoLogin = new System.Windows.Forms.CheckBox();
             this.pnl_fondoLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Usuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -121,16 +122,16 @@
             // llab_nuevoUsuario
             // 
             this.llab_nuevoUsuario.ActiveLinkColor = System.Drawing.Color.Brown;
-            this.llab_nuevoUsuario.AutoSize = true;
-            this.llab_nuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llab_nuevoUsuario.Font = new System.Drawing.Font("Catamaran", 10F);
             this.llab_nuevoUsuario.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.llab_nuevoUsuario.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.llab_nuevoUsuario.Location = new System.Drawing.Point(438, 357);
+            this.llab_nuevoUsuario.Location = new System.Drawing.Point(390, 357);
             this.llab_nuevoUsuario.Name = "llab_nuevoUsuario";
-            this.llab_nuevoUsuario.Size = new System.Drawing.Size(157, 18);
+            this.llab_nuevoUsuario.Size = new System.Drawing.Size(253, 30);
             this.llab_nuevoUsuario.TabIndex = 16;
             this.llab_nuevoUsuario.TabStop = true;
             this.llab_nuevoUsuario.Text = "CREAR UN USUARIO";
+            this.llab_nuevoUsuario.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.llab_nuevoUsuario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llab_nuevoUsuario_LinkClicked);
             // 
             // lbl_Login
@@ -214,11 +215,24 @@
             this.btnEntrar.MouseEnter += new System.EventHandler(this.btnEntrar_MouseEnter);
             this.btnEntrar.MouseLeave += new System.EventHandler(this.btnEntrar_MouseLeave);
             // 
+            // cbx_autoLogin
+            // 
+            this.cbx_autoLogin.AutoSize = true;
+            this.cbx_autoLogin.Font = new System.Drawing.Font("Catamaran", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_autoLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(61)))));
+            this.cbx_autoLogin.Location = new System.Drawing.Point(615, 253);
+            this.cbx_autoLogin.Name = "cbx_autoLogin";
+            this.cbx_autoLogin.Size = new System.Drawing.Size(115, 28);
+            this.cbx_autoLogin.TabIndex = 20;
+            this.cbx_autoLogin.Text = "AUTO LOGIN";
+            this.cbx_autoLogin.UseVisualStyleBackColor = true;
+            // 
             // P_Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(780, 396);
+            this.Controls.Add(this.cbx_autoLogin);
             this.Controls.Add(this.pnl_fondoLogo);
             this.Controls.Add(this.lbl_Login);
             this.Controls.Add(this.pbx_Usuario);
@@ -234,6 +248,7 @@
             this.Name = "P_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Activated += new System.EventHandler(this.P_Login_Activated);
             this.Load += new System.EventHandler(this.P_Login_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.P_Login_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.P_Login_MouseDown);
@@ -260,5 +275,6 @@
         private System.Windows.Forms.Label lbl_Login;
         private System.Windows.Forms.PictureBox pbx_Usuario;
         private System.Windows.Forms.Timer timerPassword;
+        private System.Windows.Forms.CheckBox cbx_autoLogin;
     }
 }
