@@ -25,11 +25,12 @@ namespace capaEntidad
         public string pasage { get; set; }
         public string winner { get; set; }
         public string difficulty { get; set; }
-        public string[] catNuevoAntiguo { get; set; }
+        public string catNuevoAntiguo { get; set; }
+        public bool catNuevoAntiguoChecked { get; set; }
         public string[] catEvangelios_yOtros { get; set; }
-        public bool selectTipoLibros { get; set; }
-        public string [] catLibro { get; set; }
-        public bool selectLibros { get; set; }
+        public bool catEvangelios_yOtrosChecked { get; set; }
+        public string[] catLibro { get; set; }
+        public bool catLibroChecked { get; set; }
         public string categories2Show { get; set; }
         public string questions2Answer { get; set; }
         public bool rebound { get; set; } //almacena si se actibo el rebote o no
@@ -41,7 +42,8 @@ namespace capaEntidad
         public string solo_O_Partida { get; set; }
 
 
-        public string[,] finalResultsDUO { get; set; } // resultados finales
+        public string[] finalResultsSOLO { get; set; } // resultados finales SOLO
+        public string[,] finalResultsDUO { get; set; } // resultados finales DUO
 
 
         // para almacenar el query por dificultad

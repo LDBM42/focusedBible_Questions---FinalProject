@@ -18,7 +18,7 @@ namespace capaPresentacion
             objEntidadAlumno = Alumno;
 
             opportunities = objEntidad.opportunities;
-            objEntidad.finalResultsDUO = new string[2, 3];
+            objEntidad.finalResultsSOLO = new string[3];
 
             InitializeComponent();
         }
@@ -140,7 +140,7 @@ namespace capaPresentacion
             lab_Jugador.Text = E_Usuario.Nombreusuario;
             countDownTimer2 = objEntidad.time2Answer;
             Timer_2Answer.Start();
-            banner = "Round" + startingRound;
+            banner = "Ronda" + startingRound;
             objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
             objEntidad.difficulty = objEntidad.difficulty;
             objEntidad.catEvangelios_yOtros = objEntidad.catEvangelios_yOtros;
@@ -187,7 +187,10 @@ namespace capaPresentacion
 
 
             //optener el id del alumno
-            objEntidadAlumno.Id = Convert.ToInt32(dtListar.Rows[0]["Id"]);
+            if (dtListar.Rows.Count > 0)
+            {
+                objEntidadAlumno.Id = Convert.ToInt32(dtListar.Rows[0]["Id"]);
+            }
         }
 
         void Llenar_listaPorDificultadYCategoria(E_focusedBible dificultad)
@@ -231,8 +234,6 @@ namespace capaPresentacion
         void randomQuestions_PorDificultadyCategoría()
         {
             Random random2 = new Random();
-
-            FinDelJuego();
 
             while (true)
             {
@@ -335,7 +336,7 @@ namespace capaPresentacion
             Banner.Show();
             Timer_Banner.Start();
 
-            if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
+            if (banner == "Ronda " + startingRound)  // solo se reproduce el sonido si es un cambio de ronda
             {
                 objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
             }
@@ -391,7 +392,7 @@ namespace capaPresentacion
                 objEntidad.reproducirSonidoJuego("game-over.wav", false);
 
 
-                if (startingRound == objEntidad.numRounds || (countUp == noRepetir_PorDificultadyCategoria.Length)) // si es el ultimo round
+                if (startingRound == objEntidad.numRounds || (countUp == noRepetir_PorDificultadyCategoria.Length)) // si es el ultimo ronda
                 {
                     Thread.Sleep(1500);
 
@@ -418,13 +419,14 @@ namespace capaPresentacion
         void SetFinalResults()
         {
             // puntuacion 
-            objEntidad.finalResultsDUO[0, 0] = lab_ScoreNum.Text;
+            objEntidad.finalResultsSOLO[0] = lab_ScoreNum.Text;
 
             // respuestas incorrectas
-            objEntidad.finalResultsDUO[0, 1] = wrongAnswer.ToString();
-
+            objEntidad.finalResultsSOLO[1] = wrongAnswer.ToString();
+            
+            totalComodins = usedPassageComodin + used50Comodin; // calcula el total de comodines usados
             // comodines totales
-            objEntidad.finalResultsDUO[0, 2] = Convert.ToString(totalComodins);
+            objEntidad.finalResultsSOLO[2] = Convert.ToString(totalComodins);
         }
         void ChangeRound()
         {
@@ -432,7 +434,7 @@ namespace capaPresentacion
             lab_Rounds_Left.Text = startingRound + "/" + objEntidad.numRounds;
 
             reset_PlayAgain();
-            BannerStart("Round " + startingRound);
+            BannerStart("Ronda " + startingRound);
 
         }
         // resetea todo para volver a jugar denuevo
@@ -459,8 +461,14 @@ namespace capaPresentacion
                 objEntidad.pasage = "";
                 objEntidad.winner = ""; // resetear winner
                 lab_Rounds_Left.Text = startingRound + "/" + objEntidad.numRounds;
+                //resetear cantidad total de comodines
+                totalComodins = 0;
+                usedPassageComodin = 0;
+                used50Comodin = 0;
 
-                Array.Clear(noRepetir_PorDificultadyCategoria, 0, noRepetir_PorDificultadyCategoria.Length); // vaciar arreglo
+                // vaciar arreglos
+                Array.Clear(noRepetir_PorDificultadyCategoria, 0, noRepetir_PorDificultadyCategoria.Length);
+                Array.Clear(objEntidad.finalResultsSOLO, 0, objEntidad.finalResultsSOLO.Length);
             }
 
             opportunities = objEntidad.opportunities;
@@ -1093,7 +1101,7 @@ namespace capaPresentacion
 
                 countDownTimer3 = 3;
 
-                if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
+                if (banner == "Ronda " + startingRound)  // solo se reproduce el sonido si es un cambio de ronda
                 {
                     Timer_Banner.Stop();
                     Banner.Hide();

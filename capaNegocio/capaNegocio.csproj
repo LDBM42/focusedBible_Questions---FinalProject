@@ -60,6 +60,7 @@
     <Compile Include="N_AlumnoPartida.cs" />
     <Compile Include="N_focusedBible.cs" />
     <Compile Include="N_Listener.cs" />
+    <Compile Include="N_SettingsPROFE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +74,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -29,11 +29,12 @@ namespace capaPresentacion
                 /***INICIALIZANDO TODO***/
 
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
-                objEntidad.catNuevoAntiguo = new string[2] { "Todas", ""};
+                objEntidad.catNuevoAntiguoChecked = true;
+                objEntidad.catNuevoAntiguo = "Todos";
                 objEntidad.catEvangelios_yOtros = new string[10];
                 objEntidad.catLibro = new string[66];
 
-                objEntidad.difficulty = "Todas";
+                objEntidad.difficulty = "Todos";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
                 objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad  ORDER BY NEWID()";
 
@@ -43,7 +44,7 @@ namespace capaPresentacion
                 objEntidad.group1 = "Grupo 1";
                 objEntidad.group2 = "Grupo 2";
 
-                objEntidad.questions2Answer = "Todas";
+                objEntidad.questions2Answer = "Todos";
                 objEntidad.rebound = false;
                 objEntidad.opportunitiesBoolean = true;
 
@@ -58,6 +59,7 @@ namespace capaPresentacion
         HowToPlay howToPlay;
         P_GameSettings GameSettings;
         E_focusedBible objEntidad = new E_focusedBible();
+        N_SettingsPROFE objNegoSettingsPROFE = new N_SettingsPROFE();
         N_focusedBible objNego = new N_focusedBible();
         D_Login login = new D_Login();
 
@@ -168,6 +170,11 @@ namespace capaPresentacion
 
             if (salir == DialogResult.Yes)
             {
+                //borrar todos los settings guardados, si es el admin
+                if (E_Usuario.Rol == "Admin")
+                {
+                    objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
+                }
                 Application.Exit(); // se debe cerrar de esta forma ya que no se inicio todo por Aplication.Run()
             }
         }

@@ -160,7 +160,7 @@ namespace capaPresentacion
             lab_Group2.Text = objEntidad.group2;
             countDownTimer2 = objEntidad.time2Answer;
             Timer_2Answer.Start();
-            banner = "Round" + startingRound;
+            banner = "Ronda" + startingRound;
             objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
             objEntidad.difficulty = objEntidad.difficulty;
             objEntidad.catEvangelios_yOtros = objEntidad.catEvangelios_yOtros;
@@ -263,7 +263,7 @@ namespace capaPresentacion
         {
             Random random2 = new Random();
 
-            perder_Ganar();
+            //perder_Ganar();
 
             while (true)
             {
@@ -368,7 +368,7 @@ namespace capaPresentacion
             Banner.Show();
             Timer_Banner.Start();
 
-            if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
+            if (banner == "Ronda " + startingRound)  // solo se reproduce el sonido si es un cambio de ronda
             {
                 objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
             }
@@ -487,7 +487,7 @@ namespace capaPresentacion
                 objEntidad.reproducirSonidoJuego("game-over.wav", false);
 
 
-                if (startingRound == objEntidad.numRounds || (countUp == noRepetir_PorDificultadyCategoria.Length)) // si es el ultimo round
+                if (startingRound == objEntidad.numRounds || (countUp == noRepetir_PorDificultadyCategoria.Length)) // si es el ultimo ronda
                 {
                     Thread.Sleep(1500);
 
@@ -534,7 +534,7 @@ namespace capaPresentacion
             }
 
             reset_PlayAgain();
-            BannerStart("Round " + startingRound);
+            BannerStart("Ronda " + startingRound);
 
         }
         // resetea todo para volver a jugar denuevo
@@ -571,8 +571,16 @@ namespace capaPresentacion
                 lab_Rounds_Right.Text = startingRound + "/" + objEntidad.numRounds;
                 lab_Wins_P1.Text = Convert.ToString(wins_01);
                 lab_Wins_P2.Text = Convert.ToString(wins_02);
+                //resetear cantidad total de comodines
+                totalComodins_1 = 0;
+                usedPassageComodin_1 = 0;
+                used50Comodin_1 = 0;
+                totalComodins_2 = 0;
+                usedPassageComodin_2 = 0;
+                used50Comodin_2 = 0;
 
                 Array.Clear(noRepetir_PorDificultadyCategoria, 0, noRepetir_PorDificultadyCategoria.Length); // vaciar arreglo
+                Array.Clear(objEntidad.finalResultsDUO, 0, objEntidad.finalResultsDUO.Length);
             }
 
             opportunities_1 = objEntidad.opportunities;
@@ -597,7 +605,7 @@ namespace capaPresentacion
 
             lab_ScoreNum.Text = Convert.ToString(score_1);
             lab_ScoreNum2.Text = Convert.ToString(score_2);
-
+            
             lab_50_1.Text = "+3";
             lab_50_2.Text = "+3";
             pbx_50_1.Enabled = true;
@@ -1632,7 +1640,7 @@ namespace capaPresentacion
 
                 countDownTimer3 = 3;
 
-                if (banner == "Round " + startingRound)  // solo se reproduce el sonido si es un cambio de round
+                if (banner == "Ronda " + startingRound)  // solo se reproduce el sonido si es un cambio de ronda
                 {
                     Timer_Banner.Stop();
                     Banner.Hide();

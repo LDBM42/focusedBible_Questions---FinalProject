@@ -4,35 +4,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using capaEntidad;
+
 
 namespace capaPresentacion
 {
     public class P_QueryListarPreguntas
     {
 
-        public string QueryPorCategoriayDificultad(string [] testamentos, string [] categoria, string difficulty, 
-                                                     int LimitOfQuestions, bool opportunities)
+        public string QueryPorCategoriayDificultad(E_focusedBible objEntidad, int LimitOfQuestions)
         {
             string Query;
 
-            if (LimitOfQuestions != 0) // si LimitOfQuestions no es "todas", limitar la consulta a la cantidad de preguntas por responder
+            if (LimitOfQuestions != 0) // si LimitOfQuestions no es "Todos", limitar la consulta a la cantidad de preguntas por responder
             {
                 Query = "SELECT TOP " + LimitOfQuestions + " * FROM PregCategoriaDificultad ";
             }
-            else // si LimitOfQuestions es igual a "todas"
+            else // si LimitOfQuestions es igual a "Todos"
             {
                 Query = "SELECT * FROM PregCategoriaDificultad ";
             }
 
 
             //Crear Query para consultar por categorias en la base de datos
-            if (testamentos[0] != "Todas")
+            if (objEntidad.catNuevoAntiguo != "Todos")
             {
-                Query += "WHERE nombreLibro IN(";
-
-                foreach (var cat in categoria)
+                if (objEntidad.catNuevoAntiguoChecked == true)
                 {
-                    Query += string.Format("'{0}',", cat);
+                    Query += "WHERE idTestamento IN(";
+
+                    if (objEntidad.catNuevoAntiguo == "Antiguo Testamento")
+                    {
+                        Query += "1,";
+                    }
+                    else if (objEntidad.catNuevoAntiguo == "Nuevo Testamento")
+                    {
+                        Query += "2,";
+                    }
+                }
+                else if (objEntidad.catEvangelios_yOtrosChecked == true)
+                {
+                    Query += "WHERE nombreCat IN(";
+
+                    foreach (var cat in objEntidad.catEvangelios_yOtros)
+                    {
+                        Query += string.Format("'{0}',", cat);
+                    }
+                }
+                else if (objEntidad.catLibroChecked == true)
+                {
+                    Query += "WHERE nombreLibro IN(";
+
+                    foreach (var cat in objEntidad.catLibro)
+                    {
+                        Query += string.Format("'{0}',", cat);
+                    }
                 }
 
                 Query = Query.TrimEnd(',');
@@ -40,16 +66,17 @@ namespace capaPresentacion
                 Query += ")";
 
 
-                if (difficulty != "Todas")
+
+                if (objEntidad.difficulty != "Todos")
                 {
-                    Query += string.Format(" AND dificultad ='{0}'", difficulty);
+                    Query += string.Format(" AND dificultad ='{0}'", objEntidad.difficulty);
                 }
             }
 
 
-            if (testamentos[0] == "Todas" && difficulty != "Todas")
+            if (objEntidad.difficulty == "Todos" && objEntidad.difficulty != "Todos")
             {
-                Query += string.Format("WHERE dificultad ='{0}'", difficulty);
+                Query += string.Format("WHERE dificultad ='{0}'", objEntidad.difficulty);
             }
 
 
