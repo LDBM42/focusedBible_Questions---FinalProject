@@ -11,29 +11,25 @@ namespace capaPresentacion
     class P_SeleccionCategoria
     {
         public void SeleccionarCategorías(string[] categoria, ListBox lbx_categoria)
-        {         
+        {    
             for (int index = 0; index <= categoria.Length - 1; index++)
             {
                 lbx_categoria.SetSelected(lbx_categoria.FindString(categoria[index]), true);
             }
+
+            if (categoria[0] != "Evangelios" && categoria[0] != "Génesis")
+            {
+                lbx_categoria.SetSelected(0, false);
+            }
         }
 
         // almacenar los elementos seleccionados en "x" listbox
-        public string[] AlmacenarSeleccionCategorías(ListBox lbx_categoria, string nombreColumn)
+        public string[] AlmacenarSeleccionCategorías(ListBox lbx_categoria)
         {
             string[] categoria = new string[lbx_categoria.SelectedItems.Count];
             for (int index = 0; index <= lbx_categoria.SelectedItems.Count - 1; index++)
             {
-                if (nombreColumn == "")
-                {
-                    categoria[index] = lbx_categoria.SelectedItems[index].ToString();
-                }
-                else
-                {
-                    DataRowView drv = (DataRowView)lbx_categoria.SelectedItems[index];
-                    categoria[index] = drv[nombreColumn].ToString();
-                }
-
+                categoria[index] = lbx_categoria.SelectedItems[index].ToString();
             }
 
             return categoria;

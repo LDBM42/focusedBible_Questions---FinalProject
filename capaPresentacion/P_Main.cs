@@ -29,11 +29,12 @@ namespace capaPresentacion
                 /***INICIALIZANDO TODO***/
 
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
-                objEntidad.catNuevoAntiguo = new string[2] { "Todas", ""};
+                objEntidad.catNuevoAntiguoChecked = true;
+                objEntidad.catNuevoAntiguo = "Todos";
                 objEntidad.catEvangelios_yOtros = new string[10];
                 objEntidad.catLibro = new string[66];
 
-                objEntidad.difficulty = "Todas";
+                objEntidad.difficulty = "Todos";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
                 objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad  ORDER BY NEWID()";
 
@@ -43,7 +44,7 @@ namespace capaPresentacion
                 objEntidad.group1 = "Grupo 1";
                 objEntidad.group2 = "Grupo 2";
 
-                objEntidad.questions2Answer = "Todas";
+                objEntidad.questions2Answer = "Todos";
                 objEntidad.rebound = false;
                 objEntidad.opportunitiesBoolean = true;
 
@@ -425,6 +426,7 @@ namespace capaPresentacion
 
         private void btn_Partida_Click(object sender, EventArgs e)
         {
+            /*
             objEntidad.solo_O_Partida = "PARTIDA";
 
             if (E_Usuario.Rol == "Admin")
@@ -439,6 +441,7 @@ namespace capaPresentacion
                 P_PARTIDA_ALUMNO_Main partidaAlumnoMain = new P_PARTIDA_ALUMNO_Main(objEntidad);
                 partidaAlumnoMain.ShowDialog();
             }
+            */
         }
     }
 }

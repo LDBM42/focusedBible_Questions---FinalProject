@@ -70,14 +70,14 @@ namespace capaPresentacion
 
         void SetFinalResults()
         {
-            // puntuacion grupo 1 y 2
-            lab_ScoreNum1.Text = objEntidad.finalResultsDUO[0, 0];
+            // puntuacion
+            lab_ScoreNum1.Text = objEntidad.finalResultsSOLO[0];
 
-            // respuestas incorrectas grupo 1 y 2
-            lab_wrongAnswer_1.Text = objEntidad.finalResultsDUO[0, 1];
+            // respuestas incorrectas
+            lab_wrongAnswer_1.Text = objEntidad.finalResultsSOLO[1];
 
-            // comodines totales grupo 1 y 2
-            lab_comodins_1.Text = objEntidad.finalResultsDUO[0, 2];
+            // comodines totales
+            lab_comodins_1.Text = objEntidad.finalResultsSOLO[2];
         }
 
 
