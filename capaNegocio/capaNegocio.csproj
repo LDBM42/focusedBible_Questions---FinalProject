@@ -60,6 +60,7 @@
     <Compile Include="N_AlumnoPartida.cs" />
     <Compile Include="N_focusedBible.cs" />
     <Compile Include="N_Listener.cs" />
+    <Compile Include="N_SettingsPROFE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

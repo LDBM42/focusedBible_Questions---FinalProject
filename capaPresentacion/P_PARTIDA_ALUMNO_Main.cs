@@ -28,6 +28,7 @@ namespace capaPresentacion
         E_Alumnos objEntidadAlumno = new E_Alumnos();
         N_focusedBible objNego = new N_focusedBible();
         N_AlumnoPartida objNegoAlumno = new N_AlumnoPartida();
+        N_SettingsPROFE objNegoSettingsPROFE = new N_SettingsPROFE();
         N_Listener objNegoListener = new N_Listener();
         P_GameSettings GameSettings;
         DataSet ds;
@@ -229,6 +230,9 @@ namespace capaPresentacion
                 {
                     if (dt.Rows[0]["codigoProfe"].ToString() == tbx_codigoPartida.Text)
                     {
+                        // optener los settings del PROFE
+                        Get_SettingsFromDatabase();
+
                         objEntidadAlumno.Estado = "True";
                         objNegoAlumno.N_Editar(objEntidadAlumno);
 
@@ -247,12 +251,116 @@ namespace capaPresentacion
         }
 
 
+        private void Get_SettingsFromDatabase()
+        {
+            DataSet ds_SettingsPROFE = objNegoSettingsPROFE.N_SettingsPROFE_listarTodo();
+            DataTable dt_SettingsPROFE = new DataTable();
+            DataSet ds_SettingsTipoLibro = objNegoSettingsPROFE.N_SettingsTipoLibro_listarTodo();
+            DataTable dt_SettingsTipoLibro = new DataTable();
+            DataSet ds_SettingsLibro = objNegoSettingsPROFE.N_SettingsLibro_listarTodo();
+            DataTable dt_SettingsLibro = new DataTable();
+
+
+            dt_SettingsPROFE = ds_SettingsPROFE.Tables[0];
+            dt_SettingsTipoLibro = ds_SettingsTipoLibro.Tables[0];
+            dt_SettingsLibro = ds_SettingsLibro.Tables[0];
+
+
+            if (dt_SettingsPROFE.Rows.Count > 0)
+            {
+                objEntidad.difficulty = dt_SettingsPROFE.Rows[0]["difficulty"].ToString();
+                objEntidad.catNuevoAntiguoChecked = Convert.ToBoolean(dt_SettingsPROFE.Rows[0]["catTestamentoChecked"]);
+                if (objEntidad.catNuevoAntiguoChecked == true)
+                {
+                    objEntidad.catNuevoAntiguo = dt_SettingsPROFE.Rows[0]["catTestamento"].ToString();
+                }
+                else
+                {
+                    objEntidad.catNuevoAntiguo = "";
+                }
+
+                objEntidad.catEvangelios_yOtrosChecked = Convert.ToBoolean(dt_SettingsPROFE.Rows[0]["catTipoLibroChecked"]);
+                objEntidad.catLibroChecked = Convert.ToBoolean(dt_SettingsPROFE.Rows[0]["catLibroChecked"]);
+                objEntidad.numRounds = Convert.ToInt32(dt_SettingsPROFE.Rows[0]["numRounds"]);
+                objEntidad.time2Answer = Convert.ToInt32(dt_SettingsPROFE.Rows[0]["time2Answer"]);
+                objEntidad.rebound = Convert.ToBoolean(dt_SettingsPROFE.Rows[0]["rebound"]);
+
+                GetCategories2Show(); // arma el string con las diferentes categorías a mostrar.
+
+
+
+                objEntidad.opportunitiesBoolean = Convert.ToBoolean(dt_SettingsPROFE.Rows[0]["opportunitiesChecked"]);
+                objEntidad.opportunities = Convert.ToInt32(dt_SettingsPROFE.Rows[0]["opportunities"]);
+
+
+                objEntidad.questions2Answer = dt_SettingsPROFE.Rows[0]["questions2Answer"].ToString();
+
+                objEntidad.queryListarPreguntas = dt_SettingsPROFE.Rows[0]["queryListarPreguntas"].ToString();
+            }
+
+
+            if (dt_SettingsTipoLibro.Rows.Count > 0)
+            {
+                string[] categoria = new string[dt_SettingsTipoLibro.Rows.Count];
+                for (int index = 0; index <= dt_SettingsTipoLibro.Rows.Count - 1; index++)
+                {
+                    categoria[index] = dt_SettingsTipoLibro.Rows[index][0].ToString();
+                }
+
+                objEntidad.catEvangelios_yOtros = categoria;
+            }
+
+
+            if (dt_SettingsLibro.Rows.Count > 0)
+            {
+                string[] categoria = new string[dt_SettingsLibro.Rows.Count];
+                for (int index = 0; index <= dt_SettingsLibro.Rows.Count - 1; index++)
+                {
+                    categoria[index] = dt_SettingsLibro.Rows[index][0].ToString();
+                }
+
+                objEntidad.catLibro = categoria;
+            }
+
+        }
+
+        private void GetCategories2Show()
+        {
+            objEntidad.categories2Show = "";
+
+            objEntidad.categories2Show = objEntidad.catNuevoAntiguo;
+
+            if (objEntidad.catEvangelios_yOtrosChecked == true)
+            {
+                foreach (var category in objEntidad.catEvangelios_yOtros)
+                {
+                    objEntidad.categories2Show += category + ", ";
+                }
+
+            }else if (objEntidad.catLibroChecked == true)
+            {
+                foreach (var category in objEntidad.catLibro)
+                {
+                    objEntidad.categories2Show += category + ", ";
+                }
+            }
+
+            objEntidad.categories2Show = objEntidad.categories2Show.TrimEnd();
+            objEntidad.categories2Show = objEntidad.categories2Show.TrimEnd(',');
+        }
+
+
+
+
         private void P_PARTIDA_ALUMNO_Main_Activated(object sender, EventArgs e)
         {
             if (lockStart == false)
             {
                 if (startStopGame("start"))
                 {
+                    // optener los settings del PROFE
+                    Get_SettingsFromDatabase();
+
                     timer2Start.Start();
                 }
                 else if (startStopGame("stop"))

@@ -153,7 +153,7 @@
             this.lbx_preguntas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
             this.lbx_preguntas.ItemHeight = 28;
             this.lbx_preguntas.Items.AddRange(new object[] {
-            "Todas",
+            "Todos",
             "2",
             "4",
             "6",
@@ -341,7 +341,7 @@
             this.lbx_Dificuldad_Setting.FormattingEnabled = true;
             this.lbx_Dificuldad_Setting.ItemHeight = 28;
             this.lbx_Dificuldad_Setting.Items.AddRange(new object[] {
-            "Todas",
+            "Todos",
             "Facil",
             "Normal",
             "Dificil"});

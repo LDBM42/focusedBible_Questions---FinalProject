@@ -59,6 +59,7 @@ namespace capaPresentacion
         HowToPlay howToPlay;
         P_GameSettings GameSettings;
         E_focusedBible objEntidad = new E_focusedBible();
+        N_SettingsPROFE objNegoSettingsPROFE = new N_SettingsPROFE();
         N_focusedBible objNego = new N_focusedBible();
         D_Login login = new D_Login();
 
@@ -169,6 +170,11 @@ namespace capaPresentacion
 
             if (salir == DialogResult.Yes)
             {
+                //borrar todos los settings guardados, si es el admin
+                if (E_Usuario.Rol == "Admin")
+                {
+                    objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
+                }
                 Application.Exit(); // se debe cerrar de esta forma ya que no se inicio todo por Aplication.Run()
             }
         }
@@ -426,7 +432,6 @@ namespace capaPresentacion
 
         private void btn_Partida_Click(object sender, EventArgs e)
         {
-            /*
             objEntidad.solo_O_Partida = "PARTIDA";
 
             if (E_Usuario.Rol == "Admin")
@@ -441,7 +446,6 @@ namespace capaPresentacion
                 P_PARTIDA_ALUMNO_Main partidaAlumnoMain = new P_PARTIDA_ALUMNO_Main(objEntidad);
                 partidaAlumnoMain.ShowDialog();
             }
-            */
         }
     }
 }
