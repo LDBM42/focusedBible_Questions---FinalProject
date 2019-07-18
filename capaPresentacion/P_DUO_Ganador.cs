@@ -81,9 +81,13 @@ namespace capaPresentacion
             lab_wrongAnswer_1.Text = objEntidad.finalResultsDUO[0, 1];
             lab_wrongAnswer_2.Text = objEntidad.finalResultsDUO[1, 1];
 
+            // tiempos totales grupo 1 y 2
+            lab_tiempo_1.Text = objEntidad.finalResultsDUO[0, 2];
+            lab_tiempo_2.Text = objEntidad.finalResultsDUO[1, 2];
+
             // comodines totales grupo 1 y 2
-            lab_comodins_1.Text = objEntidad.finalResultsDUO[0, 2];
-            lab_comodins_2.Text = objEntidad.finalResultsDUO[1, 2];
+            lab_comodins_1.Text = objEntidad.finalResultsDUO[0, 3];
+            lab_comodins_2.Text = objEntidad.finalResultsDUO[1, 3];
         }
 
 

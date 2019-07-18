@@ -43,15 +43,18 @@
             this.lb_ScoreNum = new System.Windows.Forms.Label();
             this.lb_wrongAnswers = new System.Windows.Forms.Label();
             this.lb_comodins = new System.Windows.Forms.Label();
-            this.lab_ScoreNum1 = new System.Windows.Forms.Label();
-            this.lab_wrongAnswer_1 = new System.Windows.Forms.Label();
-            this.lab_comodins_1 = new System.Windows.Forms.Label();
+            this.lab_ScoreNum = new System.Windows.Forms.Label();
+            this.lab_wrongAnswer = new System.Windows.Forms.Label();
+            this.lab_comodins = new System.Windows.Forms.Label();
+            this.Lab_tiempo = new System.Windows.Forms.Label();
+            this.lab_tiempoTexto = new System.Windows.Forms.Label();
             this.btn_goToMain = new System.Windows.Forms.Button();
             this.btn_reiniciar = new System.Windows.Forms.Button();
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.pB_ScoreNum = new System.Windows.Forms.PictureBox();
             this.pbx_wrongAnswers = new System.Windows.Forms.PictureBox();
             this.pbx_comodins = new System.Windows.Forms.PictureBox();
+            this.pbx_tiempo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -65,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pB_ScoreNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_wrongAnswers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_comodins)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_tiempo)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel21
@@ -248,30 +252,34 @@
             // 
             this.tableLayoutPanel9.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel9.ColumnCount = 4;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.78446F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.37844F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.3208F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.966303F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.71811F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.13111F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.18447F));
             this.tableLayoutPanel9.Controls.Add(this.pB_ScoreNum, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.lab_comodins, 3, 4);
             this.tableLayoutPanel9.Controls.Add(this.pbx_wrongAnswers, 1, 2);
-            this.tableLayoutPanel9.Controls.Add(this.pbx_comodins, 1, 3);
             this.tableLayoutPanel9.Controls.Add(this.lb_ScoreNum, 2, 1);
             this.tableLayoutPanel9.Controls.Add(this.lb_wrongAnswers, 2, 2);
-            this.tableLayoutPanel9.Controls.Add(this.lb_comodins, 2, 3);
-            this.tableLayoutPanel9.Controls.Add(this.lab_ScoreNum1, 3, 1);
-            this.tableLayoutPanel9.Controls.Add(this.lab_wrongAnswer_1, 3, 2);
-            this.tableLayoutPanel9.Controls.Add(this.lab_comodins_1, 3, 3);
+            this.tableLayoutPanel9.Controls.Add(this.lab_ScoreNum, 3, 1);
+            this.tableLayoutPanel9.Controls.Add(this.lab_wrongAnswer, 3, 2);
+            this.tableLayoutPanel9.Controls.Add(this.Lab_tiempo, 3, 3);
+            this.tableLayoutPanel9.Controls.Add(this.lab_tiempoTexto, 2, 3);
+            this.tableLayoutPanel9.Controls.Add(this.lb_comodins, 2, 4);
+            this.tableLayoutPanel9.Controls.Add(this.pbx_comodins, 1, 4);
+            this.tableLayoutPanel9.Controls.Add(this.pbx_tiempo, 1, 3);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(411, 4);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(412, 4);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 5;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.00018F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.33322F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.33322F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.33322F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.00015F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(399, 317);
+            this.tableLayoutPanel9.RowCount = 6;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(400, 317);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // lb_ScoreNum
@@ -281,10 +289,10 @@
             this.lb_ScoreNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lb_ScoreNum.Font = new System.Drawing.Font("Catamaran ExtraBold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ScoreNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(61)))));
-            this.lb_ScoreNum.Location = new System.Drawing.Point(85, 57);
+            this.lb_ScoreNum.Location = new System.Drawing.Point(85, 50);
             this.lb_ScoreNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_ScoreNum.Name = "lb_ScoreNum";
-            this.lb_ScoreNum.Size = new System.Drawing.Size(196, 70);
+            this.lb_ScoreNum.Size = new System.Drawing.Size(196, 53);
             this.lb_ScoreNum.TabIndex = 3;
             this.lb_ScoreNum.Text = "PUNTUACION";
             this.lb_ScoreNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -296,10 +304,10 @@
             this.lb_wrongAnswers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lb_wrongAnswers.Font = new System.Drawing.Font("Catamaran ExtraBold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_wrongAnswers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(61)))));
-            this.lb_wrongAnswers.Location = new System.Drawing.Point(85, 127);
+            this.lb_wrongAnswers.Location = new System.Drawing.Point(85, 103);
             this.lb_wrongAnswers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_wrongAnswers.Name = "lb_wrongAnswers";
-            this.lb_wrongAnswers.Size = new System.Drawing.Size(196, 70);
+            this.lb_wrongAnswers.Size = new System.Drawing.Size(196, 53);
             this.lb_wrongAnswers.TabIndex = 4;
             this.lb_wrongAnswers.Text = "RESPUESTAS INCORRECTAS";
             this.lb_wrongAnswers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -311,58 +319,88 @@
             this.lb_comodins.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lb_comodins.Font = new System.Drawing.Font("Catamaran ExtraBold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_comodins.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(61)))));
-            this.lb_comodins.Location = new System.Drawing.Point(85, 197);
+            this.lb_comodins.Location = new System.Drawing.Point(85, 209);
             this.lb_comodins.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_comodins.Name = "lb_comodins";
-            this.lb_comodins.Size = new System.Drawing.Size(196, 70);
+            this.lb_comodins.Size = new System.Drawing.Size(196, 53);
             this.lb_comodins.TabIndex = 5;
             this.lb_comodins.Text = "COMODINES";
             this.lb_comodins.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lab_ScoreNum1
+            // lab_ScoreNum
             // 
-            this.lab_ScoreNum1.AutoSize = true;
-            this.lab_ScoreNum1.BackColor = System.Drawing.Color.Transparent;
-            this.lab_ScoreNum1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_ScoreNum1.Font = new System.Drawing.Font("Catamaran ExtraBold", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_ScoreNum1.ForeColor = System.Drawing.Color.Red;
-            this.lab_ScoreNum1.Location = new System.Drawing.Point(289, 57);
-            this.lab_ScoreNum1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lab_ScoreNum1.Name = "lab_ScoreNum1";
-            this.lab_ScoreNum1.Size = new System.Drawing.Size(106, 70);
-            this.lab_ScoreNum1.TabIndex = 8;
-            this.lab_ScoreNum1.Text = "19";
-            this.lab_ScoreNum1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lab_ScoreNum.AutoSize = true;
+            this.lab_ScoreNum.BackColor = System.Drawing.Color.Transparent;
+            this.lab_ScoreNum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_ScoreNum.Font = new System.Drawing.Font("Catamaran ExtraBold", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_ScoreNum.ForeColor = System.Drawing.Color.Red;
+            this.lab_ScoreNum.Location = new System.Drawing.Point(289, 50);
+            this.lab_ScoreNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_ScoreNum.Name = "lab_ScoreNum";
+            this.lab_ScoreNum.Size = new System.Drawing.Size(107, 53);
+            this.lab_ScoreNum.TabIndex = 8;
+            this.lab_ScoreNum.Text = "19";
+            this.lab_ScoreNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lab_wrongAnswer_1
+            // lab_wrongAnswer
             // 
-            this.lab_wrongAnswer_1.AutoSize = true;
-            this.lab_wrongAnswer_1.BackColor = System.Drawing.Color.Transparent;
-            this.lab_wrongAnswer_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_wrongAnswer_1.Font = new System.Drawing.Font("Catamaran ExtraBold", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_wrongAnswer_1.ForeColor = System.Drawing.Color.Red;
-            this.lab_wrongAnswer_1.Location = new System.Drawing.Point(289, 127);
-            this.lab_wrongAnswer_1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lab_wrongAnswer_1.Name = "lab_wrongAnswer_1";
-            this.lab_wrongAnswer_1.Size = new System.Drawing.Size(106, 70);
-            this.lab_wrongAnswer_1.TabIndex = 9;
-            this.lab_wrongAnswer_1.Text = "1";
-            this.lab_wrongAnswer_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lab_wrongAnswer.AutoSize = true;
+            this.lab_wrongAnswer.BackColor = System.Drawing.Color.Transparent;
+            this.lab_wrongAnswer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_wrongAnswer.Font = new System.Drawing.Font("Catamaran ExtraBold", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_wrongAnswer.ForeColor = System.Drawing.Color.Red;
+            this.lab_wrongAnswer.Location = new System.Drawing.Point(289, 103);
+            this.lab_wrongAnswer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_wrongAnswer.Name = "lab_wrongAnswer";
+            this.lab_wrongAnswer.Size = new System.Drawing.Size(107, 53);
+            this.lab_wrongAnswer.TabIndex = 9;
+            this.lab_wrongAnswer.Text = "1";
+            this.lab_wrongAnswer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lab_comodins_1
+            // lab_comodins
             // 
-            this.lab_comodins_1.AutoSize = true;
-            this.lab_comodins_1.BackColor = System.Drawing.Color.Transparent;
-            this.lab_comodins_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_comodins_1.Font = new System.Drawing.Font("Catamaran ExtraBold", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_comodins_1.ForeColor = System.Drawing.Color.Red;
-            this.lab_comodins_1.Location = new System.Drawing.Point(289, 197);
-            this.lab_comodins_1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lab_comodins_1.Name = "lab_comodins_1";
-            this.lab_comodins_1.Size = new System.Drawing.Size(106, 70);
-            this.lab_comodins_1.TabIndex = 10;
-            this.lab_comodins_1.Text = "1";
-            this.lab_comodins_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lab_comodins.AutoSize = true;
+            this.lab_comodins.BackColor = System.Drawing.Color.Transparent;
+            this.lab_comodins.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_comodins.Font = new System.Drawing.Font("Catamaran ExtraBold", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_comodins.ForeColor = System.Drawing.Color.Red;
+            this.lab_comodins.Location = new System.Drawing.Point(289, 209);
+            this.lab_comodins.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_comodins.Name = "lab_comodins";
+            this.lab_comodins.Size = new System.Drawing.Size(107, 53);
+            this.lab_comodins.TabIndex = 10;
+            this.lab_comodins.Text = "1";
+            this.lab_comodins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lab_tiempo
+            // 
+            this.Lab_tiempo.AutoSize = true;
+            this.Lab_tiempo.BackColor = System.Drawing.Color.Transparent;
+            this.Lab_tiempo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lab_tiempo.Font = new System.Drawing.Font("Catamaran ExtraBold", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lab_tiempo.ForeColor = System.Drawing.Color.Red;
+            this.Lab_tiempo.Location = new System.Drawing.Point(289, 156);
+            this.Lab_tiempo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lab_tiempo.Name = "Lab_tiempo";
+            this.Lab_tiempo.Size = new System.Drawing.Size(107, 53);
+            this.Lab_tiempo.TabIndex = 12;
+            this.Lab_tiempo.Text = "1";
+            this.Lab_tiempo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lab_tiempoTexto
+            // 
+            this.lab_tiempoTexto.AutoSize = true;
+            this.lab_tiempoTexto.BackColor = System.Drawing.Color.Transparent;
+            this.lab_tiempoTexto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_tiempoTexto.Font = new System.Drawing.Font("Catamaran ExtraBold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_tiempoTexto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(61)))));
+            this.lab_tiempoTexto.Location = new System.Drawing.Point(85, 156);
+            this.lab_tiempoTexto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_tiempoTexto.Name = "lab_tiempoTexto";
+            this.lab_tiempoTexto.Size = new System.Drawing.Size(196, 53);
+            this.lab_tiempoTexto.TabIndex = 14;
+            this.lab_tiempoTexto.Text = "TIEMPO";
+            this.lab_tiempoTexto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btn_goToMain
             // 
@@ -429,10 +467,10 @@
             this.pB_ScoreNum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pB_ScoreNum.BackgroundImage")));
             this.pB_ScoreNum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pB_ScoreNum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pB_ScoreNum.Location = new System.Drawing.Point(31, 61);
+            this.pB_ScoreNum.Location = new System.Drawing.Point(31, 54);
             this.pB_ScoreNum.Margin = new System.Windows.Forms.Padding(4);
             this.pB_ScoreNum.Name = "pB_ScoreNum";
-            this.pB_ScoreNum.Size = new System.Drawing.Size(46, 62);
+            this.pB_ScoreNum.Size = new System.Drawing.Size(46, 45);
             this.pB_ScoreNum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pB_ScoreNum.TabIndex = 0;
             this.pB_ScoreNum.TabStop = false;
@@ -443,10 +481,10 @@
             this.pbx_wrongAnswers.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_WrongAnswers;
             this.pbx_wrongAnswers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbx_wrongAnswers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_wrongAnswers.Location = new System.Drawing.Point(31, 131);
+            this.pbx_wrongAnswers.Location = new System.Drawing.Point(31, 107);
             this.pbx_wrongAnswers.Margin = new System.Windows.Forms.Padding(4);
             this.pbx_wrongAnswers.Name = "pbx_wrongAnswers";
-            this.pbx_wrongAnswers.Size = new System.Drawing.Size(46, 62);
+            this.pbx_wrongAnswers.Size = new System.Drawing.Size(46, 45);
             this.pbx_wrongAnswers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbx_wrongAnswers.TabIndex = 1;
             this.pbx_wrongAnswers.TabStop = false;
@@ -457,13 +495,27 @@
             this.pbx_comodins.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_Comodines;
             this.pbx_comodins.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbx_comodins.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_comodins.Location = new System.Drawing.Point(31, 201);
+            this.pbx_comodins.Location = new System.Drawing.Point(31, 213);
             this.pbx_comodins.Margin = new System.Windows.Forms.Padding(4);
             this.pbx_comodins.Name = "pbx_comodins";
-            this.pbx_comodins.Size = new System.Drawing.Size(46, 62);
+            this.pbx_comodins.Size = new System.Drawing.Size(46, 45);
             this.pbx_comodins.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbx_comodins.TabIndex = 2;
             this.pbx_comodins.TabStop = false;
+            // 
+            // pbx_tiempo
+            // 
+            this.pbx_tiempo.BackColor = System.Drawing.Color.Transparent;
+            this.pbx_tiempo.BackgroundImage = global::capaPresentacion.Properties.Resources.Reloj;
+            this.pbx_tiempo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_tiempo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_tiempo.Location = new System.Drawing.Point(31, 160);
+            this.pbx_tiempo.Margin = new System.Windows.Forms.Padding(4);
+            this.pbx_tiempo.Name = "pbx_tiempo";
+            this.pbx_tiempo.Size = new System.Drawing.Size(46, 45);
+            this.pbx_tiempo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbx_tiempo.TabIndex = 11;
+            this.pbx_tiempo.TabStop = false;
             // 
             // P_SOLO_Marcador
             // 
@@ -498,6 +550,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pB_ScoreNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_wrongAnswers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_comodins)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_tiempo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -520,11 +573,14 @@
         private System.Windows.Forms.Label lb_ScoreNum;
         private System.Windows.Forms.Label lb_wrongAnswers;
         private System.Windows.Forms.Label lb_comodins;
-        private System.Windows.Forms.Label lab_ScoreNum1;
-        private System.Windows.Forms.Label lab_wrongAnswer_1;
-        private System.Windows.Forms.Label lab_comodins_1;
+        private System.Windows.Forms.Label lab_ScoreNum;
+        private System.Windows.Forms.Label lab_wrongAnswer;
+        private System.Windows.Forms.Label lab_comodins;
         private System.Windows.Forms.PictureBox pB_ScoreNum;
         private System.Windows.Forms.PictureBox pbx_wrongAnswers;
         private System.Windows.Forms.PictureBox pbx_comodins;
+        private System.Windows.Forms.PictureBox pbx_tiempo;
+        private System.Windows.Forms.Label Lab_tiempo;
+        private System.Windows.Forms.Label lab_tiempoTexto;
     }
 }

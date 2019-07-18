@@ -372,6 +372,7 @@
     <None Include="Resources\Focused-bible-SOLO-05.png" />
     <None Include="Resources\Focused-bible-SOLO-marcador-01.png" />
     <None Include="Resources\Focused-bible-DUO-WINNER_Background-01.png" />
+    <None Include="Resources\Focused-bible-SOLO-Reloj-041.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />
@@ -380,6 +381,7 @@
     <None Include="Resources\RESPONDER_Disabled.png" />
     <None Include="Resources\RESPONDER_Enter.png" />
     <None Include="Resources\RESPONDER_Leave.png" />
+    <None Include="Resources\Reloj.png" />
     <Content Include="Resources\Settings_MouseUp.png" />
     <Content Include="Resources\Settings.png" />
   </ItemGroup>

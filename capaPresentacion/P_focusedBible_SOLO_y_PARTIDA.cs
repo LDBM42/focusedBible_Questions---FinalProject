@@ -18,7 +18,7 @@ namespace capaPresentacion
             objEntidadAlumno = Alumno;
 
             opportunities = objEntidad.opportunities;
-            objEntidad.finalResultsSOLO = new string[3];
+            objEntidad.finalResultsSOLO = new string[4];
 
             InitializeComponent();
         }
@@ -52,6 +52,7 @@ namespace capaPresentacion
         int countDownTimer = 3;
         int countDownTimer2;
         int countDownTimer3 = 2;
+        int CountTimePerAnswers = 0; // indica el tiempo que se tomó en contestar todas las preguntas
         int score = 0; // puntuacion inicial
         int wrongAnswer = 0; // Respuestas incorrectas
         int opportunities;
@@ -424,9 +425,12 @@ namespace capaPresentacion
             // respuestas incorrectas
             objEntidad.finalResultsSOLO[1] = wrongAnswer.ToString();
             
+            // tiempo total
+            objEntidad.finalResultsSOLO[2] = CountTimePerAnswers.ToString();
+
             totalComodins = usedPassageComodin + used50Comodin; // calcula el total de comodines usados
             // comodines totales
-            objEntidad.finalResultsSOLO[2] = Convert.ToString(totalComodins);
+            objEntidad.finalResultsSOLO[3] = Convert.ToString(totalComodins);
         }
         void ChangeRound()
         {
@@ -465,6 +469,7 @@ namespace capaPresentacion
                 totalComodins = 0;
                 usedPassageComodin = 0;
                 used50Comodin = 0;
+                CountTimePerAnswers = 0; 
 
                 // vaciar arreglos
                 Array.Clear(noRepetir_PorDificultadyCategoria, 0, noRepetir_PorDificultadyCategoria.Length);
@@ -1045,6 +1050,7 @@ namespace capaPresentacion
         private void Timer_2Answer_Tick(object sender, EventArgs e)
         {
             lab_Anuncios.ForeColor = Color.White;
+            CountTimePerAnswers += 1; // contar el tiempo total para responder cada pregunta
 
             if (countDownTimer2 != 0)
             {

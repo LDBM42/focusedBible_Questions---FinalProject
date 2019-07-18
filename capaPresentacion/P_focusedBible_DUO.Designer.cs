@@ -1376,7 +1376,7 @@
             this.tableLayoutPanel23.Size = new System.Drawing.Size(1292, 735);
             this.tableLayoutPanel23.TabIndex = 19;
             // 
-            // P_focusedBible_Debate
+            // P_focusedBible_DUO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1386,7 +1386,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel23);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "P_focusedBible_Debate";
+            this.Name = "P_focusedBible_DUO";
             this.Text = "focusedBible Questions";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.P_focusedBibles_Activated);

@@ -18,7 +18,7 @@ namespace capaPresentacion
 
             opportunities_1 = objEntidad.opportunities;
             opportunities_2 = objEntidad.opportunities;
-            objEntidad.finalResultsDUO = new string[2, 3];
+            objEntidad.finalResultsDUO = new string[2, 4];
 
             InitializeComponent();
         }
@@ -48,6 +48,8 @@ namespace capaPresentacion
         int countDownTimer = 3;
         int countDownTimer2;
         int countDownTimer3 = 2;
+        int CountTimePerAnswers_1; // indica el tiempo que se tomó el grupo 1 en contestar todas las preguntas
+        int CountTimePerAnswers_2; // indica el tiempo que se tomó el grupo 2 en contestar todas las preguntas
         int score_1 = 0; // puntuacion inicial
         int score_2 = 0; // puntuacion inicial
         int wrongAnswer_1 = 0; // Respuestas incorrectas
@@ -455,21 +457,32 @@ namespace capaPresentacion
                 {
                     objEntidad.winner = lab_Group2.Text;
                 }
-                else /* POR USED COMODINS */
+                else /* POR TIEMPO */
                 {
-                    if (totalComodins_1 < totalComodins_2) // si el 1ro uso menos comodines que el 2do
+                    if (CountTimePerAnswers_1 < CountTimePerAnswers_2) // si el tiempo total del 1ro es menor que el del 2do
                     {
                         objEntidad.winner = lab_Group1.Text;
                     }
-                    else if (totalComodins_2 < totalComodins_1)  // si el 2do uso menos comodines que el 1ro
+                    else
+                        if (CountTimePerAnswers_2 < CountTimePerAnswers_1) // si el tiempo total del 2do es menor que el del 1ro
                     {
                         objEntidad.winner = lab_Group2.Text;
                     }
-                    else
+                    else /* POR USED COMODINS */
                     {
-                        objEntidad.winner = "Es un empate!";
+                        if (totalComodins_1 < totalComodins_2) // si el 1ro uso menos comodines que el 2do
+                        {
+                            objEntidad.winner = lab_Group1.Text;
+                        }
+                        else if (totalComodins_2 < totalComodins_1)  // si el 2do uso menos comodines que el 1ro
+                        {
+                            objEntidad.winner = lab_Group2.Text;
+                        }
+                        else
+                        {
+                            objEntidad.winner = "Es un empate!";
+                        }
                     }
-
                 }
             }
         }
@@ -512,9 +525,13 @@ namespace capaPresentacion
             objEntidad.finalResultsDUO[0, 1] = wrongAnswer_1.ToString();
             objEntidad.finalResultsDUO[1, 1] = wrongAnswer_2.ToString();
 
+            // tiempos totales grupo 1 y 2
+            objEntidad.finalResultsDUO[0, 2] = CountTimePerAnswers_1.ToString();
+            objEntidad.finalResultsDUO[1, 2] = CountTimePerAnswers_2.ToString();
+
             // comodines totales grupo 1 y 2
-            objEntidad.finalResultsDUO[0, 2] = Convert.ToString(totalComodins_1);
-            objEntidad.finalResultsDUO[1, 2] = Convert.ToString(totalComodins_2);
+            objEntidad.finalResultsDUO[0, 3] = Convert.ToString(totalComodins_1);
+            objEntidad.finalResultsDUO[1, 3] = Convert.ToString(totalComodins_2);
         }
         void ChangeRound()
         {
@@ -578,6 +595,9 @@ namespace capaPresentacion
                 totalComodins_2 = 0;
                 usedPassageComodin_2 = 0;
                 used50Comodin_2 = 0;
+                CountTimePerAnswers_1 = 0;
+                CountTimePerAnswers_2 = 0;
+
 
                 Array.Clear(noRepetir_PorDificultadyCategoria, 0, noRepetir_PorDificultadyCategoria.Length); // vaciar arreglo
                 Array.Clear(objEntidad.finalResultsDUO, 0, objEntidad.finalResultsDUO.Length);
@@ -1589,6 +1609,16 @@ namespace capaPresentacion
         private void Timer_2Answer_Tick(object sender, EventArgs e)
         {
             lab_Anuncios.ForeColor = Color.White;
+            // contar y mostrar el tiempo transcurrido
+            if (startingTurn == 1)
+            {
+                CountTimePerAnswers_1 += 1; // contar el tiempo total para responder cada pregunta al grupo 1
+            }
+            else
+            {
+                CountTimePerAnswers_2 += 1; // contar el tiempo total para responder cada pregunta al grupo 2
+            }
+
 
             if (countDownTimer2 != 0)
             {
