@@ -77,7 +77,7 @@ namespace capaPresentacion
             lab_wrongAnswer.Text = objEntidad.finalResultsSOLO[1];
 
             // tiempo total
-            Lab_tiempo.Text = objEntidad.finalResultsSOLO[2];
+            Lab_tiempo.Text = objEntidad.finalResultsSOLO[2] + " s";
 
             // comodines totales
             lab_comodins.Text = objEntidad.finalResultsSOLO[3];

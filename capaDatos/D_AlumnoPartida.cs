@@ -23,7 +23,7 @@ namespace capaDatos
         }
 
 
-        public void D_insertar(E_Alumnos Alumno)
+        public void D_insertar(E_Alumnos Alumno, E_focusedBible objEntidad)
         {
             SqlCommand cmd = new SqlCommand("sp_AlumnoPartida_Insertar", cn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -31,6 +31,10 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@Alumno", Alumno.NombreUsuario);
             cmd.Parameters.AddWithValue("@Estado", Alumno.Estado);
             cmd.Parameters.AddWithValue("@Terminado", Alumno.Terminado);
+            cmd.Parameters.AddWithValue("@Correctas", Convert.ToInt32(objEntidad.finalResultsSOLO[0]));
+            cmd.Parameters.AddWithValue("@Incorrectas", Convert.ToInt32(objEntidad.finalResultsSOLO[1]));
+            cmd.Parameters.AddWithValue("@Tiempo", Convert.ToInt32(objEntidad.finalResultsSOLO[2]));
+            cmd.Parameters.AddWithValue("@Comodines", Convert.ToInt32(objEntidad.finalResultsSOLO[3]));
 
             if (cn.State == ConnectionState.Open) cn.Close();
 
@@ -40,7 +44,7 @@ namespace capaDatos
         }
 
 
-        public int D_Editar(E_Alumnos Alumno)
+        public int D_Editar(E_Alumnos Alumno, E_focusedBible objEntidad)
         {
             object retVal = null;
 
@@ -50,6 +54,10 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@Alumno", Alumno.NombreUsuario);
             cmd.Parameters.AddWithValue("@Estado", Alumno.Estado);
             cmd.Parameters.AddWithValue("@Terminado", Alumno.Terminado);
+            cmd.Parameters.AddWithValue("@Correctas", Convert.ToInt32(objEntidad.finalResultsSOLO[0]));
+            cmd.Parameters.AddWithValue("@Incorrectas", Convert.ToInt32(objEntidad.finalResultsSOLO[1]));
+            cmd.Parameters.AddWithValue("@Tiempo", Convert.ToInt32(objEntidad.finalResultsSOLO[2]));
+            cmd.Parameters.AddWithValue("@Comodines", Convert.ToInt32(objEntidad.finalResultsSOLO[3]));
 
             if (cn.State == ConnectionState.Open) cn.Close();
             cn.Open();

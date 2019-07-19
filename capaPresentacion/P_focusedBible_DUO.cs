@@ -18,7 +18,6 @@ namespace capaPresentacion
 
             opportunities_1 = objEntidad.opportunities;
             opportunities_2 = objEntidad.opportunities;
-            objEntidad.finalResultsDUO = new string[2, 4];
 
             InitializeComponent();
         }

@@ -8,7 +8,6 @@ namespace capaNegocio
     public class N_AlumnoPartida
     {
         D_AlumnoPartida objDato = new D_AlumnoPartida();
-        E_Alumnos AlumnoPartida = new E_Alumnos();
 
 
         public DataTable N_listado()
@@ -16,14 +15,14 @@ namespace capaNegocio
             return objDato.D_listado();
         }
         
-        public void N_Insertar(E_Alumnos AlumnoPartida)
+        public void N_Insertar(E_Alumnos AlumnoPartida, E_focusedBible objEntidad)
         {
-            objDato.D_insertar(AlumnoPartida);
+            objDato.D_insertar(AlumnoPartida, objEntidad);
         }
 
-        public int N_Editar(E_Alumnos AlumnoPartida)
+        public int N_Editar(E_Alumnos AlumnoPartida, E_focusedBible objEntidad)
         {
-            return objDato.D_Editar(AlumnoPartida);
+            return objDato.D_Editar(AlumnoPartida, objEntidad);
         }
 
         public void N_EliminarTodo()

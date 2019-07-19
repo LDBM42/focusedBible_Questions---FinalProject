@@ -18,7 +18,6 @@ namespace capaPresentacion
             objEntidadAlumno = Alumno;
 
             opportunities = objEntidad.opportunities;
-            objEntidad.finalResultsSOLO = new string[4];
 
             InitializeComponent();
         }
@@ -403,7 +402,9 @@ namespace capaPresentacion
                     if (objEntidad.solo_O_Partida == "PARTIDA")
                     {
                         objEntidadAlumno.Terminado = "True";
-                        objNegoAlumno.N_Editar(objEntidadAlumno);
+                        // editar datos del alumno
+                        objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad);
+                        BannerFinalScore();
 
                     }
                     else
@@ -1172,7 +1173,8 @@ namespace capaPresentacion
         {
             if (objEntidad.solo_O_Partida == "PARTIDA")
             {
-                objNegoAlumno.N_EliminarAlumno(objEntidadAlumno); // eliminar alumno de la partida por salir
+                objEntidadAlumno.Estado = "False";
+                objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad); // poner alumno como desconectado
             }
 
             // para saber si el formulario existe, o sea, si está abierto o cerrado
