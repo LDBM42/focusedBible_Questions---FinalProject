@@ -41,7 +41,7 @@ namespace capaPresentacion
         public string difficulty;
         public string queryPorDificultad;
         public string[] catEvangelios_yOtros = new string[10];
-        public string[] catLibro = new string[66];
+        public string[] catLibro = new string[66];        
         public string catNuevoAntiguo;
         public int numRounds;
         public int time2Answer;
@@ -64,9 +64,9 @@ namespace capaPresentacion
             objEntidadAlumno.Terminado = "False";
             // actualiza y en caso de no existir lo inserta
             
-            if (objNegoAlumno.N_Editar(objEntidadAlumno) == 0)
+            if (objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad) == 0)
             {
-                objNegoAlumno.N_Insertar(objEntidadAlumno);
+                objNegoAlumno.N_Insertar(objEntidadAlumno, objEntidad);
             }
 
             dtListar = objNegoAlumno.N_listado();
@@ -234,7 +234,7 @@ namespace capaPresentacion
                         Get_SettingsFromDatabase();
 
                         objEntidadAlumno.Estado = "True";
-                        objNegoAlumno.N_Editar(objEntidadAlumno);
+                        objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad);
 
                         circularProgressBar.Visible = true;
                         LoadBar.Start();
@@ -243,7 +243,7 @@ namespace capaPresentacion
                     else
                     {
                         objEntidadAlumno.Estado = "False";
-                        objNegoAlumno.N_Editar(objEntidadAlumno);
+                        objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad);
                         MessageBox.Show("Codigo No Valido!");
                     }
                 }

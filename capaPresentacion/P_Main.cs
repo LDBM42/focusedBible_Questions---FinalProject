@@ -33,6 +33,8 @@ namespace capaPresentacion
                 objEntidad.catNuevoAntiguo = "Todos";
                 objEntidad.catEvangelios_yOtros = new string[10];
                 objEntidad.catLibro = new string[66];
+                objEntidad.finalResultsSOLO = new string[4] {"0","0","0","0"};
+                objEntidad.finalResultsDUO = new string[2, 4];
 
                 objEntidad.difficulty = "Todos";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)

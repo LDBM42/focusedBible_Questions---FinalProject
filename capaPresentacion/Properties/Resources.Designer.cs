@@ -633,16 +633,6 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Focused_bible_SOLO_Reloj_04 {
-            get {
-                object obj = ResourceManager.GetObject("Focused_bible_SOLO_Reloj_04", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_WrongAnswers {
             get {
                 object obj = ResourceManager.GetObject("Focused-bible-WrongAnswers", resourceCulture);
@@ -926,6 +916,16 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Reiniciar_LEAVE {
             get {
                 object obj = ResourceManager.GetObject("Reiniciar_LEAVE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reloj {
+            get {
+                object obj = ResourceManager.GetObject("Reloj", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
