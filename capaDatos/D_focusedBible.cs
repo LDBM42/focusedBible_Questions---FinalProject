@@ -23,10 +23,53 @@ namespace capaDatos
             return dt;
         }
 
-
-        public void D_insertar(E_focusedBible preg) //insertar Datos (recibe la clase E_Empleados como parametro)
+        public DataTable D_listadoPreguntasConfiguracion() //este es el metodo para listar las preguntas en el dgv de configuracion
         {
-            SqlCommand cmd = new SqlCommand("sp_insert01", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PregCategoriaDificultad ", cn);
+            //cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        public void D_EditarPreguntas(E_focusedBible preg)
+        {
+            SqlCommand cmd = new SqlCommand("sp_editar", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@codPreg", preg.codPreg);
+            cmd.Parameters.AddWithValue("@preg", preg.preg);
+            cmd.Parameters.AddWithValue("@a", preg.a);
+            cmd.Parameters.AddWithValue("@b", preg.b);
+            cmd.Parameters.AddWithValue("@c", preg.c);
+            cmd.Parameters.AddWithValue("@d", preg.d);
+            cmd.Parameters.AddWithValue("@resp", preg.resp);
+            cmd.Parameters.AddWithValue("@pasage", preg.pasage);
+            cmd.Parameters.AddWithValue("@dificultad", preg.difficulty);
+            cmd.Parameters.AddWithValue("@Libro", preg.Libros);
+
+            if (cn.State == ConnectionState.Open) cn.Close();
+
+            cn.Open();
+            cmd.ExecuteNonQuery(); // Ejecutar la consulta 
+            cn.Close();
+        }
+
+        public void D_eliminarPreguntas(int codPreg) //int codPreg
+        {
+            SqlCommand cmd = new SqlCommand("sp_eliminar", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@codPreg", codPreg);
+            if (cn.State == ConnectionState.Open) cn.Close();
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+               
+        public void D_InsertarPreguntas(E_focusedBible preg) //insertar Datos (recibe la clase E_Empleados como parametro)
+        {
+            SqlCommand cmd = new SqlCommand("sp_insert", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             //llenado de los parametros del procedimiento almacenado (estos se colocan con "@" 
             //y se llenan con el valor ingresado despues de la coma.  "@preg", preg.a
@@ -38,6 +81,7 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@resp", preg.resp);
             cmd.Parameters.AddWithValue("@pasage", preg.pasage);
             cmd.Parameters.AddWithValue("@dificultad", preg.difficulty);
+            cmd.Parameters.AddWithValue("@Libro", preg.Libros);
 
             if (cn.State == ConnectionState.Open) cn.Close();
 
@@ -45,7 +89,7 @@ namespace capaDatos
             cmd.ExecuteNonQuery(); // Ejecutar la consulta 
             cn.Close();
         }
-
+        
         public int D_NumFilas_PorDificultadYCategoria(E_focusedBible preg)
         {
             SqlCommand cmd = new SqlCommand(preg.queryListarPreguntas, cn);

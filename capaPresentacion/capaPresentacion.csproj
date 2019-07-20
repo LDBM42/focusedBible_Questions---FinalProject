@@ -91,6 +91,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="P_Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Configuracion.Designer.cs">
+      <DependentUpon>P_Configuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_Conf_Preguntas_Agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Conf_Preguntas_Agregar.Designer.cs">
+      <DependentUpon>P_Conf_Preguntas_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_Conf_Preguntas_Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Conf_Preguntas_Modificar.Designer.cs">
+      <DependentUpon>P_Conf_Preguntas_Modificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="P_PARTIDA_ALUMNO_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +199,15 @@
     <Compile Include="P_QueryListarPreguntas.cs" />
     <EmbeddedResource Include="Banners.resx">
       <DependentUpon>Banners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Configuracion.resx">
+      <DependentUpon>P_Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Conf_Preguntas_Agregar.resx">
+      <DependentUpon>P_Conf_Preguntas_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Conf_Preguntas_Modificar.resx">
+      <DependentUpon>P_Conf_Preguntas_Modificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_PARTIDA_ALUMNO_Main.resx">
       <DependentUpon>P_PARTIDA_ALUMNO_Main.cs</DependentUpon>
@@ -383,6 +410,24 @@
     <None Include="Resources\Focused-bible-DUO-WINNER_Background-01.png" />
     <None Include="Resources\Focused-bible-SOLO-Reloj-041.png" />
     <None Include="Resources\Focused-bible-PARTIDA-marcador.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-051.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-061.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-071.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-PREGUNTAS-031.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-PREGUNTAS-051.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-PREGUNTAS-041.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-shadow-07.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-shadow-05.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-shadow-06.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-02.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-03.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-04.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-05.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-06.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN-07.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-05.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-06.png" />
+    <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-07.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

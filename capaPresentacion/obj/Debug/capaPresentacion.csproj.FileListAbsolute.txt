@@ -179,3 +179,6 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\CircularProgre
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\WinFormAnimation.dll
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\CircularProgressBar.xml
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_PARTIDA_Ganador.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Configuracion.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Conf_Preguntas_Agregar.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Conf_Preguntas_Modificar.resources

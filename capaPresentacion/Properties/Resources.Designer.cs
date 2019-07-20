@@ -243,6 +243,36 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_05 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_CONFIGURACIÓN_05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_06 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_CONFIGURACIÓN_06", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_07 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_CONFIGURACIÓN_07", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_Checked_01 {
             get {
                 object obj = ResourceManager.GetObject("Focused-bible-CONFIGURACIÓN-Checked-01", resourceCulture);
@@ -256,6 +286,66 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_Fondo_01 {
             get {
                 object obj = ResourceManager.GetObject("Focused-bible-CONFIGURACIÓN-Fondo-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_PREGUNTAS_03 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-CONFIGURACIÓN-PREGUNTAS-03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_PREGUNTAS_04 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-CONFIGURACIÓN-PREGUNTAS-04", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_PREGUNTAS_05 {
+            get {
+                object obj = ResourceManager.GetObject("Focused-bible-CONFIGURACIÓN-PREGUNTAS-05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_SHADOW_05 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_CONFIGURACIÓN_SHADOW_05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_SHADOW_06 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_CONFIGURACIÓN_SHADOW_06", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_CONFIGURACIÓN_SHADOW_07 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_CONFIGURACIÓN_SHADOW_07", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

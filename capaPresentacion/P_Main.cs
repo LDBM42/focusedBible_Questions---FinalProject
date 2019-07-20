@@ -60,6 +60,7 @@ namespace capaPresentacion
 
         HowToPlay howToPlay;
         P_GameSettings GameSettings;
+        P_Configuracion SettingsAdmin;
         E_focusedBible objEntidad = new E_focusedBible();
         N_SettingsPROFE objNegoSettingsPROFE = new N_SettingsPROFE();
         N_focusedBible objNego = new N_focusedBible();
@@ -196,10 +197,17 @@ namespace capaPresentacion
 
         private void Btn_Settings_Click(object sender, EventArgs e)
         {
-            OpenGameSettings();
+            if (E_Usuario.Rol == "Admin")
+            {
+                OpenSettingsAdmin();
+            }
+            else
+            {
+                OpenGameSettings();
+            }
         }
 
-        
+
         private void OpenGameSettings()
         {
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_GameSettings").SingleOrDefault<Form>();
@@ -211,8 +219,25 @@ namespace capaPresentacion
                 GC.Collect();
             }
 
+
             GameSettings = new P_GameSettings(objEntidad);
             GameSettings.Show();
+        }
+
+        private void OpenSettingsAdmin()
+        {
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Configuracion").SingleOrDefault<Form>();
+
+            if (existe != null)
+            {
+                existe.Close();
+                existe.Dispose();
+                GC.Collect();
+            }
+
+
+            SettingsAdmin = new P_Configuracion(objEntidad);
+            SettingsAdmin.Show();
         }
 
         private void btn_Logout_Login_Click(object sender, EventArgs e)

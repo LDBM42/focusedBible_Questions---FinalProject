@@ -151,9 +151,6 @@
   <data name="Focused_bible_landing_07_MOUSE_ENTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-07-MOUSE-ENTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_DEBATE_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-DEBATE-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Sound_MouseLeave_ON" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sound_MouseLeave_ON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -244,8 +241,8 @@
   <data name="Focused_bible_SOLO_Reloj_04" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-SOLO-Reloj-04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fondo_Debate_Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fondo_Debate_Main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Reloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Focused_bible_SOLO_Pasage_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-SOLO-Pasage-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,6 +307,9 @@
   <data name="Focused_bible_landing_Cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-Cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Focused-bible-CONFIGURACIÓN-PREGUNTAS-03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN-PREGUNTAS-031.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sound_MouseEnter_OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sound_MouseEnter_OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -349,14 +349,17 @@
   <data name="Focused_bible_SOLO_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-SOLO-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Focused_bible_DEBATE_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-DEBATE-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sound_MouseLeave_ON_NEUTRO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sound_MouseLeave_ON_NEUTRO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Focused_bible_landing_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-landing-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_DEBATE_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-DEBATE-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Fondo_Debate_Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fondo_Debate_Main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LogOut_MouseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogOut_MouseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -376,8 +379,8 @@
   <data name="Focused-bible-CONFIGURACIÓN-Checked-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-CONFIGURACIÓN-Checked-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="usuario-femenino" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\usuario-femenino.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_DEBATE_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-DEBATE-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clickSound_MouseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clickSound_MouseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -415,31 +418,55 @@
   <data name="Boton_Empezar_MouseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Boton_Empezar_MouseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Focused_bible_PARTIDA_marcador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-PARTIDA-marcador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="status-busy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\status-busy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sound_MouseEnter_ON" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sound_MouseEnter_ON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fondo_DUO_Jugador_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fondo_DUO_Jugador_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="status-offline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\status-offline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_landing_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-landing-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Fondo_DUO_Jugador_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fondo_DUO_Jugador_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Focused_bible_FondoNewUser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-FondoNewUser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Focused-bible-CONFIGURACIÓN-PREGUNTAS-05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN-PREGUNTAS-051.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="usuario-femenino" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario-femenino.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_landing_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-landing-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Focused_bible_SOLO_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Focused-bible-SOLO-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Reloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused-bible-CONFIGURACIÓN-PREGUNTAS-04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN-PREGUNTAS-041.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Focused_bible_PARTIDA_marcador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Focused-bible-PARTIDA-marcador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Focused_bible_CONFIGURACIÓN_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_CONFIGURACIÓN_06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN-06.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_CONFIGURACIÓN_07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_CONFIGURACIÓN_SHADOW_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN_SHADOW-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_CONFIGURACIÓN_SHADOW_06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN_SHADOW-06.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Focused_bible_CONFIGURACIÓN_SHADOW_07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-CONFIGURACIÓN_SHADOW-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
