@@ -22,6 +22,16 @@ namespace capaDatos
             return dt;
         }
 
+        public DataTable D_ListarPuntuacionFinal()
+        {
+            SqlCommand cmd = new SqlCommand("sp_AlumnoPartida_listarPuntuaciónFinal", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
 
         public void D_insertar(E_Alumnos Alumno, E_focusedBible objEntidad)
         {

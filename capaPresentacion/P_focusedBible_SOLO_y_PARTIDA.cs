@@ -23,11 +23,11 @@ namespace capaPresentacion
         }
 
 
-        N_Listener objNegoListener = new N_Listener();//-------------------------------------------
         #region Variables y Objetos
         int timeToIncrease = 15; // tiempo que incrementa al elegir el comodin pasage
         Banners Banner;
         P_SOLO_Marcador FinalScore;
+        P_PARTIDA_Ganador FinalScorePARTIDA;
         HowToPlay howToPlay;
         SoundPlayer sonido;
         int?[] noRepetir_PorDificultadyCategoria; // para que no se repitan cuando se eligen solo x dificultad
@@ -36,6 +36,8 @@ namespace capaPresentacion
         E_Alumnos objEntidadAlumno = new E_Alumnos();
         N_focusedBible objNego = new N_focusedBible();
         N_AlumnoPartida objNegoAlumno = new N_AlumnoPartida();
+        N_Listener objNegoListener = new N_Listener();//-------------------------------------------
+
         DataSet ds;
         DataTable dt;
         DataTable dtListar;
@@ -122,8 +124,17 @@ namespace capaPresentacion
             this.BackgroundImage = Properties.Resources.Fondo_SOLO;
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
+            // mostrar partida o solo en la pantalla de juego
+            if (objEntidad.solo_O_Partida == "PARTIDA")
+            {
+                lab_SOLO_PARTIDA.Text = "PARTIDA";
+            }
+            else
+            {
+                lab_SOLO_PARTIDA.Text = "SOLO";
+            }
 
-            if (objEntidad.enableGameSound == true)
+                if (objEntidad.enableGameSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
             }
@@ -354,28 +365,65 @@ namespace capaPresentacion
 
             StartAgan();
         }
+        void BannerFinalScorePARTIDA()
+        {
+            Thread.Sleep(1000);
+            objEntidad.reproducirSonidoJuego("finalSuccess.wav", false);
+            Thread.Sleep(1000);
+            Timer_2Answer.Stop();
+            objEntidad.StopGameSound();
+            objEntidad.winner = E_Usuario.Nombreusuario;
+            FinalScorePARTIDA = new P_PARTIDA_Ganador(objEntidad);
+            FinalScorePARTIDA.ShowDialog();
+
+            StartAgan();
+        }
         void StartAgan()
         {
             Timer_2Answer.Stop();
             objEntidad.StopGameSound();
 
-            if (FinalScore.DialogResult == DialogResult.OK)
+            try
             {
-                restart = true;
-                reset_PlayAgain();
-                restart = true;
+                if (FinalScore.DialogResult == DialogResult.OK)
+                {
+                    restart = true;
+                    reset_PlayAgain();
+                    restart = true;
 
-                lista_porDificultadYCategoria = new E_focusedBible[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)];
-                Llenar_listaPorDificultadYCategoria(objEntidad);
+                    lista_porDificultadYCategoria = new E_focusedBible[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)];
+                    Llenar_listaPorDificultadYCategoria(objEntidad);
 
-                objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
+                    objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
+                }
+                else
+                {
+                    restart = true;
+                    reset_PlayAgain();
+                    restart = true;
+                    btn_goToMain.PerformClick();
+                }
             }
-            else
+            catch (Exception) // si estamos en Partida
             {
-                restart = true;
-                reset_PlayAgain();
-                restart = true;
-                btn_goToMain.PerformClick();
+                if (FinalScorePARTIDA.DialogResult == DialogResult.OK)
+                {
+                    restart = true;
+                    reset_PlayAgain();
+                    restart = true;
+
+                    lista_porDificultadYCategoria = new E_focusedBible[objNego.N_NumFilas_PorDificultadYCategoria(objEntidad)];
+                    Llenar_listaPorDificultadYCategoria(objEntidad);
+
+                    objEntidad.reproducirSonidoJuego("start-ready-go.wav", false);
+                }
+                else
+                {
+                    restart = true;
+                    reset_PlayAgain();
+                    restart = true;
+                    btn_goToMain.PerformClick();
+                }
             }
         }
 
@@ -404,8 +452,7 @@ namespace capaPresentacion
                         objEntidadAlumno.Terminado = "True";
                         // editar datos del alumno
                         objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad);
-                        BannerFinalScore();
-
+                        BannerFinalScorePARTIDA();
                     }
                     else
                     {

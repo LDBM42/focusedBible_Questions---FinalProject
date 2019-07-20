@@ -45,6 +45,7 @@ namespace capaPresentacion
         public string catNuevoAntiguo;
         public int numRounds;
         public int time2Answer;
+        private int counter = 0; // contador para saber que tiempo esperar con la palabra "Esperando"
 
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
@@ -75,15 +76,15 @@ namespace capaPresentacion
             if (startStopGame("start"))
             {
                 lockStart = true;
-                lab_countDown2Srart.Text = "Se Acaba de quedar Fuera de la PARTIDA";
+                lab_anuncio.Text = "Se Acaba de quedar Fuera de la PARTIDA";
                 tbx_codigoPartida.Enabled = false;
             }
             else
             {
                 lockStart = false;
             }
-            
-            this.BackgroundImage = Properties.Resources.Fondo_Debate_Main_ConTextBox;
+
+            this.BackgroundImage = Properties.Resources.Focused_bible_landing_01;
             BackgroundImageLayout = ImageLayout.Stretch;
         }
 
@@ -239,12 +240,13 @@ namespace capaPresentacion
                         circularProgressBar.Visible = true;
                         LoadBar.Start();
                         tbx_codigoPartida.Enabled = false;
+                        cbx_codigo.Checked = true;
                     }
                     else
                     {
                         objEntidadAlumno.Estado = "False";
                         objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad);
-                        MessageBox.Show("Codigo No Valido!");
+                        cbx_codigo.Checked = false;
                     }
                 }
             }
@@ -375,12 +377,11 @@ namespace capaPresentacion
             LoadBar.Stop(); // detener label Esperando
             circularProgressBar.Font = new Font(circularProgressBar.Font.Name, 40f, circularProgressBar.Font.Style, circularProgressBar.Font.Unit);
 
-
             if (countDown > 0)
             {
                 countDown--;
                 circularProgressBar.Text = countDown.ToString();
-                lab_countDown2Srart.Text = countDown.ToString();
+                lab_anuncio.Text = countDown.ToString();
             }
             else
             {
@@ -400,7 +401,7 @@ namespace capaPresentacion
                     }
                     else
                     {
-                        lab_countDown2Srart.Text = "Se Acaba de quedar Fuera de la PARTIDA";
+                        lab_anuncio.Text = "Se Acaba de quedar Fuera de la PARTIDA";
                         tbx_codigoPartida.Enabled = false;
                     }
                 }
@@ -408,24 +409,45 @@ namespace capaPresentacion
         }
 
 
-        
         private void LoadBar_Tick(object sender, EventArgs e)
         {
-            if (circularProgressBar.Text == "Esperando")
+            if (circularProgressBar.Text == "r")
             {
-                circularProgressBar.Text = "Esperando.";
+                counter = 0;
+                circularProgressBar.Text = "era";
             }
-            else if (circularProgressBar.Text == "Esperando.")
+            else if (circularProgressBar.Text == "era")
             {
-                circularProgressBar.Text = "Esperando..";
+                circularProgressBar.Text = "peran";
             }
-            else if (circularProgressBar.Text == "Esperando..")
+            else if (circularProgressBar.Text == "peran")
             {
-                circularProgressBar.Text = "Esperando...";
+                circularProgressBar.Text = "sperand";
+            }
+            else if (circularProgressBar.Text == "sperand")
+            {
+                circularProgressBar.Text = "Esperando";
+            }
+            else if (circularProgressBar.Text == "Esperando")
+            {
+                circularProgressBar.Text = "Esperando";
+                counter++;
+                if (counter > 4) // esperar 4 segundos con "Esperando" escrito
+                {
+                    circularProgressBar.Text = "r";
+                }
+            }
+        }
+
+        private void cbx_codigo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbx_codigo.Checked == true)
+            {
+                cbx_codigo.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Checked_01;
             }
             else
             {
-                circularProgressBar.Text = "Esperando";
+                cbx_codigo.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
             }
         }
     }

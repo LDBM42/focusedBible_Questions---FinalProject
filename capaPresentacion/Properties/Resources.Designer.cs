@@ -523,6 +523,16 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_PARTIDA_marcador {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_PARTIDA_marcador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_SOLO_02 {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_SOLO_02", resourceCulture);

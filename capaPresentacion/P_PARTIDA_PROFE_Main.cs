@@ -27,8 +27,10 @@ namespace capaPresentacion
         E_focusedBible objEntidad = new E_focusedBible();
         E_Alumnos objEntidadAlumno = new E_Alumnos();
         N_focusedBible objNego = new N_focusedBible();
+        N_SettingsPROFE objNegoSettingsPROFE = new N_SettingsPROFE();
         N_AlumnoPartida objNegoAlumno = new N_AlumnoPartida();
         N_Listener objNegoListener = new N_Listener();
+        P_PARTIDA_Ganador FinalScorePARTIDA;
         P_GameSettings GameSettings;
 
 
@@ -37,9 +39,9 @@ namespace capaPresentacion
         public string[] catEvangelios_yOtros = new string[10];
         public string[] catLibro = new string[66];
         public string catNuevoAntiguo;
+        public int countFinishedStudent = 0;
         public int numRounds;
         public int time2Answer;
-
 
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
@@ -51,6 +53,7 @@ namespace capaPresentacion
             SetDoubleBuffered(tableLayoutPanel21);
 
             objNegoAlumno.N_EliminarTodo(); // borrar todos los alumnos de la lista
+            objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo(); // borrar todos los settings de la base de datos
 
             listarAlumnos();
             timer_ActualizarEstadoLista.Start(); // iniciar actualizar lista cada 2 segundos
@@ -248,7 +251,34 @@ namespace capaPresentacion
 
         private void P_PARTIDA_PROFE_Main_Activated(object sender, EventArgs e)
         {
+            //for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
+            //{
+            //    if (dgvAlumnos.Rows[i].Cells["Terminado"].Value.ToString() == "True")
+            //    {
+            //        countFinishedStudent++;
+            //    }
+            //}
+
+            //if (countFinishedStudent == dgvAlumnos.Rows.Count)
+            //{
+            //    BannerFinalScorePARTIDA();
+            //}
         }
+
+        void BannerFinalScorePARTIDA()
+        {
+            Thread.Sleep(1000);
+            objEntidad.reproducirSonidoJuego("finalSuccess.wav", false);
+            Thread.Sleep(1000);
+            //Timer_2Answer.Stop();
+            objEntidad.StopGameSound();
+            objEntidad.winner = E_Usuario.Nombreusuario;
+            FinalScorePARTIDA = new P_PARTIDA_Ganador(objEntidad);
+            FinalScorePARTIDA.ShowDialog();
+
+            //StartAgan();
+        }
+
 
         private void dgvAlumnos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -261,7 +291,6 @@ namespace capaPresentacion
                     dgvAlumnos.Rows[e.RowIndex].Cells["Connected"].Value = Properties.Resources._status_connected;
                 else
                     dgvAlumnos.Rows[e.RowIndex].Cells["Connected"].Value = Properties.Resources.status_offline;
-
         }
 
         private void timer_ActualizarEstadoLista_Tick(object sender, EventArgs e)

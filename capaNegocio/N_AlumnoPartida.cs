@@ -14,7 +14,12 @@ namespace capaNegocio
         {
             return objDato.D_listado();
         }
-        
+
+        public DataTable N_ListarPuntuacionFinal()
+        {
+            return objDato.D_ListarPuntuacionFinal();
+        }
+
         public void N_Insertar(E_Alumnos AlumnoPartida, E_focusedBible objEntidad)
         {
             objDato.D_insertar(AlumnoPartida, objEntidad);

@@ -178,3 +178,4 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentaci
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\CircularProgressBar.dll
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\WinFormAnimation.dll
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\CircularProgressBar.xml
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_PARTIDA_Ganador.resources

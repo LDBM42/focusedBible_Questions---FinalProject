@@ -439,4 +439,7 @@
   <data name="Reloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Focused_bible_PARTIDA_marcador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Focused-bible-PARTIDA-marcador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

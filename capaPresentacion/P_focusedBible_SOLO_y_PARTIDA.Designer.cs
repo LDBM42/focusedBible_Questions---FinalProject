@@ -49,7 +49,7 @@
             this.btn_how2Play = new System.Windows.Forms.Button();
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lab_duo = new System.Windows.Forms.Label();
+            this.lab_SOLO_PARTIDA = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
@@ -308,8 +308,8 @@
             this.tableLayoutPanel16.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel16.ColumnCount = 11;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
@@ -322,7 +322,7 @@
             this.tableLayoutPanel16.Controls.Add(this.btn_how2Play, 8, 0);
             this.tableLayoutPanel16.Controls.Add(this.pbx_Sound, 6, 0);
             this.tableLayoutPanel16.Controls.Add(this.pictureBox2, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.lab_duo, 1, 0);
+            this.tableLayoutPanel16.Controls.Add(this.lab_SOLO_PARTIDA, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(4);
@@ -342,10 +342,10 @@
             this.btn_goToMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_goToMain.Location = new System.Drawing.Point(1187, 3);
+            this.btn_goToMain.Location = new System.Drawing.Point(1186, 3);
             this.btn_goToMain.Name = "btn_goToMain";
             this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_goToMain.Size = new System.Drawing.Size(34, 19);
+            this.btn_goToMain.Size = new System.Drawing.Size(35, 19);
             this.btn_goToMain.TabIndex = 15;
             this.btn_goToMain.UseVisualStyleBackColor = false;
             this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
@@ -365,7 +365,7 @@
             this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
             this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
             this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_how2Play.Location = new System.Drawing.Point(1145, 3);
+            this.btn_how2Play.Location = new System.Drawing.Point(1144, 3);
             this.btn_how2Play.Name = "btn_how2Play";
             this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_how2Play.Size = new System.Drawing.Size(30, 19);
@@ -380,7 +380,7 @@
             this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
             this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Sound.Location = new System.Drawing.Point(1103, 3);
+            this.pbx_Sound.Location = new System.Drawing.Point(1102, 3);
             this.pbx_Sound.Name = "pbx_Sound";
             this.pbx_Sound.Size = new System.Drawing.Size(30, 19);
             this.pbx_Sound.TabIndex = 17;
@@ -400,20 +400,20 @@
             this.pictureBox2.TabIndex = 18;
             this.pictureBox2.TabStop = false;
             // 
-            // lab_duo
+            // lab_SOLO_PARTIDA
             // 
-            this.lab_duo.AutoSize = true;
-            this.lab_duo.BackColor = System.Drawing.Color.Transparent;
-            this.lab_duo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_duo.Font = new System.Drawing.Font("Avenir Next", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_duo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(143)))), ((int)(((byte)(163)))));
-            this.lab_duo.Location = new System.Drawing.Point(212, 0);
-            this.lab_duo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lab_duo.Name = "lab_duo";
-            this.lab_duo.Size = new System.Drawing.Size(102, 25);
-            this.lab_duo.TabIndex = 19;
-            this.lab_duo.Text = "SOLO";
-            this.lab_duo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lab_SOLO_PARTIDA.AutoSize = true;
+            this.lab_SOLO_PARTIDA.BackColor = System.Drawing.Color.Transparent;
+            this.lab_SOLO_PARTIDA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_SOLO_PARTIDA.Font = new System.Drawing.Font("Avenir Next", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_SOLO_PARTIDA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(143)))), ((int)(((byte)(163)))));
+            this.lab_SOLO_PARTIDA.Location = new System.Drawing.Point(212, 0);
+            this.lab_SOLO_PARTIDA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_SOLO_PARTIDA.Name = "lab_SOLO_PARTIDA";
+            this.lab_SOLO_PARTIDA.Size = new System.Drawing.Size(175, 25);
+            this.lab_SOLO_PARTIDA.TabIndex = 19;
+            this.lab_SOLO_PARTIDA.Text = "SOLO";
+            this.lab_SOLO_PARTIDA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -1057,7 +1057,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lab_duo;
+        private System.Windows.Forms.Label lab_SOLO_PARTIDA;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;

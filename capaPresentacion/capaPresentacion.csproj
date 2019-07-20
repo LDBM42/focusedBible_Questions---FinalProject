@@ -103,6 +103,12 @@
     <Compile Include="P_PARTIDA_PROFE_Main.designer.cs">
       <DependentUpon>P_PARTIDA_PROFE_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="P_PARTIDA_Ganador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_PARTIDA_Ganador.designer.cs">
+      <DependentUpon>P_PARTIDA_Ganador.cs</DependentUpon>
+    </Compile>
     <Compile Include="P_SOLO_Marcador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P_PARTIDA_PROFE_Main.resx">
       <DependentUpon>P_PARTIDA_PROFE_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_PARTIDA_Ganador.resx">
+      <DependentUpon>P_PARTIDA_Ganador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_SOLO_Marcador.resx">
       <DependentUpon>P_SOLO_Marcador.cs</DependentUpon>
@@ -373,6 +382,7 @@
     <None Include="Resources\Focused-bible-SOLO-marcador-01.png" />
     <None Include="Resources\Focused-bible-DUO-WINNER_Background-01.png" />
     <None Include="Resources\Focused-bible-SOLO-Reloj-041.png" />
+    <None Include="Resources\Focused-bible-PARTIDA-marcador.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />
