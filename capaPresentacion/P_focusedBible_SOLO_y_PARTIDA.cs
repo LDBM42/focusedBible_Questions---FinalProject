@@ -554,6 +554,7 @@ namespace capaPresentacion
             countDownComodin = 3;
             countDownPassage = 3;
             Lab_Passage_Shown.Text = "";
+            lab_Anuncios.Text = "";
 
             lab_LifesNum.Text = Convert.ToString(opportunities);
 
@@ -872,7 +873,6 @@ namespace capaPresentacion
             {
                 countDownTimer = 3;
                 countDown.Stop();
-                lab_Anuncios.Text = "";
 
                 
                 if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
@@ -880,7 +880,7 @@ namespace capaPresentacion
                 {
                     FinDelJuego();
 
-                    if (objEntidad.opportunitiesBoolean == false && doNotReset == false)
+                    if (doNotReset == false)
                     {
                         Thread.Sleep(2300);
                         AfterCountDown();
@@ -918,11 +918,14 @@ namespace capaPresentacion
 
             //resetear color original de la pregunta
             lab_Pregunta.ForeColor = Color.FromArgb(32, 52, 61);
+            //resetear color original del timer to answer
+            lab_Anuncios.ForeColor = Color.White;
 
             PlayerFocus();
             objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
 
             listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+            lab_Anuncios.Text = Convert.ToString(countDownTimer2);
 
         }
         
@@ -1144,8 +1147,8 @@ namespace capaPresentacion
                     objEntidad.reproducirSonidoJuego("countDown.wav", false);
                 }
 
-                lab_Anuncios.Text = Convert.ToString(countDownTimer2);
                 countDownTimer2--;
+                lab_Anuncios.Text = Convert.ToString(countDownTimer2);
             }
             else
             {
@@ -1214,6 +1217,11 @@ namespace capaPresentacion
         }
         private void pbx_Passage_1_Click(object sender, EventArgs e)
         {
+            if (countDownTimer2 <= 4)
+            {
+                objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+            }
+
             if (lab_Passage.Text != "0")
             {
                 usedPassageComodin++; // acumular cantidad de comodines usados

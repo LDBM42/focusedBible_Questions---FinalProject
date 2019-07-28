@@ -567,7 +567,7 @@ namespace capaPresentacion
 
             if (restart == true)
             {
-
+                
                 restart = false;
 
                 i = 0;
@@ -613,6 +613,7 @@ namespace capaPresentacion
             countDownPassage_1 = 3;
             countDownPassage_2 = 3;
             Lab_Passage_Shown_1.Text = "";
+            lab_Anuncios.Text = "";
 
             tlyo_Comodines_1.RowStyles[0].SizeType = SizeType.Percent;
             tlyo_Comodines_1.RowStyles[1].SizeType = SizeType.Percent;
@@ -963,6 +964,7 @@ namespace capaPresentacion
                 tlyo_Wins_P1.Visible = false;
             }
         }
+
         void cambioDeTurno(int turno)
         {
             // para desactivar el 50% si ya se ha acabado
@@ -1010,8 +1012,20 @@ namespace capaPresentacion
 
                 if (answerCorrect == true)
                 {
-                    score_1+=valueScore;
-                    lab_ScoreNum.Text = Convert.ToString(score_1);
+                    if (objEntidad.rebound == true) // si esta activado el rebote
+                    {
+                        if (pointLost_1 == false)
+                        {
+                            score_1 += valueScore;
+                            lab_ScoreNum.Text = Convert.ToString(score_1);
+                            pointLost_1 = true;
+                        }
+                    }
+                    else // sino esta activado el rebote
+                    {
+                        score_1 += valueScore;
+                        lab_ScoreNum.Text = Convert.ToString(score_1);
+                    }
                 }
                 else
                 {
@@ -1052,8 +1066,20 @@ namespace capaPresentacion
 
                 if (answerCorrect == true)
                 {
-                    score_2+=valueScore;
-                    lab_ScoreNum2.Text = Convert.ToString(score_2);
+                    if (objEntidad.rebound == true) // si esta activado el rebote
+                    {
+                        if (pointLost_2 == false)
+                        {
+                            score_2 += valueScore;
+                            lab_ScoreNum2.Text = Convert.ToString(score_2);
+                            pointLost_2 = true;
+                        }
+                    }
+                    else // sino esta activado el rebote
+                    {
+                        score_2 += valueScore;
+                        lab_ScoreNum2.Text = Convert.ToString(score_2);
+                    }
                 }
                 else
                 {
@@ -1220,7 +1246,6 @@ namespace capaPresentacion
             {
                 countDownTimer = 3;
                 countDown.Stop();
-                lab_Anuncios.Text = "";
 
                 
                 if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
@@ -1265,6 +1290,8 @@ namespace capaPresentacion
 
             //resetear color original de la pregunta
             lab_Pregunta.ForeColor = Color.FromArgb(32, 52, 61);
+            //resetear color original del timer to answer
+            lab_Anuncios.ForeColor = Color.White;
 
 
 
@@ -1392,6 +1419,7 @@ namespace capaPresentacion
             }
 
 
+            lab_Anuncios.Text = Convert.ToString(countDownTimer2);
             restart = false;
         }
         
@@ -1640,8 +1668,8 @@ namespace capaPresentacion
                     objEntidad.reproducirSonidoJuego("countDown.wav", false);
                 }
 
-                lab_Anuncios.Text = Convert.ToString(countDownTimer2);
                 countDownTimer2--;
+                lab_Anuncios.Text = Convert.ToString(countDownTimer2);
             }
             else
             {
@@ -1705,6 +1733,11 @@ namespace capaPresentacion
         }
         private void pbx_Passage_1_Click(object sender, EventArgs e)
         {
+            if (countDownTimer2 <= 4)
+            {
+                objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+            }
+
             if (lab_Passage_1.Text != "0")
             {
                 usedPassageComodin_1++; // acumular cantidad de comodines usados
@@ -1729,6 +1762,11 @@ namespace capaPresentacion
         }
         private void pbx_Passage_2_Click(object sender, EventArgs e)
         {
+            if (countDownTimer2 <= 4)
+            {
+                objEntidad.reproducirSonidoJuego("levelclearer.wav", true);
+            }
+
             if (lab_Passage_2.Text != "0")
             {
                 usedPassageComodin_2++; // acumular cantidad de comodines usados
