@@ -148,12 +148,14 @@ namespace capaPresentacion
             }
 
 
-            //cambiar cantidad de preguntas impar a par
-            if (Convert.ToInt32(objEntidad.questions2Answer) % 2 != 0)
+            //cambiar cantidad de preguntas impar a par si es diferente de Todas
+            if (objEntidad.questions2Answer != "Todas")
             {
-                objEntidad.questions2Answer = (Convert.ToInt32(objEntidad.questions2Answer) - 1).ToString();
+                if (Convert.ToInt32(objEntidad.questions2Answer) % 2 != 0)
+                {
+                    objEntidad.questions2Answer = (Convert.ToInt32(objEntidad.questions2Answer) - 1).ToString();
+                }
             }
-
 
             //cantidad de preguntas a responder
             if (objEntidad.questions2Answer != "Todas")
