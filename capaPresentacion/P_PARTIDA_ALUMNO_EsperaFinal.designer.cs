@@ -43,6 +43,7 @@
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.LoadBar = new System.Windows.Forms.Timer(this.components);
+            this.timer_waitingForFinalResults = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pB_logo)).BeginInit();
@@ -306,6 +307,10 @@
             this.LoadBar.Interval = 300;
             this.LoadBar.Tick += new System.EventHandler(this.LoadBar_Tick);
             // 
+            // timer_waitingForFinalResults
+            // 
+            this.timer_waitingForFinalResults.Tick += new System.EventHandler(this.timer_waitingForFinalResults_Tick);
+            // 
             // P_PARTIDA_ALUMNO_EsperaFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -321,7 +326,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questions focusedBible";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Activated += new System.EventHandler(this.P_PARTIDA_ALUMNO_Main_Activated);
             this.Load += new System.EventHandler(this.P_Debate_Main_Load);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -354,5 +358,6 @@
         private System.Windows.Forms.Timer LoadBar;
         private System.Windows.Forms.Label lab_Partida;
         private System.Windows.Forms.PictureBox pbx_Sound;
+        private System.Windows.Forms.Timer timer_waitingForFinalResults;
     }
 }

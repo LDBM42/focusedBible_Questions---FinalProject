@@ -61,6 +61,7 @@
             this.timer_ActualizarEstadoLista = new System.Windows.Forms.Timer(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.timer_waitingEverybodyToFinish = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
@@ -535,6 +536,10 @@
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // timer_waitingEverybodyToFinish
+            // 
+            this.timer_waitingEverybodyToFinish.Tick += new System.EventHandler(this.timer_waitingEverybodyToFinish_Tick);
+            // 
             // P_PARTIDA_PROFE_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -600,5 +605,6 @@
         private System.Windows.Forms.Label lab_anuncio;
         private System.Windows.Forms.PictureBox pbx_Sound;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer_waitingEverybodyToFinish;
     }
 }

@@ -48,6 +48,7 @@
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.timer2Start = new System.Windows.Forms.Timer(this.components);
             this.LoadBar = new System.Windows.Forms.Timer(this.components);
+            this.timer_waitingToStart = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -158,6 +159,7 @@
             // 
             // circularProgressBar
             // 
+            this.circularProgressBar.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
             this.circularProgressBar.AnimationSpeed = 500;
             this.circularProgressBar.BackColor = System.Drawing.Color.Transparent;
             this.circularProgressBar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -394,6 +396,10 @@
             this.LoadBar.Interval = 300;
             this.LoadBar.Tick += new System.EventHandler(this.LoadBar_Tick);
             // 
+            // timer_waitingToStart
+            // 
+            this.timer_waitingToStart.Tick += new System.EventHandler(this.timer_waitingToStart_Tick);
+            // 
             // P_PARTIDA_ALUMNO_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -410,7 +416,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questions focusedBible";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Activated += new System.EventHandler(this.P_PARTIDA_ALUMNO_Main_Activated);
             this.Load += new System.EventHandler(this.P_Debate_Main_Load);
             this.tableLayoutPanel21.ResumeLayout(false);
             this.tableLayoutPanel18.ResumeLayout(false);
@@ -449,5 +454,6 @@
         private System.Windows.Forms.PictureBox pbx_Sound;
         private System.Windows.Forms.Label lab_Partida;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Timer timer_waitingToStart;
     }
 }

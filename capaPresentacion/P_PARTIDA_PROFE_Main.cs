@@ -62,6 +62,7 @@ namespace capaPresentacion
 
             listarAlumnos();
             timer_ActualizarEstadoLista.Start(); // iniciar actualizar lista cada 2 segundos
+            timer_waitingEverybodyToFinish.Start(); //detecta si todos los alumnos han terminado de jugar
 
             //this.BackgroundImage = Properties.Resources.Focused_bible_landing_01_Fondo;
             //BackgroundImageLayout = ImageLayout.Stretch;
@@ -266,29 +267,6 @@ namespace capaPresentacion
             goToMain();
         }
 
-        private void P_PARTIDA_PROFE_Main_Activated(object sender, EventArgs e)
-        {
-            if (AfterFinish == false)
-            {
-                for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
-                {
-                    if (dgvAlumnos.Rows[i].Cells["Terminado"].Value.ToString() == "True")
-                    {
-                        countFinishedStudent++;
-                    }
-                }
-
-                if (countFinishedStudent == dgvAlumnos.Rows.Count && countFinishedStudent > 0)
-                {
-                    BannerFinalScorePARTIDA();
-                    AfterFinish = true;
-
-                }
-            }
-
-            countFinishedStudent = 0;
-        }
-
         void BannerFinalScorePARTIDA()
         {
             objNegoListener.N_Listener_Detener_O_Iniciar(1, "End", "");
@@ -381,6 +359,30 @@ namespace capaPresentacion
             {
                 this.DialogResult = DialogResult.OK; //cierra el esta ventana y deja vista la ventana Main
             }
+        }
+
+        private void timer_waitingEverybodyToFinish_Tick(object sender, EventArgs e)
+        {
+            if (AfterFinish == false)
+            {
+                for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
+                {
+                    if (dgvAlumnos.Rows[i].Cells["Terminado"].Value.ToString() == "True")
+                    {
+                        countFinishedStudent++;
+                    }
+                }
+
+                if (countFinishedStudent == dgvAlumnos.Rows.Count && countFinishedStudent > 0)
+                {
+                    BannerFinalScorePARTIDA();
+                    timer_waitingEverybodyToFinish.Stop(); // detener timer
+                    AfterFinish = true;
+
+                }
+            }
+
+            countFinishedStudent = 0;
         }
     }
 }

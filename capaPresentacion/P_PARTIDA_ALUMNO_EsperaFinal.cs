@@ -57,6 +57,7 @@ namespace capaPresentacion
 
 
             LoadBar.Start();
+            timer_waitingForFinalResults.Start(); // empieza a detectar si todos han terminado de jugar
 
 
             // Actualizar Estado Jugador en base de datos
@@ -230,20 +231,6 @@ namespace capaPresentacion
         }
 
 
-
-
-        private void P_PARTIDA_ALUMNO_Main_Activated(object sender, EventArgs e)
-        {
-            if (EndOfGame("stop"))
-            {
-                GoToMain();
-            }
-            else if(EndOfGame("End"))
-            {
-                this.DialogResult = DialogResult.OK;
-            }
-        }
-
         void GoToMain()
         {
             this.Close();
@@ -314,6 +301,20 @@ namespace capaPresentacion
             else
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void timer_waitingForFinalResults_Tick(object sender, EventArgs e)
+        {
+            if (EndOfGame("stop"))
+            {
+                GoToMain();
+                timer_waitingForFinalResults.Stop();
+            }
+            else if (EndOfGame("End"))
+            {
+                this.DialogResult = DialogResult.OK;
+                timer_waitingForFinalResults.Stop();
             }
         }
     }

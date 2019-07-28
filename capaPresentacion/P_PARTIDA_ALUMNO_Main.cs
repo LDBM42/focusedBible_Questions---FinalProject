@@ -196,6 +196,9 @@ namespace capaPresentacion
                 {
                     if (dt.Rows[0]["codigoProfe"].ToString() == tbx_codigoPartida.Text)
                     {
+                        //empieza a detectar cuando el profesor inicia la partida
+                        timer_waitingToStart.Start();
+
                         // optener los settings del PROFE
                         Get_SettingsFromDatabase();
 
@@ -317,27 +320,6 @@ namespace capaPresentacion
             objEntidad.categories2Show = objEntidad.categories2Show.TrimEnd(',');
         }
 
-
-
-
-        private void P_PARTIDA_ALUMNO_Main_Activated(object sender, EventArgs e)
-        {
-            if (lockStart == false)
-            {
-                if (startStopGame("start"))
-                {
-                    // optener los settings del PROFE
-                    Get_SettingsFromDatabase();
-
-                    timer2Start.Start();
-                }
-                else if (startStopGame("stop"))
-                {
-                    btn_goToMain.PerformClick();
-                }
-            }
-        }
-
         private void timer2Start_Tick(object sender, EventArgs e)
         {
             LoadBar.Stop(); // detener label Esperando
@@ -457,6 +439,25 @@ namespace capaPresentacion
             else
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void timer_waitingToStart_Tick(object sender, EventArgs e)
+        {
+            if (lockStart == false)
+            {
+                if (startStopGame("start"))
+                {
+                    // optener los settings del PROFE
+                    Get_SettingsFromDatabase();
+
+                    timer2Start.Start();
+                    timer_waitingToStart.Stop(); // detiene la deteccion del inicio de seccion
+                }
+                else if (startStopGame("stop"))
+                {
+                    btn_goToMain.PerformClick();
+                }
             }
         }
     }
