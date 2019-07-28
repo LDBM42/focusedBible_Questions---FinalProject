@@ -65,6 +65,16 @@ namespace capaPresentacion
 
             lbl_ganador_debate.Text = objEntidad.winner;
             SetFinalResults();
+
+            //actualizar imagen del sonido
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
 
 

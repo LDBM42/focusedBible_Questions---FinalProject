@@ -30,13 +30,13 @@ namespace capaPresentacion
 
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
                 objEntidad.catNuevoAntiguoChecked = true;
-                objEntidad.catNuevoAntiguo = "Todos";
+                objEntidad.catNuevoAntiguo = "Todas";
                 objEntidad.catEvangelios_yOtros = new string[10];
                 objEntidad.catLibro = new string[66];
                 objEntidad.finalResultsSOLO = new string[4] {"0","0","0","0"};
                 objEntidad.finalResultsDUO = new string[2, 4];
 
-                objEntidad.difficulty = "Todos";
+                objEntidad.difficulty = "Todas";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
                 objEntidad.queryListarPreguntas = "SELECT * FROM PregCategoriaDificultad  ORDER BY NEWID()";
 
@@ -46,7 +46,7 @@ namespace capaPresentacion
                 objEntidad.group1 = "Grupo 1";
                 objEntidad.group2 = "Grupo 2";
 
-                objEntidad.questions2Answer = "Todos";
+                objEntidad.questions2Answer = "Todas";
                 objEntidad.rebound = false;
                 objEntidad.opportunitiesBoolean = true;
 
@@ -151,6 +151,15 @@ namespace capaPresentacion
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
             }
 
+
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
 
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
@@ -186,7 +195,7 @@ namespace capaPresentacion
         {
             this.Hide();
             P_DUO_Main duoMain = new P_DUO_Main(objEntidad);
-            duoMain.ShowDialog();
+            duoMain.Show();
         }
 
         private void btn_how2Play_Click(object sender, EventArgs e)
@@ -220,10 +229,11 @@ namespace capaPresentacion
             }
 
 
+            this.Hide();
             GameSettings = new P_GameSettings(objEntidad);
             GameSettings.Show();
         }
-
+        
         private void OpenSettingsAdmin()
         {
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Configuracion").SingleOrDefault<Form>();
@@ -235,7 +245,7 @@ namespace capaPresentacion
                 GC.Collect();
             }
 
-
+            this.Hide();
             SettingsAdmin = new P_Configuracion(objEntidad);
             SettingsAdmin.Show();
         }
@@ -465,13 +475,13 @@ namespace capaPresentacion
             {
                 this.Hide();
                 P_PARTIDA_PROFE_Main partidaProfeMain = new P_PARTIDA_PROFE_Main(objEntidad);
-                partidaProfeMain.ShowDialog();
+                partidaProfeMain.Show();
             }
             else
             {
                 this.Hide();
                 P_PARTIDA_ALUMNO_Main partidaAlumnoMain = new P_PARTIDA_ALUMNO_Main(objEntidad);
-                partidaAlumnoMain.ShowDialog();
+                partidaAlumnoMain.Show();
             }
         }
     }

@@ -14,7 +14,8 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
+###########################################[Dd]ebug/
+*\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/

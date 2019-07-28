@@ -256,7 +256,7 @@
             this.lab_Difficulty.Name = "lab_Difficulty";
             this.lab_Difficulty.Size = new System.Drawing.Size(137, 29);
             this.lab_Difficulty.TabIndex = 1;
-            this.lab_Difficulty.Text = "Normal";
+            this.lab_Difficulty.Text = "Medio";
             this.lab_Difficulty.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label1

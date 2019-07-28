@@ -14,29 +14,25 @@ namespace capaPresentacion
 {
     public partial class P_Conf_Preguntas_Agregar : Form
     {
-        #region Variables y Objetos
-        string[] comodin50_1 = new string[] { "0", "+1", "+2", "+3" };
-        string[] comodin50_2 = new string[] { "0", "+1", "+2", "+3" };
-        string[] comodinPassage_1 = new string[] { "0", "+1", "+2", "+3" };
-        string[] comodinPassage_2 = new string[] { "0", "+1", "+2", "+3" };
-        char[] desaparecer50 = new char[] { 'a', 'b', 'c', 'd' };
-        
-
-        #endregion
-
-        int IdLibro;
-
-        public P_Conf_Preguntas_Agregar(E_focusedBible objEntidad)
+        public P_Conf_Preguntas_Agregar(E_focusedBible configuracion)
         {
+            objEntidad = configuracion;
+
             InitializeComponent();
             listar_question();
         }
 
+        #region Variables y Objetos
 
         E_focusedBible objEntidad = new E_focusedBible();
-        private bool soundsVisible;
+        N_focusedBible objNego = new N_focusedBible();
+        private static DataTable dt = new DataTable();
         private HowToPlay howToPlay;
+        bool soundsVisible;
+        string operacion;
+        int IdLibro;
 
+        #endregion
 
         // Las siguentes dos funciones son para
         //evitar los problemas de Buffer por tener layouts transparentes
@@ -82,19 +78,27 @@ namespace capaPresentacion
         private void P_Conf_Preguntas_Agregar_Load(object sender, EventArgs e)
         {
             listar_question();
-            CMB_Buscar.Text = "dificultad";
-           
+            operacion = "Insertar";
+            CMB_Buscar.Text = "Pregunta";
+
+            //actualizar imagen del sonido
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
 
         
-        N_focusedBible objNego = new N_focusedBible();
-        private int[] noQuestions;
-        //private object dt;
-        private static DataTable dt = new DataTable();
-
-        private void btn_goToMain_Click(object sender, EventArgs e)
+        private void btn_goBack_Click(object sender, EventArgs e)
         {
+            Agregar_O_Modificar("Insertar");
+
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+            Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Configuracion").SingleOrDefault<Form>();
 
             if (existe != null) // para saber si el formulario principal existe
             {
@@ -106,67 +110,20 @@ namespace capaPresentacion
             this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
 
             PMain.Show();
+
+            if (existe2 != null) // si existe la ventana Configuración
+            {
+                existe2.Show();
+            }
+
             this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
             this.Close();
-        }
-
-        private void btn_how2Play_Click(object sender, EventArgs e)
-        {
-            howToPlay = new HowToPlay();
-            howToPlay.ShowDialog();
-        }
-
-        private void pbx_Sound_Click(object sender, EventArgs e)
-        {
-            if (soundsVisible)
-            {
-                pbx_gameSound.Visible = false;
-                pbx_buttonSound.Visible = false;
-
-                soundsVisible = false;
-            }
-            else
-            {
-
-                pbx_buttonSound.Visible = true;
-
-                pbx_gameSound.Visible = true;
-
-                soundsVisible = true;
-            }
-        }
-
-        private void pbx_buttonSound_Click(object sender, EventArgs e)
-        {
-            if (objEntidad.enableButtonSound == true)
-            {
-                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter_OFF;
-                objEntidad.enableButtonSound = false;
-            }
-            else
-            {
-                pbx_buttonSound.BackgroundImage = Properties.Resources.clickSound_MouseEnter;
-                objEntidad.enableButtonSound = true;
-            }
-        }
-
-        private void pbx_gameSound_Click(object sender, EventArgs e)
-        {
-            if (objEntidad.enableGameSound == true)
-            {
-                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter_OFF;
-                objEntidad.enableGameSound = false;
-            }
-            else
-            {
-                pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseEnter;
-                objEntidad.enableGameSound = true;
-            }
         }
 
         //Este es el metodo de Listar
         void listar_question()
         {
+            Datos.AllowUserToAddRows = false; // para que no aparezca la ultima fila
             dt = objNego.N_listadoParaConfiguracion();
             Datos.DataSource = dt;
         }
@@ -179,38 +136,33 @@ namespace capaPresentacion
             objEntidad.b = tbx_b.Text;
             objEntidad.c = tbx_c.Text;
             objEntidad.d = tbx_d.Text;
-            objEntidad.resp = Convert.ToChar(tbx_Resp.Text);
-            objEntidad.pasage = tbx_Pasage.Text;
-            objEntidad.difficulty = lbx_Dificultad.Text;
+            objEntidad.resp = Convert.ToChar(cbx_Resp.Text);
+            objEntidad.pasage = tbx_Pasaje.Text;
+            objEntidad.difficulty = cbx_Dificultad.Text;
 
-            objEntidad.Libros = lbx_catLibro.Text;
+            objEntidad.Libros = cbx_catLibro.Text;
 
             objNego.N_InsertarPreguntas(objEntidad);
 
-            MessageBox.Show("Registro Insertado con exito");
+            MessageBox.Show("Registro AGREGADO con exito");
         }
-        
-        
-
-
+                
         //Este es el Metodo para limpiar
         void limpiar()
         {
-           
             tbx_Preg.Text = "";
             tbx_a.Text = "";
             tbx_b.Text = "";
             tbx_c.Text = "";
             tbx_d.Text = "";
-            tbx_Resp.Text = "";
-            tbx_Pasage.Text = "";
-            lbx_Dificultad.Text = "Normal";
-
+            cbx_Resp.Text = "";
+            tbx_Pasaje.Text = "";
+            cbx_Dificultad.Text = "";
+            cbx_catLibro.Text = "";
         }     
         
        
-
-        private void Buscar_TextChanged_1(object sender, EventArgs e)
+        private void Buscar_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -257,77 +209,295 @@ namespace capaPresentacion
             }
         }
 
-        private void CMB_Buscar_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void CMB_Buscar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Buscar_TextChanged_1(null, null);
+            Buscar_TextChanged(null, null);
             Buscar.Focus();
         }
+        
         //Boton para insertar nuevas preguntas
-        private void btn_NewQuests_Click_1(object sender, EventArgs e)
+        private void btn_Save_Click(object sender, EventArgs e)
         {
             DialogResult confirm;
+            string validationResult = ValidarRegistrosVacios();
 
-            confirm = MessageBox.Show("Are you sure you want to add this question?", "Confirmation", MessageBoxButtons.YesNo);
 
-            if (confirm == DialogResult.Yes)
+            if (validationResult == "") // si hay algun campo vacío
             {
-                Insertar();
-                listar_question();
+                if (operacion == "Insertar")
+                {
+                    confirm = MessageBox.Show("Estas seguro de AGREGAR este registro?", "Confirmación", MessageBoxButtons.YesNo);
+
+                    if (confirm == DialogResult.Yes)
+                    {
+                        Insertar();
+                        listar_question();
+                    }
+                }
+                else if (operacion == "Editar")
+                {
+                    confirm = MessageBox.Show("Estas seguro de EDITAR este registro?", "Confirmación", MessageBoxButtons.YesNo);
+
+                    if (confirm == DialogResult.Yes)
+                    {
+                        editar();
+                        listar_question();
+                        limpiar();
+                    }
+                }
             }
+            else // si todos los campos están llenos
+            {
+                MessageBox.Show("Favor llenar :" + validationResult, "Operación cancelada!");                
+            }        
         }
 
-       
+        private string ValidarRegistrosVacios()
+        {
+            string resultado = "";
 
-       
+            if (tbx_Preg.Text == "")
+            {
+                resultado += "\n> La pregunta";
+            }
+            if (tbx_a.Text == "")
+            {
+                resultado += "\n> La respuesta (a)";
+            }
+            if (tbx_b.Text == "")
+            {
+                resultado += "\n> La respuesta (b)";
+            }
+            if (tbx_c.Text == "")
+            {
+                resultado += "\n> La respuesta (c)";
+            }
+            if (tbx_d.Text == "")
+            {
+                resultado += "\n> La respuesta (d)";
+            }
+            if (cbx_Resp.Text == "")
+            {
+                resultado += "\n> La respuesta correcta";
+            }
+            if (tbx_Pasaje.Text == "")
+            {
+                tbx_Pasaje.Text = "N/A";
+            }
+            if (cbx_catLibro.Text == "")
+            {
+                resultado += "\n> El libro";
+            }
+            if (cbx_Dificultad.Text == "")
+            {
+                resultado += "\n> La dificultad";
+            }
+
+            return resultado;
+        }
+
+        private void editar()
+        {
+            objEntidad.preg = tbx_Preg.Text;
+            objEntidad.a = tbx_a.Text;
+            objEntidad.b = tbx_b.Text;
+            objEntidad.c = tbx_c.Text;
+            objEntidad.d = tbx_d.Text;
+            objEntidad.resp = Convert.ToChar(cbx_Resp.Text);
+            objEntidad.pasage = tbx_Pasaje.Text;
+            objEntidad.difficulty = cbx_Dificultad.Text;
+
+            objEntidad.Libros = cbx_catLibro.Text;
+
+
+            objNego.N_EditarPreguntas(objEntidad);
+
+            MessageBox.Show("Registro MODIFICADO con exito");
+        }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            objEntidad.preg = Datos.Rows[e.RowIndex].Cells["preg"].Value.ToString();
+            objEntidad.preg = Datos.Rows[e.RowIndex].Cells["Pregunta"].Value.ToString();
             objEntidad.a = Datos.Rows[e.RowIndex].Cells["a"].Value.ToString();
             objEntidad.b = Datos.Rows[e.RowIndex].Cells["b"].Value.ToString();
             objEntidad.c = Datos.Rows[e.RowIndex].Cells["c"].Value.ToString();
             objEntidad.d = Datos.Rows[e.RowIndex].Cells["d"].Value.ToString();
-            objEntidad.resp = Convert.ToChar(Datos.Rows[e.RowIndex].Cells["resp"].Value);
-            objEntidad.pasage = Datos.Rows[e.RowIndex].Cells["pasage"].Value.ToString();
-            objEntidad.difficulty = Datos.Rows[e.RowIndex].Cells["dificultad"].Value.ToString();
-            objEntidad.Libros = Datos.Rows[e.RowIndex].Cells["nombreLibro"].Value.ToString();
-
+            objEntidad.resp = Convert.ToChar(Datos.Rows[e.RowIndex].Cells["Respuesta"].Value);
+            objEntidad.pasage = Datos.Rows[e.RowIndex].Cells["Pasaje"].Value.ToString();
+            objEntidad.difficulty = Datos.Rows[e.RowIndex].Cells["Dificultad"].Value.ToString();
+            objEntidad.Libros = Datos.Rows[e.RowIndex].Cells["Libro"].Value.ToString();
            
             
-            
-           
-            
-           
-            
-            
-           
-
-
-            if (Datos.Rows[e.RowIndex].Cells["Delete"].Selected)
+            if (Datos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
             {
-                int eliminar = Convert.ToInt32(Datos.Rows[e.RowIndex].Cells["codPreg"].Value.ToString());
-                objNego.N_eliminarPreguntas(eliminar);
-                MessageBox.Show("Pregunta Eliminado con exito");
-                listar_question();
-            }
-            else if (Datos.Rows[e.RowIndex].Cells["Edit"].Selected)
-            {
-                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Conf_Preguntas_Modificar").SingleOrDefault<Form>();
+                DialogResult delete;
 
-                if (existe != null) // para saber si el formulario principal existe
+                delete = MessageBox.Show("Seguro que desea ELIMINAR este Registro?", "Advertencia", MessageBoxButtons.YesNo);
+                
+                if (delete == DialogResult.Yes)
                 {
-                    this.AddOwnedForm(existe); //indica que este va a ser el papa del form P_Main
-                    existe.Close(); // cerrar ventana principal
+                    int eliminar = Convert.ToInt32(Datos.Rows[e.RowIndex].Cells["codPreg"].Value.ToString());
+                    objNego.N_eliminarPreguntas(eliminar);
+                    MessageBox.Show("Registro ELIMINADO con exito");
+                    listar_question();
                 }
-
-                P_Conf_Preguntas_Modificar conf_Preguntas_Modificar = new P_Conf_Preguntas_Modificar(objEntidad);
-                this.AddOwnedForm(conf_Preguntas_Modificar); //indica que este va a ser el papa del form P_Main
-
-                conf_Preguntas_Modificar.Show();
-                this.RemoveOwnedForm(conf_Preguntas_Modificar); //indica que este va a dejar de ser el papa del form P_Main
-                this.Close();
-
             }
+            else if (Datos.Rows[e.RowIndex].Cells["Editar"].Selected)
+            {
+                Agregar_O_Modificar("Editar");
+
+                objEntidad.codPreg = Convert.ToInt32(Datos.Rows[e.RowIndex].Cells["codPreg"].Value);
+                tbx_Preg.Text = Datos.Rows[e.RowIndex].Cells["Pregunta"].Value.ToString();
+                tbx_a.Text = Datos.Rows[e.RowIndex].Cells["a"].Value.ToString();
+                tbx_b.Text = Datos.Rows[e.RowIndex].Cells["b"].Value.ToString();
+                tbx_c.Text = Datos.Rows[e.RowIndex].Cells["c"].Value.ToString();
+                tbx_d.Text = Datos.Rows[e.RowIndex].Cells["d"].Value.ToString();
+                cbx_Resp.Text = Datos.Rows[e.RowIndex].Cells["Respuesta"].Value.ToString();
+                tbx_Pasaje.Text = Datos.Rows[e.RowIndex].Cells["Pasaje"].Value.ToString();
+                cbx_Dificultad.Text = Datos.Rows[e.RowIndex].Cells["Dificultad"].Value.ToString();
+                cbx_catLibro.Text = Datos.Rows[e.RowIndex].Cells["Libro"].Value.ToString();
+            }
+        }
+
+        private void Agregar_O_Modificar(string Operation)
+        {
+            if (Operation == "Editar")
+            {
+                operacion = "Editar";
+                lab_Agregar_Modificar.Text = "MODIFICAR";
+                pbx_AgregarModificar.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_PREGUNTAS_04;
+                this.BackColor = Color.FromArgb(23, 33, 38);
+            }
+            else if (Operation == "Insertar")
+            {
+                operacion = "Insertar";
+                lab_Agregar_Modificar.Text = "AGREGAR";
+                pbx_AgregarModificar.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_PREGUNTAS_03;
+                this.BackColor = Color.FromArgb(40, 54, 62);
+            }
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableButtonSound = true;
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void btn_how2Play_Click(object sender, EventArgs e)
+        {
+            howToPlay = new HowToPlay();
+            howToPlay.ShowDialog();
+        }
+
+        private void btn_how2Play_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_MOUSE_ENTER;
+        }
+
+        private void btn_how2Play_MouseLeave(object sender, EventArgs e)
+        {
+            btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
+        }
+
+        private void btn_goBack_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_goBack.BackgroundImage = Properties.Resources.goBack_MouseEnter_01_01;
+        }
+
+        private void btn_goBack_MouseLeave(object sender, EventArgs e)
+        {
+            btn_goBack.BackgroundImage = Properties.Resources.goBack_MouseLeave_01;
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            Agregar_O_Modificar("Insertar");
+            listar_question();
+            //Datos.Rows[0].Cells["Eliminar"].Selected = true;
+        }
+
+        private void tbx_Pasaje_TextChanged(object sender, EventArgs e)
+        {
+            if (tbx_Pasaje.Text == "")
+            {
+                tbx_Pasaje.Text = "N/A";
+                tbx_Pasaje.SelectAll();
+            }
+        }
+
+        private void tbx_Pasaje_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (tbx_Pasaje.Text == "N/A")
+            {
+                tbx_Pasaje.SelectAll();
+            }
+        }
+
+        private void tbx_Pasaje_Enter(object sender, EventArgs e)
+        {
+            if (tbx_Pasaje.Text == "N/A")
+            {
+                tbx_Pasaje.SelectAll();
+            }
+        }
+
+        private void btn_Save_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_Save.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
+        }
+
+        private void btn_Save_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Save.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
+        }
+
+        private void btn_cancelar_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_cancelar.BackgroundImage = Properties.Resources.Cancelar_MouseEnter_01;
+        }
+
+        private void btn_cancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btn_cancelar.BackgroundImage = Properties.Resources.Cancelar_01;
         }
     }
 }

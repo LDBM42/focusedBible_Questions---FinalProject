@@ -5,6 +5,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace capaEntidad
 {
     public class E_focusedBible

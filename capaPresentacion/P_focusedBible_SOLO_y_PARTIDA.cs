@@ -18,6 +18,17 @@ namespace capaPresentacion
             objEntidadAlumno = Alumno;
 
             opportunities = objEntidad.opportunities;
+            
+
+            // ejecutar Query segun modalidad de juego
+            if (objEntidad.solo_O_Partida == "PARTIDA")
+            {
+                EjecutarQuery.ejecutarQuery("PARTIDA", objEntidad);
+            }
+            else
+            {
+                EjecutarQuery.ejecutarQuery("SOLO", objEntidad);
+            }
 
             InitializeComponent();
         }
@@ -27,6 +38,7 @@ namespace capaPresentacion
         int timeToIncrease = 15; // tiempo que incrementa al elegir el comodin pasage
         Banners Banner;
         P_SOLO_Marcador FinalScore;
+        P_PARTIDA_ALUMNO_EsperaFinal PARTIDA_ALUMNO_EsperaFinal;
         P_PARTIDA_Ganador FinalScorePARTIDA;
         HowToPlay howToPlay;
         SoundPlayer sonido;
@@ -37,7 +49,6 @@ namespace capaPresentacion
         N_focusedBible objNego = new N_focusedBible();
         N_AlumnoPartida objNegoAlumno = new N_AlumnoPartida();
         N_Listener objNegoListener = new N_Listener();//-------------------------------------------
-
         DataSet ds;
         DataTable dt;
         DataTable dtListar;
@@ -70,6 +81,7 @@ namespace capaPresentacion
         int countDownPassage = 3;
         int usedPassageComodin = 0; // acumular cantidad de comodines usados
         int used50Comodin = 0; // acumular cantidad de comodines usados
+        bool doNotReset = false; // para controlar cuando reiniciar y cuando ir a Main
         #endregion
 
 
@@ -123,7 +135,7 @@ namespace capaPresentacion
 
             this.BackgroundImage = Properties.Resources.Fondo_SOLO;
             this.BackgroundImageLayout = ImageLayout.Stretch;
-
+            
             // mostrar partida o solo en la pantalla de juego
             if (objEntidad.solo_O_Partida == "PARTIDA")
             {
@@ -134,7 +146,7 @@ namespace capaPresentacion
                 lab_SOLO_PARTIDA.Text = "SOLO";
             }
 
-                if (objEntidad.enableGameSound == true)
+            if (objEntidad.enableGameSound == true)
             {
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
             }
@@ -195,7 +207,6 @@ namespace capaPresentacion
 
                 lab_Jugador.TextAlign = ContentAlignment.MiddleRight;
             }
-
 
             //optener el id del alumno
             if (dtListar.Rows.Count > 0)
@@ -337,6 +348,57 @@ namespace capaPresentacion
             btn_Submit.Enabled = false;
         }
         
+
+
+        void FinDelJuego()
+        {
+            //condicion para terminarse el juego
+            if ( opportunities == 0
+                || ((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
+                || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
+            {
+                Timer_2Answer.Stop(); //detener conteo
+
+                objEntidad.reproducirSonidoJuego("game-over.wav", false);
+
+
+                if (startingRound == objEntidad.numRounds || (countUp == noRepetir_PorDificultadyCategoria.Length)) // si es el ultimo ronda
+                {
+                    Thread.Sleep(1500);
+
+                    //condicion para la puntuacion del jugador
+                    SetFinalResults();
+
+                    if (objEntidad.solo_O_Partida == "PARTIDA")
+                    {
+                        Thread.Sleep(1000);
+                        objEntidad.reproducirSonidoJuego("finalSuccess.wav", false);
+                        Thread.Sleep(1000);
+                        Timer_2Answer.Stop();
+                        objEntidad.StopGameSound();
+                        objEntidad.winner = E_Usuario.Nombreusuario;
+                        PARTIDA_ALUMNO_EsperaFinal = new P_PARTIDA_ALUMNO_EsperaFinal(objEntidad);
+                        PARTIDA_ALUMNO_EsperaFinal.ShowDialog();
+
+                        //---------------------------------------------------------
+                        if (PARTIDA_ALUMNO_EsperaFinal.DialogResult == DialogResult.OK)
+                        {
+                            BannerFinalScorePARTIDA();
+                        }
+                    }
+                    else
+                    {
+                        BannerFinalScore();
+                    }
+                }
+                else
+                {
+                    ChangeRound();
+                }
+            }
+        }
+
+
         void BannerStart(string banner)
         {
             Thread.Sleep(2000);
@@ -402,6 +464,7 @@ namespace capaPresentacion
                     reset_PlayAgain();
                     restart = true;
                     btn_goToMain.PerformClick();
+                    doNotReset = true; // para no reiniciar el juego y poder salir a Main
                 }
             }
             catch (Exception) // si estamos en Partida
@@ -423,48 +486,11 @@ namespace capaPresentacion
                     reset_PlayAgain();
                     restart = true;
                     btn_goToMain.PerformClick();
+                    doNotReset = true; // para no reiniciar el juego y poder salir a Main
                 }
             }
         }
 
-
-        void FinDelJuego()
-        {
-            //condicion para terminarse el juego
-            if ( opportunities == 0
-                || ((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
-                || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)) )
-            {
-                Timer_2Answer.Stop(); //detener conteo
-
-                objEntidad.reproducirSonidoJuego("game-over.wav", false);
-
-
-                if (startingRound == objEntidad.numRounds || (countUp == noRepetir_PorDificultadyCategoria.Length)) // si es el ultimo ronda
-                {
-                    Thread.Sleep(1500);
-
-                    //condicion para la puntuacion del jugador
-                    SetFinalResults();
-
-                    if (objEntidad.solo_O_Partida == "PARTIDA")
-                    {
-                        objEntidadAlumno.Terminado = "True";
-                        // editar datos del alumno
-                        objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad);
-                        BannerFinalScorePARTIDA();
-                    }
-                    else
-                    {
-                        BannerFinalScore();
-                    }
-                }
-                else
-                {
-                    ChangeRound();
-                }
-            }
-        }
         void SetFinalResults()
         {
             // puntuacion 
@@ -853,13 +879,24 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
                 {
                     FinDelJuego();
-                    Thread.Sleep(2000);
-                    AfterCountDown();
-                }// si no se acabó el juego entonces reinicia ciertos elementos de los jugadores
-                else if(objEntidad.winner != lab_Jugador.Text)
-                {
-                     AfterCountDown();
+
+                    if (objEntidad.opportunitiesBoolean == false && doNotReset == false)
+                    {
+                        Thread.Sleep(2300);
+                        AfterCountDown();
+                        doNotReset = true;
+                    }
                 }
+
+                if (doNotReset == false)
+                {
+                    AfterCountDown();
+                }
+                else
+                {
+                    doNotReset = false;
+                }
+
             }
         }
 
@@ -1218,6 +1255,11 @@ namespace capaPresentacion
 
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
+            //resetear cantidad de preguntas
+            objEntidad.questions2Answer = (Convert.ToInt32(objEntidad.questions2Answer) / objEntidad.numRounds).ToString();
+            /********************************************************************************************************************/
+
+
             if (objEntidad.solo_O_Partida == "PARTIDA")
             {
                 objEntidadAlumno.Estado = "False";

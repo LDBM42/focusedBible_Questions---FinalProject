@@ -86,6 +86,7 @@
       <DependentUpon>Banners.cs</DependentUpon>
     </Compile>
     <Compile Include="CornerRadiusSetter.cs" />
+    <Compile Include="EjecutarQuery.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,11 +104,11 @@
     <Compile Include="P_Conf_Preguntas_Agregar.Designer.cs">
       <DependentUpon>P_Conf_Preguntas_Agregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="P_Conf_Preguntas_Modificar.cs">
+    <Compile Include="P_PARTIDA_ALUMNO_EsperaFinal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="P_Conf_Preguntas_Modificar.Designer.cs">
-      <DependentUpon>P_Conf_Preguntas_Modificar.cs</DependentUpon>
+    <Compile Include="P_PARTIDA_ALUMNO_EsperaFinal.designer.cs">
+      <DependentUpon>P_PARTIDA_ALUMNO_EsperaFinal.cs</DependentUpon>
     </Compile>
     <Compile Include="P_PARTIDA_ALUMNO_Main.cs">
       <SubType>Form</SubType>
@@ -206,8 +207,8 @@
     <EmbeddedResource Include="P_Conf_Preguntas_Agregar.resx">
       <DependentUpon>P_Conf_Preguntas_Agregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="P_Conf_Preguntas_Modificar.resx">
-      <DependentUpon>P_Conf_Preguntas_Modificar.cs</DependentUpon>
+    <EmbeddedResource Include="P_PARTIDA_ALUMNO_EsperaFinal.resx">
+      <DependentUpon>P_PARTIDA_ALUMNO_EsperaFinal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_PARTIDA_ALUMNO_Main.resx">
       <DependentUpon>P_PARTIDA_ALUMNO_Main.cs</DependentUpon>
@@ -302,6 +303,8 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\wasteON.png" />
+    <None Include="Resources\wasteOFF.png" />
     <None Include="Resources\status-busy.png" />
     <None Include="Resources\_status_connected.png" />
     <None Include="Resources\status-offline.png" />
@@ -428,6 +431,19 @@
     <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-05.png" />
     <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-06.png" />
     <None Include="Resources\Focused-bible-CONFIGURACIÓN_SHADOW-07.png" />
+    <None Include="Resources\iconfinder_connectivity_65699.png" />
+    <None Include="Resources\iconfinder_finish_flag_172465.png" />
+    <None Include="Resources\Conectado y Terminado-01.png" />
+    <None Include="Resources\Conectado y Terminado-02.png" />
+    <None Include="Resources\Focused_bible_PARTIDA_PROFESOR-01.png" />
+    <None Include="Resources\Focused_bible_PARTIDA_ALUMNO-01-01.png" />
+    <None Include="Resources\Focused_bible_PARTIDA_ALUMNO-01.png" />
+    <None Include="Resources\Delete-01.png" />
+    <None Include="Resources\Edit-01.png" />
+    <None Include="Resources\Cancelar-01.png" />
+    <None Include="Resources\Cancelar MouseEnter-01.png" />
+    <None Include="Resources\goBack_MouseEnter-01-01.png" />
+    <None Include="Resources\goBack_MouseLeave-01.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

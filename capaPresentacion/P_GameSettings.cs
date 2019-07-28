@@ -30,7 +30,6 @@ namespace capaPresentacion
         P_SeleccionCategoria SeleccionCategoria = new P_SeleccionCategoria();
         D_Login login = new D_Login();
         P_DUO_Main PDebateMain;
-        P_QueryListarPreguntas PQuery;
         bool soundsVisible = false;
 
 
@@ -93,7 +92,7 @@ namespace capaPresentacion
             lbx_catNuevoAntiguo.Text = objEntidad.catNuevoAntiguo;
 
 
-            // actualizar estado del sonido
+            // actualizar imagen del sonido
             if (objEntidad.enableGameSound == true)
             {
                 pbx_gameSound.BackgroundImage = Properties.Resources.GameSound_MouseLeave;
@@ -149,11 +148,11 @@ namespace capaPresentacion
             }
             
             //cantidad de preguntas a responder
-            if (objEntidad.questions2Answer != "Todos")
+            if (objEntidad.questions2Answer != "Todas")
             {
                 if (Convert.ToInt32(objEntidad.questions2Answer) > 60)
                 {
-                    lbx_preguntas.Text = "Todos";
+                    lbx_preguntas.Text = "Todas";
                 }
                 else
                 {
@@ -166,7 +165,7 @@ namespace capaPresentacion
             }
 
 
-            if (objEntidad.opportunitiesBoolean == true && objEntidad.questions2Answer != "Todos")
+            if (objEntidad.opportunitiesBoolean == true && objEntidad.questions2Answer != "Todas")
             {
                 lbx_opportunitie.Enabled = true;
             }
@@ -178,7 +177,7 @@ namespace capaPresentacion
                 }
                 else // si está desactivado el checkbox oportunidades
                 {
-                    if (objEntidad.questions2Answer != "Todos")
+                    if (objEntidad.questions2Answer != "Todas")
                     {
                         // las oportunidades son igual a la cantidad de preguntas
                         objEntidad.opportunities = Convert.ToInt32(objEntidad.questions2Answer);
@@ -272,7 +271,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_goToMain.PerformClick();
+                btn_goBack.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -288,7 +287,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_goToMain.PerformClick();
+                btn_goBack.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -304,7 +303,7 @@ namespace capaPresentacion
                 // 'e' almacena la tecla presionada
                 if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_goToMain.PerformClick();
+                btn_goBack.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -395,7 +394,6 @@ namespace capaPresentacion
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            PQuery = new P_QueryListarPreguntas();
             Change_Settings();
             // solo se guardaran los settings si es el admin en la modalidad partida
             if (objEntidad.solo_O_Partida == "PARTIDA" && E_Usuario.Rol == "Admin")
@@ -474,19 +472,19 @@ namespace capaPresentacion
                 objEntidad.opportunities = Convert.ToInt32(lbx_preguntas.Text);
             }
 
-            int TotalQuestToAnswer;
-            /*las pregutas totales son la cantidad de preguntas seleccionadas * cantidad de rondas*/
-            if (objEntidad.questions2Answer != "Todos")
-            {
-                TotalQuestToAnswer = Convert.ToInt32(objEntidad.questions2Answer) * objEntidad.numRounds;
-            }
-            else
-            {
-                TotalQuestToAnswer = 0;
-            }
+            //////////int TotalQuestToAnswer;
+            ///////////*las pregutas totales son la cantidad de preguntas seleccionadas * cantidad de rondas*/
+            //////////if (objEntidad.questions2Answer != "Todas")
+            //////////{
+            //////////    TotalQuestToAnswer = (Convert.ToInt32(objEntidad.questions2Answer) * objEntidad.numRounds);
+            //////////}
+            //////////else
+            //////////{
+            //////////    TotalQuestToAnswer = 0;
+            //////////}
 
-            objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(objEntidad,
-                                                                                  TotalQuestToAnswer);
+            //////////objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(objEntidad,
+            //////////                                                                      TotalQuestToAnswer);
         }
 
         private void Save_SettingsInDatabase()
@@ -604,7 +602,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_goToMain.PerformClick();
+                btn_goBack.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -620,7 +618,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_goToMain.PerformClick();
+                btn_goBack.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -636,7 +634,7 @@ namespace capaPresentacion
             // 'e' almacena la tecla presionada
             if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                btn_goToMain.PerformClick();
+                btn_goBack.PerformClick();
             }
             else
                 if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
@@ -674,7 +672,7 @@ namespace capaPresentacion
         private void lbx_opportunitie_SelectedIndexChanged(object sender, EventArgs e)
         {
             // igualar oportunidades a preguntas si estas son mayores que las preguntas
-            if (lbx_preguntas.Text != "Todos" && lbx_opportunitie.Text != "")
+            if (lbx_preguntas.Text != "Todas" && lbx_opportunitie.Text != "")
             {
                 if (Convert.ToInt32(lbx_opportunitie.Text) > Convert.ToInt32(lbx_preguntas.Text))
                 {
@@ -689,7 +687,7 @@ namespace capaPresentacion
         private void lbx_preguntas_SelectedIndexChanged(object sender, EventArgs e)
         {
             // igualar oportunidades a preguntas si estas son mayores que las preguntas y las oportunidades están abilitadas
-            if (lbx_preguntas.Text != "Todos" && objEntidad.opportunitiesBoolean == true
+            if (lbx_preguntas.Text != "Todas" && objEntidad.opportunitiesBoolean == true
                 && lbx_opportunitie.Text != "")
             {
                 if ((Convert.ToInt32(lbx_preguntas.Text) < Convert.ToInt32(lbx_opportunitie.Text))
@@ -702,7 +700,7 @@ namespace capaPresentacion
 
             objEntidad.questions2Answer = lbx_preguntas.Text;
 
-            if (lbx_preguntas.Text == "Todos")
+            if (lbx_preguntas.Text == "Todas")
             {
                 cbx_Opportunities.Checked = true;
             }
@@ -721,7 +719,7 @@ namespace capaPresentacion
             {
                 cbx_Opportunities.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
 
-                if (lbx_preguntas.Text == "Todos") // si está desactivado y preguntas es igual a Todos
+                if (lbx_preguntas.Text == "Todas") // si está desactivado y preguntas es igual a Todas
                 {
                     cbx_Opportunities.Checked = true;
                 }
@@ -735,7 +733,7 @@ namespace capaPresentacion
             }
 
             // igualar oportunidades a preguntas si estas son mayores que las preguntas
-            if (lbx_preguntas.Text != "Todos" && lbx_opportunitie.Text != "")
+            if (lbx_preguntas.Text != "Todas" && lbx_opportunitie.Text != "")
             {
                 if (Convert.ToInt32(lbx_opportunitie.Text) > Convert.ToInt32(lbx_preguntas.Text))
                 {
@@ -758,12 +756,7 @@ namespace capaPresentacion
             }
         }
 
-        private void btn_soundGame_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-            private void btn_Aceptar_MouseEnter(object sender, EventArgs e)
+        private void btn_Aceptar_MouseEnter(object sender, EventArgs e)
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
             btn_Aceptar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
@@ -774,9 +767,11 @@ namespace capaPresentacion
             btn_Aceptar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
         }
 
-        private void btn_goToMain_Click(object sender, EventArgs e)
+        private void btn_goBack_Click(object sender, EventArgs e)
         {
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
+            Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Configuracion").SingleOrDefault<Form>();
+
 
             if (existe != null) // para saber si el formulario principal existe
             {
@@ -788,6 +783,12 @@ namespace capaPresentacion
             this.AddOwnedForm(PMain); //indica que este va a ser el papa del form P_Main
 
             PMain.Show();
+
+            if (existe2 != null) // si existe la ventana Configuración
+            {
+                existe2.Show();
+            }
+
             this.RemoveOwnedForm(PMain); //indica que este va a dejar de ser el papa del form P_Main
             this.Close();
         }
@@ -882,15 +883,15 @@ namespace capaPresentacion
             btn_how2Play.BackgroundImage = Properties.Resources.Focused_bible_landing_03_1;
         }
 
-        private void btn_goToMain_MouseEnter(object sender, EventArgs e)
+        private void btn_goBack_MouseEnter(object sender, EventArgs e)
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
-            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
+            btn_goBack.BackgroundImage = Properties.Resources.goBack_MouseEnter_01_01;
         }
 
-        private void btn_goToMain_MouseLeave(object sender, EventArgs e)
+        private void btn_goBack_MouseLeave(object sender, EventArgs e)
         {
-            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07;
+            btn_goBack.BackgroundImage = Properties.Resources.goBack_MouseLeave_01;
         }
 
         private void pbx_buttonSound_MouseEnter(object sender, EventArgs e)

@@ -33,7 +33,7 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_User = new System.Windows.Forms.Label();
-            this.btn_goToMain = new System.Windows.Forms.Button();
+            this.btn_goBack = new System.Windows.Forms.Button();
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.pbx_gameSound = new System.Windows.Forms.PictureBox();
             this.pbx_buttonSound = new System.Windows.Forms.PictureBox();
@@ -120,7 +120,7 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.5F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tableLayoutPanel16.Controls.Add(this.lab_User, 1, 0);
-            this.tableLayoutPanel16.Controls.Add(this.btn_goToMain, 12, 0);
+            this.tableLayoutPanel16.Controls.Add(this.btn_goBack, 12, 0);
             this.tableLayoutPanel16.Controls.Add(this.pbx_Sound, 8, 0);
             this.tableLayoutPanel16.Controls.Add(this.pbx_gameSound, 4, 0);
             this.tableLayoutPanel16.Controls.Add(this.pbx_buttonSound, 6, 0);
@@ -149,28 +149,30 @@
             // 
             // btn_goToMain
             // 
-            this.btn_goToMain.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_07;
-            this.btn_goToMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_goToMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_goToMain.FlatAppearance.BorderSize = 0;
-            this.btn_goToMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_goToMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_goToMain.Location = new System.Drawing.Point(1169, 2);
-            this.btn_goToMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_goToMain.Name = "btn_goToMain";
-            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_goToMain.Size = new System.Drawing.Size(32, 22);
-            this.btn_goToMain.TabIndex = 15;
-            this.btn_goToMain.UseVisualStyleBackColor = false;
-            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
+            this.btn_goBack.BackgroundImage = global::capaPresentacion.Properties.Resources.goBack_MouseLeave_01;
+            this.btn_goBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_goBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_goBack.FlatAppearance.BorderSize = 0;
+            this.btn_goBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_goBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_goBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_goBack.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_goBack.Location = new System.Drawing.Point(1169, 2);
+            this.btn_goBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_goBack.Name = "btn_goToMain";
+            this.btn_goBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_goBack.Size = new System.Drawing.Size(32, 22);
+            this.btn_goBack.TabIndex = 15;
+            this.btn_goBack.UseVisualStyleBackColor = false;
+            this.btn_goBack.Click += new System.EventHandler(this.btn_goBack_Click);
+            this.btn_goBack.MouseEnter += new System.EventHandler(this.btn_goBack_MouseEnter);
+            this.btn_goBack.MouseLeave += new System.EventHandler(this.btn_goBack_MouseLeave);
             // 
             // pbx_Sound
             // 
+            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON_NEUTRO;
             this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Sound.Image = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON_NEUTRO;
             this.pbx_Sound.Location = new System.Drawing.Point(1085, 2);
             this.pbx_Sound.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbx_Sound.Name = "pbx_Sound";
@@ -179,12 +181,14 @@
             this.pbx_Sound.TabIndex = 17;
             this.pbx_Sound.TabStop = false;
             this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
+            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
+            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
             // 
             // pbx_gameSound
             // 
+            this.pbx_gameSound.BackgroundImage = global::capaPresentacion.Properties.Resources.GameSound_MouseLeave;
             this.pbx_gameSound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbx_gameSound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_gameSound.Image = global::capaPresentacion.Properties.Resources.GameSound_MouseLeave;
             this.pbx_gameSound.Location = new System.Drawing.Point(1001, 2);
             this.pbx_gameSound.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbx_gameSound.Name = "pbx_gameSound";
@@ -194,12 +198,14 @@
             this.pbx_gameSound.TabStop = false;
             this.pbx_gameSound.Visible = false;
             this.pbx_gameSound.Click += new System.EventHandler(this.pbx_gameSound_Click);
+            this.pbx_gameSound.MouseEnter += new System.EventHandler(this.pbx_gameSound_MouseEnter);
+            this.pbx_gameSound.MouseLeave += new System.EventHandler(this.pbx_gameSound_MouseLeave);
             // 
             // pbx_buttonSound
             // 
+            this.pbx_buttonSound.BackgroundImage = global::capaPresentacion.Properties.Resources.clickSound_MouseLeave;
             this.pbx_buttonSound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbx_buttonSound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_buttonSound.Image = global::capaPresentacion.Properties.Resources.clickSound_MouseLeave;
             this.pbx_buttonSound.Location = new System.Drawing.Point(1043, 2);
             this.pbx_buttonSound.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbx_buttonSound.Name = "pbx_buttonSound";
@@ -209,6 +215,8 @@
             this.pbx_buttonSound.TabStop = false;
             this.pbx_buttonSound.Visible = false;
             this.pbx_buttonSound.Click += new System.EventHandler(this.pbx_buttonSound_Click);
+            this.pbx_buttonSound.MouseEnter += new System.EventHandler(this.pbx_buttonSound_MouseEnter);
+            this.pbx_buttonSound.MouseLeave += new System.EventHandler(this.pbx_buttonSound_MouseLeave);
             // 
             // btn_how2Play
             // 
@@ -229,6 +237,9 @@
             this.btn_how2Play.Size = new System.Drawing.Size(30, 20);
             this.btn_how2Play.TabIndex = 21;
             this.btn_how2Play.UseVisualStyleBackColor = false;
+            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
+            this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
+            this.btn_how2Play.MouseLeave += new System.EventHandler(this.btn_how2Play_MouseLeave);
             // 
             // tableLayoutPanel8
             // 
@@ -329,12 +340,12 @@
             this.btn_Crear_usuario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_Crear_usuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Crear_usuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Crear_usuario.Font = new System.Drawing.Font("Catamaran", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Crear_usuario.Font = new System.Drawing.Font("Catamaran", 24F, System.Drawing.FontStyle.Bold);
             this.btn_Crear_usuario.ForeColor = System.Drawing.Color.White;
             this.btn_Crear_usuario.Location = new System.Drawing.Point(646, 34);
             this.btn_Crear_usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Crear_usuario.Name = "btn_Crear_usuario";
-            this.btn_Crear_usuario.Padding = new System.Windows.Forms.Padding(0, 120, 0, 0);
+            this.btn_Crear_usuario.Padding = new System.Windows.Forms.Padding(0, 130, 0, 0);
             this.btn_Crear_usuario.Size = new System.Drawing.Size(287, 201);
             this.btn_Crear_usuario.TabIndex = 19;
             this.btn_Crear_usuario.Text = "CREAR USUARIO";
@@ -353,12 +364,12 @@
             this.btn_Preguntas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_Preguntas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Preguntas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Preguntas.Font = new System.Drawing.Font("Catamaran", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Preguntas.Font = new System.Drawing.Font("Catamaran", 24F, System.Drawing.FontStyle.Bold);
             this.btn_Preguntas.ForeColor = System.Drawing.Color.White;
             this.btn_Preguntas.Location = new System.Drawing.Point(344, 34);
             this.btn_Preguntas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Preguntas.Name = "btn_Preguntas";
-            this.btn_Preguntas.Padding = new System.Windows.Forms.Padding(0, 120, 0, 0);
+            this.btn_Preguntas.Padding = new System.Windows.Forms.Padding(0, 130, 0, 0);
             this.btn_Preguntas.Size = new System.Drawing.Size(287, 201);
             this.btn_Preguntas.TabIndex = 18;
             this.btn_Preguntas.Text = "PREGUNTAS";
@@ -377,15 +388,15 @@
             this.btn_Conf_Juego.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_Conf_Juego.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Conf_Juego.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Conf_Juego.Font = new System.Drawing.Font("Catamaran", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Conf_Juego.Font = new System.Drawing.Font("Catamaran", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Conf_Juego.ForeColor = System.Drawing.Color.White;
             this.btn_Conf_Juego.Location = new System.Drawing.Point(42, 34);
             this.btn_Conf_Juego.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Conf_Juego.Name = "btn_Conf_Juego";
-            this.btn_Conf_Juego.Padding = new System.Windows.Forms.Padding(0, 120, 0, 0);
+            this.btn_Conf_Juego.Padding = new System.Windows.Forms.Padding(0, 130, 0, 0);
             this.btn_Conf_Juego.Size = new System.Drawing.Size(287, 201);
             this.btn_Conf_Juego.TabIndex = 17;
-            this.btn_Conf_Juego.Text = "CONFIGURACION DEL JUEGO";
+            this.btn_Conf_Juego.Text = "CONFIG. DEL JUEGO";
             this.btn_Conf_Juego.UseVisualStyleBackColor = false;
             this.btn_Conf_Juego.Click += new System.EventHandler(this.btn_Conf_Juego_Click);
             this.btn_Conf_Juego.MouseEnter += new System.EventHandler(this.btn_Conf_Juego_MouseEnter);
@@ -464,7 +475,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Label lab_User;
-        private System.Windows.Forms.Button btn_goToMain;
+        private System.Windows.Forms.Button btn_goBack;
         private System.Windows.Forms.PictureBox pbx_Sound;
         private System.Windows.Forms.PictureBox pbx_gameSound;
         private System.Windows.Forms.PictureBox pbx_buttonSound;

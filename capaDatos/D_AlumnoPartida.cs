@@ -56,6 +56,24 @@ namespace capaDatos
 
         public int D_Editar(E_Alumnos Alumno, E_focusedBible objEntidad)
         {
+            // evitar que se almacene un valor vacío
+            if (objEntidad.finalResultsSOLO[0] == "")
+            {
+                objEntidad.finalResultsSOLO[0] = "0";
+            }
+            if (objEntidad.finalResultsSOLO[1] == "")
+            {
+                objEntidad.finalResultsSOLO[1] = "0";
+            }
+            if (objEntidad.finalResultsSOLO[2] == "")
+            {
+                objEntidad.finalResultsSOLO[2] = "0";
+            }
+            if (objEntidad.finalResultsSOLO[3] == "")
+            {
+                objEntidad.finalResultsSOLO[3] = "0";
+            }
+
             object retVal = null;
 
             SqlCommand cmd = new SqlCommand("sp_AlumnoPartida_Actualizar", cn);

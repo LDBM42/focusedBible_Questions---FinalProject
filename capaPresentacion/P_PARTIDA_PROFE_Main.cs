@@ -32,6 +32,7 @@ namespace capaPresentacion
         N_Listener objNegoListener = new N_Listener();
         P_PARTIDA_Ganador FinalScorePARTIDA;
         P_GameSettings GameSettings;
+        P_Configuracion SettingsAdmin;
 
 
         public string difficulty;
@@ -40,24 +41,28 @@ namespace capaPresentacion
         public string[] catLibro = new string[66];
         public string catNuevoAntiguo;
         public int countFinishedStudent = 0;
+        public bool AfterFinish = false;
         public int numRounds;
-        public int time2Answer;
 
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
         {
-            SetDoubleBuffered(tableLayoutPanel7);
             SetDoubleBuffered(tableLayoutPanel11);
             SetDoubleBuffered(tableLayoutPanel15);
             SetDoubleBuffered(tableLayoutPanel20);
             SetDoubleBuffered(tableLayoutPanel21);
+
+
+            this.BackgroundImage = Properties.Resources.Focused_bible_PARTIDA_PROFESOR_01;
+            BackgroundImageLayout = ImageLayout.Stretch;
+
 
             objNegoAlumno.N_EliminarTodo(); // borrar todos los alumnos de la lista
             objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo(); // borrar todos los settings de la base de datos
 
             listarAlumnos();
             timer_ActualizarEstadoLista.Start(); // iniciar actualizar lista cada 2 segundos
-            
+
             //this.BackgroundImage = Properties.Resources.Focused_bible_landing_01_Fondo;
             //BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -65,6 +70,17 @@ namespace capaPresentacion
 
             // enviar codigo a base de datos
             objNegoListener.N_Listener_Detener_O_Iniciar(1, "", tbx_codigoPartida.Text);
+
+
+            //actualizar imagen sonido
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
 
 
@@ -113,8 +129,7 @@ namespace capaPresentacion
 
 
 
-
-        private void btn_goToMain_Click(object sender, EventArgs e)
+        private void goToMain()
         {
             //detener la partida
             objNegoListener.N_Listener_Detener_O_Iniciar(1, "stop", "");
@@ -137,16 +152,6 @@ namespace capaPresentacion
             this.Close();
         }
 
-
-        private void btn_goToMain_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
-            {
-                this.DialogResult = DialogResult.OK; //cierra el esta ventana y deja vista la ventana Main
-            }
-        }
-
-        
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
@@ -160,8 +165,33 @@ namespace capaPresentacion
 
         private void Btn_Settings_Click(object sender, EventArgs e)
         {
-            OpenGameSettings();
+            if (E_Usuario.Rol == "Admin")
+            {
+                OpenSettingsAdmin();
+            }
+            else
+            {
+                OpenGameSettings();
+            }
         }
+
+
+        private void OpenSettingsAdmin()
+        {
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Configuracion").SingleOrDefault<Form>();
+
+            if (existe != null)
+            {
+                existe.Close();
+                existe.Dispose();
+                GC.Collect();
+            }
+
+            SettingsAdmin = new P_Configuracion(objEntidad);
+            this.Hide();
+            SettingsAdmin.Show();
+        }
+
 
         private void OpenGameSettings()
         {
@@ -218,17 +248,6 @@ namespace capaPresentacion
 
 
 
-        private void btn_goToMain_MouseEnter(object sender, EventArgs e)
-        {
-            objEntidad.reproducirSonidoBoton("button.wav", false);
-            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07_MouseEnter;
-        }
-
-        private void btn_goToMain_MouseLeave(object sender, EventArgs e)
-        {
-            btn_goToMain.BackgroundImage = Properties.Resources.Focused_bible_SOLO_07;
-        }
-
         private void btn_IniciarPartida_MouseEnter(object sender, EventArgs e)
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
@@ -244,39 +263,47 @@ namespace capaPresentacion
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            //detener la partida
-            objNegoListener.N_Listener_Detener_O_Iniciar(1, "stop", "");
-            objNegoAlumno.N_EliminarTodo(); // borrar todos los alumnos de la lista
+            goToMain();
         }
 
         private void P_PARTIDA_PROFE_Main_Activated(object sender, EventArgs e)
         {
-            //for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
-            //{
-            //    if (dgvAlumnos.Rows[i].Cells["Terminado"].Value.ToString() == "True")
-            //    {
-            //        countFinishedStudent++;
-            //    }
-            //}
+            if (AfterFinish == false)
+            {
+                for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
+                {
+                    if (dgvAlumnos.Rows[i].Cells["Terminado"].Value.ToString() == "True")
+                    {
+                        countFinishedStudent++;
+                    }
+                }
 
-            //if (countFinishedStudent == dgvAlumnos.Rows.Count)
-            //{
-            //    BannerFinalScorePARTIDA();
-            //}
+                if (countFinishedStudent == dgvAlumnos.Rows.Count && countFinishedStudent > 0)
+                {
+                    BannerFinalScorePARTIDA();
+                    AfterFinish = true;
+
+                }
+            }
+
+            countFinishedStudent = 0;
         }
 
         void BannerFinalScorePARTIDA()
         {
+            objNegoListener.N_Listener_Detener_O_Iniciar(1, "End", "");
+
             Thread.Sleep(1000);
             objEntidad.reproducirSonidoJuego("finalSuccess.wav", false);
             Thread.Sleep(1000);
-            //Timer_2Answer.Stop();
             objEntidad.StopGameSound();
             objEntidad.winner = E_Usuario.Nombreusuario;
             FinalScorePARTIDA = new P_PARTIDA_Ganador(objEntidad);
             FinalScorePARTIDA.ShowDialog();
 
-            //StartAgan();
+
+            objEntidad.StopGameSound();
+            goToMain();
         }
 
 
@@ -288,14 +315,72 @@ namespace capaPresentacion
                 dgvAlumnos.Rows[e.RowIndex].Cells["Finish"].Value = Properties.Resources.status_offline;
 
             if (dgvAlumnos.Rows[e.RowIndex].Cells["Estado"].Value.ToString() == "True")
-                    dgvAlumnos.Rows[e.RowIndex].Cells["Connected"].Value = Properties.Resources._status_connected;
-                else
-                    dgvAlumnos.Rows[e.RowIndex].Cells["Connected"].Value = Properties.Resources.status_offline;
+                dgvAlumnos.Rows[e.RowIndex].Cells["Connected"].Value = Properties.Resources._status_connected;
+            else
+                dgvAlumnos.Rows[e.RowIndex].Cells["Connected"].Value = Properties.Resources.status_offline;
         }
 
         private void timer_ActualizarEstadoLista_Tick(object sender, EventArgs e)
         {
             listarAlumnos();
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableButtonSound = true;
+            }
+        }
+
+        private void btn_cancelar_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            btn_cancelar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
+        }
+
+        private void btn_cancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btn_cancelar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
+        }
+
+        private void btn_cancelar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
+            {
+                this.DialogResult = DialogResult.OK; //cierra el esta ventana y deja vista la ventana Main
+            }
         }
     }
 }

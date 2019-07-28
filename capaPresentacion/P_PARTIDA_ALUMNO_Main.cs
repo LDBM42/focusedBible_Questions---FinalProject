@@ -50,8 +50,6 @@ namespace capaPresentacion
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
         {
-            SetDoubleBuffered(tableLayoutPanel6);
-            SetDoubleBuffered(tableLayoutPanel7);
             SetDoubleBuffered(tableLayoutPanel8);
             SetDoubleBuffered(tableLayoutPanel10);
             SetDoubleBuffered(tableLayoutPanel8);
@@ -84,8 +82,18 @@ namespace capaPresentacion
                 lockStart = false;
             }
 
-            this.BackgroundImage = Properties.Resources.Focused_bible_landing_01;
+            this.BackgroundImage = Properties.Resources.Focused_bible_PARTIDA_ALUMNO_01;
             BackgroundImageLayout = ImageLayout.Stretch;
+
+
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
 
         private bool startStopGame(string comando)
@@ -135,49 +143,6 @@ namespace capaPresentacion
             {
                 this.DialogResult = DialogResult.OK; //cierra el esta ventana y deja vista la ventana Main
             }
-        }
-
-
-        private void Btn_Settings_MouseEnter(object sender, EventArgs e)
-        {
-            objEntidad.reproducirSonidoBoton("button.wav", false);
-            Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
-        }
-
-        private void Btn_Settings_MouseLeave(object sender, EventArgs e)
-        {
-            Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02;
-        }
-
-        private void Btn_Settings_Click(object sender, EventArgs e)
-        {
-            OpenGameSettings();
-        }
-
-        private void OpenGameSettings()
-        {
-            Change_Settings();
-
-            // para saber si el formulario existe, o sea, si está abierto o cerrado
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_GameSettings").SingleOrDefault<Form>();
-            Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
-
-            if (existe != null)
-            {
-                existe.Close();
-                existe.Dispose();
-                GC.Collect();
-            }
-
-            GameSettings = new P_GameSettings(objEntidad);
-            existe2.Hide();
-            //this.Hide();
-            GameSettings.ShowDialog();
-        }
-
-
-        public void Change_Settings()
-        {
         }
 
 
@@ -237,8 +202,9 @@ namespace capaPresentacion
                         objEntidadAlumno.Estado = "True";
                         objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad);
 
-                        circularProgressBar.Visible = true;
+                        circularProgressBar.ProgressColor = Color.FromArgb(252, 195, 26);
                         LoadBar.Start();
+                        
                         tbx_codigoPartida.Enabled = false;
                         cbx_codigo.Checked = true;
                     }
@@ -411,20 +377,24 @@ namespace capaPresentacion
 
         private void LoadBar_Tick(object sender, EventArgs e)
         {
-            if (circularProgressBar.Text == "r")
+            if (circularProgressBar.Text == "")
             {
                 counter = 0;
-                circularProgressBar.Text = "era";
+                circularProgressBar.Text = "r";
             }
-            else if (circularProgressBar.Text == "era")
+            else if (circularProgressBar.Text == "r")
             {
-                circularProgressBar.Text = "peran";
+                circularProgressBar.Text = "Ero";
             }
-            else if (circularProgressBar.Text == "peran")
+            else if (circularProgressBar.Text == "Ero")
             {
-                circularProgressBar.Text = "sperand";
+                circularProgressBar.Text = "Esrdo";
             }
-            else if (circularProgressBar.Text == "sperand")
+            else if (circularProgressBar.Text == "Esrdo")
+            {
+                circularProgressBar.Text = "Esprndo";
+            }
+            else if (circularProgressBar.Text == "Esprndo")
             {
                 circularProgressBar.Text = "Esperando";
             }
@@ -434,7 +404,7 @@ namespace capaPresentacion
                 counter++;
                 if (counter > 4) // esperar 4 segundos con "Esperando" escrito
                 {
-                    circularProgressBar.Text = "r";
+                    circularProgressBar.Text = "";
                 }
             }
         }
@@ -448,6 +418,45 @@ namespace capaPresentacion
             else
             {
                 cbx_codigo.BackgroundImage = Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            }
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableButtonSound = true;
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
             }
         }
     }

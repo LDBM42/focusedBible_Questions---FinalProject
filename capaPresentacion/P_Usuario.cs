@@ -337,12 +337,18 @@ namespace capaPresentacion
         private void btnClose_Click(object sender, EventArgs e)
         {
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Login").SingleOrDefault<Form>();
-            
+            Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Configuracion").SingleOrDefault<Form>();
+
+
             this.Hide();
 
             if (existe != null) // Si se accedio desde la ventana login al menu usuario
             {
                 existe.Show();
+            }
+            if (existe2 != null) // Si se accedio desde la ventana login al menu usuario
+            {
+                existe2.Show();
             }
         }
 

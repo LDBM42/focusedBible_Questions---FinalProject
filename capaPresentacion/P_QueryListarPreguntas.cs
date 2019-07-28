@@ -27,7 +27,7 @@ namespace capaPresentacion
 
 
             //Crear Query para consultar por categorias en la base de datos
-            if (objEntidad.catNuevoAntiguo != "Todos")
+            if (objEntidad.catNuevoAntiguo != "Todas")
             {
                 if (objEntidad.catNuevoAntiguoChecked == true)
                 {
@@ -67,14 +67,14 @@ namespace capaPresentacion
 
 
 
-                if (objEntidad.difficulty != "Todos")
+                if (objEntidad.difficulty != "Todas")
                 {
                     Query += string.Format(" AND dificultad ='{0}'", objEntidad.difficulty);
                 }
             }
 
 
-            if (objEntidad.difficulty == "Todos" && objEntidad.difficulty != "Todos")
+            if (objEntidad.difficulty == "Todas" && objEntidad.difficulty != "Todas")
             {
                 Query += string.Format("WHERE dificultad ='{0}'", objEntidad.difficulty);
             }

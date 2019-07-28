@@ -41,23 +41,24 @@
             this.lbl_ganador_Alumno_2do = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ganador_Alumno = new System.Windows.Forms.Label();
-            this.lbl_ganador_Alumno_3ro = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_goToMain = new System.Windows.Forms.Button();
+            this.pbx_Sound = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_ganador_Alumno_3ro = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvAlumnosPuntuacionFinal = new System.Windows.Forms.DataGridView();
             this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correctas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Incorrectas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comodines = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_goToMain = new System.Windows.Forms.Button();
-            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pB_ScoreNum = new System.Windows.Forms.PictureBox();
@@ -71,12 +72,12 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosPuntuacionFinal)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_ScoreNum)).BeginInit();
@@ -208,21 +209,6 @@
             this.lbl_ganador_Alumno.TabIndex = 1;
             this.lbl_ganador_Alumno.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lbl_ganador_Alumno_3ro
-            // 
-            this.lbl_ganador_Alumno_3ro.AutoSize = true;
-            this.lbl_ganador_Alumno_3ro.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_ganador_Alumno_3ro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_ganador_Alumno_3ro.Font = new System.Drawing.Font("Catamaran ExtraBold", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ganador_Alumno_3ro.ForeColor = System.Drawing.Color.White;
-            this.lbl_ganador_Alumno_3ro.Location = new System.Drawing.Point(4, 207);
-            this.lbl_ganador_Alumno_3ro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_ganador_Alumno_3ro.Name = "lbl_ganador_Alumno_3ro";
-            this.lbl_ganador_Alumno_3ro.Size = new System.Drawing.Size(241, 70);
-            this.lbl_ganador_Alumno_3ro.TabIndex = 1;
-            this.lbl_ganador_Alumno_3ro.Text = "N/A";
-            this.lbl_ganador_Alumno_3ro.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.BackColor = System.Drawing.Color.Transparent;
@@ -258,6 +244,74 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(132, 32);
             this.tableLayoutPanel8.TabIndex = 5;
+            // 
+            // btn_goToMain
+            // 
+            this.btn_goToMain.BackColor = System.Drawing.Color.Transparent;
+            this.btn_goToMain.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_07;
+            this.btn_goToMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_goToMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_goToMain.FlatAppearance.BorderSize = 0;
+            this.btn_goToMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_goToMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_goToMain.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_goToMain.Location = new System.Drawing.Point(95, 3);
+            this.btn_goToMain.Name = "btn_goToMain";
+            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_goToMain.Size = new System.Drawing.Size(34, 26);
+            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.UseVisualStyleBackColor = false;
+            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
+            this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);
+            this.btn_goToMain.MouseEnter += new System.EventHandler(this.btn_goToMain_MouseEnter);
+            this.btn_goToMain.MouseLeave += new System.EventHandler(this.btn_goToMain_MouseLeave);
+            // 
+            // pbx_Sound
+            // 
+            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
+            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Sound.Location = new System.Drawing.Point(47, 3);
+            this.pbx_Sound.Name = "pbx_Sound";
+            this.pbx_Sound.Size = new System.Drawing.Size(32, 26);
+            this.pbx_Sound.TabIndex = 18;
+            this.pbx_Sound.TabStop = false;
+            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
+            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
+            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Controls.Add(this.lbl_ganador_Alumno_3ro, 0, 1);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(823, 4);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(249, 277);
+            this.tableLayoutPanel7.TabIndex = 4;
+            // 
+            // lbl_ganador_Alumno_3ro
+            // 
+            this.lbl_ganador_Alumno_3ro.AutoSize = true;
+            this.lbl_ganador_Alumno_3ro.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ganador_Alumno_3ro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_ganador_Alumno_3ro.Font = new System.Drawing.Font("Catamaran ExtraBold", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ganador_Alumno_3ro.ForeColor = System.Drawing.Color.White;
+            this.lbl_ganador_Alumno_3ro.Location = new System.Drawing.Point(4, 207);
+            this.lbl_ganador_Alumno_3ro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_ganador_Alumno_3ro.Name = "lbl_ganador_Alumno_3ro";
+            this.lbl_ganador_Alumno_3ro.Size = new System.Drawing.Size(241, 70);
+            this.lbl_ganador_Alumno_3ro.TabIndex = 1;
+            this.lbl_ganador_Alumno_3ro.Text = "N/A";
+            this.lbl_ganador_Alumno_3ro.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanel19
             // 
@@ -336,6 +390,7 @@
             this.dgvAlumnosPuntuacionFinal.ColumnHeadersVisible = false;
             this.dgvAlumnosPuntuacionFinal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lugar,
+            this.orden,
             this.Alumno,
             this.Correctas,
             this.Incorrectas,
@@ -343,7 +398,7 @@
             this.Comodines});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Avenir Next Demi Bold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Avenir Next Demi Bold", 12F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(84)))), ((int)(((byte)(91)))));
@@ -390,6 +445,14 @@
             this.Lugar.Name = "Lugar";
             this.Lugar.ReadOnly = true;
             this.Lugar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // orden
+            // 
+            this.orden.DataPropertyName = "orden";
+            this.orden.HeaderText = "orden";
+            this.orden.Name = "orden";
+            this.orden.ReadOnly = true;
+            this.orden.Visible = false;
             // 
             // Alumno
             // 
@@ -459,59 +522,6 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(459, 51);
             this.tableLayoutPanel6.TabIndex = 16;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.lbl_ganador_Alumno_3ro, 0, 1);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(823, 4);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(249, 277);
-            this.tableLayoutPanel7.TabIndex = 4;
-            // 
-            // btn_goToMain
-            // 
-            this.btn_goToMain.BackColor = System.Drawing.Color.Transparent;
-            this.btn_goToMain.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_07;
-            this.btn_goToMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_goToMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_goToMain.FlatAppearance.BorderSize = 0;
-            this.btn_goToMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_goToMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_goToMain.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_goToMain.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_goToMain.Location = new System.Drawing.Point(95, 3);
-            this.btn_goToMain.Name = "btn_goToMain";
-            this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_goToMain.Size = new System.Drawing.Size(34, 26);
-            this.btn_goToMain.TabIndex = 15;
-            this.btn_goToMain.UseVisualStyleBackColor = false;
-            this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
-            this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);
-            this.btn_goToMain.MouseEnter += new System.EventHandler(this.btn_goToMain_MouseEnter);
-            this.btn_goToMain.MouseLeave += new System.EventHandler(this.btn_goToMain_MouseLeave);
-            // 
-            // pbx_Sound
-            // 
-            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
-            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Sound.Location = new System.Drawing.Point(47, 3);
-            this.pbx_Sound.Name = "pbx_Sound";
-            this.pbx_Sound.Size = new System.Drawing.Size(32, 26);
-            this.pbx_Sound.TabIndex = 18;
-            this.pbx_Sound.TabStop = false;
-            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
-            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
-            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -613,6 +623,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questions focusedBible";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.P_PARTIDA_Ganador_Activated);
             this.Load += new System.EventHandler(this.P_Debate_Main_Load);
             this.tableLayoutPanel21.ResumeLayout(false);
             this.tableLayoutPanel18.ResumeLayout(false);
@@ -623,14 +634,14 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel19.ResumeLayout(false);
             this.tableLayoutPanel19.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosPuntuacionFinal)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_ScoreNum)).EndInit();
@@ -661,16 +672,17 @@
         private System.Windows.Forms.Label lbl_ganador_Alumno_2do;
         private System.Windows.Forms.Label lbl_ganador_Alumno_3ro;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Alumno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correctas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Incorrectas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tiempo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comodines;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pbx_comodins;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Alumno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correctas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Incorrectas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tiempo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comodines;
     }
 }

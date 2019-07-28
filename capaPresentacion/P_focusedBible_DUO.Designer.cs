@@ -358,7 +358,7 @@
             this.lab_Difficulty.Name = "lab_Difficulty";
             this.lab_Difficulty.Size = new System.Drawing.Size(137, 29);
             this.lab_Difficulty.TabIndex = 1;
-            this.lab_Difficulty.Text = "Normal";
+            this.lab_Difficulty.Text = "Medio";
             this.lab_Difficulty.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label1
@@ -1186,7 +1186,7 @@
             this.Lab_Passage_Shown_2.Name = "Lab_Passage_Shown_2";
             this.Lab_Passage_Shown_2.Size = new System.Drawing.Size(1, 1);
             this.Lab_Passage_Shown_2.TabIndex = 24;
-            this.Lab_Passage_Shown_2.Text = "Pasage";
+            this.Lab_Passage_Shown_2.Text = "Pasaje";
             this.Lab_Passage_Shown_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tlyo_Comodines_1

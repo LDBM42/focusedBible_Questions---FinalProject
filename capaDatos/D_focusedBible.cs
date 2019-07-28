@@ -25,7 +25,9 @@ namespace capaDatos
 
         public DataTable D_listadoPreguntasConfiguracion() //este es el metodo para listar las preguntas en el dgv de configuracion
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM PregCategoriaDificultad ", cn);
+            SqlCommand cmd = new SqlCommand("SELECT codPreg, preg as Pregunta, a, b, c, d, resp as Respuesta, pasage as Pasaje, " +
+                                            "dificultad as Dificultad, nombreLibro as Libro FROM [dbo].[PregCategoriaDificultad] " +
+                                            " ORDER BY codPreg Desc", cn);
             //cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();

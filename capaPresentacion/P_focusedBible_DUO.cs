@@ -19,6 +19,7 @@ namespace capaPresentacion
             opportunities_1 = objEntidad.opportunities;
             opportunities_2 = objEntidad.opportunities;
 
+            EjecutarQuery.ejecutarQuery("DUO", objEntidad);
             InitializeComponent();
         }
 
@@ -79,6 +80,7 @@ namespace capaPresentacion
         int usedPassageComodin_2 = 0; // acumular cantidad de comodines usados
         int used50Comodin_1 = 0; // acumular cantidad de comodines usados
         int used50Comodin_2 = 0; // acumular cantidad de comodines usados
+        bool doNotReset = false; // para controlar cuando reiniciar y cuando ir a Main
         #endregion
 
 
@@ -221,6 +223,7 @@ namespace capaPresentacion
             }
 
         }
+
 
         void Llenar_listaPorDificultadYCategoria(E_focusedBible dificultad)
         {
@@ -408,6 +411,7 @@ namespace capaPresentacion
                 reset_PlayAgain();
                 restart = true;
                 btn_goToMain.PerformClick();
+                doNotReset = true; // para no reiniciar el juego y poder salir a Main
             }
         }
         void cambioDeJugador()
@@ -1223,12 +1227,22 @@ namespace capaPresentacion
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
                 {
                     perder_Ganar();
-                    Thread.Sleep(2000);
-                    AfterCountDown();
-                }// si no se acabó el juego entonces reinicia ciertos elementos de los jugadores
-                else if(objEntidad.winner != lab_Group1.Text && objEntidad.winner != lab_Group2.Text && objEntidad.winner != "Es un empate!")
+
+                    if (objEntidad.opportunitiesBoolean == false && doNotReset == false)
+                    {
+                        Thread.Sleep(2300);
+                        AfterCountDown();
+                        doNotReset = true;
+                    }
+                }
+
+                if (doNotReset == false)
                 {
-                     AfterCountDown();
+                    AfterCountDown();
+                }
+                else
+                {
+                    doNotReset = false;
                 }
             }
         }
@@ -1794,9 +1808,13 @@ namespace capaPresentacion
                 }
             }
         }
-
+        
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
+            //resetear cantidad de preguntas
+            objEntidad.questions2Answer = ((Convert.ToInt32(objEntidad.questions2Answer) / 2) / objEntidad.numRounds).ToString();
+            /********************************************************************************************************************/
+
             // para saber si el formulario existe, o sea, si está abierto o cerrado
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
             

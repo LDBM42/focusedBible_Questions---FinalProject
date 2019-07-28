@@ -27,6 +27,7 @@ namespace capaPresentacion
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
         P_GameSettings GameSettings;
+        P_Configuracion SettingsAdmin;
         D_Login login = new D_Login();
         P_focusedBible_DUO PfocusedB;
         HowToPlay howToPlay;
@@ -64,6 +65,12 @@ namespace capaPresentacion
                 this.Close();
                 PfocusedB.Show();
             }
+        }
+
+        private void Change_Settings()
+        {
+            objEntidad.group1 = tbx_Grupo1.Text;
+            objEntidad.group2 = tbx_Grupo2.Text;
         }
 
         private void tbx_Grupo1_TextChanged(object sender, EventArgs e)
@@ -117,6 +124,8 @@ namespace capaPresentacion
 
         private void btn_goToMain_Click(object sender, EventArgs e)
         {
+            Change_Settings();
+
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
 
             if (existe != null) // para saber si el formulario principal existe
@@ -204,50 +213,6 @@ namespace capaPresentacion
 
         }
 
-        private void Btn_SettingsBtn_goToMain_MouseEnter(object sender, EventArgs e)
-        {
-            objEntidad.reproducirSonidoBoton("button.wav", false);
-            Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02_MOUSE_ENTER;
-        }
-
-        private void Btn_SettingsBtn_goToMain_MouseLeave(object sender, EventArgs e)
-        {
-            Btn_Settings.Image = Properties.Resources.Focused_bible_landing_02;
-        }
-
-        private void Btn_Settings_Click(object sender, EventArgs e)
-        {
-            OpenGameSettings();
-        }
-
-        private void OpenGameSettings()
-        {
-            Change_Settings();
-
-            // para saber si el formulario existe, o sea, si está abierto o cerrado
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_GameSettings").SingleOrDefault<Form>();
-            Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Main").SingleOrDefault<Form>();
-
-            if (existe != null)
-            {
-                existe.Close();
-                existe.Dispose();
-                GC.Collect();
-            }
-
-            GameSettings = new P_GameSettings(objEntidad);
-            existe2.Hide();
-            GameSettings.ShowDialog();
-        }
-
-
-        public void Change_Settings()
-        {
-            objEntidad.group1 = tbx_Grupo1.Text;
-            objEntidad.group2 = tbx_Grupo2.Text;
-        }
-
-
         // Las siguentes dos funciones son para
         //evitar los problemas de Buffer por tener layouts transparentes
         #region .. Double Buffered function ..
@@ -296,6 +261,15 @@ namespace capaPresentacion
             tbx_Grupo1.Text = objEntidad.group1;
             tbx_Grupo2.Text = objEntidad.group2;
 
+            //actualizar imagen sonido
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
 
         private void btn_how2Play_Click(object sender, EventArgs e)
@@ -335,6 +309,45 @@ namespace capaPresentacion
         private void btn_IniciarDebate_MouseLeave(object sender, EventArgs e)
         {
             btn_IniciarDebate.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
+        }
+
+        private void pbx_Sound_Click(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+                objEntidad.enableButtonSound = false;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+                objEntidad.enableButtonSound = true;
+            }
+        }
+
+        private void pbx_Sound_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseEnter_OFF;
+            }
+        }
+
+        private void pbx_Sound_MouseLeave(object sender, EventArgs e)
+        {
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
     }
 }

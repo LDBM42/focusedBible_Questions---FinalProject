@@ -163,6 +163,26 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cancelar_01 {
+            get {
+                object obj = ResourceManager.GetObject("Cancelar-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cancelar_MouseEnter_01 {
+            get {
+                object obj = ResourceManager.GetObject("Cancelar MouseEnter-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clickSound_MouseEnter {
             get {
                 object obj = ResourceManager.GetObject("clickSound_MouseEnter", resourceCulture);
@@ -226,6 +246,46 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap close_gray2 {
             get {
                 object obj = ResourceManager.GetObject("close_gray2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Conectado_y_Terminado_01 {
+            get {
+                object obj = ResourceManager.GetObject("Conectado y Terminado-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Conectado_y_Terminado_02 {
+            get {
+                object obj = ResourceManager.GetObject("Conectado y Terminado-02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Delete_01 {
+            get {
+                object obj = ResourceManager.GetObject("Delete_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit_01 {
+            get {
+                object obj = ResourceManager.GetObject("Edit_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -613,9 +673,29 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_PARTIDA_ALUMNO_01 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_PARTIDA_ALUMNO_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Focused_bible_PARTIDA_marcador {
             get {
                 object obj = ResourceManager.GetObject("Focused_bible_PARTIDA_marcador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Focused_bible_PARTIDA_PROFESOR_01 {
+            get {
+                object obj = ResourceManager.GetObject("Focused_bible_PARTIDA_PROFESOR-01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -743,16 +823,6 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap focusedBible_Questions {
-            get {
-                object obj = ResourceManager.GetObject("focusedBible_Questions", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Fondo_Debate_Main {
             get {
                 object obj = ResourceManager.GetObject("Fondo_Debate_Main", resourceCulture);
@@ -853,6 +923,26 @@ namespace capaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap goBack_MouseEnter_01_01 {
+            get {
+                object obj = ResourceManager.GetObject("goBack_MouseEnter-01-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap goBack_MouseLeave_01 {
+            get {
+                object obj = ResourceManager.GetObject("goBack_MouseLeave-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Grupo1_ImagenDuo {
             get {
                 object obj = ResourceManager.GetObject("Grupo1_ImagenDuo", resourceCulture);
@@ -896,6 +986,26 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap how2Play {
             get {
                 object obj = ResourceManager.GetObject("how2Play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_connectivity_65699 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_connectivity_65699", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_finish_flag_172465 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_finish_flag_172465", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1186,6 +1296,26 @@ namespace capaPresentacion.Properties {
         internal static System.Drawing.Bitmap usuario_masculino {
             get {
                 object obj = ResourceManager.GetObject("usuario-masculino", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wasteOFF {
+            get {
+                object obj = ResourceManager.GetObject("wasteOFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wasteON {
+            get {
+                object obj = ResourceManager.GetObject("wasteON", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

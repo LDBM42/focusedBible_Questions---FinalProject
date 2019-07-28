@@ -25,7 +25,9 @@ namespace capaPresentacion
 
         E_focusedBible objEntidad = new E_focusedBible();
         N_AlumnoPartida objNegoAlumno = new N_AlumnoPartida();
+        N_Listener objNegoListener = new N_Listener();//-------------------------------------------
 
+        DataSet ds;
         DataTable dt;
 
 
@@ -70,6 +72,16 @@ namespace capaPresentacion
                         
             listarAlumnosYGanador();
             SetFinalResults();
+
+            //actualizar imagen del sonido
+            if (objEntidad.enableButtonSound == true)
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_ON;
+            }
+            else
+            {
+                pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
+            }
         }
 
 
@@ -97,22 +109,9 @@ namespace capaPresentacion
                 {
                     lbl_ganador_Alumno_3ro.Text = dt.Rows[2]["Alumno"].ToString();
                 }
-
-                // puntuacion
-                //lab_ScoreNum.Text = dt.Rows[0]["Correctas"].ToString();
-
-                // respuestas incorrectas
-                //lab_wrongAnswer.Text = dt.Rows[0]["Incorrectas"].ToString();
-
-                // tiempo total
-                //Lab_tiempo.Text = dt.Rows[0]["Tiempo"].ToString();
-
-                // comodines totales
-                //lab_comodins.Text = dt.Rows[0]["Comodines"].ToString();
             }
             
         }
-
 
 
         private void btn_goToMain_Click(object sender, EventArgs e)
@@ -185,6 +184,20 @@ namespace capaPresentacion
             //    e.CellStyle.BackColor = Color.FromArgb(60, 255, 0);
             //    e.CellStyle.ForeColor = Color.FromArgb(255, 255, 255);
             //}
+        }
+
+        private void P_PARTIDA_Ganador_Activated(object sender, EventArgs e)
+        {
+            ds = objNegoListener.N_Listener_Comando(1);
+                dt = ds.Tables[0];
+
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0]["Comando"].ToString() == "stop")
+                    {
+                        btn_goToMain.PerformClick();
+                    }
+                }
         }
     }
 }
