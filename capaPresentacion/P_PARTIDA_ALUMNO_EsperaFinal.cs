@@ -64,8 +64,8 @@ namespace capaPresentacion
             objEntidadAlumno.NombreUsuario = E_Usuario.Nombreusuario;
             objEntidadAlumno.Estado = "True";
             objEntidadAlumno.Terminado = "True";
+            
             // actualiza y en caso de no existir lo inserta
-
             if (objNegoAlumno.N_Editar(objEntidadAlumno, objEntidad) == 0)
             {
                 objNegoAlumno.N_Insertar(objEntidadAlumno, objEntidad);

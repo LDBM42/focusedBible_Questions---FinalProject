@@ -27,7 +27,6 @@ namespace capaPresentacion
         E_focusedBible objEntidad = new E_focusedBible();
         E_Alumnos objEntidadAlumno = new E_Alumnos();
         N_focusedBible objNego = new N_focusedBible();
-        N_SettingsPROFE objNegoSettingsPROFE = new N_SettingsPROFE();
         N_AlumnoPartida objNegoAlumno = new N_AlumnoPartida();
         N_Listener objNegoListener = new N_Listener();
         P_PARTIDA_Ganador FinalScorePARTIDA;
@@ -58,14 +57,11 @@ namespace capaPresentacion
 
 
             objNegoAlumno.N_EliminarTodo(); // borrar todos los alumnos de la lista
-            objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo(); // borrar todos los settings de la base de datos
 
             listarAlumnos();
             timer_ActualizarEstadoLista.Start(); // iniciar actualizar lista cada 2 segundos
             timer_waitingEverybodyToFinish.Start(); //detecta si todos los alumnos han terminado de jugar
 
-            //this.BackgroundImage = Properties.Resources.Focused_bible_landing_01_Fondo;
-            //BackgroundImageLayout = ImageLayout.Stretch;
 
             tbx_codigoPartida.Text = generarCodigoPartida();
 
@@ -375,8 +371,8 @@ namespace capaPresentacion
 
                 if (countFinishedStudent == dgvAlumnos.Rows.Count && countFinishedStudent > 0)
                 {
-                    BannerFinalScorePARTIDA();
                     timer_waitingEverybodyToFinish.Stop(); // detener timer
+                    BannerFinalScorePARTIDA();
                     AfterFinish = true;
 
                 }

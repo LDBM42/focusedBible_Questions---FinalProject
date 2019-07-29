@@ -525,7 +525,6 @@ namespace capaPresentacion
 
             if (restart == true)
             {
-
                 restart = false;
 
                 i = 0;
@@ -680,14 +679,14 @@ namespace capaPresentacion
                 lab_Anuncios.ForeColor = Color.FromArgb(222,79,49);
                 lab_Anuncios.Text = "✘";
 
+
+                answerCorrect = false;
                 if (opportunities != 0
                 && ((countUp != noRepetir_PorDificultadyCategoria.Length) || (objEntidad.difficulty == "Todas"))
                 && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer)))
                 {
-                    answerCorrect = false;
                     cambioDePreguntas();
                 }
-
             }
             else
             {
@@ -695,12 +694,13 @@ namespace capaPresentacion
                 correctAnswerSound();
                 lab_Anuncios.ForeColor = Color.FromArgb(84,206,222);
                 lab_Anuncios.Text = "✔";
+                
 
+                answerCorrect = true;
                 if (opportunities != 0
                 && ((countUp != noRepetir_PorDificultadyCategoria.Length) || (objEntidad.difficulty == "Todas"))
                 && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer)))
                 {
-                    answerCorrect = true;
                     cambioDePreguntas();
                 }
             }
@@ -767,6 +767,7 @@ namespace capaPresentacion
             {
                 score+=valueScore;
                 lab_ScoreNum.Text = Convert.ToString(score);
+
             }
             else
             {
@@ -774,8 +775,10 @@ namespace capaPresentacion
                 wrongAnswer++; // Respuestas incorrectas
 
                 lab_LifesNum.Text = Convert.ToString(opportunities);
-                FinDelJuego();
             }
+
+            // evaluar si se acabo el juego
+            FinDelJuego();
         }
 
         
@@ -878,7 +881,7 @@ namespace capaPresentacion
                 if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
                 {
-                    FinDelJuego();
+                    cambioDePreguntas();
 
                     if (doNotReset == false)
                     {
@@ -1140,7 +1143,7 @@ namespace capaPresentacion
             lab_Anuncios.ForeColor = Color.White;
             CountTimePerAnswers += 1; // contar el tiempo total para responder cada pregunta
 
-            if (countDownTimer2 != 0)
+            if (countDownTimer2 != 1)
             {
                 if (countDownTimer2 <= 3)
                 {

@@ -405,8 +405,8 @@ namespace capaPresentacion
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             Change_Settings();
-            // solo se guardaran los settings si es el admin en la modalidad partida
-            if (objEntidad.solo_O_Partida == "PARTIDA" && E_Usuario.Rol == "Admin")
+            // solo se guardaran los settings si es el admin
+            if (E_Usuario.Rol == "Admin")
             {
                 Save_SettingsInDatabase();
             }
@@ -481,24 +481,11 @@ namespace capaPresentacion
                 // las oportunidades son igual a la cantidad de preguntas
                 objEntidad.opportunities = Convert.ToInt32(lbx_preguntas.Text);
             }
-
-            //////////int TotalQuestToAnswer;
-            ///////////*las pregutas totales son la cantidad de preguntas seleccionadas * cantidad de rondas*/
-            //////////if (objEntidad.questions2Answer != "Todas")
-            //////////{
-            //////////    TotalQuestToAnswer = (Convert.ToInt32(objEntidad.questions2Answer) * objEntidad.numRounds);
-            //////////}
-            //////////else
-            //////////{
-            //////////    TotalQuestToAnswer = 0;
-            //////////}
-
-            //////////objEntidad.queryListarPreguntas = PQuery.QueryPorCategoriayDificultad(objEntidad,
-            //////////                                                                      TotalQuestToAnswer);
         }
 
         private void Save_SettingsInDatabase()
         {
+            //borrar base settings de la base de datos
             objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
 
             objNegoSettingsPROFE.N_InsertarSettingsProfe(objEntidad);

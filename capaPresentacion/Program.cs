@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 
 using capaEntidad;
+using capaNegocio;
 
 namespace capaPresentacion
 {
@@ -26,16 +27,17 @@ namespace capaPresentacion
             if (splash.DialogResult == DialogResult.OK)
             {
                 E_focusedBible objEntidad = new E_focusedBible();
+                N_SettingsPROFE objNegoSettingsPROFE = new N_SettingsPROFE();
 
                 P_Main main = new P_Main(objEntidad);
                 main.Show();
                 Application.Run();
 
                 //borrar todos los settings guardados y los Alumnos de la base de datos, si es el admin
-                //if (E_Usuario.Rol == "Admin")
-                //{
-                //    objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
-                //}
+                if (E_Usuario.Rol == "Admin")
+                {
+                    objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
+                }
             }
 
         }

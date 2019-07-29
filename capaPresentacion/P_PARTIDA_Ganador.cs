@@ -87,7 +87,6 @@ namespace capaPresentacion
 
         private void listarAlumnosYGanador()
         {
-
             dt = objNegoAlumno.N_ListarPuntuacionFinal();
             //DataSource permite vaciar un DataTable en un dataGridView
             dgvAlumnosPuntuacionFinal.DataSource = dt;

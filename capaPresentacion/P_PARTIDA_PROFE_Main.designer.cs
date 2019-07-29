@@ -555,7 +555,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questions focusedBible";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Activated += new System.EventHandler(this.P_PARTIDA_PROFE_Main_Activated);
             this.Load += new System.EventHandler(this.P_Debate_Main_Load);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);

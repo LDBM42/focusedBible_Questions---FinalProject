@@ -28,6 +28,9 @@ namespace capaPresentacion
             {
                 /***INICIALIZANDO TODO***/
 
+                //borrar base settings de la base de datos
+                objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
+
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
                 objEntidad.catNuevoAntiguoChecked = true;
                 objEntidad.catNuevoAntiguo = "Todas";

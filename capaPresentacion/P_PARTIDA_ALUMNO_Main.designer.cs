@@ -159,7 +159,6 @@
             // 
             // circularProgressBar
             // 
-            this.circularProgressBar.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
             this.circularProgressBar.AnimationSpeed = 500;
             this.circularProgressBar.BackColor = System.Drawing.Color.Transparent;
             this.circularProgressBar.Dock = System.Windows.Forms.DockStyle.Fill;

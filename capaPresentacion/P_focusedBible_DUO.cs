@@ -567,7 +567,6 @@ namespace capaPresentacion
 
             if (restart == true)
             {
-                
                 restart = false;
 
                 i = 0;
@@ -820,12 +819,13 @@ namespace capaPresentacion
                 lab_Anuncios.ForeColor = Color.FromArgb(222,79,49);
                 lab_Anuncios.Text = "✘";
 
+
+                answerCorrect = false;
                 if (opportunities_1 != 0
                 && opportunities_2 != 0
                 && ((countUp != noRepetir_PorDificultadyCategoria.Length) || (objEntidad.difficulty == "Todas"))
                 && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer)))
                 {
-                    answerCorrect = false;
                     cambioDeTurno(startingTurn);
                 }
 
@@ -836,13 +836,14 @@ namespace capaPresentacion
                 correctAnswerSound();
                 lab_Anuncios.ForeColor = Color.FromArgb(84,206,222);
                 lab_Anuncios.Text = "✔";
+                
 
+                answerCorrect = true;
                 if (opportunities_1 != 0
                 && opportunities_2 != 0
                 && ((countUp != noRepetir_PorDificultadyCategoria.Length) || (objEntidad.difficulty == "Todas"))
                 && (enumerate <= Convert.ToInt32(objEntidad.questions2Answer)))
                 {
-                    answerCorrect = true;
                     cambioDeTurno(startingTurn);
                 }
             }
@@ -1026,6 +1027,8 @@ namespace capaPresentacion
                         score_1 += valueScore;
                         lab_ScoreNum.Text = Convert.ToString(score_1);
                     }
+
+                    perder_Ganar();
                 }
                 else
                 {
@@ -1080,6 +1083,8 @@ namespace capaPresentacion
                         score_2 += valueScore;
                         lab_ScoreNum2.Text = Convert.ToString(score_2);
                     }
+
+                    perder_Ganar();
                 }
                 else
                 {
@@ -1251,9 +1256,16 @@ namespace capaPresentacion
                 if (((countUp == noRepetir_PorDificultadyCategoria.Length) && (objEntidad.difficulty != "Todas"))
                 || (enumerate > Convert.ToInt32(objEntidad.questions2Answer)))
                 {
-                    perder_Ganar();
+                    if (startingTurn == 1)
+                    {
+                        cambioDeTurno(2);
+                    }
+                    else
+                    {
+                        cambioDeTurno(1);
+                    }
 
-                    if (objEntidad.opportunitiesBoolean == false && doNotReset == false)
+                    if (doNotReset == false)
                     {
                         Thread.Sleep(2300);
                         AfterCountDown();
@@ -1661,7 +1673,7 @@ namespace capaPresentacion
             }
 
 
-            if (countDownTimer2 != 0)
+            if (countDownTimer2 != 1)
             {
                 if (countDownTimer2 <= 3)
                 {
