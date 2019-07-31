@@ -1703,13 +1703,18 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Activated(object sender, EventArgs e)
         {
-            //Timer_2Answer.Start();
+            if (E_focusedBible.fromHowToPlay == true) // para saber si se acaba de salir de settings a pantalla de juego
+            {
+                Timer_2Answer.Start();
 
-            //if (sonido != null)
-            //{
-            //    sonido.PlayLooping();
-            //}
-          
+                if (objEntidad.sonido != null)
+                {
+                    objEntidad.StartGameSound();
+                }
+
+                E_focusedBible.fromHowToPlay = false; // desactivando ya que desde este momento no se acaba de entrar
+            }
+
         }
 
         private void Timer_Banner_Tick(object sender, EventArgs e)
@@ -1930,7 +1935,8 @@ namespace capaPresentacion
 
         private void btn_how2Play_Click(object sender, EventArgs e)
         {
-            howToPlay = new HowToPlay();
+            objEntidad.StopGameSound();
+            howToPlay = new HowToPlay(objEntidad);
             howToPlay.ShowDialog();
         }
 

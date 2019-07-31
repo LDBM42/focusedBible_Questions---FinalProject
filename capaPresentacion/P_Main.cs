@@ -120,6 +120,7 @@ namespace capaPresentacion
             }
 
             lab_User.Text = "Usuario: " + E_Usuario.Nombreusuario;
+
             if (lab_User.Text != "Usuario: Invitado")
             {
                 btn_Logout_Login.BackgroundImage = Properties.Resources.LogOut;
@@ -133,6 +134,8 @@ namespace capaPresentacion
                 btn_Logout_Login.Text = "LOGIN | REGISTRATE";
 
                 btn_Partida.Enabled = false; // bloquear modalidad Partida
+                btn_debate.Enabled = false; // bloquear modalidad debate
+                E_Usuario.Rol = "Invitado";
             }
 
             // Privilegios Administrador
@@ -203,7 +206,7 @@ namespace capaPresentacion
 
         private void btn_how2Play_Click(object sender, EventArgs e)
         {
-            howToPlay = new HowToPlay();
+            howToPlay = new HowToPlay(objEntidad);
             howToPlay.ShowDialog();
         }
 

@@ -37,44 +37,44 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_IniciarDebate = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Connected = new System.Windows.Forms.DataGridViewImageColumn();
             this.Terminado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Finish = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.Btn_Settings = new System.Windows.Forms.PictureBox();
-            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_anuncio = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.timer_ActualizarEstadoLista = new System.Windows.Forms.Timer(this.components);
+            this.timer_waitingEverybodyToFinish = new System.Windows.Forms.Timer(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.timer_waitingEverybodyToFinish = new System.Windows.Forms.Timer(this.components);
+            this.btn_IniciarDebate = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.Connected = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Finish = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Btn_Settings = new System.Windows.Forms.PictureBox();
+            this.pbx_Sound = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbx_codigoPartida
@@ -142,49 +142,6 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(723, 64);
             this.tableLayoutPanel15.TabIndex = 1;
-            // 
-            // btn_IniciarDebate
-            // 
-            this.btn_IniciarDebate.BackgroundImage = global::capaPresentacion.Properties.Resources.Boton_Empezar_MouseLeave;
-            this.btn_IniciarDebate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_IniciarDebate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_IniciarDebate.FlatAppearance.BorderSize = 0;
-            this.btn_IniciarDebate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_IniciarDebate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_IniciarDebate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IniciarDebate.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold);
-            this.btn_IniciarDebate.ForeColor = System.Drawing.Color.White;
-            this.btn_IniciarDebate.Location = new System.Drawing.Point(3, 3);
-            this.btn_IniciarDebate.Name = "btn_IniciarDebate";
-            this.btn_IniciarDebate.Size = new System.Drawing.Size(348, 58);
-            this.btn_IniciarDebate.TabIndex = 1;
-            this.btn_IniciarDebate.Text = "EMPEZAR";
-            this.btn_IniciarDebate.UseVisualStyleBackColor = false;
-            this.btn_IniciarDebate.Click += new System.EventHandler(this.btn_IniciarDebate_Click);
-            this.btn_IniciarDebate.MouseEnter += new System.EventHandler(this.btn_IniciarPartida_MouseEnter);
-            this.btn_IniciarDebate.MouseLeave += new System.EventHandler(this.btn_IniciarPartida_MouseLeave);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.BackgroundImage = global::capaPresentacion.Properties.Resources.Boton_Empezar_MouseLeave;
-            this.btn_cancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_cancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold);
-            this.btn_cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_cancelar.Location = new System.Drawing.Point(371, 3);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(349, 58);
-            this.btn_cancelar.TabIndex = 3;
-            this.btn_cancelar.Text = "CANCELAR";
-            this.btn_cancelar.UseVisualStyleBackColor = false;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            this.btn_cancelar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_cancelar_KeyPress);
-            this.btn_cancelar.MouseEnter += new System.EventHandler(this.btn_cancelar_MouseEnter);
-            this.btn_cancelar.MouseLeave += new System.EventHandler(this.btn_cancelar_MouseLeave);
             // 
             // dgvAlumnos
             // 
@@ -284,16 +241,6 @@
             this.Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Estado.Visible = false;
             // 
-            // Connected
-            // 
-            this.Connected.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Connected.FillWeight = 15F;
-            this.Connected.HeaderText = "Conectado";
-            this.Connected.Image = global::capaPresentacion.Properties.Resources.status_offline;
-            this.Connected.Name = "Connected";
-            this.Connected.ReadOnly = true;
-            this.Connected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // Terminado
             // 
             this.Terminado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -305,16 +252,6 @@
             this.Terminado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Terminado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Terminado.Visible = false;
-            // 
-            // Finish
-            // 
-            this.Finish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Finish.FillWeight = 15F;
-            this.Finish.HeaderText = "Terminado";
-            this.Finish.Image = global::capaPresentacion.Properties.Resources.status_offline;
-            this.Finish.Name = "Finish";
-            this.Finish.ReadOnly = true;
-            this.Finish.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // tableLayoutPanel18
             // 
@@ -364,35 +301,6 @@
             this.tableLayoutPanel20.Size = new System.Drawing.Size(239, 32);
             this.tableLayoutPanel20.TabIndex = 3;
             // 
-            // Btn_Settings
-            // 
-            this.Btn_Settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_02;
-            this.Btn_Settings.Location = new System.Drawing.Point(198, 3);
-            this.Btn_Settings.Name = "Btn_Settings";
-            this.Btn_Settings.Size = new System.Drawing.Size(38, 26);
-            this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Btn_Settings.TabIndex = 1;
-            this.Btn_Settings.TabStop = false;
-            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
-            this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_Settings_MouseEnter);
-            this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_Settings_MouseLeave);
-            // 
-            // pbx_Sound
-            // 
-            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
-            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Sound.Location = new System.Drawing.Point(148, 3);
-            this.pbx_Sound.Name = "pbx_Sound";
-            this.pbx_Sound.Size = new System.Drawing.Size(37, 26);
-            this.pbx_Sound.TabIndex = 20;
-            this.pbx_Sound.TabStop = false;
-            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
-            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
-            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
@@ -409,39 +317,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(733, 60);
             this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::capaPresentacion.Properties.Resources.Conectado_y_Terminado_02;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(625, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(105, 54);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::capaPresentacion.Properties.Resources.Conectado_y_Terminado_01;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(516, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(103, 54);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_05;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(166, 54);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel2
             // 
@@ -516,6 +391,10 @@
             this.timer_ActualizarEstadoLista.Interval = 2000;
             this.timer_ActualizarEstadoLista.Tick += new System.EventHandler(this.timer_ActualizarEstadoLista_Tick);
             // 
+            // timer_waitingEverybodyToFinish
+            // 
+            this.timer_waitingEverybodyToFinish.Tick += new System.EventHandler(this.timer_waitingEverybodyToFinish_Tick);
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -536,9 +415,130 @@
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // timer_waitingEverybodyToFinish
+            // btn_IniciarDebate
             // 
-            this.timer_waitingEverybodyToFinish.Tick += new System.EventHandler(this.timer_waitingEverybodyToFinish_Tick);
+            this.btn_IniciarDebate.BackgroundImage = global::capaPresentacion.Properties.Resources.Boton_Empezar_MouseLeave;
+            this.btn_IniciarDebate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_IniciarDebate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_IniciarDebate.FlatAppearance.BorderSize = 0;
+            this.btn_IniciarDebate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_IniciarDebate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_IniciarDebate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_IniciarDebate.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold);
+            this.btn_IniciarDebate.ForeColor = System.Drawing.Color.White;
+            this.btn_IniciarDebate.Location = new System.Drawing.Point(3, 3);
+            this.btn_IniciarDebate.Name = "btn_IniciarDebate";
+            this.btn_IniciarDebate.Size = new System.Drawing.Size(348, 58);
+            this.btn_IniciarDebate.TabIndex = 1;
+            this.btn_IniciarDebate.Text = "EMPEZAR";
+            this.btn_IniciarDebate.UseVisualStyleBackColor = false;
+            this.btn_IniciarDebate.Click += new System.EventHandler(this.btn_IniciarDebate_Click);
+            this.btn_IniciarDebate.MouseEnter += new System.EventHandler(this.btn_IniciarPartida_MouseEnter);
+            this.btn_IniciarDebate.MouseLeave += new System.EventHandler(this.btn_IniciarPartida_MouseLeave);
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.BackgroundImage = global::capaPresentacion.Properties.Resources.Boton_Empezar_MouseLeave;
+            this.btn_cancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_cancelar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelar.Font = new System.Drawing.Font("Avenir Next", 22.2F, System.Drawing.FontStyle.Bold);
+            this.btn_cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_cancelar.Location = new System.Drawing.Point(371, 3);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(349, 58);
+            this.btn_cancelar.TabIndex = 3;
+            this.btn_cancelar.Text = "CANCELAR";
+            this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            this.btn_cancelar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_cancelar_KeyPress);
+            this.btn_cancelar.MouseEnter += new System.EventHandler(this.btn_cancelar_MouseEnter);
+            this.btn_cancelar.MouseLeave += new System.EventHandler(this.btn_cancelar_MouseLeave);
+            // 
+            // Connected
+            // 
+            this.Connected.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Connected.FillWeight = 15F;
+            this.Connected.HeaderText = "Conectado";
+            this.Connected.Image = global::capaPresentacion.Properties.Resources.status_offline;
+            this.Connected.Name = "Connected";
+            this.Connected.ReadOnly = true;
+            this.Connected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Finish
+            // 
+            this.Finish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Finish.FillWeight = 15F;
+            this.Finish.HeaderText = "Terminado";
+            this.Finish.Image = global::capaPresentacion.Properties.Resources.status_offline;
+            this.Finish.Name = "Finish";
+            this.Finish.ReadOnly = true;
+            this.Finish.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Btn_Settings
+            // 
+            this.Btn_Settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Settings.Image = global::capaPresentacion.Properties.Resources.Focused_bible_landing_02;
+            this.Btn_Settings.Location = new System.Drawing.Point(198, 3);
+            this.Btn_Settings.Name = "Btn_Settings";
+            this.Btn_Settings.Size = new System.Drawing.Size(38, 26);
+            this.Btn_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Settings.TabIndex = 1;
+            this.Btn_Settings.TabStop = false;
+            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
+            this.Btn_Settings.MouseEnter += new System.EventHandler(this.Btn_Settings_MouseEnter);
+            this.Btn_Settings.MouseLeave += new System.EventHandler(this.Btn_Settings_MouseLeave);
+            // 
+            // pbx_Sound
+            // 
+            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON;
+            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Sound.Location = new System.Drawing.Point(148, 3);
+            this.pbx_Sound.Name = "pbx_Sound";
+            this.pbx_Sound.Size = new System.Drawing.Size(37, 26);
+            this.pbx_Sound.TabIndex = 20;
+            this.pbx_Sound.TabStop = false;
+            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
+            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
+            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::capaPresentacion.Properties.Resources.Conectado_y_Terminado_02;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Location = new System.Drawing.Point(625, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(105, 54);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::capaPresentacion.Properties.Resources.Conectado_y_Terminado_01;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(516, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(103, 54);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_05;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(166, 54);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // P_PARTIDA_PROFE_Main
             // 
@@ -562,15 +562,15 @@
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel20.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Settings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

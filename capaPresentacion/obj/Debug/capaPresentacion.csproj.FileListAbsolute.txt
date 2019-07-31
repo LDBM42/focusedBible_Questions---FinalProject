@@ -182,3 +182,8 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentaci
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Configuracion.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Conf_Preguntas_Agregar.resources
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_PARTIDA_ALUMNO_EsperaFinal.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\Interop.AcroPDFLib.dll
+C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\AxInterop.AcroPDFLib.dll
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\Interop.AcroPDFLib.dll
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\AxInterop.AcroPDFLib.dll
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.ResolveComReference.cache

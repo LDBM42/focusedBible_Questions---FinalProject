@@ -71,3 +71,5 @@ C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.csproj.
 C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.csproj.CopyComplete
 C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.dll
 C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.pdb
+C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\Interop.AcroPDFLib.dll
+C:\focusedBible_Questions-FinalProject\capaEntidad\obj\Debug\capaEntidad.csproj.ResolveComReference.cache

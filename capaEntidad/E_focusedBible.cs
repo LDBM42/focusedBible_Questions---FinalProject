@@ -10,6 +10,7 @@ namespace capaEntidad
 {
     public class E_focusedBible
     {
+        public SoundPlayer sonido { get; set; }
         public int codPreg { get; set; }
         public string preg { get; set; }
         public string a { get; set; }
@@ -52,7 +53,7 @@ namespace capaEntidad
         public string queryListarPreguntas { get; set; }
 
         // para saber si se acaba de salir de la ventana settings a la del juego
-        public static bool deSettings { get; set; }
+        public static bool fromHowToPlay { get; set; }
 
 
 
@@ -60,8 +61,6 @@ namespace capaEntidad
 
 
         //METODOS
-
-        SoundPlayer sonido;
         public void reproducirSonidoJuego(string nombreArchivo, bool loop)
         {
            if (enableGameSound)
@@ -124,6 +123,15 @@ namespace capaEntidad
             if (enableGameSound == true) // si el sonido está abilitado
             {
                 sonido.Stop();
+            }
+        }
+
+        // reiniciar el sonido si está abilitada esta opción
+        public void StartGameSound()
+        {
+            if (enableGameSound == true) // si el sonido está abilitado
+            {
+                sonido.PlayLooping();
             }
         }
 

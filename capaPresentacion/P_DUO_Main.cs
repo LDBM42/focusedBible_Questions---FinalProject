@@ -274,7 +274,7 @@ namespace capaPresentacion
 
         private void btn_how2Play_Click(object sender, EventArgs e)
         {
-            howToPlay = new HowToPlay();
+            howToPlay = new HowToPlay(objEntidad);
             howToPlay.ShowDialog();
         }
 
