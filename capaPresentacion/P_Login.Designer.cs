@@ -92,7 +92,7 @@
             this.text_Password.Margin = new System.Windows.Forms.Padding(4);
             this.text_Password.Name = "text_Password";
             this.text_Password.Size = new System.Drawing.Size(408, 37);
-            this.text_Password.TabIndex = 12;
+            this.text_Password.TabIndex = 1;
             this.text_Password.Text = "CONTRASEÑA";
             this.text_Password.Click += new System.EventHandler(this.text_Password_Click);
             this.text_Password.TextChanged += new System.EventHandler(this.text_Password_TextChanged);
@@ -111,7 +111,7 @@
             this.text_Usuario.Margin = new System.Windows.Forms.Padding(4);
             this.text_Usuario.Name = "text_Usuario";
             this.text_Usuario.Size = new System.Drawing.Size(408, 37);
-            this.text_Usuario.TabIndex = 11;
+            this.text_Usuario.TabIndex = 0;
             this.text_Usuario.Text = "USUARIO";
             this.text_Usuario.Click += new System.EventHandler(this.text_Usuario_Click);
             this.text_Usuario.Enter += new System.EventHandler(this.text_Usuario_Enter);
@@ -128,7 +128,7 @@
             this.llab_nuevoUsuario.Location = new System.Drawing.Point(390, 357);
             this.llab_nuevoUsuario.Name = "llab_nuevoUsuario";
             this.llab_nuevoUsuario.Size = new System.Drawing.Size(253, 30);
-            this.llab_nuevoUsuario.TabIndex = 16;
+            this.llab_nuevoUsuario.TabIndex = 4;
             this.llab_nuevoUsuario.TabStop = true;
             this.llab_nuevoUsuario.Text = "CREAR UN USUARIO";
             this.llab_nuevoUsuario.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -208,7 +208,7 @@
             this.btnEntrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(408, 47);
-            this.btnEntrar.TabIndex = 10;
+            this.btnEntrar.TabIndex = 3;
             this.btnEntrar.Text = "ENTRAR";
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
@@ -223,7 +223,7 @@
             this.cbx_autoLogin.Location = new System.Drawing.Point(615, 253);
             this.cbx_autoLogin.Name = "cbx_autoLogin";
             this.cbx_autoLogin.Size = new System.Drawing.Size(115, 28);
-            this.cbx_autoLogin.TabIndex = 20;
+            this.cbx_autoLogin.TabIndex = 2;
             this.cbx_autoLogin.Text = "AUTO LOGIN";
             this.cbx_autoLogin.UseVisualStyleBackColor = true;
             // 

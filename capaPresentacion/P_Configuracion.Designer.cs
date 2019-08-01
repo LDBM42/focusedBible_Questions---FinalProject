@@ -132,7 +132,7 @@
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.Size = new System.Drawing.Size(1204, 26);
-            this.tableLayoutPanel16.TabIndex = 4;
+            this.tableLayoutPanel16.TabIndex = 2;
             // 
             // lab_User
             // 
@@ -147,7 +147,7 @@
             this.lab_User.Text = "Usuario:";
             this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btn_goToMain
+            // btn_goBack
             // 
             this.btn_goBack.BackgroundImage = global::capaPresentacion.Properties.Resources.goBack_MouseLeave_01;
             this.btn_goBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -159,10 +159,10 @@
             this.btn_goBack.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
             this.btn_goBack.Location = new System.Drawing.Point(1169, 2);
             this.btn_goBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_goBack.Name = "btn_goToMain";
+            this.btn_goBack.Name = "btn_goBack";
             this.btn_goBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_goBack.Size = new System.Drawing.Size(32, 22);
-            this.btn_goBack.TabIndex = 15;
+            this.btn_goBack.TabIndex = 1;
             this.btn_goBack.UseVisualStyleBackColor = false;
             this.btn_goBack.Click += new System.EventHandler(this.btn_goBack_Click);
             this.btn_goBack.MouseEnter += new System.EventHandler(this.btn_goBack_MouseEnter);
@@ -235,7 +235,7 @@
             this.btn_how2Play.Name = "btn_how2Play";
             this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_how2Play.Size = new System.Drawing.Size(30, 20);
-            this.btn_how2Play.TabIndex = 21;
+            this.btn_how2Play.TabIndex = 0;
             this.btn_how2Play.UseVisualStyleBackColor = false;
             this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
             this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
@@ -256,7 +256,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1204, 231);
-            this.tableLayoutPanel8.TabIndex = 0;
+            this.tableLayoutPanel8.TabIndex = 3;
             // 
             // tableLayoutPanel9
             // 
@@ -303,7 +303,7 @@
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(1204, 279);
-            this.tableLayoutPanel10.TabIndex = 1;
+            this.tableLayoutPanel10.TabIndex = 0;
             // 
             // tableLayoutPanel11
             // 
@@ -347,7 +347,7 @@
             this.btn_Crear_usuario.Name = "btn_Crear_usuario";
             this.btn_Crear_usuario.Padding = new System.Windows.Forms.Padding(0, 130, 0, 0);
             this.btn_Crear_usuario.Size = new System.Drawing.Size(287, 201);
-            this.btn_Crear_usuario.TabIndex = 19;
+            this.btn_Crear_usuario.TabIndex = 2;
             this.btn_Crear_usuario.Text = "CREAR USUARIO";
             this.btn_Crear_usuario.UseVisualStyleBackColor = false;
             this.btn_Crear_usuario.Click += new System.EventHandler(this.btn_Crear_usuario_Click);
@@ -371,7 +371,7 @@
             this.btn_Preguntas.Name = "btn_Preguntas";
             this.btn_Preguntas.Padding = new System.Windows.Forms.Padding(0, 130, 0, 0);
             this.btn_Preguntas.Size = new System.Drawing.Size(287, 201);
-            this.btn_Preguntas.TabIndex = 18;
+            this.btn_Preguntas.TabIndex = 1;
             this.btn_Preguntas.Text = "PREGUNTAS";
             this.btn_Preguntas.UseVisualStyleBackColor = false;
             this.btn_Preguntas.Click += new System.EventHandler(this.btn_Preguntas_Click);
@@ -395,7 +395,7 @@
             this.btn_Conf_Juego.Name = "btn_Conf_Juego";
             this.btn_Conf_Juego.Padding = new System.Windows.Forms.Padding(0, 130, 0, 0);
             this.btn_Conf_Juego.Size = new System.Drawing.Size(287, 201);
-            this.btn_Conf_Juego.TabIndex = 17;
+            this.btn_Conf_Juego.TabIndex = 0;
             this.btn_Conf_Juego.Text = "CONFIG. DEL JUEGO";
             this.btn_Conf_Juego.UseVisualStyleBackColor = false;
             this.btn_Conf_Juego.Click += new System.EventHandler(this.btn_Conf_Juego_Click);
@@ -419,7 +419,7 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.61856F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(1204, 75);
-            this.tableLayoutPanel15.TabIndex = 2;
+            this.tableLayoutPanel15.TabIndex = 4;
             // 
             // label1
             // 

@@ -411,7 +411,7 @@
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(925, 90);
-            this.tableLayoutPanel13.TabIndex = 4;
+            this.tableLayoutPanel13.TabIndex = 1;
             // 
             // tableLayoutPanel15
             // 
@@ -635,7 +635,7 @@
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 25);
-            this.tableLayoutPanel16.TabIndex = 3;
+            this.tableLayoutPanel16.TabIndex = 2;
             // 
             // btn_goToMain
             // 
@@ -651,7 +651,7 @@
             this.btn_goToMain.Name = "btn_goToMain";
             this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_goToMain.Size = new System.Drawing.Size(34, 19);
-            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.TabIndex = 1;
             this.btn_goToMain.UseVisualStyleBackColor = false;
             this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
             this.btn_goToMain.MouseEnter += new System.EventHandler(this.btn_goToMain_MouseEnter);
@@ -674,7 +674,7 @@
             this.btn_how2Play.Name = "btn_how2Play";
             this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_how2Play.Size = new System.Drawing.Size(30, 19);
-            this.btn_how2Play.TabIndex = 14;
+            this.btn_how2Play.TabIndex = 0;
             this.btn_how2Play.UseVisualStyleBackColor = false;
             this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
             this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
@@ -791,7 +791,7 @@
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel18.Size = new System.Drawing.Size(1226, 120);
-            this.tableLayoutPanel18.TabIndex = 4;
+            this.tableLayoutPanel18.TabIndex = 3;
             // 
             // tlyo_Grupo1
             // 
@@ -1040,7 +1040,7 @@
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.39819F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.60181F));
             this.tableLayoutPanel19.Size = new System.Drawing.Size(1226, 432);
-            this.tableLayoutPanel19.TabIndex = 5;
+            this.tableLayoutPanel19.TabIndex = 0;
             // 
             // tableLayoutPanel20
             // 
@@ -1056,7 +1056,7 @@
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel20.Size = new System.Drawing.Size(925, 330);
-            this.tableLayoutPanel20.TabIndex = 5;
+            this.tableLayoutPanel20.TabIndex = 0;
             // 
             // tableLayoutPanel21
             // 
@@ -1093,7 +1093,7 @@
             this.tableLayoutPanel24.RowCount = 1;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel24.Size = new System.Drawing.Size(660, 136);
-            this.tableLayoutPanel24.TabIndex = 0;
+            this.tableLayoutPanel24.TabIndex = 4;
             // 
             // tlyo_Comodines
             // 
@@ -1108,7 +1108,7 @@
             this.tlyo_Comodines.RowCount = 1;
             this.tlyo_Comodines.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlyo_Comodines.Size = new System.Drawing.Size(324, 130);
-            this.tlyo_Comodines.TabIndex = 1;
+            this.tlyo_Comodines.TabIndex = 0;
             // 
             // tlyo_Comodines_2
             // 
@@ -1129,7 +1129,7 @@
             this.tlyo_Comodines_2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tlyo_Comodines_2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tlyo_Comodines_2.Size = new System.Drawing.Size(1, 124);
-            this.tlyo_Comodines_2.TabIndex = 2;
+            this.tlyo_Comodines_2.TabIndex = 0;
             // 
             // pbx_Passage_2
             // 
@@ -1253,7 +1253,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(324, 130);
-            this.tableLayoutPanel3.TabIndex = 2;
+            this.tableLayoutPanel3.TabIndex = 1;
             // 
             // btn_Submit
             // 

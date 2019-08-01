@@ -261,7 +261,7 @@
             this.btn_goToMain.Name = "btn_goToMain";
             this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_goToMain.Size = new System.Drawing.Size(34, 26);
-            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.TabIndex = 0;
             this.btn_goToMain.UseVisualStyleBackColor = false;
             this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
             this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);

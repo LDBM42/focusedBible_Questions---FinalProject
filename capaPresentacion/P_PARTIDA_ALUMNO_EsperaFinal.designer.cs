@@ -121,7 +121,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1224, 423);
-            this.tableLayoutPanel8.TabIndex = 1;
+            this.tableLayoutPanel8.TabIndex = 0;
             // 
             // tableLayoutPanel10
             // 
@@ -180,10 +180,10 @@
             this.tableLayoutPanel18.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel18.ColumnCount = 1;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel8, 0, 2);
-            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 0, 3);
             this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel20, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel6, 0, 1);
+            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 0, 3);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(29, 33);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(4);
@@ -251,7 +251,7 @@
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel20.Size = new System.Drawing.Size(1224, 30);
-            this.tableLayoutPanel20.TabIndex = 3;
+            this.tableLayoutPanel20.TabIndex = 1;
             // 
             // lab_Partida
             // 

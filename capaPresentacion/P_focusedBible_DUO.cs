@@ -1714,7 +1714,6 @@ namespace capaPresentacion
 
                 E_focusedBible.fromHowToPlay = false; // desactivando ya que desde este momento no se acaba de entrar
             }
-
         }
 
         private void Timer_Banner_Tick(object sender, EventArgs e)
@@ -1935,7 +1934,9 @@ namespace capaPresentacion
 
         private void btn_how2Play_Click(object sender, EventArgs e)
         {
+            Timer_2Answer.Stop();
             objEntidad.StopGameSound();
+
             howToPlay = new HowToPlay(objEntidad);
             howToPlay.ShowDialog();
         }

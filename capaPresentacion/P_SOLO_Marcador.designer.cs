@@ -126,7 +126,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1224, 288);
-            this.tableLayoutPanel3.TabIndex = 5;
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
@@ -173,7 +173,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.64286F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.35714F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(400, 280);
-            this.tableLayoutPanel7.TabIndex = 1;
+            this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tableLayoutPanel8
             // 
@@ -196,7 +196,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(392, 33);
-            this.tableLayoutPanel8.TabIndex = 5;
+            this.tableLayoutPanel8.TabIndex = 0;
             // 
             // btn_goToMain
             // 
@@ -214,7 +214,7 @@
             this.btn_goToMain.Name = "btn_goToMain";
             this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_goToMain.Size = new System.Drawing.Size(33, 27);
-            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.TabIndex = 0;
             this.btn_goToMain.UseVisualStyleBackColor = false;
             this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
             this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);
@@ -237,7 +237,7 @@
             this.btn_reiniciar.Name = "btn_reiniciar";
             this.btn_reiniciar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_reiniciar.Size = new System.Drawing.Size(36, 27);
-            this.btn_reiniciar.TabIndex = 16;
+            this.btn_reiniciar.TabIndex = 1;
             this.btn_reiniciar.UseVisualStyleBackColor = false;
             this.btn_reiniciar.Click += new System.EventHandler(this.btn_reiniciar_Click);
             this.btn_reiniciar.MouseEnter += new System.EventHandler(this.btn_reiniciar_MouseEnter);

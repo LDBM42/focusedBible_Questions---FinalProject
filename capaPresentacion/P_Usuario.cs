@@ -497,6 +497,9 @@ namespace capaPresentacion
                         if (usuario.Actualizar(text_Usuario.Text, text_Password.Text, cbx_Rol.SelectedItem.ToString(), genero) == 1)
                         {
                             MessageBox.Show("Datos Actualizados Correctamente");
+                            text_Usuario.Text = "";
+                            text_Password.Text = "";
+                            text_Usuario.Focus();
                             P_Usuario_Load(null, null);
                         }
                     }
@@ -505,6 +508,9 @@ namespace capaPresentacion
                         if (usuario.Insertar(text_Usuario.Text, text_Password.Text, cbx_Rol.SelectedItem.ToString(), genero) > 0)
                         {
                             MessageBox.Show("Usuario " + text_Usuario.Text +  " Agregado Correctamente");
+                            text_Usuario.Text = "";
+                            text_Password.Text = "";
+                            text_Usuario.Focus();
                             P_Usuario_Load(null, null);
                         }
                     }

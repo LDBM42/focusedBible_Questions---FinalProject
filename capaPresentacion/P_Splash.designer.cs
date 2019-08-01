@@ -30,32 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             this.TerminarSplash = new System.Windows.Forms.Timer(this.components);
-            this.lab_splash = new System.Windows.Forms.Label();
+            this.pbx_splash = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_splash)).BeginInit();
             this.SuspendLayout();
             // 
             // TerminarSplash
             // 
-            this.TerminarSplash.Interval = 2000;
             this.TerminarSplash.Tick += new System.EventHandler(this.TerminarSplash_Tick);
             // 
-            // lab_splash
+            // pbx_splash
             // 
-            this.lab_splash.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_splash.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_splash.Location = new System.Drawing.Point(0, 0);
-            this.lab_splash.Name = "lab_splash";
-            this.lab_splash.Size = new System.Drawing.Size(1292, 735);
-            this.lab_splash.TabIndex = 0;
-            this.lab_splash.Text = "Splash";
-            this.lab_splash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pbx_splash.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_splash.Image = global::capaPresentacion.Properties.Resources.Splash01;
+            this.pbx_splash.Location = new System.Drawing.Point(0, 0);
+            this.pbx_splash.Name = "pbx_splash";
+            this.pbx_splash.Size = new System.Drawing.Size(1292, 735);
+            this.pbx_splash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbx_splash.TabIndex = 0;
+            this.pbx_splash.TabStop = false;
             // 
             // P_Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(18)))), ((int)(((byte)(21)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1292, 735);
-            this.Controls.Add(this.lab_splash);
+            this.Controls.Add(this.pbx_splash);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -64,12 +65,13 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.P_Splash_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_splash)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Timer TerminarSplash;
-        private System.Windows.Forms.Label lab_splash;
+        private System.Windows.Forms.PictureBox pbx_splash;
     }
 }

@@ -98,10 +98,10 @@
             this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel10, 0, 2);
-            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel15, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel16, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel15, 0, 3);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(29, 33);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
@@ -175,7 +175,7 @@
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(1224, 291);
-            this.tableLayoutPanel10.TabIndex = 1;
+            this.tableLayoutPanel10.TabIndex = 0;
             // 
             // tableLayoutPanel11
             // 
@@ -217,7 +217,7 @@
             this.btn_Partida.Name = "btn_Partida";
             this.btn_Partida.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.btn_Partida.Size = new System.Drawing.Size(292, 209);
-            this.btn_Partida.TabIndex = 19;
+            this.btn_Partida.TabIndex = 2;
             this.btn_Partida.Text = "PARTIDA";
             this.btn_Partida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_Partida.UseVisualStyleBackColor = true;
@@ -241,7 +241,7 @@
             this.btn_debate.Name = "btn_debate";
             this.btn_debate.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.btn_debate.Size = new System.Drawing.Size(292, 209);
-            this.btn_debate.TabIndex = 18;
+            this.btn_debate.TabIndex = 1;
             this.btn_debate.Text = "DUO";
             this.btn_debate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_debate.UseVisualStyleBackColor = true;
@@ -265,7 +265,7 @@
             this.btn_solo.Name = "btn_solo";
             this.btn_solo.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.btn_solo.Size = new System.Drawing.Size(292, 209);
-            this.btn_solo.TabIndex = 17;
+            this.btn_solo.TabIndex = 0;
             this.btn_solo.Text = "SOLO";
             this.btn_solo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_solo.UseVisualStyleBackColor = true;
@@ -333,7 +333,7 @@
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 31);
-            this.tableLayoutPanel16.TabIndex = 3;
+            this.tableLayoutPanel16.TabIndex = 1;
             // 
             // Btn_Settings
             // 
@@ -380,7 +380,7 @@
             this.btn_how2Play.Name = "btn_how2Play";
             this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_how2Play.Size = new System.Drawing.Size(30, 25);
-            this.btn_how2Play.TabIndex = 14;
+            this.btn_how2Play.TabIndex = 1;
             this.btn_how2Play.UseVisualStyleBackColor = false;
             this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
             this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
@@ -402,7 +402,7 @@
             this.Btn_Close.Location = new System.Drawing.Point(1187, 3);
             this.Btn_Close.Name = "Btn_Close";
             this.Btn_Close.Size = new System.Drawing.Size(34, 25);
-            this.Btn_Close.TabIndex = 16;
+            this.Btn_Close.TabIndex = 2;
             this.Btn_Close.UseVisualStyleBackColor = false;
             this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
             this.Btn_Close.MouseEnter += new System.EventHandler(this.Btn_Close_MouseEnter);
@@ -425,7 +425,7 @@
             this.btn_Logout_Login.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_Logout_Login.Name = "btn_Logout_Login";
             this.btn_Logout_Login.Size = new System.Drawing.Size(177, 28);
-            this.btn_Logout_Login.TabIndex = 16;
+            this.btn_Logout_Login.TabIndex = 0;
             this.btn_Logout_Login.Text = "LOGIN | REGISTRATE";
             this.btn_Logout_Login.UseVisualStyleBackColor = false;
             this.btn_Logout_Login.Click += new System.EventHandler(this.btn_Logout_Login_Click);

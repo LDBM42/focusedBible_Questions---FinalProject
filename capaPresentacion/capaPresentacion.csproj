@@ -303,6 +303,7 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Splash01.gif" />
     <None Include="Resources\wasteON.png" />
     <None Include="Resources\wasteOFF.png" />
     <None Include="Resources\status-busy.png" />

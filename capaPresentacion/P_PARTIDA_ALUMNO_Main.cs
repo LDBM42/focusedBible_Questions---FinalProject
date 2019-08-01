@@ -74,7 +74,8 @@ namespace capaPresentacion
             if (startStopGame("start"))
             {
                 lockStart = true;
-                lab_anuncio.Text = "Se Acaba de quedar Fuera de la PARTIDA";
+                lab_anuncio_1.Text = "SE ACABA DE QUEDAR FUERA DE LA PARTIDA";
+                lab_anuncio_2.Text = "SE ACABA DE QUEDAR FUERA DE LA PARTIDA";
                 tbx_codigoPartida.Enabled = false;
             }
             else

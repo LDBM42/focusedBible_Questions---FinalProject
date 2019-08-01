@@ -31,26 +31,29 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlyo_abc = new System.Windows.Forms.TableLayoutPanel();
+            this.lab_anuncio_1 = new System.Windows.Forms.Label();
+            this.lab_anuncio_2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.circularProgressBar = new CircularProgressBar.CircularProgressBar();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_anuncio = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbx_codigo = new System.Windows.Forms.CheckBox();
             this.tbx_codigoPartida = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_Partida = new System.Windows.Forms.Label();
+            this.btn_goToMain = new System.Windows.Forms.Button();
+            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.timer2Start = new System.Windows.Forms.Timer(this.components);
             this.LoadBar = new System.Windows.Forms.Timer(this.components);
             this.timer_waitingToStart = new System.Windows.Forms.Timer(this.components);
-            this.cbx_codigo = new System.Windows.Forms.CheckBox();
-            this.btn_goToMain = new System.Windows.Forms.Button();
-            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
+            this.tlyo_abc.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -84,7 +87,7 @@
             this.tableLayoutPanel18.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel18.ColumnCount = 1;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel18.Controls.Add(this.tlyo_abc, 0, 1);
             this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel8, 0, 2);
             this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 0, 3);
             this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel20, 0, 0);
@@ -101,22 +104,54 @@
             this.tableLayoutPanel18.Size = new System.Drawing.Size(1232, 668);
             this.tableLayoutPanel18.TabIndex = 0;
             // 
-            // tableLayoutPanel3
+            // tlyo_abc
             // 
-            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 42);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1224, 152);
-            this.tableLayoutPanel3.TabIndex = 3;
+            this.tlyo_abc.BackColor = System.Drawing.Color.Transparent;
+            this.tlyo_abc.ColumnCount = 3;
+            this.tlyo_abc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlyo_abc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlyo_abc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlyo_abc.Controls.Add(this.lab_anuncio_1, 0, 0);
+            this.tlyo_abc.Controls.Add(this.lab_anuncio_2, 2, 0);
+            this.tlyo_abc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_abc.Location = new System.Drawing.Point(4, 42);
+            this.tlyo_abc.Margin = new System.Windows.Forms.Padding(4);
+            this.tlyo_abc.Name = "tlyo_abc";
+            this.tlyo_abc.RowCount = 2;
+            this.tlyo_abc.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tlyo_abc.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlyo_abc.Size = new System.Drawing.Size(1224, 152);
+            this.tlyo_abc.TabIndex = 3;
+            // 
+            // lab_anuncio_1
+            // 
+            this.lab_anuncio_1.AutoSize = true;
+            this.lab_anuncio_1.BackColor = System.Drawing.Color.Transparent;
+            this.lab_anuncio_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_anuncio_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lab_anuncio_1.Font = new System.Drawing.Font("Avenir Next", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_anuncio_1.ForeColor = System.Drawing.Color.White;
+            this.lab_anuncio_1.Location = new System.Drawing.Point(4, 0);
+            this.lab_anuncio_1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_anuncio_1.Name = "lab_anuncio_1";
+            this.lab_anuncio_1.Size = new System.Drawing.Size(400, 136);
+            this.lab_anuncio_1.TabIndex = 18;
+            this.lab_anuncio_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lab_anuncio_2
+            // 
+            this.lab_anuncio_2.AutoSize = true;
+            this.lab_anuncio_2.BackColor = System.Drawing.Color.Transparent;
+            this.lab_anuncio_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_anuncio_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lab_anuncio_2.Font = new System.Drawing.Font("Avenir Next", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_anuncio_2.ForeColor = System.Drawing.Color.White;
+            this.lab_anuncio_2.Location = new System.Drawing.Point(820, 0);
+            this.lab_anuncio_2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_anuncio_2.Name = "lab_anuncio_2";
+            this.lab_anuncio_2.Size = new System.Drawing.Size(400, 136);
+            this.lab_anuncio_2.TabIndex = 19;
+            this.lab_anuncio_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel8
             // 
@@ -136,7 +171,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1224, 423);
-            this.tableLayoutPanel8.TabIndex = 1;
+            this.tableLayoutPanel8.TabIndex = 0;
             // 
             // tableLayoutPanel10
             // 
@@ -204,7 +239,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.15385F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.84615F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(518, 65);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lab_anuncio
             // 
@@ -238,6 +273,27 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(253, 42);
             this.tableLayoutPanel2.TabIndex = 18;
             // 
+            // cbx_codigo
+            // 
+            this.cbx_codigo.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_codigo.AutoSize = true;
+            this.cbx_codigo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            this.cbx_codigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbx_codigo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_codigo.Enabled = false;
+            this.cbx_codigo.FlatAppearance.BorderSize = 0;
+            this.cbx_codigo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cbx_codigo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cbx_codigo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cbx_codigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_codigo.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_codigo.Location = new System.Drawing.Point(213, 3);
+            this.cbx_codigo.Name = "cbx_codigo";
+            this.cbx_codigo.Size = new System.Drawing.Size(37, 36);
+            this.cbx_codigo.TabIndex = 2;
+            this.cbx_codigo.UseVisualStyleBackColor = true;
+            this.cbx_codigo.CheckedChanged += new System.EventHandler(this.cbx_codigo_CheckedChanged);
+            // 
             // tbx_codigoPartida
             // 
             this.tbx_codigoPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
@@ -250,7 +306,7 @@
             this.tbx_codigoPartida.MaxLength = 4;
             this.tbx_codigoPartida.Name = "tbx_codigoPartida";
             this.tbx_codigoPartida.Size = new System.Drawing.Size(121, 46);
-            this.tbx_codigoPartida.TabIndex = 1;
+            this.tbx_codigoPartida.TabIndex = 0;
             this.tbx_codigoPartida.Text = "XXXX";
             this.tbx_codigoPartida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbx_codigoPartida.TextChanged += new System.EventHandler(this.tbx_codigoPartida_TextChanged);
@@ -309,7 +365,7 @@
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel20.Size = new System.Drawing.Size(1224, 30);
-            this.tableLayoutPanel20.TabIndex = 3;
+            this.tableLayoutPanel20.TabIndex = 1;
             // 
             // lab_Partida
             // 
@@ -327,41 +383,6 @@
             this.lab_Partida.Text = "PARTIDA (ALUMNO)";
             this.lab_Partida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer2Start
-            // 
-            this.timer2Start.Interval = 1000;
-            this.timer2Start.Tick += new System.EventHandler(this.timer2Start_Tick);
-            // 
-            // LoadBar
-            // 
-            this.LoadBar.Interval = 300;
-            this.LoadBar.Tick += new System.EventHandler(this.LoadBar_Tick);
-            // 
-            // timer_waitingToStart
-            // 
-            this.timer_waitingToStart.Tick += new System.EventHandler(this.timer_waitingToStart_Tick);
-            // 
-            // cbx_codigo
-            // 
-            this.cbx_codigo.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbx_codigo.AutoSize = true;
-            this.cbx_codigo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
-            this.cbx_codigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cbx_codigo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbx_codigo.Enabled = false;
-            this.cbx_codigo.FlatAppearance.BorderSize = 0;
-            this.cbx_codigo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.cbx_codigo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.cbx_codigo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.cbx_codigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_codigo.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_codigo.Location = new System.Drawing.Point(213, 3);
-            this.cbx_codigo.Name = "cbx_codigo";
-            this.cbx_codigo.Size = new System.Drawing.Size(37, 36);
-            this.cbx_codigo.TabIndex = 2;
-            this.cbx_codigo.UseVisualStyleBackColor = true;
-            this.cbx_codigo.CheckedChanged += new System.EventHandler(this.cbx_codigo_CheckedChanged);
-            // 
             // btn_goToMain
             // 
             this.btn_goToMain.BackColor = System.Drawing.Color.Transparent;
@@ -378,7 +399,7 @@
             this.btn_goToMain.Name = "btn_goToMain";
             this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_goToMain.Size = new System.Drawing.Size(32, 24);
-            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.TabIndex = 0;
             this.btn_goToMain.UseVisualStyleBackColor = false;
             this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
             this.btn_goToMain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_goToMain_KeyPress);
@@ -399,6 +420,20 @@
             this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
             this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
             // 
+            // timer2Start
+            // 
+            this.timer2Start.Interval = 1000;
+            this.timer2Start.Tick += new System.EventHandler(this.timer2Start_Tick);
+            // 
+            // LoadBar
+            // 
+            this.LoadBar.Interval = 300;
+            this.LoadBar.Tick += new System.EventHandler(this.LoadBar_Tick);
+            // 
+            // timer_waitingToStart
+            // 
+            this.timer_waitingToStart.Tick += new System.EventHandler(this.timer_waitingToStart_Tick);
+            // 
             // P_PARTIDA_ALUMNO_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -418,6 +453,8 @@
             this.Load += new System.EventHandler(this.P_Debate_Main_Load);
             this.tableLayoutPanel21.ResumeLayout(false);
             this.tableLayoutPanel18.ResumeLayout(false);
+            this.tlyo_abc.ResumeLayout(false);
+            this.tlyo_abc.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -452,7 +489,9 @@
         private System.Windows.Forms.Button btn_goToMain;
         private System.Windows.Forms.PictureBox pbx_Sound;
         private System.Windows.Forms.Label lab_Partida;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tlyo_abc;
         private System.Windows.Forms.Timer timer_waitingToStart;
+        private System.Windows.Forms.Label lab_anuncio_2;
+        private System.Windows.Forms.Label lab_anuncio_1;
     }
 }

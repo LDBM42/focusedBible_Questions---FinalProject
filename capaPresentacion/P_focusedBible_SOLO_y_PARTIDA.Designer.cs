@@ -330,7 +330,7 @@
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 25);
-            this.tableLayoutPanel16.TabIndex = 3;
+            this.tableLayoutPanel16.TabIndex = 0;
             // 
             // btn_goToMain
             // 
@@ -346,7 +346,7 @@
             this.btn_goToMain.Name = "btn_goToMain";
             this.btn_goToMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_goToMain.Size = new System.Drawing.Size(35, 19);
-            this.btn_goToMain.TabIndex = 15;
+            this.btn_goToMain.TabIndex = 1;
             this.btn_goToMain.UseVisualStyleBackColor = false;
             this.btn_goToMain.Click += new System.EventHandler(this.btn_goToMain_Click);
             this.btn_goToMain.MouseEnter += new System.EventHandler(this.btn_goToMain_MouseEnter);
@@ -369,7 +369,7 @@
             this.btn_how2Play.Name = "btn_how2Play";
             this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_how2Play.Size = new System.Drawing.Size(30, 19);
-            this.btn_how2Play.TabIndex = 14;
+            this.btn_how2Play.TabIndex = 0;
             this.btn_how2Play.UseVisualStyleBackColor = false;
             this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
             this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);

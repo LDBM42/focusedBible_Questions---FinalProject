@@ -81,6 +81,8 @@ namespace capaPresentacion
             operacion = "Insertar";
             CMB_Buscar.Text = "Pregunta";
 
+            tbx_Preg.Focus(); // enfocar el textbox preguntas
+            
             //actualizar imagen del sonido
             if (objEntidad.enableButtonSound == true)
             {

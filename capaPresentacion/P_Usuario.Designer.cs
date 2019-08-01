@@ -85,7 +85,7 @@
             this.text_Password.Margin = new System.Windows.Forms.Padding(4);
             this.text_Password.Name = "text_Password";
             this.text_Password.Size = new System.Drawing.Size(408, 37);
-            this.text_Password.TabIndex = 20;
+            this.text_Password.TabIndex = 1;
             this.text_Password.Text = "CONTRASEÑA";
             this.text_Password.Click += new System.EventHandler(this.text_Password_Click);
             this.text_Password.TextChanged += new System.EventHandler(this.text_Password_TextChanged);
@@ -104,7 +104,7 @@
             this.text_Usuario.Margin = new System.Windows.Forms.Padding(4);
             this.text_Usuario.Name = "text_Usuario";
             this.text_Usuario.Size = new System.Drawing.Size(408, 37);
-            this.text_Usuario.TabIndex = 19;
+            this.text_Usuario.TabIndex = 0;
             this.text_Usuario.Text = "USUARIO";
             this.text_Usuario.Click += new System.EventHandler(this.text_Usuario_Click);
             this.text_Usuario.Enter += new System.EventHandler(this.text_Usuario_Enter);
@@ -131,7 +131,7 @@
             this.rb_Masculino.Location = new System.Drawing.Point(616, 312);
             this.rb_Masculino.Name = "rb_Masculino";
             this.rb_Masculino.Size = new System.Drawing.Size(51, 37);
-            this.rb_Masculino.TabIndex = 24;
+            this.rb_Masculino.TabIndex = 3;
             this.rb_Masculino.TabStop = true;
             this.rb_Masculino.Text = "M";
             this.rb_Masculino.UseVisualStyleBackColor = true;
@@ -149,6 +149,7 @@
             this.lbl_Genero.ReadOnly = true;
             this.lbl_Genero.Size = new System.Drawing.Size(78, 33);
             this.lbl_Genero.TabIndex = 26;
+            this.lbl_Genero.TabStop = false;
             this.lbl_Genero.Text = "Genero:";
             // 
             // rb_Femenino
@@ -159,7 +160,8 @@
             this.rb_Femenino.Location = new System.Drawing.Point(669, 312);
             this.rb_Femenino.Name = "rb_Femenino";
             this.rb_Femenino.Size = new System.Drawing.Size(46, 37);
-            this.rb_Femenino.TabIndex = 27;
+            this.rb_Femenino.TabIndex = 4;
+            this.rb_Femenino.TabStop = true;
             this.rb_Femenino.Text = "F";
             this.rb_Femenino.UseVisualStyleBackColor = true;
             this.rb_Femenino.CheckedChanged += new System.EventHandler(this.rb_Femenino_CheckedChanged);
@@ -188,6 +190,7 @@
             this.text_Rol.ReadOnly = true;
             this.text_Rol.Size = new System.Drawing.Size(68, 33);
             this.text_Rol.TabIndex = 28;
+            this.text_Rol.TabStop = false;
             this.text_Rol.Text = "Rol:";
             // 
             // cbx_Rol
@@ -203,7 +206,7 @@
             this.cbx_Rol.Location = new System.Drawing.Point(366, 310);
             this.cbx_Rol.Name = "cbx_Rol";
             this.cbx_Rol.Size = new System.Drawing.Size(111, 41);
-            this.cbx_Rol.TabIndex = 29;
+            this.cbx_Rol.TabIndex = 2;
             this.cbx_Rol.Text = "Estudiante";
             // 
             // pbx_Usuario
@@ -264,7 +267,7 @@
             this.btn_Crear.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Crear.Name = "btn_Crear";
             this.btn_Crear.Size = new System.Drawing.Size(408, 47);
-            this.btn_Crear.TabIndex = 18;
+            this.btn_Crear.TabIndex = 5;
             this.btn_Crear.Text = "CREAR";
             this.btn_Crear.UseVisualStyleBackColor = false;
             this.btn_Crear.Click += new System.EventHandler(this.btn_Crear_Click);
