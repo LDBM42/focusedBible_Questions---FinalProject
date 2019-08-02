@@ -345,10 +345,12 @@ namespace capaPresentacion
             if (existe != null) // Si se accedio desde la ventana login al menu usuario
             {
                 existe.Show();
+                existe.BringToFront();
             }
             if (existe2 != null) // Si se accedio desde la ventana login al menu usuario
             {
                 existe2.Show();
+                existe2.BringToFront();
             }
         }
 

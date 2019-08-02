@@ -9,7 +9,7 @@ namespace capaDatos
 {
     public class D_Usuario
     {
-        SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
+        SqlConnection cn = new SqlConnection(E_ConnectionString.conectionString);
 
         public int ExistUser(string sUsuario)
         {

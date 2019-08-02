@@ -9,7 +9,7 @@ namespace capaDatos
 {
     public class D_AlumnoPartida
     {
-        SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
+        SqlConnection cn = new SqlConnection(E_ConnectionString.conectionString);
         E_Alumnos Alumno = new E_Alumnos();
 
         public DataTable D_listado()
@@ -106,7 +106,6 @@ namespace capaDatos
 
             return Convert.ToInt32(retVal);
         }
-
 
 
         public void D_EliminarTodo()

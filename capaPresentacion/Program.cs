@@ -32,14 +32,7 @@ namespace capaPresentacion
                 P_Main main = new P_Main(objEntidad);
                 main.Show();
                 Application.Run();
-
-                //borrar todos los settings guardados y los Alumnos de la base de datos, si es el admin
-                if (E_Usuario.Rol == "Admin")
-                {
-                    objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
-                }
             }
-
         }
     }
 }

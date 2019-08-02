@@ -187,3 +187,4 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\AxInterop.Acro
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\Interop.AcroPDFLib.dll
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\AxInterop.AcroPDFLib.dll
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.ResolveComReference.cache
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_SetDataBaseAutentication.resources

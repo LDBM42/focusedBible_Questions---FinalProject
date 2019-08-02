@@ -11,7 +11,7 @@ namespace capaDatos
 {
     public class D_Listener
     {
-        SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
+        SqlConnection sqlConnection = new SqlConnection(E_ConnectionString.conectionString);
         SqlCommand sqlCommand;
 
         public DataSet D_Listener_Comando(int ID) // Empezar el juego en todas las maquinas conectadas u otro comando indicado.

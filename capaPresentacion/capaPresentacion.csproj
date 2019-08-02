@@ -189,6 +189,12 @@
     <Compile Include="P_Splash.designer.cs">
       <DependentUpon>P_Splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="P_SetDataBaseAutentication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_SetDataBaseAutentication.Designer.cs">
+      <DependentUpon>P_SetDataBaseAutentication.cs</DependentUpon>
+    </Compile>
     <Compile Include="P_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P_Splash.resx">
       <DependentUpon>P_Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_SetDataBaseAutentication.resx">
+      <DependentUpon>P_SetDataBaseAutentication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_Usuario.resx">
       <DependentUpon>P_Usuario.cs</DependentUpon>
@@ -445,6 +454,7 @@
     <None Include="Resources\Cancelar MouseEnter-01.png" />
     <None Include="Resources\goBack_MouseEnter-01-01.png" />
     <None Include="Resources\goBack_MouseLeave-01.png" />
+    <None Include="Resources\deleteExternalConnection.png" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
     <Content Include="Resources\Passage_N_A.png" />

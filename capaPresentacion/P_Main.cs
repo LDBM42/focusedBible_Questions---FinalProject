@@ -12,6 +12,7 @@ using capaEntidad;
 using capaNegocio;
 using capaDatos;
 using System.Media;
+using System.Threading;
 
 namespace capaPresentacion
 {
@@ -23,13 +24,25 @@ namespace capaPresentacion
             if (Configuracion.catEvangelios_yOtros != null)
             {
                 objEntidad = Configuracion;
+                
+                E_ConnectionString.conectionString = @"server=.;Integrated Security=yes;Database=focusedBible";
+                objNegoSettingsPROFE = new N_SettingsPROFE();
             }
             else // entra aquí si es la primera vez que se entra al Main
             {
                 /***INICIALIZANDO TODO***/
-
-                //borrar base settings de la base de datos
-                objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
+                
+                //Connection String Local *********************************************************************************************
+                E_ConnectionString.conectionString = @"server=.;Integrated Security=yes;Database=focusedBible";
+                /***************************************************************************************************************/
+                
+                objNegoSettingsPROFE = new N_SettingsPROFE();
+                
+                //borrar todos los settings guardados en la base de datos, si es el admin
+                if (E_Usuario.Rol == "Admin")
+                {
+                    objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
+                }
 
                 // para asignar tamaño al arreglo si nunca se le ha asignado (para evitar error)
                 objEntidad.catNuevoAntiguoChecked = true;
@@ -38,6 +51,7 @@ namespace capaPresentacion
                 objEntidad.catLibro = new string[66];
                 objEntidad.finalResultsSOLO = new string[4] {"0","0","0","0"};
                 objEntidad.finalResultsDUO = new string[2, 4];
+
 
                 objEntidad.difficulty = "Todas";
                 // para asignar una consulta al arreglo si nunca se le ha asignado (para tener algo que consultar)
@@ -65,9 +79,10 @@ namespace capaPresentacion
         P_GameSettings GameSettings;
         P_Configuracion SettingsAdmin;
         E_focusedBible objEntidad = new E_focusedBible();
-        N_SettingsPROFE objNegoSettingsPROFE = new N_SettingsPROFE();
+        N_SettingsPROFE objNegoSettingsPROFE;
         N_focusedBible objNego = new N_focusedBible();
         D_Login login = new D_Login();
+
 
 
         // Las siguentes dos funciones son para
@@ -185,14 +200,14 @@ namespace capaPresentacion
 
             salir = MessageBox.Show("Seguro que desea salir?", "Advertencia", MessageBoxButtons.YesNo);
 
+            //borrar todos los settings guardados en la base de datos, si es el admin
+            if (E_Usuario.Rol == "Admin")
+            {
+                objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
+            }
 
             if (salir == DialogResult.Yes)
             {
-                //borrar todos los settings guardados, si es el admin
-                if (E_Usuario.Rol == "Admin")
-                {
-                    objNegoSettingsPROFE.N_sp_GameSettingsPROFE_BorrarTodo();
-                }
                 Application.Exit(); // se debe cerrar de esta forma ya que no se inicio todo por Aplication.Run()
             }
         }
@@ -472,23 +487,64 @@ namespace capaPresentacion
                 pbx_Sound.BackgroundImage = Properties.Resources.Sound_MouseLeave_OFF;
             }
         }
-
+        
         private void btn_Partida_Click(object sender, EventArgs e)
         {
-            objEntidad.solo_O_Partida = "PARTIDA";
+            //conseguir las credenciales
+            login.GetRemoteCredentials();
 
-            if (E_Usuario.Rol == "Admin")
+            P_SetDataBaseAutentication p_SetDataBaseAutentication = new P_SetDataBaseAutentication(objEntidad);
+
+            //consultar si se consiguio alguna credencial en la busqueda de mas arriba
+            if (E_ConnectionString.remoteUserName == null)
             {
                 this.Hide();
-                P_PARTIDA_PROFE_Main partidaProfeMain = new P_PARTIDA_PROFE_Main(objEntidad);
-                partidaProfeMain.Show();
+                p_SetDataBaseAutentication.ShowDialog();
             }
             else
             {
-                this.Hide();
-                P_PARTIDA_ALUMNO_Main partidaAlumnoMain = new P_PARTIDA_ALUMNO_Main(objEntidad);
-                partidaAlumnoMain.Show();
+                p_SetDataBaseAutentication.DialogResult = DialogResult.OK;
             }
+
+            // Si existen las credenciales en la base de datos
+            if (p_SetDataBaseAutentication.DialogResult == DialogResult.OK)
+            {
+                //Connection String Remota *********************************************************************************************
+                E_ConnectionString.conectionString = @"Data Source=" + E_ConnectionString.remoteHostName +
+                                                ",1433; Initial Catalog=focusedBible; Network Library=DBMSSOCN; User ID=" +
+                                                E_ConnectionString.remoteUserName + "; Password=" +
+                                                E_ConnectionString.remotePassword + "; MultipleActiveResultSets=true;";
+                //*********************************************************************************************
+                
+                try // verifica si la conexion se realizo exitosamente
+                {
+                    N_Listener objNegoListener = new N_Listener();// solo para probar si estamos conectados
+                    objNegoListener.N_Listener_Comando(1); // solo para probar si estamos conectados
+
+                    objEntidad.solo_O_Partida = "PARTIDA";
+
+                    if (E_Usuario.Rol == "Admin")
+                    {
+                        this.Hide();
+                        P_PARTIDA_PROFE_Main partidaProfeMain = new P_PARTIDA_PROFE_Main(objEntidad);
+                        partidaProfeMain.Show();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        P_PARTIDA_ALUMNO_Main partidaAlumnoMain = new P_PARTIDA_ALUMNO_Main(objEntidad);
+                        partidaAlumnoMain.Show();
+                    }
+                }
+                catch (Exception a)
+                {
+                    string var = a.Message;
+                    MessageBox.Show("Base de datos externa NO Conectada!, si este error persiste favor BORRAR los datos de conexión desde 'CONFIGURACION DEL JUEGO' presionando el botón '**BORRAR CONEXION BDE**', e ingresar los datos NUEVAMENTE.", "CONEXION FALLIDA");
+                    this.Show();
+                    this.BringToFront();
+                }
+            }
+            
         }
     }
 }

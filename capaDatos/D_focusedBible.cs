@@ -9,7 +9,8 @@ namespace capaDatos
 {
     public class D_focusedBible
     {
-        SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
+        //SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
+        SqlConnection cn = new SqlConnection(E_ConnectionString.conectionString);
         E_focusedBible preg = new E_focusedBible();
 
         public DataTable D_listado(E_focusedBible preg)

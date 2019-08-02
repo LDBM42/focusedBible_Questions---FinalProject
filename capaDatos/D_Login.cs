@@ -7,12 +7,11 @@ namespace capaDatos
 {
     public class D_Login
     {
-
-        SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
+        SqlConnection cn = new SqlConnection(E_ConnectionString.conectionString);
 
         //Conexion local a base de datos para guardar el autologin
         SqlConnection Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Conectar"].ConnectionString);
-            
+
 
         public DataSet ValidarLogin(string sUsuario, string sPassword)
         {
@@ -55,7 +54,7 @@ namespace capaDatos
             {
                 return Login(NombreLogeado);
             }
-            
+
             return Login(NombreLogeado);
         }
 
@@ -106,6 +105,68 @@ namespace capaDatos
 
 
             return Convert.ToInt32(retVal);
+        }
+
+
+
+
+        //Detectar si el autologin está activo
+        public void GetRemoteCredentials()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT remoteHostName, remoteUserName, remotePassword FROM Credenciales", Conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            da.Fill(dt);
+
+            try
+            {
+                E_ConnectionString.remoteHostName = dt.Tables[0].Rows[0]["remoteHostName"].ToString();
+                E_ConnectionString.remoteUserName = dt.Tables[0].Rows[0]["remoteUserName"].ToString();
+                E_ConnectionString.remotePassword = dt.Tables[0].Rows[0]["remotePassword"].ToString();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+
+        //Agregar credenciales de base de datos externa
+        public int SetRemoteCredentials(string hostName, string userName, string password)
+        {
+            object retVal = null;
+
+            DeleteRemoteCredentials(); // borrar todos los registros antes de insertar otro
+            SqlCommand cmd = new SqlCommand(string.Format("INSERT INTO Credenciales VALUES('{0}', '{1}', '{2}')",
+                password, userName, hostName), Conn);
+
+            if (Conn.State == ConnectionState.Open) Conn.Close();
+            Conn.Open();
+
+            try
+            {
+                retVal = cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (null != Conn)
+                    Conn.Close();
+            }
+
+            return Convert.ToInt32(retVal);
+        }
+
+
+        //Borrar Credenciales conexion remota
+        public void DeleteRemoteCredentials()
+        {
+            SqlCommand cmd = new SqlCommand("DELETE FROM Credenciales", Conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            da.Fill(dt);
         }
     }
 }

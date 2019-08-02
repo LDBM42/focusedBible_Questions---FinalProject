@@ -1085,5 +1085,30 @@ namespace capaPresentacion
                 }
             }
         }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            objEntidad.reproducirSonidoBoton("button.wav", false);
+        }
+
+        private void btn_deleteConnection_Click(object sender, EventArgs e)
+        {
+            DialogResult borrarBDE;
+
+            borrarBDE = MessageBox.Show("Seguro que desea BORRAR la CONEXION a la BASE DE DATOS EXTERNA?", "Advertencia", MessageBoxButtons.YesNo);
+            E_ConnectionString.remoteHostName = null;
+            E_ConnectionString.remoteUserName = null;
+            E_ConnectionString.remotePassword = null;
+
+            if (borrarBDE == DialogResult.Yes)
+            {
+                login.DeleteRemoteCredentials();
+
+                E_ConnectionString.conectionString = @"server=.;Integrated Security=yes;Database=focusedBible";
+                objNegoSettingsPROFE = new N_SettingsPROFE();
+
+                MessageBox.Show("Datos de conexión remota BORRADOS correctamente!");
+            }
+        }
     }
 }
