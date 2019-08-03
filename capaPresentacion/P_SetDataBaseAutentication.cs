@@ -50,7 +50,6 @@ namespace capaPresentacion
             tmr_cuadroBlanco.Start();
            
             countDownTimer = 300;
-            timer1.Start();
 
 
             if (objEntidad.enableButtonSound == true)
@@ -290,26 +289,6 @@ namespace capaPresentacion
                 tmr_cuadroBlanco.Stop();
             }
         }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (countDownTimer != 0)
-            {
-                lbl_CountDown.Text = Convert.ToString(countDownTimer);
-                countDownTimer--;
-
-                if (!this.Visible)
-                {
-                    timer1.Stop();
-                }
-            }
-            else
-            {
-                timer1.Stop();
-                MessageBox.Show("Excedio el máximo de tiempo de espera, por motivo de seguridad el programa sera cerrado", "Tiempo Agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Application.Exit();
-            }
-        }
-
         
         private void P_Usuario_Paint(object sender, PaintEventArgs e)
         {

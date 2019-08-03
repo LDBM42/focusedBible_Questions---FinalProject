@@ -422,7 +422,9 @@ namespace capaPresentacion
         private void btn_how2Play_Click(object sender, EventArgs e)
         {
             howToPlay = new HowToPlay(objEntidad);
+            this.Hide();/************************************************************/
             howToPlay.ShowDialog();
+            this.Show();/************************************************************/
         }
 
         private void btn_how2Play_MouseEnter(object sender, EventArgs e)

@@ -33,7 +33,6 @@
             this.lbl_CountDown = new System.Windows.Forms.Label();
             this.text_Password = new System.Windows.Forms.TextBox();
             this.text_Usuario = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmr_cuadroBlanco = new System.Windows.Forms.Timer(this.components);
             this.lbl_nuevoUsuario = new System.Windows.Forms.Label();
             this.text_hostName = new System.Windows.Forms.TextBox();
@@ -104,11 +103,6 @@
             this.text_Usuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_Usuario_KeyPress);
             this.text_Usuario.MouseEnter += new System.EventHandler(this.text_Usuario_MouseEnter);
             this.text_Usuario.MouseLeave += new System.EventHandler(this.text_Usuario_MouseLeave);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tmr_cuadroBlanco
             // 
@@ -236,7 +230,6 @@
         private System.Windows.Forms.Button btn_Crear;
         private System.Windows.Forms.TextBox text_Password;
         private System.Windows.Forms.TextBox text_Usuario;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer tmr_cuadroBlanco;
         private System.Windows.Forms.Label lbl_nuevoUsuario;
         private System.Windows.Forms.TextBox text_hostName;

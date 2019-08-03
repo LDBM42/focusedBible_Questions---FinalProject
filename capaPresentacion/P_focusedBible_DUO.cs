@@ -385,7 +385,9 @@ namespace capaPresentacion
             Timer_2Answer.Stop();
             objEntidad.StopGameSound();
             Winner = new P_DUO_Ganador(objEntidad);
+            this.Hide();/************************************************************/
             Winner.ShowDialog();
+            this.Show();/************************************************************/
 
             StartAgan();
         }
@@ -1938,7 +1940,9 @@ namespace capaPresentacion
             objEntidad.StopGameSound();
 
             howToPlay = new HowToPlay(objEntidad);
+            this.Hide();/************************************************************/
             howToPlay.ShowDialog();
+            this.Show();/************************************************************/
         }
 
         private void btn_how2Play_MouseEnter(object sender, EventArgs e)

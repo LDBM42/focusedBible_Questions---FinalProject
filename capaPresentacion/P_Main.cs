@@ -222,7 +222,9 @@ namespace capaPresentacion
         private void btn_how2Play_Click(object sender, EventArgs e)
         {
             howToPlay = new HowToPlay(objEntidad);
+            this.Hide();/************************************************************/
             howToPlay.ShowDialog();
+            this.Show();/************************************************************/
         }
 
         private void Btn_Settings_Click(object sender, EventArgs e)
@@ -500,6 +502,7 @@ namespace capaPresentacion
             {
                 this.Hide();
                 p_SetDataBaseAutentication.ShowDialog();
+                this.Show();
             }
             else
             {

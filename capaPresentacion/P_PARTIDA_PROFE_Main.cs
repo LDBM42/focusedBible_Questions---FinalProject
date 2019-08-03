@@ -83,7 +83,6 @@ namespace capaPresentacion
 
         private void listarAlumnos()
         {
-
             DataTable dt = objNegoAlumno.N_listado();
             //DataSource permite vaciar un DataTable en un dataGridView
             dgvAlumnos.DataSource = dt;
@@ -207,7 +206,6 @@ namespace capaPresentacion
 
             GameSettings = new P_GameSettings(objEntidad);
             existe2.Hide();
-            //this.Hide();
             GameSettings.ShowDialog();
         }
 
@@ -257,7 +255,6 @@ namespace capaPresentacion
         }
 
 
-
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             goToMain();
@@ -273,7 +270,9 @@ namespace capaPresentacion
             objEntidad.StopGameSound();
             objEntidad.winner = E_Usuario.Nombreusuario;
             FinalScorePARTIDA = new P_PARTIDA_Ganador(objEntidad);
+            this.Hide();/************************************************************/
             FinalScorePARTIDA.ShowDialog();
+            this.Show();/************************************************************/
 
 
             objEntidad.StopGameSound();

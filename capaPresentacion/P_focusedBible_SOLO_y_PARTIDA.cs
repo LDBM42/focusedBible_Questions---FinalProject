@@ -378,7 +378,10 @@ namespace capaPresentacion
                         objEntidad.StopGameSound();
                         objEntidad.winner = E_Usuario.Nombreusuario;
                         PARTIDA_ALUMNO_EsperaFinal = new P_PARTIDA_ALUMNO_EsperaFinal(objEntidad);
+                        this.Hide();/************************************************************/
                         PARTIDA_ALUMNO_EsperaFinal.ShowDialog();
+                        this.Show();/************************************************************/
+                        
 
                         //---------------------------------------------------------
                         if (PARTIDA_ALUMNO_EsperaFinal.DialogResult == DialogResult.OK)
@@ -423,7 +426,9 @@ namespace capaPresentacion
             objEntidad.StopGameSound();
             objEntidad.winner = E_Usuario.Nombreusuario;
             FinalScore = new P_SOLO_Marcador(objEntidad);
+            this.Hide();/************************************************************/
             FinalScore.ShowDialog();
+            this.Show();/************************************************************/
 
             StartAgan();
         }
@@ -436,8 +441,9 @@ namespace capaPresentacion
             objEntidad.StopGameSound();
             objEntidad.winner = E_Usuario.Nombreusuario;
             FinalScorePARTIDA = new P_PARTIDA_Ganador(objEntidad);
+            this.Hide();/****************************************************************************/
             FinalScorePARTIDA.ShowDialog();
-
+            this.Show();/****************************************************************************/
             StartAgan();
         }
         void StartAgan()
@@ -1359,7 +1365,9 @@ namespace capaPresentacion
             objEntidad.StopGameSound();
 
             howToPlay = new HowToPlay(objEntidad);
+            this.Hide();/************************************************************/
             howToPlay.ShowDialog();
+            this.Show();/************************************************************/
         }
 
         private void btn_how2Play_MouseEnter(object sender, EventArgs e)
