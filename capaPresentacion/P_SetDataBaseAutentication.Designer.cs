@@ -39,7 +39,7 @@
             this.text_hostName = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.pbx_Sound = new System.Windows.Forms.PictureBox();
-            this.btn_Crear = new System.Windows.Forms.Button();
+            this.btn_Guardar = new System.Windows.Forms.Button();
             this.pnl_fondoLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
@@ -174,24 +174,24 @@
             // 
             // btn_Crear
             // 
-            this.btn_Crear.BackgroundImage = global::capaPresentacion.Properties.Resources.Boton_Empezar_MouseLeave;
-            this.btn_Crear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Crear.FlatAppearance.BorderSize = 0;
-            this.btn_Crear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_Crear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_Crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Crear.Font = new System.Drawing.Font("Catamaran", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Crear.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Crear.Location = new System.Drawing.Point(320, 363);
-            this.btn_Crear.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Crear.Name = "btn_Crear";
-            this.btn_Crear.Size = new System.Drawing.Size(408, 47);
-            this.btn_Crear.TabIndex = 3;
-            this.btn_Crear.Text = "GUARDAR";
-            this.btn_Crear.UseVisualStyleBackColor = false;
-            this.btn_Crear.Click += new System.EventHandler(this.btn_Guardar_Click);
-            this.btn_Crear.MouseEnter += new System.EventHandler(this.btn_Guardar_MouseEnter);
-            this.btn_Crear.MouseLeave += new System.EventHandler(this.btn_Guardar_MouseLeave);
+            this.btn_Guardar.BackgroundImage = global::capaPresentacion.Properties.Resources.Boton_Empezar_MouseLeave;
+            this.btn_Guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Guardar.FlatAppearance.BorderSize = 0;
+            this.btn_Guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Guardar.Font = new System.Drawing.Font("Catamaran", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Guardar.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_Guardar.Location = new System.Drawing.Point(320, 363);
+            this.btn_Guardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Guardar.Name = "btn_Crear";
+            this.btn_Guardar.Size = new System.Drawing.Size(408, 47);
+            this.btn_Guardar.TabIndex = 3;
+            this.btn_Guardar.Text = "GUARDAR";
+            this.btn_Guardar.UseVisualStyleBackColor = false;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
+            this.btn_Guardar.MouseEnter += new System.EventHandler(this.btn_Guardar_MouseEnter);
+            this.btn_Guardar.MouseLeave += new System.EventHandler(this.btn_Guardar_MouseLeave);
             // 
             // P_SetDataBaseAutentication
             // 
@@ -204,7 +204,7 @@
             this.Controls.Add(this.lbl_nuevoUsuario);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbx_Sound);
-            this.Controls.Add(this.btn_Crear);
+            this.Controls.Add(this.btn_Guardar);
             this.Controls.Add(this.text_Password);
             this.Controls.Add(this.text_Usuario);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,7 +229,7 @@
         private System.Windows.Forms.Label lbl_CountDown;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.PictureBox pbx_Sound;
-        private System.Windows.Forms.Button btn_Crear;
+        private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.TextBox text_Password;
         private System.Windows.Forms.TextBox text_Usuario;
         private System.Windows.Forms.Timer tmr_cuadroBlanco;

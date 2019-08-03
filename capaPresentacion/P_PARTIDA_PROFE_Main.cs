@@ -46,8 +46,11 @@ namespace capaPresentacion
 
         private void P_Debate_Main_Load(object sender, EventArgs e)
         {
+            SetDoubleBuffered(tableLayoutPanel1);
+            SetDoubleBuffered(tableLayoutPanel2);
             SetDoubleBuffered(tableLayoutPanel11);
             SetDoubleBuffered(tableLayoutPanel15);
+            SetDoubleBuffered(tableLayoutPanel18);
             SetDoubleBuffered(tableLayoutPanel20);
             SetDoubleBuffered(tableLayoutPanel21);
 

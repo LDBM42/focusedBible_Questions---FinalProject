@@ -224,7 +224,7 @@ namespace capaPresentacion
             {
                 e.Handled = true; //.Handled significa que nosotros nos haremos cargo del codigo
                                   //al ser true, evita que apareca la tecla presionada
-                SendKeys.Send("{TAB}"); //hace que se presione la tecla TAB por código
+                btn_Guardar.PerformClick(); //hace clic en el boton guardar
             }
         }
 
@@ -305,13 +305,13 @@ namespace capaPresentacion
         private void btn_Guardar_MouseEnter(object sender, EventArgs e)
         {
             objEntidad.reproducirSonidoBoton("button.wav", false);
-            btn_Crear.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
-            btn_Crear.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_Guardar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseEnter;
+            btn_Guardar.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void btn_Guardar_MouseLeave(object sender, EventArgs e)
         {
-            btn_Crear.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
+            btn_Guardar.BackgroundImage = Properties.Resources.Boton_Empezar_MouseLeave;
         }
 
         private void btnMinimize_MouseEnter(object sender, EventArgs e)
