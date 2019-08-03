@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_PARTIDA_ALUMNO_Main));
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_abc = new System.Windows.Forms.TableLayoutPanel();
@@ -40,17 +41,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_anuncio = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbx_codigo = new System.Windows.Forms.CheckBox();
             this.tbx_codigoPartida = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_Partida = new System.Windows.Forms.Label();
+            this.btn_goToMain = new System.Windows.Forms.Button();
+            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.timer2Start = new System.Windows.Forms.Timer(this.components);
             this.LoadBar = new System.Windows.Forms.Timer(this.components);
             this.timer_waitingToStart = new System.Windows.Forms.Timer(this.components);
-            this.cbx_codigo = new System.Windows.Forms.CheckBox();
-            this.btn_goToMain = new System.Windows.Forms.Button();
-            this.pbx_Sound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tlyo_abc.SuspendLayout();
@@ -273,6 +274,27 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(253, 42);
             this.tableLayoutPanel2.TabIndex = 18;
             // 
+            // cbx_codigo
+            // 
+            this.cbx_codigo.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_codigo.AutoSize = true;
+            this.cbx_codigo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            this.cbx_codigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbx_codigo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_codigo.Enabled = false;
+            this.cbx_codigo.FlatAppearance.BorderSize = 0;
+            this.cbx_codigo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cbx_codigo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cbx_codigo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cbx_codigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_codigo.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_codigo.Location = new System.Drawing.Point(213, 3);
+            this.cbx_codigo.Name = "cbx_codigo";
+            this.cbx_codigo.Size = new System.Drawing.Size(37, 36);
+            this.cbx_codigo.TabIndex = 2;
+            this.cbx_codigo.UseVisualStyleBackColor = true;
+            this.cbx_codigo.CheckedChanged += new System.EventHandler(this.cbx_codigo_CheckedChanged);
+            // 
             // tbx_codigoPartida
             // 
             this.tbx_codigoPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
@@ -362,41 +384,6 @@
             this.lab_Partida.Text = "PARTIDA (ALUMNO)";
             this.lab_Partida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer2Start
-            // 
-            this.timer2Start.Interval = 1000;
-            this.timer2Start.Tick += new System.EventHandler(this.timer2Start_Tick);
-            // 
-            // LoadBar
-            // 
-            this.LoadBar.Interval = 300;
-            this.LoadBar.Tick += new System.EventHandler(this.LoadBar_Tick);
-            // 
-            // timer_waitingToStart
-            // 
-            this.timer_waitingToStart.Tick += new System.EventHandler(this.timer_waitingToStart_Tick);
-            // 
-            // cbx_codigo
-            // 
-            this.cbx_codigo.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbx_codigo.AutoSize = true;
-            this.cbx_codigo.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
-            this.cbx_codigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cbx_codigo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbx_codigo.Enabled = false;
-            this.cbx_codigo.FlatAppearance.BorderSize = 0;
-            this.cbx_codigo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.cbx_codigo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.cbx_codigo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.cbx_codigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_codigo.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_codigo.Location = new System.Drawing.Point(213, 3);
-            this.cbx_codigo.Name = "cbx_codigo";
-            this.cbx_codigo.Size = new System.Drawing.Size(37, 36);
-            this.cbx_codigo.TabIndex = 2;
-            this.cbx_codigo.UseVisualStyleBackColor = true;
-            this.cbx_codigo.CheckedChanged += new System.EventHandler(this.cbx_codigo_CheckedChanged);
-            // 
             // btn_goToMain
             // 
             this.btn_goToMain.BackColor = System.Drawing.Color.Transparent;
@@ -434,6 +421,20 @@
             this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
             this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
             // 
+            // timer2Start
+            // 
+            this.timer2Start.Interval = 1000;
+            this.timer2Start.Tick += new System.EventHandler(this.timer2Start_Tick);
+            // 
+            // LoadBar
+            // 
+            this.LoadBar.Interval = 300;
+            this.LoadBar.Tick += new System.EventHandler(this.LoadBar_Tick);
+            // 
+            // timer_waitingToStart
+            // 
+            this.timer_waitingToStart.Tick += new System.EventHandler(this.timer_waitingToStart_Tick);
+            // 
             // P_PARTIDA_ALUMNO_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -444,6 +445,7 @@
             this.Controls.Add(this.tableLayoutPanel21);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "P_PARTIDA_ALUMNO_Main";

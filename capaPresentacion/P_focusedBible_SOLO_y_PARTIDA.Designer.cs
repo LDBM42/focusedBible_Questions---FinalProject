@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_focusedBible_SOLO_y_PARTIDA));
             this.rbtn_a = new System.Windows.Forms.RadioButton();
             this.rbtn_b = new System.Windows.Forms.RadioButton();
             this.rbtn_c = new System.Windows.Forms.RadioButton();
@@ -988,6 +989,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel23);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "P_focusedBible_SOLO_y_PARTIDA";
             this.Text = "focusedBible Questions";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

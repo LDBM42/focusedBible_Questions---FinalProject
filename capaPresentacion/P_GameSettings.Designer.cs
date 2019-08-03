@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_GameSettings));
             this.lab_User = new System.Windows.Forms.Label();
             this.lbx_opportunitie = new System.Windows.Forms.ListBox();
             this.lbx_preguntas = new System.Windows.Forms.ListBox();
@@ -44,6 +45,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_goBack = new System.Windows.Forms.Button();
+            this.btn_how2Play = new System.Windows.Forms.Button();
+            this.pbx_Sound = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbx_gameSound = new System.Windows.Forms.PictureBox();
+            this.pbx_buttonSound = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_configuracionJuego = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,38 +60,36 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.cbx_Opportunities = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lbx_time2Answer = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbx_rebote = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_deleteConnection = new System.Windows.Forms.Button();
             this.tlyo_categorias = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbx_categoriaXTestamento = new System.Windows.Forms.CheckBox();
             this.lab_NuevoAntiguo = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_tipoDeLibro = new System.Windows.Forms.Label();
+            this.cbx_categoriaXTipoLibro = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.lab_libro = new System.Windows.Forms.Label();
+            this.cbx_categoriaXLibro = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Aceptar = new System.Windows.Forms.Button();
             this.Timer_Banner = new System.Windows.Forms.Timer(this.components);
             this.Timer_2Answer = new System.Windows.Forms.Timer(this.components);
             this.countDown = new System.Windows.Forms.Timer(this.components);
-            this.btn_goBack = new System.Windows.Forms.Button();
-            this.btn_how2Play = new System.Windows.Forms.Button();
-            this.pbx_Sound = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pbx_gameSound = new System.Windows.Forms.PictureBox();
-            this.pbx_buttonSound = new System.Windows.Forms.PictureBox();
-            this.cbx_Opportunities = new System.Windows.Forms.CheckBox();
-            this.cbx_rebote = new System.Windows.Forms.CheckBox();
-            this.btn_deleteConnection = new System.Windows.Forms.Button();
-            this.cbx_categoriaXTestamento = new System.Windows.Forms.CheckBox();
-            this.cbx_categoriaXTipoLibro = new System.Windows.Forms.CheckBox();
-            this.cbx_categoriaXLibro = new System.Windows.Forms.CheckBox();
-            this.btn_Aceptar = new System.Windows.Forms.Button();
             this.tableLayoutPanel23.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_gameSound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_buttonSound)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.tlyo_configuracionJuego.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -95,10 +100,6 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_gameSound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_buttonSound)).BeginInit();
             this.SuspendLayout();
             // 
             // lab_User
@@ -506,6 +507,104 @@
             this.tableLayoutPanel16.Size = new System.Drawing.Size(1224, 31);
             this.tableLayoutPanel16.TabIndex = 1;
             // 
+            // btn_goBack
+            // 
+            this.btn_goBack.BackgroundImage = global::capaPresentacion.Properties.Resources.goBack_MouseLeave_01;
+            this.btn_goBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_goBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_goBack.FlatAppearance.BorderSize = 0;
+            this.btn_goBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_goBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_goBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_goBack.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_goBack.Location = new System.Drawing.Point(1186, 3);
+            this.btn_goBack.Name = "btn_goBack";
+            this.btn_goBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_goBack.Size = new System.Drawing.Size(35, 25);
+            this.btn_goBack.TabIndex = 1;
+            this.btn_goBack.UseVisualStyleBackColor = false;
+            this.btn_goBack.Click += new System.EventHandler(this.btn_goBack_Click);
+            this.btn_goBack.MouseEnter += new System.EventHandler(this.btn_goBack_MouseEnter);
+            this.btn_goBack.MouseLeave += new System.EventHandler(this.btn_goBack_MouseLeave);
+            // 
+            // btn_how2Play
+            // 
+            this.btn_how2Play.BackColor = System.Drawing.Color.Transparent;
+            this.btn_how2Play.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_landing_03_1;
+            this.btn_how2Play.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_how2Play.FlatAppearance.BorderSize = 0;
+            this.btn_how2Play.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_how2Play.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_how2Play.Location = new System.Drawing.Point(1144, 3);
+            this.btn_how2Play.Name = "btn_how2Play";
+            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_how2Play.Size = new System.Drawing.Size(30, 25);
+            this.btn_how2Play.TabIndex = 0;
+            this.btn_how2Play.UseVisualStyleBackColor = false;
+            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
+            this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
+            this.btn_how2Play.MouseLeave += new System.EventHandler(this.btn_how2Play_MouseLeave);
+            // 
+            // pbx_Sound
+            // 
+            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON_NEUTRO;
+            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Sound.Location = new System.Drawing.Point(1102, 3);
+            this.pbx_Sound.Name = "pbx_Sound";
+            this.pbx_Sound.Size = new System.Drawing.Size(30, 25);
+            this.pbx_Sound.TabIndex = 17;
+            this.pbx_Sound.TabStop = false;
+            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
+            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
+            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_03;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(202, 25);
+            this.pictureBox2.TabIndex = 18;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pbx_gameSound
+            // 
+            this.pbx_gameSound.BackgroundImage = global::capaPresentacion.Properties.Resources.GameSound_MouseLeave;
+            this.pbx_gameSound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_gameSound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_gameSound.Location = new System.Drawing.Point(1018, 3);
+            this.pbx_gameSound.Name = "pbx_gameSound";
+            this.pbx_gameSound.Size = new System.Drawing.Size(30, 25);
+            this.pbx_gameSound.TabIndex = 19;
+            this.pbx_gameSound.TabStop = false;
+            this.pbx_gameSound.Visible = false;
+            this.pbx_gameSound.Click += new System.EventHandler(this.pbx_gameSound_Click);
+            this.pbx_gameSound.MouseEnter += new System.EventHandler(this.pbx_gameSound_MouseEnter);
+            this.pbx_gameSound.MouseLeave += new System.EventHandler(this.pbx_gameSound_MouseLeave);
+            // 
+            // pbx_buttonSound
+            // 
+            this.pbx_buttonSound.BackgroundImage = global::capaPresentacion.Properties.Resources.clickSound_MouseLeave;
+            this.pbx_buttonSound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_buttonSound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_buttonSound.Location = new System.Drawing.Point(1060, 3);
+            this.pbx_buttonSound.Name = "pbx_buttonSound";
+            this.pbx_buttonSound.Size = new System.Drawing.Size(30, 25);
+            this.pbx_buttonSound.TabIndex = 20;
+            this.pbx_buttonSound.TabStop = false;
+            this.pbx_buttonSound.Visible = false;
+            this.pbx_buttonSound.Click += new System.EventHandler(this.pbx_buttonSound_Click);
+            this.pbx_buttonSound.MouseEnter += new System.EventHandler(this.pbx_buttonSound_MouseEnter);
+            this.pbx_buttonSound.MouseLeave += new System.EventHandler(this.pbx_buttonSound_MouseLeave);
+            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 3;
@@ -658,6 +757,26 @@
             this.label9.Text = "DIFICULTAD   ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // cbx_Opportunities
+            // 
+            this.cbx_Opportunities.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_Opportunities.AutoSize = true;
+            this.cbx_Opportunities.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            this.cbx_Opportunities.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbx_Opportunities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_Opportunities.FlatAppearance.BorderSize = 0;
+            this.cbx_Opportunities.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cbx_Opportunities.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cbx_Opportunities.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cbx_Opportunities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_Opportunities.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
+            this.cbx_Opportunities.Location = new System.Drawing.Point(560, 3);
+            this.cbx_Opportunities.Name = "cbx_Opportunities";
+            this.cbx_Opportunities.Size = new System.Drawing.Size(50, 40);
+            this.cbx_Opportunities.TabIndex = 1;
+            this.cbx_Opportunities.UseVisualStyleBackColor = true;
+            this.cbx_Opportunities.CheckedChanged += new System.EventHandler(this.cbx_Opportunities_CheckedChanged);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 5;
@@ -770,6 +889,26 @@
             this.label4.Text = "REBOTE   ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // cbx_rebote
+            // 
+            this.cbx_rebote.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_rebote.AutoSize = true;
+            this.cbx_rebote.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            this.cbx_rebote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbx_rebote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_rebote.FlatAppearance.BorderSize = 0;
+            this.cbx_rebote.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cbx_rebote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cbx_rebote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cbx_rebote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_rebote.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_rebote.Location = new System.Drawing.Point(560, 3);
+            this.cbx_rebote.Name = "cbx_rebote";
+            this.cbx_rebote.Size = new System.Drawing.Size(50, 40);
+            this.cbx_rebote.TabIndex = 1;
+            this.cbx_rebote.UseVisualStyleBackColor = true;
+            this.cbx_rebote.CheckedChanged += new System.EventHandler(this.cbx_rebote_CheckedChanged);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -784,6 +923,28 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "TIEMPO   ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btn_deleteConnection
+            // 
+            this.btn_deleteConnection.BackColor = System.Drawing.Color.White;
+            this.btn_deleteConnection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_deleteConnection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_deleteConnection.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btn_deleteConnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_deleteConnection.Font = new System.Drawing.Font("Catamaran Black", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_deleteConnection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
+            this.btn_deleteConnection.Image = global::capaPresentacion.Properties.Resources.deleteExternalConnection;
+            this.btn_deleteConnection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_deleteConnection.Location = new System.Drawing.Point(616, 3);
+            this.btn_deleteConnection.Name = "btn_deleteConnection";
+            this.btn_deleteConnection.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btn_deleteConnection.Size = new System.Drawing.Size(202, 40);
+            this.btn_deleteConnection.TabIndex = 9;
+            this.btn_deleteConnection.Text = "BORRAR CONEXION BDE       ";
+            this.btn_deleteConnection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_deleteConnection.UseVisualStyleBackColor = false;
+            this.btn_deleteConnection.Click += new System.EventHandler(this.btn_deleteConnection_Click);
+            this.btn_deleteConnection.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             // 
             // tlyo_categorias
             // 
@@ -822,6 +983,28 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(123, 76);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // cbx_categoriaXTestamento
+            // 
+            this.cbx_categoriaXTestamento.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_categoriaXTestamento.AutoSize = true;
+            this.cbx_categoriaXTestamento.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            this.cbx_categoriaXTestamento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbx_categoriaXTestamento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_categoriaXTestamento.FlatAppearance.BorderSize = 0;
+            this.cbx_categoriaXTestamento.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cbx_categoriaXTestamento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cbx_categoriaXTestamento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cbx_categoriaXTestamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_categoriaXTestamento.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_categoriaXTestamento.Location = new System.Drawing.Point(25, 3);
+            this.cbx_categoriaXTestamento.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.cbx_categoriaXTestamento.Name = "cbx_categoriaXTestamento";
+            this.cbx_categoriaXTestamento.Size = new System.Drawing.Size(95, 32);
+            this.cbx_categoriaXTestamento.TabIndex = 0;
+            this.cbx_categoriaXTestamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbx_categoriaXTestamento.UseVisualStyleBackColor = true;
+            this.cbx_categoriaXTestamento.CheckedChanged += new System.EventHandler(this.cbx_categoriaXTestamento_CheckedChanged);
             // 
             // lab_NuevoAntiguo
             // 
@@ -869,6 +1052,26 @@
             this.lab_tipoDeLibro.Text = "TIPO DE LIBRO   ";
             this.lab_tipoDeLibro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // cbx_categoriaXTipoLibro
+            // 
+            this.cbx_categoriaXTipoLibro.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_categoriaXTipoLibro.AutoSize = true;
+            this.cbx_categoriaXTipoLibro.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
+            this.cbx_categoriaXTipoLibro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbx_categoriaXTipoLibro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbx_categoriaXTipoLibro.FlatAppearance.BorderSize = 0;
+            this.cbx_categoriaXTipoLibro.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cbx_categoriaXTipoLibro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cbx_categoriaXTipoLibro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cbx_categoriaXTipoLibro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_categoriaXTipoLibro.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
+            this.cbx_categoriaXTipoLibro.Location = new System.Drawing.Point(3, 3);
+            this.cbx_categoriaXTipoLibro.Name = "cbx_categoriaXTipoLibro";
+            this.cbx_categoriaXTipoLibro.Size = new System.Drawing.Size(102, 32);
+            this.cbx_categoriaXTipoLibro.TabIndex = 0;
+            this.cbx_categoriaXTipoLibro.UseVisualStyleBackColor = true;
+            this.cbx_categoriaXTipoLibro.CheckedChanged += new System.EventHandler(this.cbx_categoriaXTipoLibro_CheckedChanged);
+            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
@@ -900,235 +1103,6 @@
             this.lab_libro.Text = "LIBRO   ";
             this.lab_libro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 3;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21F));
-            this.tableLayoutPanel8.Controls.Add(this.btn_Aceptar, 1, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 395);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(821, 56);
-            this.tableLayoutPanel8.TabIndex = 4;
-            // 
-            // Timer_Banner
-            // 
-            this.Timer_Banner.Interval = 1000;
-            // 
-            // Timer_2Answer
-            // 
-            this.Timer_2Answer.Interval = 1000;
-            // 
-            // countDown
-            // 
-            this.countDown.Interval = 1000;
-            // 
-            // btn_goBack
-            // 
-            this.btn_goBack.BackgroundImage = global::capaPresentacion.Properties.Resources.goBack_MouseLeave_01;
-            this.btn_goBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_goBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_goBack.FlatAppearance.BorderSize = 0;
-            this.btn_goBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_goBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_goBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_goBack.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_goBack.Location = new System.Drawing.Point(1186, 3);
-            this.btn_goBack.Name = "btn_goBack";
-            this.btn_goBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_goBack.Size = new System.Drawing.Size(35, 25);
-            this.btn_goBack.TabIndex = 1;
-            this.btn_goBack.UseVisualStyleBackColor = false;
-            this.btn_goBack.Click += new System.EventHandler(this.btn_goBack_Click);
-            this.btn_goBack.MouseEnter += new System.EventHandler(this.btn_goBack_MouseEnter);
-            this.btn_goBack.MouseLeave += new System.EventHandler(this.btn_goBack_MouseLeave);
-            // 
-            // btn_how2Play
-            // 
-            this.btn_how2Play.BackColor = System.Drawing.Color.Transparent;
-            this.btn_how2Play.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_landing_03_1;
-            this.btn_how2Play.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_how2Play.FlatAppearance.BorderSize = 0;
-            this.btn_how2Play.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_how2Play.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
-            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_how2Play.Location = new System.Drawing.Point(1144, 3);
-            this.btn_how2Play.Name = "btn_how2Play";
-            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_how2Play.Size = new System.Drawing.Size(30, 25);
-            this.btn_how2Play.TabIndex = 0;
-            this.btn_how2Play.UseVisualStyleBackColor = false;
-            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
-            this.btn_how2Play.MouseEnter += new System.EventHandler(this.btn_how2Play_MouseEnter);
-            this.btn_how2Play.MouseLeave += new System.EventHandler(this.btn_how2Play_MouseLeave);
-            // 
-            // pbx_Sound
-            // 
-            this.pbx_Sound.BackgroundImage = global::capaPresentacion.Properties.Resources.Sound_MouseLeave_ON_NEUTRO;
-            this.pbx_Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbx_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_Sound.Location = new System.Drawing.Point(1102, 3);
-            this.pbx_Sound.Name = "pbx_Sound";
-            this.pbx_Sound.Size = new System.Drawing.Size(30, 25);
-            this.pbx_Sound.TabIndex = 17;
-            this.pbx_Sound.TabStop = false;
-            this.pbx_Sound.Click += new System.EventHandler(this.pbx_Sound_Click);
-            this.pbx_Sound.MouseEnter += new System.EventHandler(this.pbx_Sound_MouseEnter);
-            this.pbx_Sound.MouseLeave += new System.EventHandler(this.pbx_Sound_MouseLeave);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_SOLO_03;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(202, 25);
-            this.pictureBox2.TabIndex = 18;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pbx_gameSound
-            // 
-            this.pbx_gameSound.BackgroundImage = global::capaPresentacion.Properties.Resources.GameSound_MouseLeave;
-            this.pbx_gameSound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbx_gameSound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_gameSound.Location = new System.Drawing.Point(1018, 3);
-            this.pbx_gameSound.Name = "pbx_gameSound";
-            this.pbx_gameSound.Size = new System.Drawing.Size(30, 25);
-            this.pbx_gameSound.TabIndex = 19;
-            this.pbx_gameSound.TabStop = false;
-            this.pbx_gameSound.Visible = false;
-            this.pbx_gameSound.Click += new System.EventHandler(this.pbx_gameSound_Click);
-            this.pbx_gameSound.MouseEnter += new System.EventHandler(this.pbx_gameSound_MouseEnter);
-            this.pbx_gameSound.MouseLeave += new System.EventHandler(this.pbx_gameSound_MouseLeave);
-            // 
-            // pbx_buttonSound
-            // 
-            this.pbx_buttonSound.BackgroundImage = global::capaPresentacion.Properties.Resources.clickSound_MouseLeave;
-            this.pbx_buttonSound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbx_buttonSound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_buttonSound.Location = new System.Drawing.Point(1060, 3);
-            this.pbx_buttonSound.Name = "pbx_buttonSound";
-            this.pbx_buttonSound.Size = new System.Drawing.Size(30, 25);
-            this.pbx_buttonSound.TabIndex = 20;
-            this.pbx_buttonSound.TabStop = false;
-            this.pbx_buttonSound.Visible = false;
-            this.pbx_buttonSound.Click += new System.EventHandler(this.pbx_buttonSound_Click);
-            this.pbx_buttonSound.MouseEnter += new System.EventHandler(this.pbx_buttonSound_MouseEnter);
-            this.pbx_buttonSound.MouseLeave += new System.EventHandler(this.pbx_buttonSound_MouseLeave);
-            // 
-            // cbx_Opportunities
-            // 
-            this.cbx_Opportunities.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbx_Opportunities.AutoSize = true;
-            this.cbx_Opportunities.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
-            this.cbx_Opportunities.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cbx_Opportunities.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbx_Opportunities.FlatAppearance.BorderSize = 0;
-            this.cbx_Opportunities.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.cbx_Opportunities.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.cbx_Opportunities.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.cbx_Opportunities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_Opportunities.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
-            this.cbx_Opportunities.Location = new System.Drawing.Point(560, 3);
-            this.cbx_Opportunities.Name = "cbx_Opportunities";
-            this.cbx_Opportunities.Size = new System.Drawing.Size(50, 40);
-            this.cbx_Opportunities.TabIndex = 1;
-            this.cbx_Opportunities.UseVisualStyleBackColor = true;
-            this.cbx_Opportunities.CheckedChanged += new System.EventHandler(this.cbx_Opportunities_CheckedChanged);
-            // 
-            // cbx_rebote
-            // 
-            this.cbx_rebote.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbx_rebote.AutoSize = true;
-            this.cbx_rebote.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
-            this.cbx_rebote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cbx_rebote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbx_rebote.FlatAppearance.BorderSize = 0;
-            this.cbx_rebote.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.cbx_rebote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.cbx_rebote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.cbx_rebote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_rebote.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_rebote.Location = new System.Drawing.Point(560, 3);
-            this.cbx_rebote.Name = "cbx_rebote";
-            this.cbx_rebote.Size = new System.Drawing.Size(50, 40);
-            this.cbx_rebote.TabIndex = 1;
-            this.cbx_rebote.UseVisualStyleBackColor = true;
-            this.cbx_rebote.CheckedChanged += new System.EventHandler(this.cbx_rebote_CheckedChanged);
-            // 
-            // btn_deleteConnection
-            // 
-            this.btn_deleteConnection.BackColor = System.Drawing.Color.White;
-            this.btn_deleteConnection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_deleteConnection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_deleteConnection.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btn_deleteConnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_deleteConnection.Font = new System.Drawing.Font("Catamaran Black", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_deleteConnection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(62)))));
-            this.btn_deleteConnection.Image = global::capaPresentacion.Properties.Resources.deleteExternalConnection;
-            this.btn_deleteConnection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_deleteConnection.Location = new System.Drawing.Point(616, 3);
-            this.btn_deleteConnection.Name = "btn_deleteConnection";
-            this.btn_deleteConnection.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btn_deleteConnection.Size = new System.Drawing.Size(202, 40);
-            this.btn_deleteConnection.TabIndex = 9;
-            this.btn_deleteConnection.Text = "BORRAR CONEXION BDE       ";
-            this.btn_deleteConnection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_deleteConnection.UseVisualStyleBackColor = false;
-            this.btn_deleteConnection.Click += new System.EventHandler(this.btn_deleteConnection_Click);
-            this.btn_deleteConnection.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
-            // 
-            // cbx_categoriaXTestamento
-            // 
-            this.cbx_categoriaXTestamento.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbx_categoriaXTestamento.AutoSize = true;
-            this.cbx_categoriaXTestamento.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
-            this.cbx_categoriaXTestamento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cbx_categoriaXTestamento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbx_categoriaXTestamento.FlatAppearance.BorderSize = 0;
-            this.cbx_categoriaXTestamento.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.cbx_categoriaXTestamento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.cbx_categoriaXTestamento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.cbx_categoriaXTestamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_categoriaXTestamento.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_categoriaXTestamento.Location = new System.Drawing.Point(25, 3);
-            this.cbx_categoriaXTestamento.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
-            this.cbx_categoriaXTestamento.Name = "cbx_categoriaXTestamento";
-            this.cbx_categoriaXTestamento.Size = new System.Drawing.Size(95, 32);
-            this.cbx_categoriaXTestamento.TabIndex = 0;
-            this.cbx_categoriaXTestamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbx_categoriaXTestamento.UseVisualStyleBackColor = true;
-            this.cbx_categoriaXTestamento.CheckedChanged += new System.EventHandler(this.cbx_categoriaXTestamento_CheckedChanged);
-            // 
-            // cbx_categoriaXTipoLibro
-            // 
-            this.cbx_categoriaXTipoLibro.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbx_categoriaXTipoLibro.AutoSize = true;
-            this.cbx_categoriaXTipoLibro.BackgroundImage = global::capaPresentacion.Properties.Resources.Focused_bible_CONFIGURACIÓN_Unchecked_01;
-            this.cbx_categoriaXTipoLibro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cbx_categoriaXTipoLibro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbx_categoriaXTipoLibro.FlatAppearance.BorderSize = 0;
-            this.cbx_categoriaXTipoLibro.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.cbx_categoriaXTipoLibro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.cbx_categoriaXTipoLibro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.cbx_categoriaXTipoLibro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_categoriaXTipoLibro.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Bold);
-            this.cbx_categoriaXTipoLibro.Location = new System.Drawing.Point(3, 3);
-            this.cbx_categoriaXTipoLibro.Name = "cbx_categoriaXTipoLibro";
-            this.cbx_categoriaXTipoLibro.Size = new System.Drawing.Size(102, 32);
-            this.cbx_categoriaXTipoLibro.TabIndex = 0;
-            this.cbx_categoriaXTipoLibro.UseVisualStyleBackColor = true;
-            this.cbx_categoriaXTipoLibro.CheckedChanged += new System.EventHandler(this.cbx_categoriaXTipoLibro_CheckedChanged);
-            // 
             // cbx_categoriaXLibro
             // 
             this.cbx_categoriaXLibro.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1148,6 +1122,21 @@
             this.cbx_categoriaXLibro.TabIndex = 0;
             this.cbx_categoriaXLibro.UseVisualStyleBackColor = true;
             this.cbx_categoriaXLibro.CheckedChanged += new System.EventHandler(this.cbx_categoriaXLibro_CheckedChanged);
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 3;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21F));
+            this.tableLayoutPanel8.Controls.Add(this.btn_Aceptar, 1, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 395);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(821, 56);
+            this.tableLayoutPanel8.TabIndex = 4;
             // 
             // btn_Aceptar
             // 
@@ -1170,6 +1159,18 @@
             this.btn_Aceptar.MouseEnter += new System.EventHandler(this.btn_Aceptar_MouseEnter);
             this.btn_Aceptar.MouseLeave += new System.EventHandler(this.btn_Aceptar_MouseLeave);
             // 
+            // Timer_Banner
+            // 
+            this.Timer_Banner.Interval = 1000;
+            // 
+            // Timer_2Answer
+            // 
+            this.Timer_2Answer.Interval = 1000;
+            // 
+            // countDown
+            // 
+            this.countDown.Interval = 1000;
+            // 
             // P_GameSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1178,6 +1179,7 @@
             this.ClientSize = new System.Drawing.Size(1292, 735);
             this.Controls.Add(this.tableLayoutPanel23);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "P_GameSettings";
@@ -1192,6 +1194,10 @@
             this.tableLayoutPanel22.ResumeLayout(false);
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_gameSound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_buttonSound)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tlyo_configuracionJuego.ResumeLayout(false);
             this.tlyo_configuracionJuego.PerformLayout();
@@ -1209,10 +1215,6 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_Sound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_gameSound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_buttonSound)).EndInit();
             this.ResumeLayout(false);
 
         }

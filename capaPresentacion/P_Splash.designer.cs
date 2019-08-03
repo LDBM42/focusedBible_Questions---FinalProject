@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_Splash));
             this.TerminarSplash = new System.Windows.Forms.Timer(this.components);
             this.pbx_splash = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_splash)).BeginInit();
@@ -58,6 +59,7 @@
             this.ClientSize = new System.Drawing.Size(1292, 735);
             this.Controls.Add(this.pbx_splash);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "P_Splash";

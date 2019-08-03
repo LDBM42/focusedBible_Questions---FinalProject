@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Banners));
             this.lab_banner = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.lab_banner);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Banners";
             this.Opacity = 0.9D;
             this.Text = "Banners";

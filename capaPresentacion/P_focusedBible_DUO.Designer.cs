@@ -1386,6 +1386,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel23);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "P_focusedBible_DUO";
             this.Text = "focusedBible Questions";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
