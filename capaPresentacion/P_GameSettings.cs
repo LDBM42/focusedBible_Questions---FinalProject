@@ -12,6 +12,7 @@ using System.Threading;
 using capaEntidad;
 using capaNegocio;
 using capaDatos;
+using System.IO;
 
 namespace capaPresentacion
 {
@@ -331,6 +332,7 @@ namespace capaPresentacion
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 E_Usuario.Logged = 0; // para desactivar autologgin
+                
                 //DESLOGEARSE
                 if (!(login.AutoLoginSetLocal(E_Usuario.Nombreusuario, E_Usuario.Logged) == 1))
                 {

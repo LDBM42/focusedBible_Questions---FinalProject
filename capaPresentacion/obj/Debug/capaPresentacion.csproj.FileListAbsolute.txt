@@ -133,8 +133,6 @@ C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresenta
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Main.resources
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_focusedBible_SoloyPartida.resources
 C:\focusedBible_Questions - FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_Debate_Ganador.resources
-C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\BDUsuario.mdf
-C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\BDUsuario_log.ldf
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\capaPresentacion.exe.config
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\capaPresentacion.exe
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\capaPresentacion.pdb
@@ -188,3 +186,7 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\Interop.AcroPD
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\AxInterop.AcroPDFLib.dll
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.csproj.ResolveComReference.cache
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.P_SetDataBaseAutentication.resources
+C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\capaPresentacion.exe.manifest
+C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Debug\capaPresentacion.application
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.exe.manifest
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Debug\capaPresentacion.application

@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿using capaDatos;
 using capaEntidad;
 using capaNegocio;
-using capaDatos;
-using System.Media;
-using System.Threading;
+using System;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace capaPresentacion
 {
@@ -289,7 +281,8 @@ namespace capaPresentacion
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     E_Usuario.Logged = 0; // para desactivar autologgin
-                                          //DESLOGEARSE
+                     
+                    //DESLOGEARSE
                     if (!(login.AutoLoginSetLocal(E_Usuario.Nombreusuario, E_Usuario.Logged) == 1))
                     {
                         MessageBox.Show("No se pudo hacer el cerrado de sección", "Cerado Sección");

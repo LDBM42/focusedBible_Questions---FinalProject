@@ -74,8 +74,6 @@ C:\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.cspro
 C:\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.csproj.CopyComplete
 C:\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.dll
 C:\focusedBible_Questions - FinalProject\capaNegocio\obj\Debug\capaNegocio.pdb
-C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Debug\BDUsuario.mdf
-C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Debug\BDUsuario_log.ldf
 C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Debug\capaNegocio.dll
 C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Debug\capaNegocio.pdb
 C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Debug\appium-dotnet-driver.dll

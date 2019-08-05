@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -57,7 +58,7 @@ namespace capaPresentacion
             pnl_fondoLogo.BackgroundImageLayout = ImageLayout.None;
 
             timerFondoLogo.Start();
-                        
+            
             DataSet ds = login.AutoLoginGetLocal(); //base de datos local
 
             dt = new DataTable();

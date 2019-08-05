@@ -30,8 +30,6 @@ E:\Documents\GitHub\focusedBible_Questions\capaPresentacion\obj\Release\capaPres
 E:\Documents\GitHub\focusedBible_Questions\capaPresentacion\obj\Release\capaPresentacion.csproj.CopyComplete
 E:\Documents\GitHub\focusedBible_Questions\capaPresentacion\obj\Release\capaPresentacion.exe
 E:\Documents\GitHub\focusedBible_Questions\capaPresentacion\obj\Release\capaPresentacion.pdb
-C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Release\BDUsuario.mdf
-C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Release\BDUsuario_log.ldf
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Release\capaPresentacion.exe.config
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Release\capaPresentacion.exe
 C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Release\capaPresentacion.pdb
@@ -85,3 +83,7 @@ C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Release\capaPresenta
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Release\capaPresentacion.csproj.CopyComplete
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Release\capaPresentacion.exe
 C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Release\capaPresentacion.pdb
+C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Release\capaPresentacion.exe.manifest
+C:\focusedBible_Questions-FinalProject\capaPresentacion\bin\Release\capaPresentacion.application
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Release\capaPresentacion.exe.manifest
+C:\focusedBible_Questions-FinalProject\capaPresentacion\obj\Release\capaPresentacion.application

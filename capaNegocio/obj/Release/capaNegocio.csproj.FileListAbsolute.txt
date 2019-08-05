@@ -19,8 +19,6 @@ E:\Documents\GitHub\focusedBible_Questions\capaNegocio\obj\Release\capaNegocio.c
 E:\Documents\GitHub\focusedBible_Questions\capaNegocio\obj\Release\capaNegocio.csproj.CopyComplete
 E:\Documents\GitHub\focusedBible_Questions\capaNegocio\obj\Release\capaNegocio.dll
 E:\Documents\GitHub\focusedBible_Questions\capaNegocio\obj\Release\capaNegocio.pdb
-C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Release\BDUsuario.mdf
-C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Release\BDUsuario_log.ldf
 C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Release\capaNegocio.dll
 C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Release\capaNegocio.pdb
 C:\focusedBible_Questions-FinalProject\capaNegocio\bin\Release\appium-dotnet-driver.dll

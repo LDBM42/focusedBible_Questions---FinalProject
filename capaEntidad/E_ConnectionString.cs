@@ -13,5 +13,6 @@ namespace capaDatos
         public static string remoteHostName;
 
         public static string conectionString;
+        public static string conectionStringLocal;
     }
 }

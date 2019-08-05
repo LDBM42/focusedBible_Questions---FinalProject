@@ -66,8 +66,6 @@ C:\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.csproj.Co
 C:\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.csproj.CopyComplete
 C:\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.dll
 C:\focusedBible_Questions - FinalProject\capaDatos\obj\Debug\capaDatos.pdb
-C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\BDUsuario.mdf
-C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\BDUsuario_log.ldf
 C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\capaDatos.dll
 C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\capaDatos.pdb
 C:\focusedBible_Questions-FinalProject\capaDatos\bin\Debug\appium-dotnet-driver.dll

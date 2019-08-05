@@ -17,8 +17,6 @@ E:\Documents\GitHub\focusedBible_Questions\capaDatos\obj\Release\capaDatos.cspro
 E:\Documents\GitHub\focusedBible_Questions\capaDatos\obj\Release\capaDatos.csproj.CopyComplete
 E:\Documents\GitHub\focusedBible_Questions\capaDatos\obj\Release\capaDatos.dll
 E:\Documents\GitHub\focusedBible_Questions\capaDatos\obj\Release\capaDatos.pdb
-C:\focusedBible_Questions-FinalProject\capaDatos\bin\Release\BDUsuario.mdf
-C:\focusedBible_Questions-FinalProject\capaDatos\bin\Release\BDUsuario_log.ldf
 C:\focusedBible_Questions-FinalProject\capaDatos\bin\Release\capaDatos.dll
 C:\focusedBible_Questions-FinalProject\capaDatos\bin\Release\capaDatos.pdb
 C:\focusedBible_Questions-FinalProject\capaDatos\bin\Release\appium-dotnet-driver.dll

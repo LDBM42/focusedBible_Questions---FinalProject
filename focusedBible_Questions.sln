@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "capaNegocio", "capaNegocio\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "capaPresentacion", "capaPresentacion\capaPresentacion.csproj", "{737ADE3F-5DD4-4279-AC2E-52CF2DD7821D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "focusedBibleSetup", "focusedBibleSetup\focusedBibleSetup.vdproj", "{6C8AF01C-B15F-4EB0-AA10-79B80B9F0553}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "focusedBibleSetup", "focusedBibleSetup\focusedBibleSetup.vdproj", "{C332891C-EC6E-4234-A941-88242603B76B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,8 +35,8 @@ Global
 		{737ADE3F-5DD4-4279-AC2E-52CF2DD7821D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{737ADE3F-5DD4-4279-AC2E-52CF2DD7821D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{737ADE3F-5DD4-4279-AC2E-52CF2DD7821D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C8AF01C-B15F-4EB0-AA10-79B80B9F0553}.Debug|Any CPU.ActiveCfg = Debug
-		{6C8AF01C-B15F-4EB0-AA10-79B80B9F0553}.Release|Any CPU.ActiveCfg = Release
+		{C332891C-EC6E-4234-A941-88242603B76B}.Debug|Any CPU.ActiveCfg = Debug
+		{C332891C-EC6E-4234-A941-88242603B76B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

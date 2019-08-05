@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace capaDatos
 {
@@ -9,8 +10,11 @@ namespace capaDatos
     {
         SqlConnection cn = new SqlConnection(E_ConnectionString.conectionString);
 
+
         //Conexion local a base de datos para guardar el autologin
-        SqlConnection Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Conectar"].ConnectionString);
+        //SqlConnection Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Conectar"].ConnectionString);
+
+        SqlConnection Conn = new SqlConnection(@"server=.;Integrated Security=yes;Database=focusedBible");
 
 
         public DataSet ValidarLogin(string sUsuario, string sPassword)
@@ -40,7 +44,7 @@ namespace capaDatos
         //Detectar si el autologin está activo
         public DataSet AutoLoginGetLocal()
         {
-            SqlCommand cmd = new SqlCommand("Select Usuario From Usuario Where Logged=1", Conn);
+            SqlCommand cmd = new SqlCommand("Select Usuario From UsuarioAL Where Logged=1", Conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
@@ -67,7 +71,7 @@ namespace capaDatos
             /*Consulta si existe el usuario y en caso de que no, agrega el nombre del usuario a la db Local
             para poder recordar el autologin */
             #region Agregar Usuario Local 
-            SqlCommand cmd = new SqlCommand(string.Format("Select Usuario From Usuario Where Usuario='{0}'",
+            SqlCommand cmd = new SqlCommand(string.Format("Select Usuario From UsuarioAL Where Usuario='{0}'",
                 sUsuario), Conn);
 
             if (Conn.State == ConnectionState.Open) Conn.Close();
@@ -77,7 +81,7 @@ namespace capaDatos
             if (Convert.ToString(retVal) != sUsuario)
             {
 
-                cmd = new SqlCommand(string.Format("Insert Into Usuario(Usuario) Values('{0}')",
+                cmd = new SqlCommand(string.Format("Insert Into UsuarioAL(Usuario) Values('{0}')",
                 sUsuario), Conn);
                 cmd.ExecuteScalar();
             }
@@ -85,7 +89,7 @@ namespace capaDatos
 
             //modificar el estatus del autologin
             #region Modificar Stado del Autologin
-            cmd = new SqlCommand(string.Format("Update Usuario Set Logged={0} Where Usuario='{1}'  Select @@ROWCOUNT as cantidad",
+            cmd = new SqlCommand(string.Format("Update UsuarioAL Set Logged={0} Where Usuario='{1}'  Select @@ROWCOUNT as cantidad",
                 sLogged, sUsuario), Conn);
 
             try

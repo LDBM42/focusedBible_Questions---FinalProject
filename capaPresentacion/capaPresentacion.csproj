@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>E:\Downloads\instalador\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,10 +23,14 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ProductName>focusedBible</ProductName>
+    <SuiteName>focusedBible</SuiteName>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +53,18 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Focused-bible-landing-04.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1D8E03C4C21CCB18B5AA071FD2BDFBB5E005FD01</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>capaPresentacion_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="appium-dotnet-driver, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
@@ -269,6 +285,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\ayuda\ayuda.pdf" />
+    <None Include="capaPresentacion_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -339,7 +357,6 @@
     <None Include="Resources\Under-Construction.png" />
     <None Include="Resources\UsuarioBig.png" />
     <None Include="Resources\how2Play.png" />
-    <None Include="bin\Debug\img\focusedBible_Questions.png" />
     <None Include="Resources\minimize_white.png" />
     <None Include="Resources\close_gray.png" />
     <None Include="Resources\minimize_gray.png" />
@@ -458,6 +475,34 @@
     <None Include="Resources\goBack_MouseEnter-01-01.png" />
     <None Include="Resources\goBack_MouseLeave-01.png" />
     <None Include="Resources\deleteExternalConnection.png" />
+    <Content Include="bin\Debug\son\adventure-fantasy.wav" />
+    <Content Include="bin\Debug\son\applause.wav" />
+    <Content Include="bin\Debug\son\applause2.wav" />
+    <Content Include="bin\Debug\son\button.wav" />
+    <Content Include="bin\Debug\son\cheering-and-clapping.wav" />
+    <Content Include="bin\Debug\son\cheering-and-clapping2.wav" />
+    <Content Include="bin\Debug\son\cheering-and-clapping3.wav" />
+    <Content Include="bin\Debug\son\click.wav" />
+    <Content Include="bin\Debug\son\correctAnswer.wav" />
+    <Content Include="bin\Debug\son\correctAnswer2.wav" />
+    <Content Include="bin\Debug\son\correctAnswer3.wav" />
+    <Content Include="bin\Debug\son\correctAnswer5.wav" />
+    <Content Include="bin\Debug\son\countDown.wav" />
+    <Content Include="bin\Debug\son\fanfare.wav" />
+    <Content Include="bin\Debug\son\finalSuccess.wav" />
+    <Content Include="bin\Debug\son\game-over-girl.wav" />
+    <Content Include="bin\Debug\son\game-over.wav" />
+    <Content Include="bin\Debug\son\gameMenu-click.wav" />
+    <Content Include="bin\Debug\son\heavenIntro.wav" />
+    <Content Include="bin\Debug\son\incorrect.wav" />
+    <Content Include="bin\Debug\son\incorrect2.wav" />
+    <Content Include="bin\Debug\son\incorrect3.wav" />
+    <Content Include="bin\Debug\son\incorrect4.wav" />
+    <Content Include="bin\Debug\son\incorrect5.wav" />
+    <Content Include="bin\Debug\son\levelclearer.wav" />
+    <Content Include="bin\Debug\son\rebound.wav" />
+    <Content Include="bin\Debug\son\retro-lose.wav" />
+    <Content Include="bin\Debug\son\start-ready-go.wav" />
     <Content Include="Focused-bible-landing-04.ico" />
     <Content Include="Resources\Passage_Mouse_Leave.png" />
     <Content Include="Resources\Passage_Mouse_On.png" />
